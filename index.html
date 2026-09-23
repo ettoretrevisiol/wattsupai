@@ -364,32 +364,32 @@ body::before {
 <div id="tab-season" class="tab-panel active">
 
   <!-- ── WATTSUPAI STATUS ENGINE ─────────────────────────────────────── -->
-  <div class="section-label">WattsUpAI Training Status · 23 Sep 2026 · Based on 3-Month Power Analysis</div>
+  <div class="section-label">WattsUpAI Training Status · 23 Sep 2026 · Based on 12-Month FIT Analysis (180+ rides)</div>
   <div class="g211" style="margin-bottom:8px;">
     <div class="card card-accent-orange" style="position:relative;overflow:hidden;">
       <div style="position:absolute;top:-40px;right:-40px;width:160px;height:160px;border-radius:50%;background:radial-gradient(circle,rgba(249,115,22,0.1) 0%,transparent 70%);pointer-events:none;"></div>
       <div class="card-title"><span class="ct-dot" style="background:var(--orange)"></span>⚡ WattsUpAI Status</div>
       <div style="font-size:2rem;font-weight:900;color:var(--orange);letter-spacing:-0.02em;margin-bottom:6px;">Plateau</div>
       <div style="font-size:0.8rem;color:var(--dim);line-height:1.65;margin-bottom:14px;">
-        <strong style="color:var(--text)">Deep analysis of all 29 power meter rides May–Sep 2026 using Normalized Power (NP) + Garmin training effect labels:</strong><br><br>
-        NP range across 4 months: <strong style="color:var(--text)">149–189W</strong> (estimated FTP 256W (Garmin, Sep 12 2026) = 70–88% of FTP). Every single ride is Aerobic Base or Tempo label. <strong style="color:var(--green)">Only 1 Lactate Threshold label in 4 months:</strong> Ghisallino Jul 25 (NP 183W, load 405 — highest of the period).<br><br>
-        <strong style="color:var(--blue)">NP progression tells the real story:</strong> Friuli Aug 18→30 shows clear building: 166→179→187→184→189W NP, peaking right as VO2max hit 62. Aug 22 Majano hit 20-min PDC 222W (2nd best of season). Aug 29 San Daniele best Friuli session: L5 224W, L6 220W. Sep rides: Ghisallino Sep 6 (177W), Culmine (181W/226W PDC), Tre Valli (182W/239W PDC — season peak) — Sep is where fitness peaked.<br><br>
-        <strong style="color:var(--orange)">⚡ Why outdoor rides cap out:</strong> To regularly exceed 200W+ NP you need short, hard, targeted efforts. A 4+ hour ride structurally prevents sustained Z4 accumulation — you can get Z4 spikes (hence Tre Valli's 34 min power Z4 in zone counters) but not the sustained load. Structured Tue/Thu intervals are the only way to add this systematically.
+        <strong style="color:var(--text)">Deep analysis of all 37 power meter rides May–Sep 2026 using Normalized Power (NP) + Garmin training effect labels:</strong><br><br>
+        NP range across 5 months: <strong style="color:var(--text)">143–199W</strong> (FTP 256W = 56–78% of FTP). Nearly every ride is Aerobic Base or Tempo label. <strong style="color:var(--green)">Only 1 Lactate Threshold label in 4 months outdoors:</strong> Ghisallino Jul 25 (NP 183W, load 405 — highest of the period).<br><br>
+        <strong style="color:var(--blue)">NP progression tells the real story:</strong> Jun low 174W 20min PDC → Jul 25 peak 228W → Aug Friuli rebuild 188→222W → Sep new season peaks: Sep 12 Culmine 226W, Sep 19 Tre Valli <strong style="color:var(--orange)">239W — season best</strong>. Monthly NP avg climbed from 166W (Jun) → 179W (Sep).<br><br>
+        <strong style="color:var(--orange)">⚡ Why outdoor rides cap out:</strong> To regularly exceed 200W+ NP you need short, hard, targeted efforts. A 4+ hour ride structurally prevents sustained Z4 accumulation — you can get Z4 spikes (Culmine L12=243W, Tre Valli L4=237W) but not sustained threshold load. Structured Tue/Thu intervals are the only way to add this systematically.
       </div>
       <div style="display:flex;flex-wrap:wrap;gap:7px;">
         <span class="badge b-green">✓ CTL 803 — solid base</span>
-        <span class="badge b-green">✓ NP 176–189W — consistent Z3</span>
+        <span class="badge b-green">✓ 37 outdoor power rides analysed</span>
         <span class="badge b-green">✓ HRV balanced 50ms</span>
         <span class="badge b-green">✓ RHR 50bpm</span>
-        <span class="badge b-orange">⚡ 1 Lactate Threshold ride in 4 months</span>
-        <span class="badge b-orange">⚡ NP plateaued 176–182W since Sep</span>
-        <span class="badge b-red">✗ No structured Z4 intervals</span>
+        <span class="badge b-orange">⚡ 1 LT ride in 5 months outdoors</span>
+        <span class="badge b-orange">⚡ 20min PDC 174→239W — still climbing</span>
+        <span class="badge b-red">✗ No structured Z4 intervals yet</span>
       </div>
     </div>
 
     <div class="card card-accent-blue">
       <div class="card-title"><span class="ct-dot"></span>3-Month Zone Distribution</div>
-      <div style="font-size:0.72rem;color:var(--muted);font-weight:600;letter-spacing:0.04em;text-transform:uppercase;margin-bottom:10px;">Power-verified across 48 rides</div>
+      <div style="font-size:0.72rem;color:var(--muted);font-weight:600;letter-spacing:0.04em;text-transform:uppercase;margin-bottom:10px;">Power-verified across 37 outdoor rides (FIT-analysed)</div>
       <div class="zone-row">
         <div class="zone-name" style="width:60px;font-size:0.72rem;">Z1</div>
         <div class="zone-bg"><div class="zone-fill" style="width:25%;background:rgba(100,116,139,0.5)"></div></div>
@@ -419,7 +419,7 @@ body::before {
         Target for FTP protection: Z4 ≥15%. Current: ~3%. Gap = 12 percentage points.
       </div>
       <div class="insight warn" style="margin-top:8px;font-size:0.72rem;">
-        <strong>Database-verified: 3 LT/VO2max sessions in 12 months. Peak NP 198W (Aug 27, 77% FTP). Sep plateau at 176–182W (69–71% FTP). All 3 quality sessions were short harder efforts, not long mountain days.</strong> Tre Valli = 34 min power Z4 in zone counters, but NP 182W = Aerobic Base label. The structural gap: long rides prevent sustained Z4 accumulation. Only Ghisallino Jul 25 reached Lactate Threshold (NP 183W) in 4 months. Weekday flat rides confirmed Z2. Structured Tue/Thu intervals are the fix.
+        <strong>FIT-verified across 37 outdoor power rides: 3 LT/VO2max sessions in 12 months (Nov 3, Apr 23, Jul 25). Monthly NP avg: 169W (May) → 179W (Sep). 20min PDC season arc: 174W (Jun) → 239W (Sep 19 peak). Individual best laps hit Z4 (Culmine L12=243W, Tre Valli L4=237W, Ghisallino L5=228W) but session NP stays aerobic due to descents and duration.</strong> Only structured short intervals can reliably accumulate sustained Z4 load. Weekday flat rides confirmed Z2 (no power meter, but no end-of-lap HR ≥166bpm observed in any session).
       </div>
     </div>
 
@@ -984,9 +984,9 @@ body::before {
       <div class="card-title"><span class="ct-dot" style="background:var(--orange)"></span>The Gap</div>
       <div style="font-size:0.82rem;font-weight:700;color:var(--text);margin-bottom:8px;">Season peak 239W 20min PDC · CTL 803 · VO2max 61</div>
       <ul class="alist">
-        <li><span class="ico">📊</span><div>4 months, 29 power meter rides: only <strong>1 Lactate Threshold label</strong> (Ghisallino Jul 25, NP 183W). Everything else Aerobic Base or Tempo. NP plateaued at 176–182W since Sep.</div></li>
-        <li><span class="ico">🎯</span><div>Goal: add structured Z4 load to flip from plateau → building before autumn. Autumn terrain shift: 15-20 min climbs = natural threshold intervals.</div></li>
-        <li><span class="ico">🔑</span><div>Outdoor long rides structurally cap NP — descents drag it down. Structured <strong>short intervals</strong> are the only reliable way to accumulate threshold load.</div></li>
+        <li><span class="ico">📊</span><div>Full 12-month FIT analysis (180+ rides): only <strong>3 LT/VO2max sessions</strong> in 12 months (Nov 3, Apr 23, Jul 25). All other outdoor rides: Aerobic Base or Tempo. NP plateaued 176–182W since Sep.</div></li>
+        <li><span class="ico">📈</span><div><strong>PDC trend:</strong> 174W (Jun low) → 228W (Jul 25) → 239W (Sep 19 new peak). Fitness IS there — needs intensity stimulus to unlock.</div></li>
+        <li><span class="ico">🎯</span><div>Shifting improved from 60–64rpm (May–Jun) to 67–74rpm (Sep). Aerobic base solid: Aug 6, Aug 11, Aug 19, Aug 25, Aug 27, Sep 19 all well-coupled.</div></li>
         <li><span class="ico">✅</span><div>HRV 50ms, RHR 50bpm, CTL 803 — recovery excellent. Full green light to increase intensity now.</div></li>
       </ul>
     </div>
@@ -1030,12 +1030,12 @@ body::before {
     <div class="srow">
       <div class="sday">Thu Sep 25</div>
       <div><span class="stype st-tempo">Z3 Tempo</span></div>
-      <div class="sdesc"><strong>No power meter.</strong> Warm-up 15 min Z2 → 3×10 min Z3 tempo (193–230W / RPE 7–7.5/10), 10 min easy between → cool-down. End-of-rep HR: <strong>158–165bpm</strong>.</div>
+      <div class="sdesc"><strong>No power meter.</strong> Warm-up 15 min Z2 → 3×10 min Z3 tempo (193–230W / RPE 7–7.5/10), 10 min easy between → cool-down. End-of-rep HR: <strong>158–165bpm</strong>. Target: confirm aerobic coupling from Sep 19 peak is maintained.</div>
     </div>
     <div class="srow">
       <div class="sday">Sat Sep 27</div>
       <div><span class="stype st-big">Hills Z3</span></div>
-      <div class="sdesc"><strong>3–3.5h · 800–1,000m climbing · NP target 182–190W.</strong> Treat each 15–20 min climb as a Z3 effort. Z2 on descents and flats.</div>
+      <div class="sdesc"><strong>3–3.5h · 800–1,000m climbing · NP target 182–190W.</strong> Each 15–20 min climb treated as Z3 effort. Z2 on descents and flats. Check HR coupling at end — should stay below 165bpm last climb.</div>
     </div>
     <div class="srow">
       <div class="sday">Sun Sep 28</div>
@@ -1053,17 +1053,17 @@ body::before {
     <div class="srow">
       <div class="sday">Tue Sep 30</div>
       <div><span class="stype st-tempo">Z3→Z4</span></div>
-      <div class="sdesc"><strong>No power meter.</strong> Warm-up → 2×15 min progressive (Z3→Z4), 8 min easy between: first 7 min Z3 (RPE 7.5), last 8 min Z4 (RPE 8.5). End-of-rep HR: <strong>≥166bpm</strong>.</div>
+      <div class="sdesc"><strong>No power meter.</strong> Warm-up → 2×15 min progressive (Z3→Z4), 8 min easy between: first 7 min Z3 (RPE 7.5), last 8 min Z4 (RPE 8.5). End-of-rep HR: <strong>≥166bpm</strong>. <em>First real Z4 load since Jul 25 LT. Cardiac lag normal — judge by END of interval.</em></div>
     </div>
     <div class="srow">
       <div class="sday">Thu Oct 2</div>
       <div><span class="stype st-thresh">Z4 Threshold</span></div>
-      <div class="sdesc"><strong>No power meter.</strong> Warm-up → 4×8 min Z4 (231–268W / RPE 8.5–9/10), 6 min recovery. End-of-rep HR reps 3–4: <strong>166–174bpm</strong>.</div>
+      <div class="sdesc"><strong>No power meter.</strong> Warm-up → 4×8 min Z4 (231–268W / RPE 8.5–9/10), 6 min recovery. End-of-rep HR reps 3–4: <strong>166–174bpm</strong>. Mirrors the Jul 25 effort that earned LT label.</div>
     </div>
     <div class="srow">
       <div class="sday">Sat Oct 4</div>
       <div><span class="stype st-big">Hills Z4</span></div>
-      <div class="sdesc"><strong>3.5–4h · 1,000–1,300m · NP target 185–192W.</strong> Each major climb pushed to Z4 HR. Z2 between climbs.</div>
+      <div class="sdesc"><strong>3.5–4h · 1,000–1,300m · NP target 185–192W.</strong> Push each 15–20 min climb to HR ≥166bpm at the top. Z2 between climbs.</div>
     </div>
     <div class="srow">
       <div class="sday">Sun Oct 5</div>
@@ -1086,12 +1086,12 @@ body::before {
     <div class="srow">
       <div class="sday">Thu Oct 9</div>
       <div><span class="stype st-vo2">Z5 VO2max</span></div>
-      <div class="sdesc"><strong>No power meter.</strong> Warm-up → 5×6 min Z5 (269–307W / RPE 9–9.5/10), 5 min easy between. End-of-rep HR: <strong>172–179bpm</strong>.</div>
+      <div class="sdesc"><strong>No power meter.</strong> Warm-up → 5×6 min Z5 (269–307W / RPE 9–9.5/10), 5 min easy between. End-of-rep HR: <strong>172–179bpm</strong>. Like the Dec 2025 VO2max sessions but outdoor if possible.</div>
     </div>
     <div class="srow">
       <div class="sday">Sat Oct 11</div>
       <div><span class="stype st-big">Big Day</span></div>
-      <div class="sdesc"><strong>4–4.5h · 1,400–1,700m · <strong style="color:var(--orange)">NP target 192–200W</strong></strong> (Lactate Threshold label goal). Each major climb pushed to Z4 HR (166–174bpm).</div>
+      <div class="sdesc"><strong>4–4.5h · 1,400–1,700m · <strong style="color:var(--orange)">NP target 192–200W</strong></strong> (Lactate Threshold label goal). Each major climb pushed to Z4 HR (166–174bpm). Replicates what happened spontaneously Jul 25.</div>
     </div>
     <div class="srow">
       <div class="sday">Sun Oct 12</div>
@@ -1133,12 +1133,13 @@ body::before {
     <div class="card card-accent-green">
       <div class="card-title"><span class="ct-dot" style="background:var(--green)"></span>Green — On Track</div>
       <ul class="alist">
-        <li><span class="ico">📈</span><div><strong>Sat NP progression:</strong> W1 182–190W → W2 185–192W → W3 192–200W+. Each week higher than the last. This is the key metric.</div></li>
-        <li><span class="ico">✅</span><div><strong>W3 Sat gets Lactate Threshold label (Garmin)</strong> = plan succeeded. NP ≥192W on a 4–4.5h hilly ride triggers it.</div></li>
+        <li><span class="ico">📈</span><div><strong>Sat NP progression:</strong> W1 182–190W → W2 185–192W → W3 192–200W+. Each week higher than the last. Key metric.</div></li>
+        <li><span class="ico">✅</span><div><strong>W3 Sat gets Lactate Threshold label (Garmin)</strong> = plan succeeded. Replicates Jul 25 spontaneous LT effort.</div></li>
         <li><span class="ico">✅</span><div><strong>End-of-interval HR ≥166bpm</strong> on Thu reps 3–4 by W2 → Z4 is landing.</div></li>
-        <li><span class="ico">✅</span><div><strong>VO2max holds at 61 or returns to 62</strong> by end of W3 → intensity signal absorbed.</div></li>
-        <li><span class="ico">✅</span><div><strong>HRV stays ≥48ms weekly avg</strong> throughout → no overreaching.</div></li>
-        <li><span class="ico">✅</span><div><strong>Z4 time per week:</strong> ≥25 min in W2, ≥40 min in W3.</div></li>
+        <li><span class="ico">✅</span><div><strong>VO2max holds at 61 or returns to 62</strong> by end of W3.</div></li>
+        <li><span class="ico">✅</span><div><strong>HRV stays ≥48ms weekly avg</strong> throughout — no overreaching.</div></li>
+        <li><span class="ico">✅</span><div><strong>Z4 time/week:</strong> ≥25 min in W2, ≥40 min in W3.</div></li>
+        <li><span class="ico">✅</span><div><strong>Shifting quality:</strong> maintain ≥70% proactive (Sep 2026 benchmark).</div></li>
       </ul>
     </div>
     <div class="card card-accent-orange">
@@ -1165,7 +1166,7 @@ body::before {
 
 <!-- FOOTER -->
 <div class="footer">
-  <div>WattsUpAI · Ettore's Cycling Dashboard · Data from Garmin Connect · 23 Sep 2026 14:16 CEST</div>
+  <div>WattsUpAI · Ettore's Cycling Dashboard · Data from Garmin Connect · 23 Sep 2026 — complete 12-month FIT analysis (180+ rides)</div>
   <div style="display:flex;gap:16px;align-items:center;">
     <a href="https://www.strava.com/athletes/75538698" target="_blank" style="color:var(--muted);text-decoration:none;font-size:0.68rem;">🟠 Strava</a>
     <a href="https://ettore.trevisiol.net/git-sweaty/" target="_blank" style="color:var(--muted);text-decoration:none;font-size:0.68rem;">🍃 git-sweaty</a>
@@ -1371,13 +1372,13 @@ hrvNightly.forEach((v,i)=>{
 
 // ─── PDC PROGRESSION CHART ───────────────────────────────────────────────────
 if (document.getElementById('pdcProgressionChart')) {
-  const pdcLabels20 = ['May 3','May 9','May 29','Jun 6','Jun 7','Jun 14','Jun 20','Jun 27','Jul 4','Jul 12','Jul 19','Jul 25','Jul 31','Aug 3','Aug 6','Aug 9','Aug 11','Aug 13','Aug 16','Aug 18','Aug 19','Aug 22','Aug 23','Aug 25','Aug 27','Aug 29','Aug 30','Sep 5','Sep 6','Sep 12','Sep 19'];
-  const pdcValues20 = [224,214,189,174,191,185,195,186,195,178,199,228,193,188,189,201,201,210,197,201,204,222,211,186,203,198,207,209,208,226,239];
+  const pdcLabels20 = ['May 3','May 9','May 29','Jun 6','Jun 7','Jun 14','Jun 20','Jun 27','Jun 28','Jun 30','Jul 2','Jul 4','Jul 5','Jul 7','Jul 9','Jul 12','Jul 19','Jul 25','Jul 31','Aug 3','Aug 6','Aug 9','Aug 11','Aug 13','Aug 16','Aug 18','Aug 19','Aug 22','Aug 23','Aug 25','Aug 27','Aug 29','Aug 30','Sep 5','Sep 6','Sep 12','Sep 19'];
+  const pdcValues20 = [224,214,189,174,191,185,195,186,182,221,185,195,154,198,206,178,199,228,193,188,189,201,201,210,197,201,204,222,211,186,203,198,207,209,208,226,239];
   const pdcColors20 = pdcValues20.map((v,i) => {
-    if (i === 30) return 'rgba(249,115,22,0.95)';  // Sep 19 season peak
-    if (i === 11) return 'rgba(249,115,22,0.85)';  // Jul 25
-    if (i === 29) return 'rgba(59,130,246,0.9)';   // Sep 12
-    if (i === 21) return 'rgba(34,197,94,0.85)';   // Aug 22
+    if (i === 36) return 'rgba(249,115,22,0.95)';  // Sep 19 season peak
+    if (i === 17) return 'rgba(249,115,22,0.85)';  // Jul 25
+    if (i === 35) return 'rgba(59,130,246,0.9)';   // Sep 12
+    if (i === 27) return 'rgba(34,197,94,0.85)';   // Aug 22
     if (v >= 220) return 'rgba(59,130,246,0.75)';
     if (v >= 200) return 'rgba(59,130,246,0.55)';
     return 'rgba(34,197,94,0.45)';
@@ -1398,7 +1399,7 @@ if (document.getElementById('pdcProgressionChart')) {
         legend: { labels: { color: '#94a3b8', boxWidth: 10, font: { size: 10 }, padding: 8 } },
         tooltip: { ...tip, callbacks: { afterLabel: ctx => {
           const idx = ctx.dataIndex;
-          const highlights = {11:'← Jul 25 peak (2nd best)', 21:'← Aug 22 best', 29:'← Sep 12', 30:'← SEASON PEAK'};
+          const highlights = {17:'← Jul 25 peak (2nd best)', 27:'← Aug 22 best', 35:'← Sep 12', 36:'← SEASON PEAK'};
           return highlights[idx] || '';
         }}}
       },

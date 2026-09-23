@@ -1,0 +1,41 @@
+{
+  "activity_id": 23737517606,
+  "date": "2026-07-26",
+  "route_name": "Milano Bereguardo Abbiategrasso 135m flat",
+  "sport": "cycling",
+  "sub_sport": "road",
+  "has_power": false,
+  "session": {
+    "np_w": null,
+    "avg_power_w": null,
+    "max_power_w": null,
+    "total_ascent_m": 135,
+    "avg_hr_bpm": 136,
+    "max_hr_bpm": 171,
+    "avg_cadence_rpm": 77,
+    "total_distance_m": 82981.22,
+    "total_elapsed_time_s": 13121.809,
+    "total_timer_time_s": 10047.509,
+    "variability_index": null,
+    "total_calories": 1545
+  },
+  "hr_drift": {
+    "hr_drift_pct": null,
+    "interpretation": null
+  },
+  "temperature": {
+    "avg_temp_c": 27.7
+  },
+  "pdc": {
+    "5s": null,
+    "30s": null,
+    "1min": null,
+    "5min": null,
+    "10min": null,
+    "20min": null,
+    "60min": null
+  },
+  "best_climbing_laps": [],
+  "shift_summary": null,
+  "notes": "No power meter (weekday bike). No DI2 shifter. Flat ride Milano Bereguardo Abbiategrasso loop. Avg HR 136, max 171bpm. Temp avg 27.7C."
+}

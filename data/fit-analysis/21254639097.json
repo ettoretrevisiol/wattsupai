@@ -1,0 +1,213 @@
+{
+  "session": {
+    "sport": "cycling",
+    "sub_sport": "road",
+    "start_time": "2025-12-14 09:02:11",
+    "total_elapsed_time_s": 11441.743,
+    "total_timer_time_s": 9811.365,
+    "total_distance_m": 70573.82,
+    "total_calories": 1211,
+    "avg_speed_mps": 7.193,
+    "max_speed_mps": 10.646,
+    "avg_cadence_rpm": 74,
+    "max_cadence_rpm": 97,
+    "avg_heart_rate_bpm": 131,
+    "max_heart_rate_bpm": 163,
+    "total_ascent_m": 150,
+    "total_descent_m": 164,
+    "total_training_effect": 3.1,
+    "avg_left_power_phase_start_deg": [
+      null,
+      null,
+      null,
+      null
+    ],
+    "avg_right_power_phase_start_deg": [
+      null,
+      null,
+      null,
+      null
+    ],
+    "temperature_stats": {
+      "avg_temp_c": 7.4,
+      "min_temp_c": 4,
+      "max_temp_c": 18,
+      "temp_range_c": 14,
+      "avg_hr_coolest_third_bpm": 128.8,
+      "avg_hr_hottest_third_bpm": 132.2
+    }
+  },
+  "laps": [
+    {
+      "lap_number": 1,
+      "start_time": "2025-12-14 09:02:11",
+      "total_elapsed_time_s": 802.397,
+      "total_distance_m": 5000.0,
+      "avg_speed_mps": 6.645,
+      "avg_cadence_rpm": 68,
+      "avg_heart_rate_bpm": 126,
+      "total_ascent_m": 4,
+      "total_descent_m": 22
+    },
+    {
+      "lap_number": 2,
+      "start_time": "2025-12-14 09:15:34",
+      "total_elapsed_time_s": 697.267,
+      "total_distance_m": 5000.0,
+      "avg_speed_mps": 7.171,
+      "avg_cadence_rpm": 78,
+      "avg_heart_rate_bpm": 131,
+      "total_ascent_m": 9,
+      "total_descent_m": 15
+    },
+    {
+      "lap_number": 3,
+      "start_time": "2025-12-14 09:27:11",
+      "total_elapsed_time_s": 798.499,
+      "total_distance_m": 5000.0,
+      "avg_speed_mps": 6.716,
+      "avg_cadence_rpm": 77,
+      "avg_heart_rate_bpm": 131,
+      "total_ascent_m": 17,
+      "total_descent_m": 18
+    },
+    {
+      "lap_number": 4,
+      "start_time": "2025-12-14 09:40:30",
+      "total_elapsed_time_s": 771.952,
+      "total_distance_m": 5000.0,
+      "avg_speed_mps": 6.477,
+      "avg_cadence_rpm": 69,
+      "avg_heart_rate_bpm": 123,
+      "total_ascent_m": 7,
+      "total_descent_m": 7
+    },
+    {
+      "lap_number": 5,
+      "start_time": "2025-12-14 09:53:22",
+      "total_elapsed_time_s": 759.579,
+      "total_distance_m": 5000.0,
+      "avg_speed_mps": 7.056,
+      "avg_cadence_rpm": 77,
+      "avg_heart_rate_bpm": 132,
+      "total_ascent_m": 10,
+      "total_descent_m": 11
+    },
+    {
+      "lap_number": 6,
+      "start_time": "2025-12-14 10:06:02",
+      "total_elapsed_time_s": 641.842,
+      "total_distance_m": 5000.0,
+      "avg_speed_mps": 7.79,
+      "avg_cadence_rpm": 81,
+      "avg_heart_rate_bpm": 138,
+      "total_ascent_m": 4,
+      "total_descent_m": 7
+    },
+    {
+      "lap_number": 7,
+      "start_time": "2025-12-14 10:16:43",
+      "total_elapsed_time_s": 694.332,
+      "total_distance_m": 5000.0,
+      "avg_speed_mps": 7.201,
+      "avg_cadence_rpm": 74,
+      "avg_heart_rate_bpm": 132,
+      "total_ascent_m": 12,
+      "total_descent_m": 11
+    },
+    {
+      "lap_number": 8,
+      "start_time": "2025-12-14 10:28:18",
+      "total_elapsed_time_s": 719.245,
+      "total_distance_m": 5000.0,
+      "avg_speed_mps": 7.151,
+      "avg_cadence_rpm": 75,
+      "avg_heart_rate_bpm": 128,
+      "total_ascent_m": 16,
+      "total_descent_m": 27
+    },
+    {
+      "lap_number": 9,
+      "start_time": "2025-12-14 10:40:17",
+      "total_elapsed_time_s": 691.961,
+      "total_distance_m": 5000.0,
+      "avg_speed_mps": 7.226,
+      "avg_cadence_rpm": 76,
+      "avg_heart_rate_bpm": 126,
+      "total_ascent_m": 20,
+      "total_descent_m": 9
+    },
+    {
+      "lap_number": 10,
+      "start_time": "2025-12-14 10:51:50",
+      "total_elapsed_time_s": 2097.874,
+      "total_distance_m": 5000.0,
+      "avg_speed_mps": 6.946,
+      "avg_cadence_rpm": 72,
+      "avg_heart_rate_bpm": 124,
+      "total_ascent_m": 23,
+      "total_descent_m": 10
+    },
+    {
+      "lap_number": 11,
+      "start_time": "2025-12-14 11:26:50",
+      "total_elapsed_time_s": 617.679,
+      "total_distance_m": 5000.0,
+      "avg_speed_mps": 8.095,
+      "avg_cadence_rpm": 74,
+      "avg_heart_rate_bpm": 140,
+      "total_ascent_m": 10,
+      "total_descent_m": 8
+    },
+    {
+      "lap_number": 12,
+      "start_time": "2025-12-14 11:37:08",
+      "total_elapsed_time_s": 713.965,
+      "total_distance_m": 5000.0,
+      "avg_speed_mps": 7.854,
+      "avg_cadence_rpm": 71,
+      "avg_heart_rate_bpm": 140,
+      "total_ascent_m": 6,
+      "total_descent_m": 7
+    },
+    {
+      "lap_number": 13,
+      "start_time": "2025-12-14 11:49:02",
+      "total_elapsed_time_s": 682.073,
+      "total_distance_m": 5000.0,
+      "avg_speed_mps": 7.331,
+      "avg_cadence_rpm": 73,
+      "avg_heart_rate_bpm": 134,
+      "total_ascent_m": 6,
+      "total_descent_m": 7
+    },
+    {
+      "lap_number": 14,
+      "start_time": "2025-12-14 12:00:25",
+      "total_elapsed_time_s": 663.843,
+      "total_distance_m": 5000.0,
+      "avg_speed_mps": 7.532,
+      "avg_cadence_rpm": 75,
+      "avg_heart_rate_bpm": 137,
+      "total_ascent_m": 4,
+      "total_descent_m": 3
+    },
+    {
+      "lap_number": 15,
+      "start_time": "2025-12-14 12:11:29",
+      "total_elapsed_time_s": 89.235,
+      "total_distance_m": 573.81,
+      "avg_speed_mps": 6.43,
+      "avg_cadence_rpm": 58,
+      "avg_heart_rate_bpm": 131,
+      "total_ascent_m": 2,
+      "total_descent_m": 1
+    }
+  ],
+  "shift_summary": {
+    "total_shifts": 0,
+    "note": "No DI2 shift events found in FIT file"
+  },
+  "shifts": [],
+  "activity_id": 21254639097
+}

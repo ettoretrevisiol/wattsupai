@@ -1,0 +1,41 @@
+{
+  "activity_id": 23639549148,
+  "date": "2026-07-18",
+  "route_name": "Milano Bereguardo Robecco flat",
+  "sport": "cycling",
+  "sub_sport": "road",
+  "has_power": false,
+  "session": {
+    "np_w": null,
+    "avg_power_w": null,
+    "max_power_w": null,
+    "total_ascent_m": 161,
+    "avg_hr_bpm": 150,
+    "max_hr_bpm": 180,
+    "avg_cadence_rpm": 77,
+    "total_distance_m": 100211,
+    "total_elapsed_time_s": 14424,
+    "total_timer_time_s": 11887,
+    "variability_index": null,
+    "total_calories": 1795
+  },
+  "hr_drift": {
+    "hr_drift_pct": null,
+    "interpretation": null
+  },
+  "temperature": {
+    "avg_temp_c": 29.1
+  },
+  "pdc": {
+    "5s": null,
+    "30s": null,
+    "1min": null,
+    "5min": null,
+    "10min": null,
+    "20min": null,
+    "60min": null
+  },
+  "best_climbing_laps": [],
+  "shift_summary": null,
+  "notes": "No power meter (weekday bike). Hot day 29C avg. Long flat ride. HR 150avg indicates Z2-Z3 effort."
+}

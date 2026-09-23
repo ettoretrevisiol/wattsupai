@@ -1,0 +1,28 @@
+{
+  "activity_id": 21873983231,
+  "date": "2026-02-15",
+  "route_name": "Indoor trainer session",
+  "sport": "cycling",
+  "sub_sport": "indoor_cycling",
+  "has_power": true,
+  "session": {
+    "np_w": 0,
+    "avg_power_w": 0,
+    "max_power_w": 0,
+    "total_ascent_m": 0,
+    "avg_hr_bpm": 124,
+    "max_hr_bpm": 142,
+    "avg_cadence_rpm": 0,
+    "total_distance_m": 40065,
+    "total_elapsed_time_s": 5107,
+    "total_timer_time_s": 5107,
+    "variability_index": null,
+    "total_calories": 766
+  },
+  "hr_drift": {"hr_drift_pct": null, "interpretation": "indoor_structured"},
+  "temperature": {"avg_temp_c": null},
+  "pdc": {"5s": null, "30s": null, "1min": null, "5min": null, "10min": null, "20min": null, "60min": null},
+  "best_climbing_laps": [],
+  "shift_summary": {"total_shifts": 0, "proactive_pct": null, "reactive_pct": null, "avg_cadence_at_shift_rpm": null},
+  "notes": "Base endurance session."
+}

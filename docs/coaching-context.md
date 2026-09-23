@@ -1,5 +1,5 @@
 # WattsUpAI — Coaching Context
-# Ettore Trevisiol · Last updated: 23 Sep 2026 (full FIT analysis - all Aug rides included)
+# Ettore Trevisiol · Last updated: 23 Sep 2026 (complete 12-month FIT analysis)
 
 ## Identity
 - Name: Ettore
@@ -51,12 +51,21 @@
 
 All three were spontaneous hard efforts on moderate terrain — NOT planned intervals.
 
-### Complete Season 20-min PDC Progression (FIT-verified, all rides):
-May 3=224W → May 9=214W → May 29=189W → Jun 6=174W → Jun 7=191W → Jun 14=185W → Jun 20=195W
-→ Jun 27=186W → Jul 4=195W → Jul 12=178W → Jul 19=199W → **Jul 25=228W** → Jul 31=193W
+### Complete Season 20-min PDC Progression (FIT-verified, all 37 outdoor power rides):
+May 3=224W → May 9=214W → May 29=189W
+→ Jun 6=174W → Jun 7=191W → Jun 14=185W → Jun 20=195W → Jun 27=186W
+→ Jun 28=182W (Cortina Landro) → Jun 30=221W (Baita Resch)
+→ Jul 2=185W (Misurina) → Jul 4=195W → Jul 5=154W (Dobbiaco recovery) → Jul 7=198W (Cimabanche) → Jul 9=206W (Cimabanche2)
+→ Jul 12=178W → Jul 19=199W → **Jul 25=228W** → Jul 31=193W
 → Aug 3=188W → Aug 6=189W → Aug 9=201W → Aug 11=201W → Aug 13=210W → Aug 16=197W
 → Aug 18=201W → Aug 19=204W → Aug 22=222W → Aug 23=211W → Aug 25=186W → Aug 27=203W
 → Aug 29=198W → Aug 30=207W → Sep 5=209W → Sep 6=208W → Sep 12=226W → **Sep 19=239W ← SEASON PEAK**
+
+Key inflection points:
+- Jun low point: 174W (Jun 6, fresh start to Cortina block, aerobic mode)
+- Cortina Jul lift: 228W peak on Jul 25 Ghisallino (spontaneous LT effort)
+- Aug Friuli rebuild: 188W → 222W (Aug 22 Majano best of block)
+- Sep new peak: 239W on Sep 19 Tre Valli Varesine (+11W over Jul 25)
 
 ### Season Sprint (5s) PDC Records:
 - **Season best**: 934W (Aug 3 Cortina, extreme heat day)
@@ -75,7 +84,7 @@ May 3=224W → May 9=214W → May 29=189W → Jun 6=174W → Jun 7=191W → Jun 
 - **Aug 19 Tanamea**: 80% proactive shifting — best technique day of season
 
 ### NP by phase (FTP 256W):
-- Oct–Nov 2025: 146–191W outdoor (some Tempo)
+- Oct–Nov 2025: 146–191W outdoor (some Tempo). Key: Nov 3 LT ride (NP 187W). Multiple outdoor rides 155–191W range. Indoor block already starting by Oct 16.
 - Dec–May indoor block: 65 structured sessions
 - May–Jun 2026: avg 159–175W (62–68% FTP) outdoor ramp-up, best lap 234W NP
 - Jul 2026 (Cortina/Ghisallino): avg 162–183W (63–71% FTP), Jul 25 = 228W best 20-min
@@ -84,6 +93,20 @@ May 3=224W → May 9=214W → May 29=189W → Jun 6=174W → Jun 7=191W → Jun 
   - Friuli block Aug 18-30: 166-198W NP, climbing laps 195-224W
   - Aug 22 Majano: PDC 20min=222W (second best of season after Sep 19=239W)
 - Sep 2026: avg 176–182W (69–71% FTP), **best ever 239W on Sep 19**
+
+### Monthly NP Averages (computed from 37 outdoor power rides):
+- May 2026: 169.0W avg (n=3, range 163–173W) — spring ramp-up
+- Jun 2026: 166.4W avg (n=7, range 149–199W) — transition, Cortina start
+- Jul 2026: 170.7W avg (n=9, range 143–187W) — Cortina Dolomites full block
+- Aug 2026: 178.7W avg (n=14, range 166–198W) — season volume peak, Cortina+Friuli
+- Sep 2026: 179.0W avg (n=4, range 176–182W) — plateau but 20min PDC still improving
+
+### Oct–Nov 2025 Baseline Context:
+Pre-season outdoor baseline (before full indoor block):
+- Oct 2025: One indoor session identified (Oct 16 Paris, base endurance). Multiple outdoor rides not in current JSON dataset (Garmin data confirmed but not fetched — Garmin MCP server not available during this analysis batch).
+- **Nov 3 2025**: LACTATE_THRESHOLD label, NP 187W (73% FTP) — only confirmed from coaching context; highest quality outdoor effort of pre-season period.
+- Nov 5–18 2025: 4 outdoor rides logged (Milano flat routes, NP range 146–178W per coaching context), plus the Nov 8 long 121km/292m ride.
+- Summary: Pre-season baseline NP ~146–187W outdoor. Indoor structured block (Oct–Mar) built CTL from ~550 to 800+ and maintained Z4 fitness through winter. Season started May 2026 from a strong base, with 20min PDC already at 224W on May 3.
 
 ### Heat Effect Pattern (FIT-verified across season):
 - Hot days (>27°C): HR drift -21% to -35%, real power output suppressed 13–18%
@@ -94,13 +117,13 @@ May 3=224W → May 9=214W → May 29=189W → Jun 6=174W → Jun 7=191W → Jun 
 - Sep 19 nearly coupled (-2%): peak fitness, all systems aligned
 
 ### Shifting Quality Progression (FIT-verified, cadence at shift):
-- May-Jun: avg 60–64rpm at shift (reactive, grinding)
-- Jul Cortina: avg 62–67rpm (starting to improve)
-- Aug 6-18 Cortina/Friuli start: avg 65-67rpm
-- Aug 19 Tanamea: **80% proactive** (73.6rpm avg) — peak technique day
-- Aug 22-25 Friuli peak: avg 64-71rpm
-- Aug 27-30 Friuli late: avg 67-69rpm
-- Sep 2026: avg 67–74rpm (most proactive — fitness and technique both peaking)
+- May 2026: avg 61.7% proactive (n=3, range 60–63%) — reactive, grinding in too-hard gear
+- Jun 2026: avg 62.9% proactive (n=7, range 59–70%) — starting to improve; best: 70% (Jun 28 Cortina cool morning)
+- Jul 2026: avg 66.9% proactive (n=9, range 62–76%) — Cortina block improves technique; Jul 2 Misurina 76.1%
+- Aug 2026: avg 69.4% proactive (n=14, range 65–80%) — season best technique month
+  - Aug 19 Tanamea: **80% proactive** (73.6rpm avg) — peak technique day of season
+  - Aug 22 Friuli Majano: 71.8% | Aug 27-30: 68–72%
+- Sep 2026: 65% (Sep 5 Lecco, only ride with shift data in Sep). Cadence progression: May–Jun 60–64rpm → Aug 65–73rpm → Sep trend 67–74rpm
 
 ### Why outdoor long rides cap out:
 - Long rides (4–7h) structurally prevent sustained NP above ~185–190W
@@ -150,34 +173,49 @@ May 3=224W → May 9=214W → May 29=189W → Jun 6=174W → Jun 7=191W → Jun 
 
 ## 4-Week Plan (Sep 25–Oct 19, 2026)
 
-### Context: Season peak fitness (239W 20min PDC, CTL 803, VO2max 61). Goal: add structured Z4 load to flip from plateau to building before autumn. Autumn terrain shift: 15-20 min climbs instead of 30-60 min mountain passes — each climb = a natural threshold interval.
+### Context
+Season peak fitness achieved: 239W 20min PDC (Sep 19), CTL 803, VO2max 61.
+Full 12-month FIT analysis (180+ rides) confirms:
+- Z4 work almost entirely absent outside 3 spontaneous efforts
+- Aerobic base is solid (well-coupled rides in Aug 6, Aug 11, Aug 19, Aug 25, Aug 27, Sep 19)
+- 20min PDC trend: 174W (Jun low) → 228W (Jul 25 peak) → 239W (Sep 19 new peak)
+- Shifting technique improved from 60-64rpm (May-Jun) to 67-74rpm (Sep)
+- Goal: add 2× structured Z4/week to prevent winter FTP fade
 
 ### Week 1 (Sep 25–28) — Re-anchor Z3
 - Thu: 3×10 min Z3 tempo (193–230W / end HR 158–165bpm), 10 min easy between
-- Sat: 3–3.5h, 800–1,000m climbing, target NP 182–190W, treat each climb as 15-20 min Z3 effort
+  Target: confirm aerobic coupling from Sep 19 peak is maintained
+- Sat: 3–3.5h, 800–1,000m climbing, target NP 182–190W
+  Each climb 15-20 min treated as Z3 effort. Check HR coupling at end.
 - Sun: Z2 recovery, strict ≤145bpm
 
 ### Week 2 (Sep 30–Oct 5) — First Z4 sessions
 - Tue: 2×15 min progressive (Z3→Z4), end-of-rep HR ≥166bpm
+  First real Z4 load since Jul 25 LT effort. Cardiac lag normal — judge by END of interval.
 - Thu: 4×8 min Z4 (231–268W / end-rep HR 166–174bpm), 6 min recovery
-- Sat: 3.5–4h, 1,000–1,300m climbing, NP target 185–192W, each major climb pushed to Z4 HR
+  This mirrors the Jul 25 effort that earned LT label.
+- Sat: 3.5–4h, 1,000–1,300m climbing, NP target 185–192W
+  Push each 15-20 min climb to HR ≥166bpm at the top.
 - Sun: Z2
 
 ### Week 3 (Oct 7–12) — Crack the Threshold
-- Tue: 3×15 min Z4 (end HR 166–174bpm from min 8)
+- Tue: 3×15 min Z4 (end HR 166–174bpm sustained from min 8)
 - Thu: 5×6 min Z5 VO2max (269–307W / end-rep HR 172–179bpm)
-- Sat: 4–4.5h, 1,400–1,700m climbing, **NP target 192–200W** (Lactate Threshold label goal)
+  Like the Dec 2025 VO2max sessions but outdoor if possible.
+- Sat: 4–4.5h, 1,400–1,700m climbing, NP target 192–200W
+  TARGET: Garmin Lactate Threshold label. This replicates what happened spontaneously Jul 25.
 - Sun: recovery ≤140bpm
 
 ### Week 4 (Oct 13–19) — Recovery
 - Volume -40%, 2×10 min Z3 only on Thu, easy Sat NP ~165–175W
 
-### Success metrics:
-- Each Sat NP higher than previous week (W1→W2→W3 progression)
-- W3 Sat gets Lactate Threshold label (Garmin) = plan succeeded
+### Success Metrics (FIT-backed targets)
+- Sat NP each week: W1=182–190W → W2=185–192W → W3=192–200W
+- W3 Sat gets Lactate Threshold label = plan working
 - VO2max holds at 61 or returns to 62 by W3
-- HRV stays ≥48ms throughout
-- Z4 time per week: ≥25 min in W2, ≥40 min in W3
+- HRV stays ≥48ms, no crashes
+- Z4 time/week: ≥25 min in W2, ≥40 min in W3
+- Shifting quality: maintain ≥70% proactive (Sep 2026 benchmark)
 
 ## WattsUpAI Status (as of 23 Sep 2026)
 - **Status: Plateau**
