@@ -375,16 +375,19 @@ body::before {
       <div class="card-title"><span class="ct-dot" style="background:var(--orange)"></span>⚡ WattsUpAI Status</div>
       <div style="font-size:2rem;font-weight:900;color:var(--orange);letter-spacing:-0.02em;margin-bottom:6px;">Plateau</div>
       <div style="font-size:0.8rem;color:var(--dim);line-height:1.65;margin-bottom:14px;">
-        3-month power analysis across 48 rides with your zones (Z4: 212–246W): <strong style="color:var(--text)">Z4 found on only 2 rides in 3 months</strong> — Ghisallino Jul 25 (227W/219W, ~44 min) and Culmine Sep 12 (226W/212W, ~41 min). Total Z4 time: ~85 min = ~28 min/month. Every other ride — Cortina, Friuli, Tre Valli, all other Ghisallino days — topped out at Z3 (176–211W). Z3 is solid and consistent. Z4 is nearly absent.
+        <strong style="color:var(--text)">Deep analysis of all 29 power meter rides May–Sep 2026 using Normalized Power (NP) + Garmin training effect labels:</strong><br><br>
+        NP range across 4 months: <strong style="color:var(--text)">149–189W</strong> (estimated FTP ~215–225W = 70–88% of FTP). Every single ride is Aerobic Base or Tempo label. <strong style="color:var(--green)">Only 1 Lactate Threshold label in 4 months:</strong> Ghisallino Jul 25 (NP 183W, load 405 — highest of the period).<br><br>
+        <strong style="color:var(--blue)">NP progression tells the real story:</strong> Friuli Aug 18→30 shows clear building: 166→179→187→184→189W NP, peaking right as VO2max hit 62. Sep rides: Ghisallino Sep 6 (177W), Culmine (181W), Tre Valli (182W) — intensity plateaued in the 176–182W band, just shy of threshold.<br><br>
+        <strong style="color:var(--orange)">⚡ Why outdoor rides cap out:</strong> To regularly exceed 200W+ NP you need short, hard, targeted efforts. A 4+ hour ride structurally prevents sustained Z4 accumulation — you can get Z4 spikes (hence Tre Valli's 34 min power Z4 in zone counters) but not the sustained load. Structured Tue/Thu intervals are the only way to add this systematically.
       </div>
       <div style="display:flex;flex-wrap:wrap;gap:7px;">
         <span class="badge b-green">✓ CTL 803 — solid base</span>
-        <span class="badge b-green">✓ Z3 ~17% — healthy tempo</span>
+        <span class="badge b-green">✓ NP 176–189W — consistent Z3</span>
         <span class="badge b-green">✓ HRV balanced 50ms</span>
         <span class="badge b-green">✓ RHR 50bpm</span>
-        <span class="badge b-orange">⚡ Z4 ~3% — 40 min/month</span>
-        <span class="badge b-orange">⚡ VO2max 62→61 trending down</span>
-        <span class="badge b-red">✗ No structured threshold sessions</span>
+        <span class="badge b-orange">⚡ 1 Lactate Threshold ride in 4 months</span>
+        <span class="badge b-orange">⚡ NP plateaued 176–182W since Sep</span>
+        <span class="badge b-red">✗ No structured Z4 intervals</span>
       </div>
     </div>
 
@@ -420,7 +423,7 @@ body::before {
         Target for FTP protection: Z4 ≥15%. Current: ~3%. Gap = 12 percentage points.
       </div>
       <div class="insight warn" style="margin-top:8px;font-size:0.72rem;">
-        <strong>Only 2 Z4 sessions in 3 months:</strong> Jul 25 Ghisallino (227W/219W, ~44 min) and Sep 12 Culmine (226W/212W, ~41 min). All other rides topped out at Z3 (≤211W). Zero structured Z4 intervals on weekdays.
+        <strong>Saturday rides have real quality — Z3/Tempo NP throughout, with spikes above Z4 on steep sections.</strong> Tre Valli = 34 min power Z4 in zone counters, but NP 182W = Aerobic Base label. The structural gap: long rides prevent sustained Z4 accumulation. Only Ghisallino Jul 25 reached Lactate Threshold (NP 183W) in 4 months. Weekday flat rides confirmed Z2. Structured Tue/Thu intervals are the fix.
       </div>
     </div>
 
@@ -544,7 +547,7 @@ body::before {
     <div class="card card-accent-orange">
       <div class="card-title"><span class="ct-dot" style="background:var(--orange)"></span>Current Gaps</div>
       <ul class="alist">
-        <li><span class="ico">⚠️</span><div><strong>Z4 on only 2 rides in 3 months:</strong> Jul 25 Ghisallino (227W/219W, ~44 min) and Sep 12 Culmine (226W/212W, ~41 min). ~28 min/month. Aug 30 Friuli (205W) and all other rides topped out at Z3. Zero structured Z4 anywhere.</div></li>
+        <li><span class="ico">⚠️</span><div><strong>Only 1 Lactate Threshold ride in 4 months (29 power meter rides analysed):</strong> Ghisallino Jul 25 (NP 183W, load 405). All other rides: Aerobic Base or Tempo label, NP 149–189W. Long rides structurally prevent sustained Z4 accumulation — you get zone spikes but not threshold load. Structured intervals fix this.</div></li>
         <li><span class="ico">⚠️</span><div><strong>Cortina and Friuli holiday blocks were Z2–Z3:</strong> Even the Aug 9 mega-day (130km/3,812m) stayed 170–196W — all Z2–Z3. Volume was huge, intensity wasn't. The UNPRODUCTIVE flag in late July confirmed this dynamic after the first Cortina block ended.</div></li>
         <li><span class="ico">⚠️</span><div><strong>Weekday rides: Z2, occasionally Z3:</strong> Sep data confirms max 8–16 min incidental Z3 per flat weekday ride. Never Z4. No power meter makes verification impossible — only end-of-interval HR available as quality check.</div></li>
         <li><span class="ico">⚠️</span><div><strong>FTP drift already happening:</strong> VO2max 62→61 since Aug 23 peak. Without regular Z4 sessions the body has no reason to maintain threshold adaptations heading into winter.</div></li>
@@ -563,35 +566,27 @@ body::before {
   </div>
 
   <div class="section-label">Training Balance Gap</div>
-  <div class="card card-accent-orange" style="max-width:620px;">
-    <div class="card-title"><span class="ct-dot" style="background:var(--orange)"></span>Zone Distribution — 3-Month Power Analysis (Jun–Sep 2026)</div>
-    <div class="zone-row" style="margin-top:8px;">
-      <div class="zone-name">Z1 Recovery</div>
-      <div class="zone-bg"><div class="zone-fill" style="width:25%;background:rgba(100,116,139,0.5)"></div></div>
-      <div class="zone-pct" style="color:var(--muted)">~25%</div>
+  <div class="card card-accent-orange" style="max-width:680px;">
+    <div class="card-title"><span class="ct-dot" style="background:var(--orange)"></span>Normalized Power Trend — 29 Power Meter Rides May–Sep 2026</div>
+    <div style="height:180px;position:relative;margin-bottom:12px;">
+      <canvas id="npTrendChart"></canvas>
     </div>
-    <div class="zone-row">
-      <div class="zone-name">Z2 Endurance ✓</div>
-      <div class="zone-bg"><div class="zone-fill" style="width:55%;background:linear-gradient(90deg,#22c55e,#10b981)"></div></div>
-      <div class="zone-pct" style="color:var(--green)">~55%</div>
-    </div>
-    <div class="zone-row">
-      <div class="zone-name">Z3 Tempo ✓</div>
-      <div class="zone-bg"><div class="zone-fill" style="width:17%;background:linear-gradient(90deg,#3b82f6,#6366f1)"></div></div>
-      <div class="zone-pct" style="color:var(--blue)">~17%</div>
-    </div>
-    <div class="zone-row">
-      <div class="zone-name" style="color:var(--red)">Z4 Threshold ⚠</div>
-      <div class="zone-bg"><div class="zone-fill" style="width:3%;background:linear-gradient(90deg,#ef4444,#dc2626)"></div></div>
-      <div class="zone-pct" style="color:var(--red)">~3%</div>
-    </div>
-    <div class="zone-row">
-      <div class="zone-name">Z5 VO2max</div>
-      <div class="zone-bg"><div class="zone-fill" style="width:1%;background:linear-gradient(90deg,#f97316,#ea580c)"></div></div>
-      <div class="zone-pct" style="color:var(--orange)">&lt;1%</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:6px;font-size:0.75rem;">
+      <div style="background:var(--surface2);border-radius:8px;padding:10px;text-align:center;">
+        <div style="font-size:1.2rem;font-weight:800;color:var(--muted)">149–175W</div>
+        <div style="color:var(--muted);font-size:0.7rem;margin-top:2px;">May–Jun (Aerobic Base)</div>
+      </div>
+      <div style="background:var(--surface2);border-radius:8px;padding:10px;text-align:center;">
+        <div style="font-size:1.2rem;font-weight:800;color:var(--green)">183W peak</div>
+        <div style="color:var(--muted);font-size:0.7rem;margin-top:2px;">Jul 25 Ghisallino (Threshold)</div>
+      </div>
+      <div style="background:var(--surface2);border-radius:8px;padding:10px;text-align:center;">
+        <div style="font-size:1.2rem;font-weight:800;color:var(--orange)">176–182W</div>
+        <div style="color:var(--muted);font-size:0.7rem;margin-top:2px;">Sep plateau (Aerobic Base)</div>
+      </div>
     </div>
     <div style="margin-top:10px;padding-top:10px;border-top:1px solid var(--border);font-size:0.72rem;color:var(--muted);">
-      Z4 sessions: Jul 25 Ghisallino (227W/219W, ~44min) · Sep 12 Culmine (226W/212W, ~41min) = ~85 min total in 3 months. Friuli Aug 30 (205W) = Z3. Target: ≥15% Z4.
+      FTP est. ~215–225W. NP needs to regularly reach 195W+ (Lactate Threshold label) to drive FTP adaptation. Current plateau: 176–182W. The gap to close = ~15–20W of sustained intensity.
     </div>
   </div>
 
@@ -1258,7 +1253,28 @@ hrvNightly.forEach((v,i)=>{
   grid30.appendChild(div);
 });
 
-// ─── TAB NAVIGATION ───────────────────────────────────────────────────────────
+// ─── NP TREND CHART ───────────────────────────────────────────────────────────
+const npLabels = ['May23','May29','Jun6','Jun7','Jun14','Jun20','Jun21','Jun27','Jul4','Jul12','Jul19','Jul25','Jul31','Aug3','Aug6','Aug9','Aug11','Aug13','Aug16','Aug18','Aug19','Aug22','Aug23','Aug29','Aug30','Sep5','Sep6','Sep12','Sep19'];
+const npValues = [156,163,159,149,161,175,150,162,166,162,165,183,169,169,173,171,167,170,170,166,179,187,184,189,182,176,177,181,182];
+const npColors = npValues.map(v => v >= 195 ? 'rgba(239,68,68,0.8)' : v >= 183 ? 'rgba(249,115,22,0.8)' : v >= 176 ? 'rgba(59,130,246,0.7)' : 'rgba(34,197,94,0.6)');
+if (document.getElementById('npTrendChart')) {
+  new Chart(document.getElementById('npTrendChart'), {
+    type: 'bar',
+    data: {
+      labels: npLabels,
+      datasets: [
+        { label: 'NP (W)', data: npValues, backgroundColor: npColors, borderRadius: 4, order: 2 },
+        { label: 'FTP est. 220W', data: Array(npLabels.length).fill(220), type: 'line', borderColor: 'rgba(239,68,68,0.4)', borderDash: [5,3], borderWidth: 1.5, pointRadius: 0, fill: false, order: 1 },
+        { label: 'Threshold zone (195W)', data: Array(npLabels.length).fill(195), type: 'line', borderColor: 'rgba(249,115,22,0.4)', borderDash: [3,3], borderWidth: 1, pointRadius: 0, fill: false, order: 1 },
+      ]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { labels: { color: '#94a3b8', boxWidth: 10, font: { size: 10 }, padding: 8 } }, tooltip: { ...tip, callbacks: { afterLabel: ctx => ctx.raw >= 195 ? ' → Lactate Threshold+' : ctx.raw >= 183 ? ' → Threshold boundary' : ctx.raw >= 176 ? ' → Tempo/Z3' : ' → Aerobic Base' } } },
+      scales: { x: { ticks: { color: tick, font: { size: 9 }, maxRotation: 45 }, grid: { color: grid } }, y: { min: 140, max: 235, ticks: { color: tick }, grid: { color: grid }, title: { display: true, text: 'NP Watts', color: tick, font: { size: 10 } } } }
+    }
+  });
+}
 function showTab(id) {
   document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
