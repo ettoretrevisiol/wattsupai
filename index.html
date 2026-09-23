@@ -1287,14 +1287,15 @@ if (document.getElementById('npTrendChart')) {
     }
   });
 }
+}); // DOMContentLoaded
+
+// showTab must be global — called by inline onclick handlers
 function showTab(id) {
   document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
   document.getElementById('tab-'+id).classList.add('active');
   event.currentTarget.classList.add('active');
 }
-
-}); // DOMContentLoaded
 </script>
 </body>
 </html>
