@@ -1,0 +1,18 @@
+# Don't commit Garmin tokens
+.garminconnect/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+
+# macOS
+.DS_Store
+
+# Editor
+.vscode/
+*.swp
+
+# Large data - keep activities.json but ignore future big exports
+data/raw/
