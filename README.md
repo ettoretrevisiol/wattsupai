@@ -7,7 +7,53 @@
 
 ---
 
-## What This Is
+## Setup (New Machine)
+
+```bash
+# 1. Clone the repo
+git clone https://github.com/ettoretrevisiol/wattsupai
+cd wattsupai
+
+# 2. Run setup — installs the Kiro agent, configures paths, handles Garmin auth
+bash scripts/setup.sh
+```
+
+That's it. The setup script:
+- Checks for `kiro-cli` and `uvx` (install these first if missing — see below)
+- Installs the agent config into `~/.kiro/agents/wattsupai.json` with the correct absolute path
+- Copies the agent prompt to `~/.kiro/agents/prompts/wattsupai.md`
+- Runs Garmin authentication if no tokens are found in `~/.garminconnect`
+
+Then start the coach:
+```bash
+kiro-cli chat --agent wattsupai
+```
+
+### Prerequisites
+
+| Tool | Install |
+|------|---------|
+| [Kiro CLI](https://kiro.ai) | Download from kiro.ai |
+| [uv / uvx](https://docs.astral.sh/uv/) | `curl -LsSf https://astral.sh/uv/install.sh \| sh` |
+| git | `brew install git` |
+
+### Garmin Auth
+
+Tokens are stored in `~/.garminconnect` (not in the repo — never committed). They last ~6 months. To re-authenticate at any time:
+```bash
+uvx --python 3.12 --from git+https://github.com/Taxuspt/garmin_mcp garmin-mcp-auth
+```
+
+### Rebuild Activity Database
+
+The local database (`data/activities.json`) is seeded with historical data. To refresh with latest activities:
+```bash
+python3 scripts/build_db.py
+```
+
+---
+
+
 
 WattsUpAI is a personal training system that:
 
