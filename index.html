@@ -1181,7 +1181,7 @@ document.addEventListener('DOMContentLoaded', function() {
 // ─── CHART DEFAULTS ──────────────────────────────────────────────────────────
 Chart.defaults.color = '#64748b';
 Chart.defaults.font.family = 'Inter, sans-serif';
-Chart.defaults.font.size = 11;
+Chart.defaults.font.size = 12;
 const grid   = 'rgba(255,255,255,0.05)';
 const tick   = '#475569';
 const tip = {
@@ -1396,7 +1396,7 @@ if (document.getElementById('pdcProgressionChart')) {
     options: {
       responsive: true, maintainAspectRatio: false,
       plugins: {
-        legend: { labels: { color: '#94a3b8', boxWidth: 10, font: { size: 10 }, padding: 8 } },
+        legend: { labels: { color: '#94a3b8', boxWidth: 10, font: { size: 11 }, padding: 8 } },
         tooltip: { ...tip, callbacks: { afterLabel: ctx => {
           const idx = ctx.dataIndex;
           const highlights = {17:'← Jul 25 peak (2nd best)', 27:'← Aug 22 best', 35:'← Sep 12', 36:'← SEASON PEAK'};
@@ -1404,8 +1404,8 @@ if (document.getElementById('pdcProgressionChart')) {
         }}}
       },
       scales: {
-        x: { ticks: { color: tick, font: { size: 9 }, maxRotation: 45 }, grid: { color: grid } },
-        y: { min: 160, max: 250, ticks: { color: tick }, grid: { color: grid }, title: { display: true, text: '20-min PDC (W)', color: tick, font: { size: 10 } } }
+        x: { ticks: { color: tick, font: { size: 11 }, maxRotation: 45 }, grid: { color: grid } },
+        y: { min: 160, max: 250, ticks: { color: tick }, grid: { color: grid }, title: { display: true, text: '20-min PDC (W)', color: tick, font: { size: 11 } } }
       }
     }
   });
@@ -1436,8 +1436,8 @@ if (document.getElementById('npTrendChart')) {
     },
     options: {
       responsive: true, maintainAspectRatio: false,
-      plugins: { legend: { labels: { color: '#94a3b8', boxWidth: 10, font: { size: 10 }, padding: 8 } }, tooltip: { ...tip, callbacks: { afterLabel: ctx => ctx.raw >= 231 ? ' → Z4 Threshold+' : ctx.raw >= 190 ? ' → Z3 Tempo' : ctx.raw >= 138 ? ' → Z2 Endurance' : ' → Aerobic Base' } } },
-      scales: { x: { ticks: { color: tick, font: { size: 9 }, maxRotation: 45 }, grid: { color: grid } }, y: { min: 140, max: 235, ticks: { color: tick }, grid: { color: grid }, title: { display: true, text: 'NP Watts', color: tick, font: { size: 10 } } } }
+      plugins: { legend: { labels: { color: '#94a3b8', boxWidth: 10, font: { size: 11 }, padding: 8 } }, tooltip: { ...tip, callbacks: { afterLabel: ctx => ctx.raw >= 231 ? ' → Z4 Threshold+' : ctx.raw >= 190 ? ' → Z3 Tempo' : ctx.raw >= 138 ? ' → Z2 Endurance' : ' → Aerobic Base' } } },
+      scales: { x: { ticks: { color: tick, font: { size: 11 }, maxRotation: 45 }, grid: { color: grid } }, y: { min: 140, max: 235, ticks: { color: tick }, grid: { color: grid }, title: { display: true, text: 'NP Watts', color: tick, font: { size: 11 } } } }
     }
   });
 }
