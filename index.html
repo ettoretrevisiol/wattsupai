@@ -2,12 +2,15 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="description" content="WattsUpAI — Ettore's personal cycling training dashboard. 12-month Garmin analysis, power zone breakdown, 4-week FTP plan.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"></noscript>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>WattsUpAI — Ettore's Cycling Dashboard</title>
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js" defer></script>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
-
 :root {
   --bg:       #080a10;
   --bg2:      #0d1018;
@@ -27,7 +30,7 @@
   --rose:     #f43f5e;
   --cyan:     #06b6d4;
   --text:     #e2e8f0;
-  --muted:    #64748b;
+  --muted:    #8a9ab5;
   --dim:      #94a3b8;
   --glow-blue: rgba(59,130,246,0.15);
   --glow-green: rgba(34,197,94,0.12);
@@ -108,7 +111,7 @@ body::before {
 .nav-tab {
   padding: 8px 18px; border-radius: 9px; font-size: 0.78rem; font-weight: 600;
   cursor: pointer; white-space: nowrap; transition: all 0.2s;
-  color: var(--muted); border: none; background: transparent;
+  color: #8a9ab5; border: none; background: transparent;
   display: flex; align-items: center; gap: 6px;
 }
 .nav-tab:hover { color: var(--text); background: var(--surface2); }
@@ -119,7 +122,7 @@ body::before {
 /* ── SECTION ── */
 .section-label {
   font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em;
-  text-transform: uppercase; color: var(--muted);
+  text-transform: uppercase; color: #8a9ab5;
   margin: 28px 0 14px;
   display: flex; align-items: center; gap: 10px;
 }
@@ -149,7 +152,7 @@ body::before {
 .card-accent-violet::after{ content:''; position:absolute; top:0;left:0;right:0;height:2px; background:linear-gradient(90deg,var(--violet),var(--blue)); }
 .card-title {
   font-size: 0.67rem; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase;
-  color: var(--muted); margin-bottom: 14px; display: flex; align-items: center; gap: 7px;
+  color: #8a9ab5; margin-bottom: 14px; display: flex; align-items: center; gap: 7px;
 }
 .card-title .ct-dot { width:5px;height:5px;border-radius:50%;background:var(--blue); }
 
@@ -160,7 +163,7 @@ body::before {
   -webkit-background-clip: text; -webkit-text-fill-color: transparent;
 }
 .kpi-unit { font-size: 0.95rem; font-weight: 400; -webkit-text-fill-color: var(--muted); margin-left: 4px; }
-.kpi-label { font-size: 0.75rem; color: var(--muted); margin-top: 6px; }
+.kpi-label { font-size: 0.75rem; color: #8a9ab5; margin-top: 6px; }
 .kpi-delta {
   display: inline-flex; align-items: center; gap: 4px; margin-top: 8px;
   padding: 3px 9px; border-radius: 6px; font-size: 0.7rem; font-weight: 700;
@@ -333,7 +336,7 @@ body::before {
 </style>
 </head>
 <body>
-<div class="container">
+<main><div class="container">
 
 <!-- ══ HEADER ══════════════════════════════════════════════════════════════ -->
 <div class="header">
@@ -376,7 +379,7 @@ body::before {
       <div style="font-size:2rem;font-weight:900;color:var(--orange);letter-spacing:-0.02em;margin-bottom:6px;">Plateau</div>
       <div style="font-size:0.8rem;color:var(--dim);line-height:1.65;margin-bottom:14px;">
         <strong style="color:var(--text)">Deep analysis of all 29 power meter rides May–Sep 2026 using Normalized Power (NP) + Garmin training effect labels:</strong><br><br>
-        NP range across 4 months: <strong style="color:var(--text)">149–189W</strong> (estimated FTP ~215–225W = 70–88% of FTP). Every single ride is Aerobic Base or Tempo label. <strong style="color:var(--green)">Only 1 Lactate Threshold label in 4 months:</strong> Ghisallino Jul 25 (NP 183W, load 405 — highest of the period).<br><br>
+        NP range across 4 months: <strong style="color:var(--text)">149–189W</strong> (estimated FTP 252W (tested) = 70–88% of FTP). Every single ride is Aerobic Base or Tempo label. <strong style="color:var(--green)">Only 1 Lactate Threshold label in 4 months:</strong> Ghisallino Jul 25 (NP 183W, load 405 — highest of the period).<br><br>
         <strong style="color:var(--blue)">NP progression tells the real story:</strong> Friuli Aug 18→30 shows clear building: 166→179→187→184→189W NP, peaking right as VO2max hit 62. Sep rides: Ghisallino Sep 6 (177W), Culmine (181W), Tre Valli (182W) — intensity plateaued in the 176–182W band, just shy of threshold.<br><br>
         <strong style="color:var(--orange)">⚡ Why outdoor rides cap out:</strong> To regularly exceed 200W+ NP you need short, hard, targeted efforts. A 4+ hour ride structurally prevents sustained Z4 accumulation — you can get Z4 spikes (hence Tre Valli's 34 min power Z4 in zone counters) but not the sustained load. Structured Tue/Thu intervals are the only way to add this systematically.
       </div>
@@ -586,7 +589,7 @@ body::before {
       </div>
     </div>
     <div style="margin-top:10px;padding-top:10px;border-top:1px solid var(--border);font-size:0.72rem;color:var(--muted);">
-      FTP est. ~215–225W. NP needs to regularly reach 195W+ (Lactate Threshold label) to drive FTP adaptation. Current plateau: 176–182W. The gap to close = ~15–20W of sustained intensity.
+      FTP 252W (tested). NP needs to regularly reach 195W+ (Lactate Threshold label) to drive FTP adaptation. Current plateau: 176–182W. The gap to close = ~15–20W of sustained intensity.
     </div>
   </div>
 
@@ -891,10 +894,10 @@ body::before {
     <div class="card card-accent-blue">
       <div class="card-title"><span class="ct-dot"></span>Zones & Targets</div>
       <div style="font-size:0.75rem;color:var(--dim);line-height:2;">
-        Z2 endurance: <strong style="color:var(--text)">130–154bpm · 129–175W</strong><br>
-        Z3 tempo: <strong style="color:var(--text)">155–165bpm · 176–211W</strong><br>
-        Z4 threshold: <strong style="color:var(--text)">166–179bpm · 212–246W</strong><br>
-        Z5 VO2max: <strong style="color:var(--text)">179+bpm · 247–281W</strong>
+        Z2 endurance: <strong style="color:var(--text)">130–154bpm · 138–189W (55–75% FTP)</strong><br>
+        Z3 tempo: <strong style="color:var(--text)">155–165bpm · 190–226W (75–90% FTP)</strong><br>
+        Z4 threshold: <strong style="color:var(--text)">166–179bpm · 227–264W (90–105% FTP)</strong><br>
+        Z5 VO2max: <strong style="color:var(--text)">179+bpm · 265–302W (105–120% FTP)</strong>
       </div>
       <div class="insight warn" style="margin-top:10px;font-size:0.72rem;">
         <strong>No power meter on weekday bike.</strong> Use RPE + end-of-interval HR only. Cardiac lag is normal — judge quality by HR at the END of each rep, not during. Power meter bike is primary on Sat climbs — watts trump HR there.
@@ -933,7 +936,7 @@ body::before {
     <div class="srow">
       <div class="sday">Sat Sep 27</div>
       <div><span class="stype st-big">Hills Z4</span></div>
-      <div class="sdesc"><strong>3–3.5h · 800–1,000m climbing · NP target: 182–188W.</strong> 3–4 climbs of 15–20 min. Push each one at <strong>212–235W / 166–174bpm</strong> end-of-climb. Objective: match or beat your last Ghisallino NP (177W). Descents and flats easy Z2. After the ride, check your NP — it's your benchmark for the block.</div>
+      <div class="sdesc"><strong>3–3.5h · 800–1,000m climbing · NP target: 185–195W (73–77% FTP, solid Z3).</strong> 3–4 climbs of 15–20 min. Push each one at <strong>212–235W / 166–174bpm</strong> end-of-climb. Objective: match or beat your last Ghisallino NP (177W). Descents and flats easy Z2. After the ride, check your NP — it's your benchmark for the block.</div>
     </div>
     <div class="srow">
       <div class="sday">Sun Sep 28</div>
@@ -961,7 +964,7 @@ body::before {
     <div class="srow">
       <div class="sday">Sat Oct 4</div>
       <div><span class="stype st-big">Hills Z4</span></div>
-      <div class="sdesc"><strong>3.5–4h · 1,000–1,300m climbing · NP target: 185–192W.</strong> 4–5 climbs of 15–20 min at <strong>212–240W / 166–174bpm</strong>. Benchmark: exceed W1 Saturday's NP by 3–5W. Total time above 165bpm: target 60–80 min. Z2 between climbs — don't drift into tempo on transitions.</div>
+      <div class="sdesc"><strong>3.5–4h · 1,000–1,300m climbing · NP target: 193–205W (77–81% FTP, Z3 upper).</strong> 4–5 climbs of 15–20 min at <strong>212–240W / 166–174bpm</strong>. Benchmark: exceed W1 Saturday's NP by 3–5W. Total time above 165bpm: target 60–80 min. Z2 between climbs — don't drift into tempo on transitions.</div>
     </div>
     <div class="srow">
       <div class="sday">Sun Oct 5</div>
@@ -989,7 +992,7 @@ body::before {
     <div class="srow">
       <div class="sday">Sat Oct 11</div>
       <div><span class="stype st-big">Big Day</span></div>
-      <div class="sdesc"><strong>4–4.5h · 1,400–1,700m climbing · NP target: 190–198W.</strong> 5–6 climbs of 15–20 min at <strong>215–250W / 168–177bpm</strong>. This is the target Lactate Threshold day — if NP hits 195W+, you've flipped to the same intensity as Ghisallino Jul 25 (your season's only threshold label). Total time above 165bpm: 80–100 min. Power meter is your guide — every climb is a data point.</div>
+      <div class="sdesc"><strong>4–4.5h · 1,400–1,700m climbing · NP target: 205–220W (81–87% FTP, Z3→Z4 boundary).</strong> 5–6 climbs of 15–20 min at <strong>215–250W / 168–177bpm</strong>. This is the target Lactate Threshold day — if NP hits 195W+, you've flipped to the same intensity as Ghisallino Jul 25 (your season's only threshold label). Total time above 165bpm: 80–100 min. Power meter is your guide — every climb is a data point.</div>
     </div>
     <div class="srow">
       <div class="sday">Sun Oct 12</div>
@@ -1017,7 +1020,7 @@ body::before {
     <div class="srow">
       <div class="sday">Sat Oct 18</div>
       <div><span class="stype st-tempo">Moderate</span></div>
-      <div class="sdesc"><strong>2–2.5h · 400–600m climbing · NP target: 165–175W.</strong> 2–3 climbs at Z3 pace (176–211W / 155–165bpm). Enjoy it. This ride is a preview of where your new baseline sits. If it feels easy, good — that's the adaptation working.</div>
+      <div class="sdesc"><strong>2–2.5h · 400–600m climbing · NP target: 170–185W (Z2/Z3, recovery week).</strong> 2–3 climbs at Z3 pace (176–211W / 155–165bpm). Enjoy it. This ride is a preview of where your new baseline sits. If it feels easy, good — that's the adaptation working.</div>
     </div>
     <div class="srow">
       <div class="sday">Sun Oct 19</div>
@@ -1031,8 +1034,8 @@ body::before {
     <div class="card card-accent-green">
       <div class="card-title"><span class="ct-dot" style="background:var(--green)"></span>Green — On Track</div>
       <ul class="alist">
-        <li><span class="ico">📈</span><div><strong>Sat NP progression:</strong> W1 ~182W → W2 ~188W → W3 ~195W+. This is the key metric. If Saturday NP is climbing week over week, the plan is working.</div></li>
-        <li><span class="ico">✅</span><div><strong>W3 Sat gets Lactate Threshold label</strong> from Garmin — that's the first one since Ghisallino Jul 25.</div></li>
+        <li><span class="ico">📈</span><div><strong>Sat NP progression:</strong> W1 ~190W → W2 ~200W → W3 ~215W+. This is the key metric. If Saturday NP is climbing week over week, the plan is working.</div></li>
+        <li><span class="ico">✅</span><div><strong>W3 Sat NP ≥215W (85%+ FTP, approaching Z4 threshold)</strong> from Garmin — that's the first one since Ghisallino Jul 25.</div></li>
         <li><span class="ico">✅</span><div><strong>End-of-interval HR ≥166bpm</strong> on Thu reps 3–4 by W2 → Z4 is landing.</div></li>
         <li><span class="ico">✅</span><div><strong>VO2max returns to 62</strong> by end of W3 → intensity signal absorbed.</div></li>
         <li><span class="ico">✅</span><div><strong>HRV stays ≥48ms weekly avg</strong> throughout → no overreaching.</div></li>
@@ -1066,9 +1069,10 @@ body::before {
   <div>186 rides · 12 months · VO2max 61 · CTL 803 · ATL 810 · TSB −7 · HRV 52ms</div>
 </div>
 
-</div><!-- /container -->
+</div></main>
 
 <script>
+document.addEventListener('DOMContentLoaded', function() {
 // ─── CHART DEFAULTS ──────────────────────────────────────────────────────────
 Chart.defaults.color = '#64748b';
 Chart.defaults.font.family = 'Inter, sans-serif';
@@ -1264,7 +1268,7 @@ hrvNightly.forEach((v,i)=>{
 // ─── NP TREND CHART ───────────────────────────────────────────────────────────
 const npLabels = ['May23','May29','Jun6','Jun7','Jun14','Jun20','Jun21','Jun27','Jul4','Jul12','Jul19','Jul25','Jul31','Aug3','Aug6','Aug9','Aug11','Aug13','Aug16','Aug18','Aug19','Aug22','Aug23','Aug29','Aug30','Sep5','Sep6','Sep12','Sep19'];
 const npValues = [156,163,159,149,161,175,150,162,166,162,165,183,169,169,173,171,167,170,170,166,179,187,184,189,182,176,177,181,182];
-const npColors = npValues.map(v => v >= 195 ? 'rgba(239,68,68,0.8)' : v >= 183 ? 'rgba(249,115,22,0.8)' : v >= 176 ? 'rgba(59,130,246,0.7)' : 'rgba(34,197,94,0.6)');
+const npColors = npValues.map(v => v >= 227 ? 'rgba(249,115,22,0.9)' : v >= 190 ? 'rgba(59,130,246,0.7)' : 'rgba(34,197,94,0.6)');
 if (document.getElementById('npTrendChart')) {
   new Chart(document.getElementById('npTrendChart'), {
     type: 'bar',
@@ -1272,13 +1276,13 @@ if (document.getElementById('npTrendChart')) {
       labels: npLabels,
       datasets: [
         { label: 'NP (W)', data: npValues, backgroundColor: npColors, borderRadius: 4, order: 2 },
-        { label: 'FTP est. 220W', data: Array(npLabels.length).fill(220), type: 'line', borderColor: 'rgba(239,68,68,0.4)', borderDash: [5,3], borderWidth: 1.5, pointRadius: 0, fill: false, order: 1 },
-        { label: 'Threshold zone (195W)', data: Array(npLabels.length).fill(195), type: 'line', borderColor: 'rgba(249,115,22,0.4)', borderDash: [3,3], borderWidth: 1, pointRadius: 0, fill: false, order: 1 },
+        { label: 'FTP 252W (tested)', data: Array(npLabels.length).fill(252), type: 'line', borderColor: 'rgba(239,68,68,0.4)', borderDash: [5,3], borderWidth: 1.5, pointRadius: 0, fill: false, order: 1 },
+        { label: 'Z4 start (227W)', data: Array(npLabels.length).fill(227), type: 'line', borderColor: 'rgba(249,115,22,0.4)', borderDash: [3,3], borderWidth: 1, pointRadius: 0, fill: false, order: 1 },
       ]
     },
     options: {
       responsive: true, maintainAspectRatio: false,
-      plugins: { legend: { labels: { color: '#94a3b8', boxWidth: 10, font: { size: 10 }, padding: 8 } }, tooltip: { ...tip, callbacks: { afterLabel: ctx => ctx.raw >= 195 ? ' → Lactate Threshold+' : ctx.raw >= 183 ? ' → Threshold boundary' : ctx.raw >= 176 ? ' → Tempo/Z3' : ' → Aerobic Base' } } },
+      plugins: { legend: { labels: { color: '#94a3b8', boxWidth: 10, font: { size: 10 }, padding: 8 } }, tooltip: { ...tip, callbacks: { afterLabel: ctx => ctx.raw >= 227 ? ' → Z4 Threshold+' : ctx.raw >= 190 ? ' → Z3 Tempo' : ctx.raw >= 138 ? ' → Z2 Endurance' : ' → Aerobic Base' } } },
       scales: { x: { ticks: { color: tick, font: { size: 9 }, maxRotation: 45 }, grid: { color: grid } }, y: { min: 140, max: 235, ticks: { color: tick }, grid: { color: grid }, title: { display: true, text: 'NP Watts', color: tick, font: { size: 10 } } } }
     }
   });
@@ -1289,6 +1293,8 @@ function showTab(id) {
   document.getElementById('tab-'+id).classList.add('active');
   event.currentTarget.classList.add('active');
 }
+
+}); // DOMContentLoaded
 </script>
 </body>
 </html>

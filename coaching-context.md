@@ -26,25 +26,26 @@
 - Z4: 166–179 bpm
 - Z5: 179+ bpm
 
-### Power (derived from 4-month lap analysis)
-- Z1: 0–128W
-- Z2: 129–175W
-- Z3: 176–211W
-- Z4: 212–246W
-- Z5: 247–281W
-- Z6: 282–352W
-- Z7: 352W+
-- Estimated FTP: ~215–225W
+### Power (from FTP test: 252W, last tested)
+- Z1 Recovery:    <138W  (<55% FTP)
+- Z2 Endurance:  138–189W (55–75% FTP)
+- Z3 Tempo:      190–226W (75–90% FTP)
+- Z4 Threshold:  227–264W (90–105% FTP)
+- Z5 VO2max:     265–302W (105–120% FTP)
+- Z6 Anaerobic:  303–378W (120–150% FTP)
+- Z7 NM:         378W+
+- **FTP: 252W (tested — last test result 252W)**
 
 ## Key Analytical Findings (23 Sep 2026)
 
-### 4-Month Deep Analysis (May–Sep 2026, 29 power meter rides)
+### 4-Month Deep Analysis (May–Sep 2026, 29 power meter rides) — CORRECTED WITH FTP 252W
 - All rides analysed via **Normalized Power (NP) + Garmin training effect labels**
-- NP range across all 29 rides: **149–189W** (70–88% of FTP)
-- Only **1 Lactate Threshold label** in 4 months: **Ghisallino Jul 25** (NP 183W, load 405)
-- Everything else: Aerobic Base or Tempo label
-- **The gap to close: ~15–20W of NP** to crack Lactate Threshold consistently
-- NP target for threshold: **195W+**
+- NP range across all 29 rides: **149–189W** = **59–75% of FTP** = Z2 endurance zone
+- **No ride reached Z4 (227W+) on a sustained lap basis**
+- Ghisallino Jul 25 NP 183W = 73% FTP = Z2/Z3 boundary. Got Lactate Threshold label from HR response, not power.
+- Every climbing lap at Tre Valli, Culmine, Friuli: Z2–Z3 by power (78–90% FTP)
+- **The real gap: all outdoor riding is Z2–Z3 power. Zero sustained Z4 (227W+) anywhere in 4 months.**
+- To hit Z4 at FTP 252W you need 227W+ sustained — never achieved in any lap this season
 
 ### NP by phase:
 - May–Jun: 149–175W (Aerobic Base / Tempo)
@@ -135,7 +136,14 @@
 - Do NOT reopen browser after pushing — just confirm "done, pushed"
 - Do NOT suggest areas/locations in the plan — use meters of climbing only
 
-## Conversation Rules Established
+## Zone Analysis Rules (CRITICAL)
+- **NEVER use Garmin lap averages (5km auto-laps) for zone analysis** — descents drag the avg down and completely mask the actual intensity on climbs
+- **Correct approach for intensity analysis:**
+  1. `get_activity()` → check `normalized_power_watts`, `training_effect_label`, `training_load`, `max_power_watts`
+  2. For zone time: read the `avg_hr_bpm` and `max_hr_bpm` from the activity summary, or ask the user what Garmin shows in the activity detail (zone time breakdown)
+  3. NP is the only honest single-number intensity metric for variable-terrain rides
+  4. Training effect label (Aerobic Base / Tempo / Lactate Threshold / VO2max) is Garmin's own summary of what the ride stimulated
+- **FTP 252W** — always use this as the reference, not estimated values from lap data
 - RPE scale: 1–3 easy, 4–6 Z2, 7–8 Z3, 8.5–9 Z4, 9.5–10 Z5
 - HR zones: judge by END of interval, not during (cardiac lag)
 - Power zones: primary metric on power meter bike; RPE+HR on weekday bike
