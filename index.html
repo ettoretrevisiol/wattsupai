@@ -1,0 +1,1270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WattsUpAI — Ettore's Cycling Dashboard</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+:root {
+  --bg:       #080a10;
+  --bg2:      #0d1018;
+  --surface:  #111520;
+  --surface2: #171c2c;
+  --surface3: #1e2538;
+  --border:   #222840;
+  --border2:  #2a3050;
+  --blue:     #3b82f6;
+  --indigo:   #6366f1;
+  --violet:   #8b5cf6;
+  --green:    #22c55e;
+  --emerald:  #10b981;
+  --orange:   #f97316;
+  --amber:    #f59e0b;
+  --red:      #ef4444;
+  --rose:     #f43f5e;
+  --cyan:     #06b6d4;
+  --text:     #e2e8f0;
+  --muted:    #64748b;
+  --dim:      #94a3b8;
+  --glow-blue: rgba(59,130,246,0.15);
+  --glow-green: rgba(34,197,94,0.12);
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+
+/* ── ANIMATED BACKGROUND ── */
+body::before {
+  content: '';
+  position: fixed; inset: 0;
+  background:
+    radial-gradient(ellipse 80% 50% at 20% 10%, rgba(59,130,246,0.07) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 80% 90%, rgba(99,102,241,0.06) 0%, transparent 60%);
+  pointer-events: none; z-index: 0;
+}
+
+.container { max-width: 1440px; margin: 0 auto; padding: 24px 28px; position: relative; z-index: 1; }
+
+/* ── HEADER ── */
+.header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 20px 28px 20px;
+  margin: -24px -28px 28px;
+  background: linear-gradient(180deg, rgba(17,21,32,0.95) 0%, rgba(13,16,24,0.8) 100%);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  position: sticky; top: 0; z-index: 100;
+}
+.header-brand { display: flex; align-items: center; gap: 14px; }
+.logo-mark {
+  width: 42px; height: 42px; border-radius: 12px;
+  background: linear-gradient(135deg, var(--blue) 0%, var(--violet) 100%);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px; box-shadow: 0 0 20px rgba(99,102,241,0.35);
+  flex-shrink: 0;
+}
+.brand-text h1 {
+  font-size: 1.2rem; font-weight: 800; letter-spacing: -0.02em;
+  background: linear-gradient(90deg, #fff 40%, var(--indigo));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+}
+.brand-text .tagline { font-size: 0.7rem; color: var(--muted); font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; }
+.header-right { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; justify-content: flex-end; }
+.badge {
+  padding: 5px 12px; border-radius: 20px; font-size: 0.68rem; font-weight: 700;
+  letter-spacing: 0.05em; text-transform: uppercase; display: flex; align-items: center; gap: 5px;
+}
+.badge-pulse::before {
+  content: ''; width: 6px; height: 6px; border-radius: 50%;
+  background: currentColor; animation: pulse 2s infinite;
+}
+@keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.4;transform:scale(0.7)} }
+.b-red    { background: rgba(239,68,68,0.12);  color: var(--red);    border: 1px solid rgba(239,68,68,0.25); }
+.b-green  { background: rgba(34,197,94,0.12);  color: var(--green);  border: 1px solid rgba(34,197,94,0.25); }
+.b-blue   { background: rgba(59,130,246,0.12); color: var(--blue);   border: 1px solid rgba(59,130,246,0.25); }
+.b-orange { background: rgba(249,115,22,0.12); color: var(--orange); border: 1px solid rgba(249,115,22,0.25); }
+.b-violet { background: rgba(139,92,246,0.12); color: var(--violet); border: 1px solid rgba(139,92,246,0.25); }
+
+/* ── NAV TABS ── */
+.nav-tabs {
+  display: flex; gap: 4px; margin-bottom: 24px;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 12px; padding: 4px;
+  overflow-x: auto; scrollbar-width: none;
+}
+.nav-tab {
+  padding: 8px 18px; border-radius: 9px; font-size: 0.78rem; font-weight: 600;
+  cursor: pointer; white-space: nowrap; transition: all 0.2s;
+  color: var(--muted); border: none; background: transparent;
+  display: flex; align-items: center; gap: 6px;
+}
+.nav-tab:hover { color: var(--text); background: var(--surface2); }
+.nav-tab.active { background: var(--surface3); color: var(--text); box-shadow: 0 1px 4px rgba(0,0,0,0.4); }
+.tab-panel { display: none; }
+.tab-panel.active { display: block; }
+
+/* ── SECTION ── */
+.section-label {
+  font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--muted);
+  margin: 28px 0 14px;
+  display: flex; align-items: center; gap: 10px;
+}
+.section-label::after { content:''; flex:1; height:1px; background: var(--border); }
+
+/* ── GRID ── */
+.g4 { display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; }
+.g3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
+.g2 { display: grid; grid-template-columns: repeat(2,1fr); gap: 16px; }
+.g21 { display: grid; grid-template-columns: 2fr 1fr; gap: 16px; }
+.g12 { display: grid; grid-template-columns: 1fr 2fr; gap: 16px; }
+.g211 { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 16px; }
+
+/* ── CARD ── */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px; padding: 20px 22px;
+  position: relative; overflow: hidden;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.card:hover { border-color: var(--border2); box-shadow: 0 4px 20px rgba(0,0,0,0.3); }
+.card-accent-blue::after  { content:''; position:absolute; top:0;left:0;right:0;height:2px; background:linear-gradient(90deg,var(--blue),var(--indigo)); }
+.card-accent-green::after { content:''; position:absolute; top:0;left:0;right:0;height:2px; background:linear-gradient(90deg,var(--emerald),var(--green)); }
+.card-accent-orange::after{ content:''; position:absolute; top:0;left:0;right:0;height:2px; background:linear-gradient(90deg,var(--orange),var(--amber)); }
+.card-accent-red::after   { content:''; position:absolute; top:0;left:0;right:0;height:2px; background:linear-gradient(90deg,var(--red),var(--rose)); }
+.card-accent-violet::after{ content:''; position:absolute; top:0;left:0;right:0;height:2px; background:linear-gradient(90deg,var(--violet),var(--blue)); }
+.card-title {
+  font-size: 0.67rem; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 14px; display: flex; align-items: center; gap: 7px;
+}
+.card-title .ct-dot { width:5px;height:5px;border-radius:50%;background:var(--blue); }
+
+/* ── KPI STAT ── */
+.kpi-val {
+  font-size: 2.6rem; font-weight: 900; letter-spacing: -0.04em; line-height: 1;
+  background: linear-gradient(135deg, #fff 20%, var(--dim) 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+}
+.kpi-unit { font-size: 0.95rem; font-weight: 400; -webkit-text-fill-color: var(--muted); margin-left: 4px; }
+.kpi-label { font-size: 0.75rem; color: var(--muted); margin-top: 6px; }
+.kpi-delta {
+  display: inline-flex; align-items: center; gap: 4px; margin-top: 8px;
+  padding: 3px 9px; border-radius: 6px; font-size: 0.7rem; font-weight: 700;
+}
+.up   { background: rgba(34,197,94,0.1);  color: var(--green); }
+.down { background: rgba(239,68,68,0.1);  color: var(--red);   }
+.flat { background: rgba(148,163,184,0.1); color: var(--dim);  }
+
+/* ── HIGHLIGHT CARD (today status) ── */
+.today-hero {
+  background: linear-gradient(135deg, #111520 0%, #161d30 100%);
+  border: 1px solid var(--border2);
+  border-radius: 20px; padding: 24px 26px;
+  position: relative; overflow: hidden;
+}
+.today-hero::before {
+  content: ''; position: absolute; top: -60px; right: -60px;
+  width: 200px; height: 200px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(239,68,68,0.12) 0%, transparent 70%);
+}
+.today-status { font-size: 2.2rem; font-weight: 900; letter-spacing: -0.03em; }
+.today-status.red    { color: var(--red); }
+.today-status.green  { color: var(--green); }
+.today-status.orange { color: var(--orange); }
+
+/* ── INSIGHT BOX ── */
+.insight {
+  background: var(--surface2); border: 1px solid var(--border);
+  border-left: 3px solid var(--blue);
+  border-radius: 10px; padding: 12px 14px;
+  font-size: 0.78rem; color: var(--dim); line-height: 1.6; margin-top: 12px;
+}
+.insight.warn { border-left-color: var(--orange); }
+.insight.good { border-left-color: var(--green); }
+.insight strong { color: var(--text); font-weight: 600; }
+
+/* ── ZONE BARS ── */
+.zone-row { display: flex; align-items: center; gap: 10px; margin-bottom: 9px; font-size: 0.76rem; }
+.zone-name { width: 80px; color: var(--muted); flex-shrink: 0; }
+.zone-bg { flex:1; height:8px; background: var(--surface2); border-radius: 4px; overflow:hidden; }
+.zone-fill { height:100%; border-radius:4px; transition: width 1.2s cubic-bezier(.4,0,.2,1); }
+.zone-pct { width: 38px; text-align:right; font-weight:700; font-size:0.72rem; }
+
+/* ── ANALYSIS LIST ── */
+.alist { list-style:none; display:flex; flex-direction:column; gap:11px; }
+.alist li { display:flex; gap:10px; align-items:flex-start; font-size:0.79rem; color:var(--dim); line-height:1.5; }
+.alist li .ico { font-size:1rem; flex-shrink:0; margin-top:1px; }
+.alist li strong { color:var(--text); font-weight:600; }
+
+/* ── PLAN TABLE ── */
+.week-block { border:1px solid var(--border); border-radius:14px; overflow:hidden; margin-bottom:12px; }
+.week-hdr {
+  background: var(--surface2); padding:12px 18px;
+  display:flex; align-items:center; justify-content:space-between;
+  border-bottom:1px solid var(--border);
+}
+.week-title { font-size:0.82rem; font-weight:700; }
+.week-sub   { font-size:0.72rem; color:var(--muted); margin-left:8px; font-weight:400; }
+.week-tag   { padding:3px 10px; border-radius:6px; font-size:0.67rem; font-weight:700; letter-spacing:0.04em; text-transform:uppercase; }
+.wt-build  { background:rgba(59,130,246,0.15); color:var(--blue); }
+.wt-peak   { background:rgba(249,115,22,0.15);  color:var(--orange); }
+.wt-rest   { background:rgba(34,197,94,0.15);   color:var(--green); }
+.srow {
+  display:grid; grid-template-columns:100px 90px 1fr; gap:12px;
+  padding:11px 18px; border-bottom:1px solid rgba(34,40,64,0.5);
+  align-items:start; font-size:0.79rem; transition:background 0.15s;
+}
+.srow:last-child { border-bottom:none; }
+.srow:hover { background:rgba(59,130,246,0.04); }
+.sday { font-weight:700; color:var(--text); }
+.stype {
+  display:inline-flex; align-items:center;
+  padding:3px 9px; border-radius:6px; font-size:0.67rem; font-weight:700;
+  white-space:nowrap; letter-spacing:0.03em;
+}
+.st-z2     { background:rgba(34,197,94,0.12);  color:#4ade80; }
+.st-tempo  { background:rgba(59,130,246,0.12); color:#60a5fa; }
+.st-thresh { background:rgba(249,115,22,0.12); color:#fb923c; }
+.st-vo2    { background:rgba(239,68,68,0.12);  color:#f87171; }
+.st-easy   { background:rgba(148,163,184,0.1); color:#94a3b8; }
+.st-big    { background:rgba(139,92,246,0.12); color:#c4b5fd; }
+.sdesc { color:var(--dim); line-height:1.55; }
+.sdesc strong { color:var(--text); font-weight:600; }
+
+/* ── HEATMAP ── */
+.heatmap-wrap { overflow-x:auto; padding-bottom:4px; }
+.heatmap { display:grid; grid-template-rows:repeat(7,1fr); grid-auto-flow:column; gap:3px; width:max-content; }
+.hm-cell {
+  width:14px; height:14px; border-radius:3px;
+  background: var(--surface2);
+  transition: transform 0.1s; cursor:default;
+}
+.hm-cell:hover { transform:scale(1.3); z-index:10; position:relative; }
+.hm-0 { background:var(--surface2); }
+.hm-1 { background:rgba(34,197,94,0.2); }
+.hm-2 { background:rgba(34,197,94,0.35); }
+.hm-3 { background:rgba(34,197,94,0.55); }
+.hm-4 { background:rgba(34,197,94,0.8); }
+.hm-labels { display:flex; gap:3px; width:max-content; margin-bottom:4px; }
+.hm-month-label { font-size:0.6rem; color:var(--muted); width:auto; }
+
+/* ── TIMELINE (top rides) ── */
+.ride-list { display:flex; flex-direction:column; gap:8px; }
+.ride-item {
+  display:grid; grid-template-columns:1fr auto auto;
+  align-items:center; gap:12px;
+  padding:9px 12px; background:var(--surface2);
+  border:1px solid var(--border); border-radius:10px;
+  font-size:0.76rem; transition:background 0.15s;
+}
+.ride-item:hover { background:var(--surface3); }
+.ride-name { font-weight:600; color:var(--text); }
+.ride-meta { font-size:0.68rem; color:var(--muted); margin-top:2px; }
+.ride-dist { font-weight:800; font-size:0.82rem; color:var(--blue); white-space:nowrap; }
+.ride-elev { font-size:0.72rem; color:var(--dim); white-space:nowrap; }
+
+/* ── HRV GRID ── */
+.hrv-grid { display:flex; flex-wrap:wrap; gap:5px; margin-top:10px; }
+.hrv-chip {
+  width:34px; height:34px; border-radius:8px;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  gap:1px; font-size:0.62rem; font-weight:700; cursor:default;
+}
+.hrv-chip .hdate { font-size:0.55rem; opacity:0.7; }
+.hrv-bal   { background:rgba(34,197,94,0.15);  color:var(--green); border:1px solid rgba(34,197,94,0.2); }
+.hrv-unbal { background:rgba(249,115,22,0.15); color:var(--orange); border:1px solid rgba(249,115,22,0.2); }
+
+/* ── PROGRESS RING ── */
+.ring-wrap { display:flex; align-items:center; gap:16px; }
+.ring-svg { flex-shrink:0; }
+.ring-bg  { fill:none; stroke:var(--surface2); stroke-width:8; }
+.ring-fill{ fill:none; stroke-width:8; stroke-linecap:round; transition:stroke-dashoffset 1.5s cubic-bezier(.4,0,.2,1); transform:rotate(-90deg); transform-origin:center; }
+.ring-val { font-family:inherit; font-weight:900; }
+.ring-sub { font-family:inherit; font-weight:500; }
+
+/* ── MILESTONE TIMELINE ── */
+.milestones { display:flex; flex-direction:column; gap:0; }
+.ms-item { display:flex; gap:14px; padding:10px 0; position:relative; }
+.ms-item:not(:last-child)::before { content:''; position:absolute; left:10px; top:28px; bottom:0; width:1px; background:var(--border); }
+.ms-dot { width:20px; height:20px; border-radius:50%; flex-shrink:0; display:flex; align-items:center; justify-content:center; font-size:0.65rem; font-weight:700; margin-top:2px; }
+.ms-body { flex:1; }
+.ms-date { font-size:0.67rem; color:var(--muted); font-weight:600; margin-bottom:2px; }
+.ms-title { font-size:0.8rem; font-weight:700; color:var(--text); }
+.ms-val   { font-size:0.72rem; color:var(--dim); }
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar { width:5px; height:5px; }
+::-webkit-scrollbar-track { background:var(--bg); }
+::-webkit-scrollbar-thumb { background:var(--border); border-radius:3px; }
+::-webkit-scrollbar-thumb:hover { background:var(--border2); }
+
+/* ── FOOTER ── */
+.footer {
+  margin-top:32px; padding-top:18px; border-top:1px solid var(--border);
+  display:flex; justify-content:space-between; align-items:center;
+  font-size:0.68rem; color:var(--muted);
+}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1100px){
+  .g4,.g211{grid-template-columns:repeat(2,1fr);}
+  .g21,.g12{grid-template-columns:1fr;}
+}
+@media(max-width:700px){
+  .container{padding:14px 16px;}
+  .g4,.g3,.g2,.g21,.g12,.g211{grid-template-columns:1fr;}
+  .srow{grid-template-columns:80px 75px 1fr;font-size:0.73rem;}
+  .header{padding:14px 16px;}
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- ══ HEADER ══════════════════════════════════════════════════════════════ -->
+<div class="header">
+  <div class="header-brand">
+    <div class="logo-mark">⚡</div>
+    <div class="brand-text">
+      <h1>WattsUpAI</h1>
+      <div class="tagline">Ettore's Performance Dashboard · Updated 23 Sep 2026</div>
+    </div>
+  </div>
+  <div class="header-right">
+    <span class="badge b-orange badge-pulse">⚡ WattsUpAI: Plateau</span>
+    <span class="badge b-green">HRV Balanced</span>
+    <span class="badge b-violet">VO2max 61</span>
+    <span class="badge b-blue">CTL 803</span>
+    <span class="badge b-orange">Add Mid-Week Intervals</span>
+  </div>
+</div>
+
+<!-- ══ TABS ════════════════════════════════════════════════════════════════ -->
+<div class="nav-tabs">
+  <button class="nav-tab active" onclick="showTab('season')">📊 Season Overview</button>
+  <button class="nav-tab" onclick="showTab('load')">⚡ Training Load</button>
+  <button class="nav-tab" onclick="showTab('recovery')">💤 Recovery & HRV</button>
+  <button class="nav-tab" onclick="showTab('rides')">🗺 Best Rides</button>
+  <button class="nav-tab" onclick="showTab('plan')">📅 4-Week Plan</button>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════════════════
+     TAB 1 — SEASON OVERVIEW
+     ══════════════════════════════════════════════════════════════════════ -->
+<div id="tab-season" class="tab-panel active">
+
+  <!-- ── WATTSUPAI STATUS ENGINE ─────────────────────────────────────── -->
+  <div class="section-label">WattsUpAI Training Status · 23 Sep 2026 · Based on 3-Month Power Analysis</div>
+  <div class="g211" style="margin-bottom:8px;">
+    <div class="card card-accent-orange" style="position:relative;overflow:hidden;">
+      <div style="position:absolute;top:-40px;right:-40px;width:160px;height:160px;border-radius:50%;background:radial-gradient(circle,rgba(249,115,22,0.1) 0%,transparent 70%);pointer-events:none;"></div>
+      <div class="card-title"><span class="ct-dot" style="background:var(--orange)"></span>⚡ WattsUpAI Status</div>
+      <div style="font-size:2rem;font-weight:900;color:var(--orange);letter-spacing:-0.02em;margin-bottom:6px;">Plateau</div>
+      <div style="font-size:0.8rem;color:var(--dim);line-height:1.65;margin-bottom:14px;">
+        3-month power analysis across 48 rides confirms: <strong style="color:var(--text)">Z4 threshold work has happened on just 3 days in 3 months</strong> — Jul 25 Ghisallino (227W/44min), Aug 30 Friuli (205W/35min), Sep 12 Culmine (226W/40min). That's ~120 minutes of Z4 total, ~40 min/month. Everything else is Z2 endurance (~55%) and Z3 tempo (~17%) on climbs. Recovery is excellent (HRV 50ms, RHR 50bpm). Fitness is solid (CTL 803). But without consistent Z4 stimulus, FTP adaptation stalls — confirmed by VO2max drift 62→61 since the holiday block ended.
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:7px;">
+        <span class="badge b-green">✓ CTL 803 — solid base</span>
+        <span class="badge b-green">✓ Z3 ~17% — healthy tempo</span>
+        <span class="badge b-green">✓ HRV balanced 50ms</span>
+        <span class="badge b-green">✓ RHR 50bpm</span>
+        <span class="badge b-orange">⚡ Z4 ~3% — 40 min/month</span>
+        <span class="badge b-orange">⚡ VO2max 62→61 trending down</span>
+        <span class="badge b-red">✗ No structured threshold sessions</span>
+      </div>
+    </div>
+
+    <div class="card card-accent-blue">
+      <div class="card-title"><span class="ct-dot"></span>3-Month Zone Distribution</div>
+      <div style="font-size:0.72rem;color:var(--muted);font-weight:600;letter-spacing:0.04em;text-transform:uppercase;margin-bottom:10px;">Power-verified across 48 rides</div>
+      <div class="zone-row">
+        <div class="zone-name" style="width:60px;font-size:0.72rem;">Z1</div>
+        <div class="zone-bg"><div class="zone-fill" style="width:25%;background:rgba(100,116,139,0.5)"></div></div>
+        <div class="zone-pct" style="color:var(--muted)">~25%</div>
+      </div>
+      <div class="zone-row">
+        <div class="zone-name" style="width:60px;font-size:0.72rem;">Z2 ✓</div>
+        <div class="zone-bg"><div class="zone-fill" style="width:55%;background:linear-gradient(90deg,#22c55e,#10b981)"></div></div>
+        <div class="zone-pct" style="color:var(--green)">~55%</div>
+      </div>
+      <div class="zone-row">
+        <div class="zone-name" style="width:60px;font-size:0.72rem;">Z3 ✓</div>
+        <div class="zone-bg"><div class="zone-fill" style="width:17%;background:linear-gradient(90deg,#3b82f6,#6366f1)"></div></div>
+        <div class="zone-pct" style="color:var(--blue)">~17%</div>
+      </div>
+      <div class="zone-row">
+        <div class="zone-name" style="width:60px;font-size:0.72rem;color:var(--red)">Z4 ⚠</div>
+        <div class="zone-bg"><div class="zone-fill" style="width:3%;background:linear-gradient(90deg,#ef4444,#dc2626)"></div></div>
+        <div class="zone-pct" style="color:var(--red)">~3%</div>
+      </div>
+      <div class="zone-row">
+        <div class="zone-name" style="width:60px;font-size:0.72rem;">Z5</div>
+        <div class="zone-bg"><div class="zone-fill" style="width:1%;background:linear-gradient(90deg,#f97316,#ea580c)"></div></div>
+        <div class="zone-pct" style="color:var(--orange)">&lt;1%</div>
+      </div>
+      <div style="margin-top:10px;padding-top:10px;border-top:1px solid var(--border);font-size:0.7rem;color:var(--muted);">
+        Target for FTP protection: Z4 ≥15%. Current: ~3%. Gap = 12 percentage points.
+      </div>
+      <div class="insight warn" style="margin-top:8px;font-size:0.72rem;">
+        <strong>Only 3 Z4 sessions in 3 months:</strong> Jul 25 Ghisallino, Aug 30 Friuli, Sep 12 Culmine. All terrain-driven, all on the power meter bike. Zero structured Z4 intervals on weekdays.
+      </div>
+    </div>
+
+    <div class="card card-accent-green">
+      <div class="card-title"><span class="ct-dot" style="background:var(--green)"></span>WattsUpAI Status Scale</div>
+      <div style="display:flex;flex-direction:column;gap:8px;margin-top:4px;font-size:0.76rem;">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <span style="width:10px;height:10px;border-radius:50%;background:var(--green);flex-shrink:0;display:inline-block;"></span>
+          <div><strong style="color:var(--text)">Peaking</strong> <span style="color:var(--muted)">— CTL high, fresh, quality work landing</span></div>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;">
+          <span style="width:10px;height:10px;border-radius:50%;background:#4ade80;flex-shrink:0;display:inline-block;"></span>
+          <div><strong style="color:var(--text)">Building</strong> <span style="color:var(--muted)">— fitness trend positive, Z4 consistent</span></div>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;">
+          <span style="width:10px;height:10px;border-radius:50%;background:var(--blue);flex-shrink:0;display:inline-block;"></span>
+          <div><strong style="color:var(--text)">Maintaining</strong> <span style="color:var(--muted)">— load stable, no regression or progression</span></div>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;opacity:0.9">
+          <span style="width:10px;height:10px;border-radius:50%;background:var(--orange);flex-shrink:0;display:inline-block;box-shadow:0 0 6px rgba(249,115,22,0.5);"></span>
+          <div><strong style="color:var(--orange)">Plateau ← Ettore today</strong> <span style="color:var(--muted)">— fit, Z2/Z3 solid, Z4 absent</span></div>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;">
+          <span style="width:10px;height:10px;border-radius:50%;background:var(--amber);flex-shrink:0;display:inline-block;"></span>
+          <div><strong style="color:var(--text)">Recovering</strong> <span style="color:var(--muted)">— intentional rest, load reduced</span></div>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;">
+          <span style="width:10px;height:10px;border-radius:50%;background:var(--red);flex-shrink:0;display:inline-block;"></span>
+          <div><strong style="color:var(--text)">Overreaching</strong> <span style="color:var(--muted)">— HRV suppressed, RHR elevated</span></div>
+        </div>
+      </div>
+      <div class="insight good" style="margin-top:12px;font-size:0.72rem;">
+        <strong>To flip Plateau → Building:</strong> 2× structured Z4 sessions/week for 2 weeks. That's all it takes given the fitness and recovery base already in place.
+      </div>
+    </div>
+  </div>
+
+  <div class="section-label">12-Month Summary</div>
+  <div class="g4">
+    <div class="card card-accent-blue">
+      <div class="card-title"><span class="ct-dot"></span>Total Rides</div>
+      <div class="kpi-val">186</div>
+      <div class="kpi-label">Sep 2025 – Sep 2026</div>
+      <div class="kpi-delta up">↑ ~3.6 rides/week avg</div>
+    </div>
+    <div class="card card-accent-violet">
+      <div class="card-title"><span class="ct-dot" style="background:var(--violet)"></span>Total Distance</div>
+      <div class="kpi-val">10,387<span class="kpi-unit">km</span></div>
+      <div class="kpi-label">12-month total (exact)</div>
+      <div class="kpi-delta up">↑ 866 km/month avg</div>
+    </div>
+    <div class="card card-accent-green">
+      <div class="card-title"><span class="ct-dot" style="background:var(--green)"></span>Season Peak VO2max</div>
+      <div class="kpi-val">62<span class="kpi-unit">ml/kg/min</span></div>
+      <div class="kpi-label">Reached Aug 19–Sep 1</div>
+      <div class="kpi-delta flat">→ Currently 61 · Floor: 60 · Target: hold 61–62</div>
+    </div>
+    <div class="card card-accent-orange">
+      <div class="card-title"><span class="ct-dot" style="background:var(--orange)"></span>Peak CTL</div>
+      <div class="kpi-val">843</div>
+      <div class="kpi-label">Aug 30 — season high</div>
+      <div class="kpi-delta down">↓ Now 803 (−40 from peak)</div>
+    </div>
+  </div>
+
+  <div class="section-label">Monthly Volume Trend</div>
+  <div class="g21">
+    <div class="card card-accent-blue">
+      <div class="card-title"><span class="ct-dot"></span>Monthly Distance & Elevation — Oct 2025→Sep 2026</div>
+      <div style="height:220px;position:relative">
+        <canvas id="monthlyChart"></canvas>
+      </div>
+      <div class="insight">
+        <strong>Winter (Oct–Mar):</strong> Mostly indoor trainer — consistent Z2+intervals, CTL building steadily. <strong>Spring (Apr–May):</strong> Transition outdoors, mix of indoor/outdoor, volume growing. <strong>Summer (Jun–Sep):</strong> Full outdoor mode — Cortina Dolomites (Jul) and Friuli holiday block (Aug) are the season's quality peaks.
+      </div>
+    </div>
+
+    <div class="card card-accent-green">
+      <div class="card-title"><span class="ct-dot" style="background:var(--green)"></span>Season Milestones</div>
+      <div class="milestones">
+        <div class="ms-item">
+          <div class="ms-dot" style="background:rgba(59,130,246,0.2);color:var(--blue)">⬛</div>
+          <div class="ms-body"><div class="ms-date">Oct–Mar 2026</div><div class="ms-title">Indoor Base Block</div><div class="ms-val">~83 sessions, consistent Z2+Z3+Z4 intervals 3-4x/week</div></div>
+        </div>
+        <div class="ms-item">
+          <div class="ms-dot" style="background:rgba(34,197,94,0.2);color:var(--green)">🌱</div>
+          <div class="ms-body"><div class="ms-date">Apr 11</div><div class="ms-title">Giro del Lago di Como</div><div class="ms-val">150km · 1,171m · First big outdoor ride of spring</div></div>
+        </div>
+        <div class="ms-item">
+          <div class="ms-dot" style="background:rgba(139,92,246,0.2);color:var(--violet)">🏔</div>
+          <div class="ms-body"><div class="ms-date">May 23</div><div class="ms-title">Tre Laghi</div><div class="ms-val">143km · 1,693m — season's longest at the time</div></div>
+        </div>
+        <div class="ms-item">
+          <div class="ms-dot" style="background:rgba(249,115,22,0.2);color:var(--orange)">⛰</div>
+          <div class="ms-body"><div class="ms-date">Jun 27</div><div class="ms-title">Cortina Dolomites Block</div><div class="ms-val">Falzarego·Gardena·Sella·Pordoi·Giau — 119km/3,297m</div></div>
+        </div>
+        <div class="ms-item">
+          <div class="ms-dot" style="background:rgba(239,68,68,0.2);color:var(--red)">🔥</div>
+          <div class="ms-body"><div class="ms-date">Aug 9</div><div class="ms-title">Season Best Effort</div><div class="ms-val">130km · 3,812m · VO2max → 62 · Falzarego+Gardena+Sella+Pordoi+Giau</div></div>
+        </div>
+        <div class="ms-item">
+          <div class="ms-dot" style="background:rgba(249,115,22,0.2);color:var(--amber)">🎯</div>
+          <div class="ms-body"><div class="ms-date">Sep 19</div><div class="ms-title">Tre Valli Varesine</div><div class="ms-val">127km · 2,086m · avg 139bpm · max 180bpm</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-label">Season Analysis</div>
+  <div class="g3">
+    <div class="card card-accent-green">
+      <div class="card-title"><span class="ct-dot" style="background:var(--green)"></span>Strengths</div>
+      <ul class="alist">
+        <li><span class="ico">✅</span><div><strong>Elite consistency:</strong> 186 rides in 12 months. Never dropped below 2 rides/week even in winter.</div></li>
+        <li><span class="ico">✅</span><div><strong>Structured winter:</strong> Oct–May indoor block with Z2+Z3+Z4 intervals built CTL from ~550 to 800+.</div></li>
+        <li><span class="ico">✅</span><div><strong>Big mountain days:</strong> Multiple 3,000m+ gain rides, including two 3,800m days. Excellent climbing endurance.</div></li>
+        <li><span class="ico">✅</span><div><strong>VO2max 62:</strong> Strong for a non-professional. Puts you in top 10% for age group.</div></li>
+        <li><span class="ico">✅</span><div><strong>Resilient recovery:</strong> RHR 50, HRV stable, respiration flat. No overtraining signals in 12 months.</div></li>
+      </ul>
+    </div>
+    <div class="card card-accent-orange">
+      <div class="card-title"><span class="ct-dot" style="background:var(--orange)"></span>Current Gaps</div>
+      <ul class="alist">
+        <li><span class="ico">⚠️</span><div><strong>Z4 on only 3 days in 3 months:</strong> Jul 25 Ghisallino (227W, 44min), Aug 30 Friuli (205W, 35min), Sep 12 Culmine (226W, 40min). ~40 min/month. All terrain-driven. Zero structured Z4 intervals anywhere.</div></li>
+        <li><span class="ico">⚠️</span><div><strong>Cortina and Friuli holiday blocks were Z2–Z3:</strong> Even the Aug 9 mega-day (130km/3,812m) stayed 170–196W — all Z2–Z3. Volume was huge, intensity wasn't. The UNPRODUCTIVE flag in late July confirmed this dynamic after the first Cortina block ended.</div></li>
+        <li><span class="ico">⚠️</span><div><strong>Weekday rides: Z2, occasionally Z3:</strong> Sep data confirms max 8–16 min incidental Z3 per flat weekday ride. Never Z4. No power meter makes verification impossible — only end-of-interval HR available as quality check.</div></li>
+        <li><span class="ico">⚠️</span><div><strong>FTP drift already happening:</strong> VO2max 62→61 since Aug 23 peak. Without regular Z4 sessions the body has no reason to maintain threshold adaptations heading into winter.</div></li>
+      </ul>
+    </div>
+    <div class="card card-accent-violet">
+      <div class="card-title"><span class="ct-dot" style="background:var(--violet)"></span>Opportunities</div>
+      <ul class="alist">
+        <li><span class="ico">🚀</span><div><strong>Fast reversal:</strong> 2 quality sessions/week will likely flip Garmin back to Productive within 10–14 days.</div></li>
+        <li><span class="ico">🚀</span><div><strong>Short climbs are ideal FTP builders:</strong> 15–20 min ascents at Z4 are actually <em>more controllable</em> than 45-min mountain grinds — easier to hit the right intensity, easier to chain multiple efforts per ride to accumulate quality load.</div></li>
+        <li><span class="ico">🚀</span><div><strong>Recovery margin is excellent:</strong> HRV balanced, RHR 50, stress low. You can absorb increased intensity right now without overreaching risk.</div></li>
+        <li><span class="ico">🚀</span><div><strong>VO2max floor 60 is achievable:</strong> With consistent Tue/Thu intervals + hard Saturday hills through Oct/Nov, holding 61–62 through winter is realistic. The base (CTL 800+) is already there.</div></li>
+        <li><span class="ico">🚀</span><div><strong>Better winter start point:</strong> If FTP holds through autumn, the Dec–Mar indoor block starts from a higher floor than last year — compounding year-over-year fitness.</div></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section-label">Training Balance Gap</div>
+  <div class="card card-accent-orange" style="max-width:620px;">
+    <div class="card-title"><span class="ct-dot" style="background:var(--orange)"></span>Zone Distribution — 3-Month Power Analysis (Jun–Sep 2026)</div>
+    <div class="zone-row" style="margin-top:8px;">
+      <div class="zone-name">Z1 Recovery</div>
+      <div class="zone-bg"><div class="zone-fill" style="width:25%;background:rgba(100,116,139,0.5)"></div></div>
+      <div class="zone-pct" style="color:var(--muted)">~25%</div>
+    </div>
+    <div class="zone-row">
+      <div class="zone-name">Z2 Endurance ✓</div>
+      <div class="zone-bg"><div class="zone-fill" style="width:55%;background:linear-gradient(90deg,#22c55e,#10b981)"></div></div>
+      <div class="zone-pct" style="color:var(--green)">~55%</div>
+    </div>
+    <div class="zone-row">
+      <div class="zone-name">Z3 Tempo ✓</div>
+      <div class="zone-bg"><div class="zone-fill" style="width:17%;background:linear-gradient(90deg,#3b82f6,#6366f1)"></div></div>
+      <div class="zone-pct" style="color:var(--blue)">~17%</div>
+    </div>
+    <div class="zone-row">
+      <div class="zone-name" style="color:var(--red)">Z4 Threshold ⚠</div>
+      <div class="zone-bg"><div class="zone-fill" style="width:3%;background:linear-gradient(90deg,#ef4444,#dc2626)"></div></div>
+      <div class="zone-pct" style="color:var(--red)">~3%</div>
+    </div>
+    <div class="zone-row">
+      <div class="zone-name">Z5 VO2max</div>
+      <div class="zone-bg"><div class="zone-fill" style="width:1%;background:linear-gradient(90deg,#f97316,#ea580c)"></div></div>
+      <div class="zone-pct" style="color:var(--orange)">&lt;1%</div>
+    </div>
+    <div style="margin-top:10px;padding-top:10px;border-top:1px solid var(--border);font-size:0.72rem;color:var(--muted);">
+      Z4 sessions identified: Jul 25 Ghisallino (227W, 44min) · Aug 30 Friuli (205W, 35min) · Sep 12 Culmine (226W, 40min) = ~120 min total in 3 months. Target: ≥15% Z4 = ~3–4 structured sessions/week.
+    </div>
+  </div>
+
+</div>
+
+<!-- ══════════════════════════════════════════════════════════════════════
+     TAB 3 — TRAINING LOAD
+     ══════════════════════════════════════════════════════════════════════ -->
+<div id="tab-load" class="tab-panel">
+
+  <div class="section-label">Performance Management Chart — Jun 26 → Sep 23, 2026 (90 days)</div>
+  <div class="card card-accent-blue">
+    <div class="card-title"><span class="ct-dot"></span>CTL · ATL · TSB · VO2max</div>
+    <div style="height:280px;position:relative;">
+      <canvas id="pmcChart"></canvas>
+    </div>
+    <div class="g3" style="margin-top:14px;gap:10px;">
+      <div class="insight" style="margin-top:0;">
+        <strong>Jun 26–Jul 16:</strong> Cortina Dolomites holiday. Big rides, CTL building fast from ~748→800+. PRODUCTIVE status.
+      </div>
+      <div class="insight warn" style="margin-top:0;">
+        <strong>Jul 17–30:</strong> Brief taper/transition. TSB spiked to +275 — RECOVERY status. CTL dipped to 673. VO2max reading dropped to 55 (transition artefact).
+      </div>
+      <div class="insight" style="margin-top:0;">
+        <strong>Aug 3–Sep 1:</strong> Friuli holiday. CTL surged from 700→843 (season high). VO2max climbed 57→62. PRODUCTIVE throughout.
+      </div>
+    </div>
+    <div class="insight warn" style="margin-top:10px;">
+      <strong>Sep 16→today:</strong> UNPRODUCTIVE. CTL 843→803, VO2max stuck at 61. TSB oscillates near 0. Volume is there but zero intensity stimulus.
+    </div>
+  </div>
+
+  <div class="section-label">Status Timeline</div>
+  <div class="card card-accent-violet">
+    <div class="card-title"><span class="ct-dot" style="background:var(--violet)"></span>Training Status by Week — Jun→Sep 2026</div>
+    <div style="height:160px;position:relative;">
+      <canvas id="statusChart"></canvas>
+    </div>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:12px;font-size:0.7rem;">
+      <span style="display:flex;align-items:center;gap:5px;color:var(--green)"><span style="width:10px;height:10px;border-radius:2px;background:rgba(34,197,94,0.7);display:inline-block"></span>Productive</span>
+      <span style="display:flex;align-items:center;gap:5px;color:var(--blue)"><span style="width:10px;height:10px;border-radius:2px;background:rgba(59,130,246,0.7);display:inline-block"></span>Maintaining</span>
+      <span style="display:flex;align-items:center;gap:5px;color:var(--amber)"><span style="width:10px;height:10px;border-radius:2px;background:rgba(245,158,11,0.7);display:inline-block"></span>Recovery</span>
+      <span style="display:flex;align-items:center;gap:5px;color:var(--red)"><span style="width:10px;height:10px;border-radius:2px;background:rgba(239,68,68,0.7);display:inline-block"></span>Unproductive</span>
+    </div>
+  </div>
+
+  <div class="g2" style="margin-top:16px;">
+    <div class="card card-accent-blue">
+      <div class="card-title"><span class="ct-dot"></span>VO2max Trend — Jun→Sep 2026</div>
+      <div style="height:180px;position:relative;">
+        <canvas id="vo2Chart"></canvas>
+      </div>
+      <div class="insight">
+        Peak <strong>62</strong> reached Aug 19, maintained through Aug–Sep 1 holiday block. Slipped to 61 in September as intensity dropped. Target: recover to 62+ by end of October with the quality plan.
+      </div>
+    </div>
+    <div class="card card-accent-green">
+      <div class="card-title"><span class="ct-dot" style="background:var(--green)"></span>Current Load Snapshot</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:4px;">
+        <div>
+          <div class="kpi-val" style="font-size:2rem;">803</div>
+          <div class="kpi-label">CTL — Chronic load (42d)</div>
+          <div class="kpi-delta flat">→ Flat, was 843 peak</div>
+        </div>
+        <div>
+          <div class="kpi-val" style="font-size:2rem;">810</div>
+          <div class="kpi-label">ATL — Acute load (7d)</div>
+          <div class="kpi-delta flat">→ Slightly above CTL</div>
+        </div>
+        <div>
+          <div class="kpi-val" style="font-size:2rem;">−7</div>
+          <div class="kpi-label">TSB — Form/Freshness</div>
+          <div class="kpi-delta flat">→ Neutral (target: +50 W4)</div>
+        </div>
+        <div>
+          <div class="kpi-val" style="font-size:2rem;">1.0</div>
+          <div class="kpi-label">ACWR — Workload ratio</div>
+          <div class="kpi-delta up">✓ Optimal (0.8–1.3)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ══════════════════════════════════════════════════════════════════════
+     TAB 4 — RECOVERY & HRV
+     ══════════════════════════════════════════════════════════════════════ -->
+<div id="tab-recovery" class="tab-panel">
+
+  <div class="section-label">HRV Trend — Aug 25 → Sep 23 (30 days)</div>
+  <div class="g21">
+    <div class="card card-accent-violet">
+      <div class="card-title"><span class="ct-dot" style="background:var(--violet)"></span>Heart Rate Variability — Nightly vs 7-Day Avg</div>
+      <div style="height:220px;position:relative;">
+        <canvas id="hrvChart"></canvas>
+      </div>
+      <div class="insight warn" style="margin-top:12px;">
+        <strong>Aug 29–Sep 1:</strong> Four consecutive UNBALANCED days (43–48ms) after the intense Friuli holiday block. Normal post-block suppression — resolved by Sep 2.
+      </div>
+      <div class="insight good" style="margin-top:8px;">
+        <strong>Sep 2–23:</strong> Solidly balanced, weekly avg rising from 45→54ms mid-month, then settling at 50ms. No suppression. Clear to add intensity.
+      </div>
+    </div>
+
+    <div class="card card-accent-green">
+      <div class="card-title"><span class="ct-dot" style="background:var(--green)"></span>30-Day HRV Status Grid</div>
+      <div class="hrv-grid" id="hrvGrid30"></div>
+      <div style="display:flex;gap:12px;margin-top:12px;font-size:0.7rem;">
+        <span style="display:flex;align-items:center;gap:5px;color:var(--green)"><span style="width:10px;height:10px;border-radius:2px;background:rgba(34,197,94,0.5);display:inline-block"></span>Balanced</span>
+        <span style="display:flex;align-items:center;gap:5px;color:var(--orange)"><span style="width:10px;height:10px;border-radius:2px;background:rgba(249,115,22,0.5);display:inline-block"></span>Unbalanced</span>
+      </div>
+      <div style="margin-top:14px;">
+        <div style="font-size:0.72rem;color:var(--muted);margin-bottom:8px;font-weight:600;letter-spacing:0.04em;">PERIOD STATS</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+          <div><div style="font-size:1.3rem;font-weight:800;color:var(--text);">49.8<span style="font-size:0.75rem;color:var(--muted)">ms</span></div><div class="kpi-label">30-day avg HRV</div></div>
+          <div><div style="font-size:1.3rem;font-weight:800;color:var(--text);">50<span style="font-size:0.75rem;color:var(--muted)">ms</span></div><div class="kpi-label">Current 7-day avg</div></div>
+          <div><div style="font-size:1.3rem;font-weight:800;color:var(--green);">26/30</div><div class="kpi-label">Balanced nights</div></div>
+          <div><div style="font-size:1.3rem;font-weight:800;color:var(--orange);">4/30</div><div class="kpi-label">Unbalanced nights</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-label">Respiration & Recovery Signals</div>
+  <div class="g3">
+    <div class="card card-accent-blue">
+      <div class="card-title"><span class="ct-dot"></span>Sleep Respiration — Sep 2–23</div>
+      <div style="height:160px;position:relative;">
+        <canvas id="respChart"></canvas>
+      </div>
+      <div class="insight good" style="margin-top:10px;">
+        Flat 13–14 br/min throughout. Period avg <strong>13.5</strong>. No elevation = no illness or overtraining signal. A rise above 16–17 would be the first warning sign.
+      </div>
+    </div>
+    <div class="card card-accent-orange">
+      <div class="card-title"><span class="ct-dot" style="background:var(--orange)"></span>Recovery Interpretation</div>
+      <ul class="alist" style="margin-top:4px;">
+        <li><span class="ico">🟢</span><div><strong>HRV:</strong> Stable 50ms weekly avg. No downward trend. Clear for intensity.</div></li>
+        <li><span class="ico">🟢</span><div><strong>Respiration:</strong> 13–14 br/min. Textbook baseline. No stress response.</div></li>
+        <li><span class="ico">🟢</span><div><strong>Resting HR:</strong> 50 bpm, down 2 from 7-day avg. Good overnight recovery.</div></li>
+        <li><span class="ico">🟢</span><div><strong>Body battery:</strong> Woke at 99, currently 72. Full overnight charge.</div></li>
+        <li><span class="ico">🟡</span><div><strong>TSB −7:</strong> Slightly fatigued but within normal range. Not a concern.</div></li>
+        <li><span class="ico">🔴</span><div><strong>Training status:</strong> Unproductive — the only red flag, and it's about quality not recovery.</div></li>
+      </ul>
+    </div>
+    <div class="card card-accent-green">
+      <div class="card-title"><span class="ct-dot" style="background:var(--green)"></span>HRV Action Rules</div>
+      <ul class="alist" style="margin-top:4px;">
+        <li><span class="ico">📊</span><div><strong>Weekly avg &gt;50ms:</strong> Full training as planned. Green light.</div></li>
+        <li><span class="ico">⚠️</span><div><strong>Weekly avg 45–50ms:</strong> Proceed but soften the harder Thursday session (replace intervals with tempo).</div></li>
+        <li><span class="ico">🔴</span><div><strong>Weekly avg &lt;45ms:</strong> Replace any quality session with Z2. Investigate sleep/stress/illness.</div></li>
+        <li><span class="ico">📉</span><div><strong>Drop &gt;10ms in 2 days:</strong> Rest day, regardless of plan. Non-negotiable.</div></li>
+        <li><span class="ico">✅</span><div><strong>Current status:</strong> 50ms — full green light as of today.</div></li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+<!-- ══════════════════════════════════════════════════════════════════════
+     TAB 5 — BEST RIDES
+     ══════════════════════════════════════════════════════════════════════ -->
+<div id="tab-rides" class="tab-panel">
+
+  <div class="section-label">Top 10 Rides by Elevation — 12 Months</div>
+  <div class="g2">
+    <div class="card card-accent-violet">
+      <div class="card-title"><span class="ct-dot" style="background:var(--violet)"></span>Biggest Climbing Days</div>
+      <div class="ride-list">
+        <div class="ride-item">
+          <div><div class="ride-name">🏔 Falzarego·Gardena·Sella·Pordoi·Giau</div><div class="ride-meta">Aug 9, 2026 · Cortina · 7h02m</div></div>
+          <div class="ride-dist">130km</div>
+          <div class="ride-elev">⬆ 3,812m</div>
+        </div>
+        <div class="ride-item">
+          <div><div class="ride-name">🏔 Valparola·Gardena·Campolongo·Falzarego</div><div class="ride-meta">Jul 31 · Cortina · 5h27m</div></div>
+          <div class="ride-dist">105km</div>
+          <div class="ride-elev">⬆ 2,837m</div>
+        </div>
+        <div class="ride-item">
+          <div><div class="ride-name">🏔 Giau·Valparola·Tre Croci·Cimabanche</div><div class="ride-meta">Aug 3 · Cortina · 5h14m</div></div>
+          <div class="ride-dist">100km</div>
+          <div class="ride-elev">⬆ 2,655m</div>
+        </div>
+        <div class="ride-item">
+          <div><div class="ride-name">🏔 Giau·Falzarego·Tre Croci·Cimabanche</div><div class="ride-meta">Jul 12 · Cortina · 5h46m</div></div>
+          <div class="ride-dist">106km</div>
+          <div class="ride-elev">⬆ 2,910m</div>
+        </div>
+        <div class="ride-item">
+          <div><div class="ride-name">🏔 Falzarego·Campolongo·Valparola</div><div class="ride-meta">Aug 13 · Cortina · 4h27m</div></div>
+          <div class="ride-dist">87km</div>
+          <div class="ride-elev">⬆ 2,289m</div>
+        </div>
+        <div class="ride-item">
+          <div><div class="ride-name">🏔 Tre Valli Varesine</div><div class="ride-meta">Sep 19 · Varese · 5h14m</div></div>
+          <div class="ride-dist">127km</div>
+          <div class="ride-elev">⬆ 2,086m</div>
+        </div>
+        <div class="ride-item">
+          <div><div class="ride-name">🏔 Mottarone – Sovazza</div><div class="ride-meta">Jun 14 · Lago Maggiore · 5h05m</div></div>
+          <div class="ride-dist">106km</div>
+          <div class="ride-elev">⬆ 2,001m</div>
+        </div>
+        <div class="ride-item">
+          <div><div class="ride-name">🏔 Cimabanche·Monte Croce·S.Antonio·Tre Croci</div><div class="ride-meta">Aug 6 · Cortina · 4h38m</div></div>
+          <div class="ride-dist">109km</div>
+          <div class="ride-elev">⬆ 2,003m</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card card-accent-blue">
+      <div class="card-title"><span class="ct-dot"></span>Longest Rides</div>
+      <div class="ride-list">
+        <div class="ride-item">
+          <div><div class="ride-name">🏆 Tre Laghi</div><div class="ride-meta">May 23 · 5h54m · avg 137bpm</div></div>
+          <div class="ride-dist">143km</div>
+          <div class="ride-elev">⬆ 1,693m</div>
+        </div>
+        <div class="ride-item">
+          <div><div class="ride-name">🏆 Milano – Sesto Calende</div><div class="ride-meta">May 17 · 4h51m · avg 143bpm</div></div>
+          <div class="ride-dist">142km</div>
+          <div class="ride-elev">⬆ 532m</div>
+        </div>
+        <div class="ride-item">
+          <div><div class="ride-name">🏆 Giro del Lago di Como</div><div class="ride-meta">Apr 11 · 5h27m · avg 144bpm</div></div>
+          <div class="ride-dist">150km</div>
+          <div class="ride-elev">⬆ 1,171m</div>
+        </div>
+        <div class="ride-item">
+          <div><div class="ride-name">🏆 Falzarego·Valparola·Sella·Pordoi (Jun)</div><div class="ride-meta">Jun 27 · 6h34m · avg 139bpm</div></div>
+          <div class="ride-dist">119km</div>
+          <div class="ride-elev">⬆ 3,297m</div>
+        </div>
+        <div class="ride-item">
+          <div><div class="ride-name">🏆 Como – Balcone – Lugano</div><div class="ride-meta">Jul 19 · 4h56m · avg 136bpm</div></div>
+          <div class="ride-dist">111km</div>
+          <div class="ride-elev">⬆ 1,806m</div>
+        </div>
+        <div class="ride-item">
+          <div><div class="ride-name">🏆 Milano–Pavia–Vigevano</div><div class="ride-meta">Apr 25 · 3h45m · avg 142bpm</div></div>
+          <div class="ride-dist">111km</div>
+          <div class="ride-elev">⬆ 201m</div>
+        </div>
+        <div class="ride-item">
+          <div><div class="ride-name">🏆 Ara–Tanamea–Caporetto–Cividale</div><div class="ride-meta">Aug 19 · 3h53m · avg 139bpm</div></div>
+          <div class="ride-dist">107km</div>
+          <div class="ride-elev">⬆ 1,249m</div>
+        </div>
+        <div class="ride-item">
+          <div><div class="ride-name">🏆 Milano–Pavia–Ticino–Robecco</div><div class="ride-meta">Nov 8 2025 · 4h21m · avg 143bpm</div></div>
+          <div class="ride-dist">121km</div>
+          <div class="ride-elev">⬆ 292m</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-label">Favourite Routes Recognised</div>
+  <div class="g3">
+    <div class="card">
+      <div class="card-title"><span class="ct-dot" style="background:var(--blue)"></span>Daily Base Route</div>
+      <div style="font-size:1rem;font-weight:700;margin-bottom:8px;">Milano – Abbiategrasso</div>
+      <div style="font-size:0.78rem;color:var(--dim);line-height:1.6;">~40km flat loop. Avg 145–150bpm. Your standard weekday session — appears 20+ times in the data. Used for active recovery and easy base building.</div>
+      <div class="kpi-delta flat" style="margin-top:8px;">~75 min · 850 kcal</div>
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="ct-dot" style="background:var(--orange)"></span>Classic Quality Climb</div>
+      <div style="font-size:1rem;font-weight:700;margin-bottom:8px;">Como – Nesso – Ghisallino Power</div>
+      <div style="font-size:0.78rem;color:var(--dim);line-height:1.6;">~94km · 1,900m gain. Appears 3× this season. Ghisallino climb is steep (avg 8%). You push hard here — avg 137–145bpm, max 177–180bpm.</div>
+      <div class="kpi-delta up" style="margin-top:8px;">Perfect Z4 climb candidate</div>
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="ct-dot" style="background:var(--violet)"></span>Weekend Long</div>
+      <div style="font-size:1rem;font-weight:700;margin-bottom:8px;">Milano – Tornavento</div>
+      <div style="font-size:0.78rem;color:var(--dim);line-height:1.6;">~101–104km flat. Avg 143bpm. Used as Sunday endurance base ride. Consistent pace, good volume. Appears 4+ times in the data.</div>
+      <div class="kpi-delta flat" style="margin-top:8px;">~3h · 1,800–2,100 kcal</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ══════════════════════════════════════════════════════════════════════
+     TAB 6 — 4-WEEK PLAN
+     ══════════════════════════════════════════════════════════════════════ -->
+<div id="tab-plan" class="tab-panel">
+
+  <div class="section-label">Overview</div>
+  <div class="g4">
+    <div class="card card-accent-blue">
+      <div class="card-title"><span class="ct-dot"></span>Goal</div>
+      <div style="font-size:0.88rem;font-weight:700;color:var(--text);margin-bottom:6px;">Hold / Grow FTP Before Winter</div>
+      <div style="font-size:0.78rem;color:var(--dim);line-height:1.6;">Add structured threshold intervals on Tue/Thu to complement Saturday's climbing quality. Target: FTP maintained or improved, VO2max back to 62+, Productive status restored by end of W2.</div>
+    </div>
+    <div class="card card-accent-green">
+      <div class="card-title"><span class="ct-dot" style="background:var(--green)"></span>Schedule</div>
+      <div style="font-size:0.78rem;color:var(--dim);line-height:1.7;">
+        <strong style="color:var(--text)">Tue</strong> — Quality weekday<br>
+        <strong style="color:var(--text)">Thu</strong> — Quality weekday<br>
+        <strong style="color:var(--text)">Sat</strong> — Long + hard<br>
+        <strong style="color:var(--text)">Sun</strong> — Long + easy Z2
+      </div>
+    </div>
+    <div class="card card-accent-orange">
+      <div class="card-title"><span class="ct-dot" style="background:var(--orange)"></span>HR Zones (Ettore)</div>
+      <div style="font-size:0.75rem;color:var(--dim);line-height:1.8;">
+        Z2 endurance: <strong style="color:var(--text)">130–154bpm · 140–175W</strong><br>
+        Z3 tempo: <strong style="color:var(--text)">155–165bpm · 176–200W</strong><br>
+        Z4 threshold: <strong style="color:var(--text)">166–179bpm · 201–230W</strong><br>
+        Z5 VO2max: <strong style="color:var(--text)">179+bpm · 231W+</strong>
+      </div>
+      <div style="font-size:0.68rem;color:var(--muted);margin-top:6px;">HR zones per your settings: Z1 100–129 · Z2 130–154 · Z3 155–165 · Z4 166–179 · Z5 179+. Power zones derived from sustained climbing lap data (estimated FTP ~215–225W).</div>
+      <div class="insight warn" style="margin-top:10px;">
+        <strong>Two-bike setup:</strong> Weekday bike has no power meter — use RPE + end-of-interval HR. Weekend climbing bike has power — use watts as primary target on Sat climbs. Don't penalise a weekday session because HR didn't respond fast enough <em>during</em> the effort; cardiac lag on short intervals is normal.
+      </div>
+    </div>
+    <div class="card card-accent-violet">
+      <div class="card-title"><span class="ct-dot" style="background:var(--violet)"></span>Weekly Load Forecast</div>
+      <div style="height:80px;position:relative;margin-top:4px;">
+        <canvas id="weekLoadMini"></canvas>
+      </div>
+      <div style="font-size:0.7rem;color:var(--muted);margin-top:6px;display:flex;justify-content:space-between;">
+        <span>W1: 9.5h</span><span>W2: 11h</span><span>W3: 12.5h</span><span style="color:var(--green)">W4: 7h</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-label">Session-by-Session Plan</div>
+
+  <div class="week-block">
+    <div class="week-hdr">
+      <div class="week-title">Week 1 <span class="week-sub">Sep 25–28 · Reintroduce Structure</span></div>
+      <span class="week-tag wt-build">Build</span>
+    </div>
+    <div class="srow">
+      <div class="sday">Thu Sep 25</div>
+      <div><span class="stype st-tempo">Tempo</span></div>
+      <div class="sdesc"><strong>85 min, no power meter.</strong> 20 min Z2 warm-up → 3×10 min Z3 tempo efforts with 5 min easy between → Z2 cool-down. <em>HR will lag on short efforts</em> — don't judge during the interval. RPE 7–8/10. Check HR at the end of each interval: it should land 155–163bpm (Z3) by the last 2 min. If it stays below 155, push harder next rep.</div>
+    </div>
+    <div class="srow">
+      <div class="sday">Sat Sep 27</div>
+      <div><span class="stype st-big">Hard Ride</span></div>
+      <div class="sdesc"><strong>3–3.5h · target 800–1,000m climbing.</strong> Aim for 3–4 climbs of 15–20 min each. Push every ascent at Z4: 200–225W, end-of-climb HR 159–168bpm. Not a sightseeing pace — treat each climb as a threshold interval. Descents and flats easy Z2 (below 175W / 145bpm).</div>
+    </div>
+    <div class="srow">
+      <div class="sday">Sun Sep 28</div>
+      <div><span class="stype st-easy">Easy Z2</span></div>
+      <div class="sdesc"><strong>2.5–3h, 80–90km, flat.</strong> Milano-Tornavento or similar. Strict ≤145bpm cap. If HR creeps up on headwinds, slow down — this session is active recovery, not training.</div>
+    </div>
+  </div>
+
+  <div class="week-block">
+    <div class="week-hdr">
+      <div class="week-title">Week 2 <span class="week-sub">Sep 30–Oct 5 · Build Threshold Work</span></div>
+      <span class="week-tag wt-build">Build+</span>
+    </div>
+    <div class="srow">
+      <div class="sday">Tue Sep 30</div>
+      <div><span class="stype st-tempo">Tempo</span></div>
+      <div class="sdesc"><strong>90 min, no power meter.</strong> 2×15 min Z3–Z4 efforts with 8 min easy between. RPE 7.5–8.5/10. By the last 3–4 min of each interval HR should reach 160–168bpm (Z3–Z4). If it's still below 155 at the end, you're in Z2 — go harder next time.</div>
+    </div>
+    <div class="srow">
+      <div class="sday">Thu Oct 2</div>
+      <div><span class="stype st-thresh">Threshold</span></div>
+      <div class="sdesc"><strong>75 min, no power meter.</strong> 4×8 min Z4 threshold with 5 min easy. RPE 8.5–9/10. HR lags on 8-min efforts — ignore it during the interval. Check end-of-effort HR: reps 3–4 should hit 166–174bpm (Z4). Reps 1–2 may land lower — normal cardiac lag.</div>
+    </div>
+    <div class="srow">
+      <div class="sday">Sat Oct 4</div>
+      <div><span class="stype st-big">Hard Ride</span></div>
+      <div class="sdesc"><strong>3.5–4h · target 1,000–1,300m climbing.</strong> 4–5 climbs of 15–20 min. Z4 on every ascent: 200–225W, end-of-climb HR 159–168bpm. No soft-pedalling on the ascents. Z2 between climbs. Cumulative threshold time target: 60–80 min above 158bpm.</div>
+    </div>
+    <div class="srow">
+      <div class="sday">Sun Oct 5</div>
+      <div><span class="stype st-easy">Easy Z2</span></div>
+      <div class="sdesc"><strong>2.5–3h, 80–90km.</strong> Strict Z2 ≤145bpm. Flat route. Active recovery — flush the legs. If you have the power meter bike, keep watts in endurance range too.</div>
+    </div>
+  </div>
+
+  <div class="week-block">
+    <div class="week-hdr">
+      <div class="week-title">Week 3 <span class="week-sub">Oct 7–12 · Peak Load Week</span></div>
+      <span class="week-tag wt-peak">Peak</span>
+    </div>
+    <div class="srow">
+      <div class="sday">Tue Oct 7</div>
+      <div><span class="stype st-thresh">Threshold</span></div>
+      <div class="sdesc"><strong>90 min, no power meter.</strong> 3×15 min Z4 threshold with 8 min easy. Hardest weekday of the block. On 15-min efforts HR stabilises — by min 8–10 it should hold 166–174bpm (Z4). Don't let RPE drift below 8.5/10.</div>
+    </div>
+    <div class="srow">
+      <div class="sday">Thu Oct 9</div>
+      <div><span class="stype st-vo2">VO2max</span></div>
+      <div class="sdesc"><strong>75–80 min, no power meter.</strong> 5×6 min Z5 VO2max with 5 min easy. RPE 9–9.5/10 — maximal sustainable. <em>On 6-min efforts HR barely reaches its ceiling</em> — judge by breathing (can't speak). Check HR immediately after: should hit 170–179bpm (Z4–Z5). Your Ghisallino data showed 168–172bpm at 220–227W — that's the ballpark.</div>
+    </div>
+    <div class="srow">
+      <div class="sday">Sat Oct 11</div>
+      <div><span class="stype st-big">Big Day</span></div>
+      <div class="sdesc"><strong>4–4.5h · target 1,400–1,700m climbing.</strong> 5–6 climbs of 15–20 min, push each to Z4–Z5: 210–240W, HR 161–175bpm by end of climb. Hardest session of the block — total time above 158bpm target: 80–100 min. Power meter is your primary guide on every ascent.</div>
+    </div>
+    <div class="srow">
+      <div class="sday">Sun Oct 12</div>
+      <div><span class="stype st-easy">Recovery</span></div>
+      <div class="sdesc"><strong>2h max, strict Z1–Z2 (≤140bpm).</strong> Shorter than usual — legs will need it. Spin out Saturday's fatigue. No data anxiety today.</div>
+    </div>
+  </div>
+
+  <div class="week-block">
+    <div class="week-hdr">
+      <div class="week-title">Week 4 <span class="week-sub">Oct 13–19 · Recovery Week — 40% Volume Drop</span></div>
+      <span class="week-tag wt-rest">Rest</span>
+    </div>
+    <div class="srow">
+      <div class="sday">Tue Oct 14</div>
+      <div><span class="stype st-easy">Easy</span></div>
+      <div class="sdesc"><strong>60 min easy Z2 spin.</strong> No intervals. Just movement and blood flow. Legs before brain this week.</div>
+    </div>
+    <div class="srow">
+      <div class="sday">Thu Oct 16</div>
+      <div><span class="stype st-z2">Z2 + light</span></div>
+      <div class="sdesc"><strong>60 min.</strong> 2×10 min Z3 only (not threshold). Keep it easy. Main point is maintaining feel of intensity without adding load.</div>
+    </div>
+    <div class="srow">
+      <div class="sday">Sat Oct 18</div>
+      <div><span class="stype st-tempo">Moderate</span></div>
+      <div class="sdesc"><strong>2–2.5h · target 400–600m climbing.</strong> 2–3 moderate climbs at Z3 only: 176–200W, HR 155–165bpm. Enjoy it — no racing the hills this week. The legs are coming back, let them.</div>
+    </div>
+    <div class="srow">
+      <div class="sday">Sun Oct 19</div>
+      <div><span class="stype st-easy">Easy</span></div>
+      <div class="sdesc"><strong>1.5h easy Z2.</strong> Flat legs-out ride. End of the block — TSB should be +50 to +80, and WattsUpAI status should flip from Plateau to <strong>Building</strong> by end of this week.</div>
+    </div>
+  </div>
+
+  <div class="section-label">Monitoring & Adjustments</div>
+  <div class="g3">
+    <div class="card card-accent-green">
+      <div class="card-title"><span class="ct-dot" style="background:var(--green)"></span>Green Light</div>
+      <ul class="alist">
+        <li><span class="ico">✅</span><div>HRV weekly avg ≥50ms → Train as planned</div></li>
+        <li><span class="ico">✅</span><div>Garmin PRODUCTIVE by W2 → Plan is working</div></li>
+        <li><span class="ico">✅</span><div>VO2max returns to 62 → Quality sessions are landing</div></li>
+        <li><span class="ico">✅</span><div>TSB +50–+80 end of W4 → Ready for next block</div></li>
+      </ul>
+    </div>
+    <div class="card card-accent-orange">
+      <div class="card-title"><span class="ct-dot" style="background:var(--orange)"></span>Yellow Flag</div>
+      <ul class="alist">
+        <li><span class="ico">⚠️</span><div>HRV 45–50ms → Soften Thursday (tempo not threshold)</div></li>
+        <li><span class="ico">⚠️</span><div>Legs feel heavy on Tue → Reduce intervals by 1 rep</div></li>
+        <li><span class="ico">⚠️</span><div>ATL spikes above 900 → Add an extra rest day</div></li>
+      </ul>
+    </div>
+    <div class="card card-accent-red">
+      <div class="card-title"><span class="ct-dot" style="background:var(--red)"></span>Red Flag — Stop</div>
+      <ul class="alist">
+        <li><span class="ico">🔴</span><div>HRV &lt;45ms weekly avg → Replace quality with Z2 all week</div></li>
+        <li><span class="ico">🔴</span><div>HRV drops &gt;10ms in 2 days → Full rest day, no exceptions</div></li>
+        <li><span class="ico">🔴</span><div>Respiration rises to 16+ br/min → Check for illness before any session</div></li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <div>WattsUpAI · Ettore's Cycling Dashboard · Data from Garmin Connect · 23 Sep 2026 14:16 CEST</div>
+  <div>186 rides · 12 months · VO2max 61 · CTL 803 · ATL 810 · TSB −7 · HRV 52ms</div>
+</div>
+
+</div><!-- /container -->
+
+<script>
+// ─── CHART DEFAULTS ──────────────────────────────────────────────────────────
+Chart.defaults.color = '#64748b';
+Chart.defaults.font.family = 'Inter, sans-serif';
+Chart.defaults.font.size = 11;
+const grid   = 'rgba(255,255,255,0.05)';
+const tick   = '#475569';
+const tip = {
+  backgroundColor: '#1c2030', borderColor: '#252a3a', borderWidth: 1,
+  titleColor: '#e2e8f0', bodyColor: '#94a3b8', padding: 10, cornerRadius: 8
+};
+function axes(yLabel, y2Label) {
+  const s = {
+    x:  { ticks:{color:tick}, grid:{color:grid} },
+    y:  { ticks:{color:tick}, grid:{color:grid}, title:{display:!!yLabel, text:yLabel, color:tick} }
+  };
+  if (y2Label) s.y2 = { position:'right', ticks:{color:'#6366f1'}, grid:{drawOnChartArea:false}, title:{display:true,text:y2Label,color:'#6366f1'} };
+  return s;
+}
+
+// ─── MONTHLY CHART ───────────────────────────────────────────────────────────
+new Chart(document.getElementById('monthlyChart'), {
+  type: 'bar',
+  data: {
+    labels: ['Oct 25','Nov 25','Dec 25','Jan 26','Feb 26','Mar 26','Apr 26','May 26','Jun 26','Jul 26','Aug 26','Sep 26'],
+    datasets: [
+      { label:'Distance (km)', data:[622,659,389,420,445,790,959,1447,1176,1036,1246,995],
+        backgroundColor:'rgba(59,130,246,0.5)', borderRadius:5, yAxisID:'y' },
+      { label:'Elev gain (km)', data:[2.4,1.6,0,0,0,1.0,4.8,7.5,9.2,12.1,14.3,5.6],
+        backgroundColor:'rgba(139,92,246,0.5)', borderRadius:5, yAxisID:'y2' }
+    ]
+  },
+  options: {
+    responsive:true, maintainAspectRatio:false,
+    plugins:{ legend:{labels:{color:'#94a3b8',boxWidth:10,padding:12}}, tooltip:tip },
+    scales: axes('km','km elev')
+  }
+});
+
+// ─── PMC CHART ───────────────────────────────────────────────────────────────
+// Weekly sampled for readability
+const pmcLabels=['Jun26','Jul3','Jul10','Jul17','Jul24','Jul31','Aug7','Aug14','Aug21','Aug28','Sep4','Sep11','Sep18','Sep23'];
+const ctlD  =[748,781,757,673,692,748,748,799,777,777,781,769,761,803];
+const atlD  =[599,800,543,398,626,877,772,840,617,627,632,605,620,810];
+const tsbD  =[149,-19,214,275,66,-129,-24,-41,160,150,149,164,141,-7];
+const vo2D  =[58,58,58,55,58,57,58,59,61,62,62,61,61,61];
+
+new Chart(document.getElementById('pmcChart'), {
+  type:'line',
+  data:{
+    labels:pmcLabels,
+    datasets:[
+      { label:'CTL (Fitness)', data:ctlD, borderColor:'#3b82f6', backgroundColor:'rgba(59,130,246,0.07)', fill:true, tension:0.35, borderWidth:2.5, pointRadius:3, pointHoverRadius:5 },
+      { label:'ATL (Fatigue)', data:atlD, borderColor:'#f97316', backgroundColor:'rgba(249,115,22,0.05)', fill:true, tension:0.35, borderWidth:2, pointRadius:2, pointHoverRadius:4 },
+      { label:'TSB (Form)', data:tsbD, borderColor:'#eab308', tension:0.35, borderWidth:1.5, borderDash:[5,3], pointRadius:0, yAxisID:'y2' },
+    ]
+  },
+  options:{
+    responsive:true, maintainAspectRatio:false,
+    interaction:{mode:'index',intersect:false},
+    plugins:{ legend:{labels:{color:'#94a3b8',boxWidth:10,padding:12}}, tooltip:tip },
+    scales:{
+      x:{ticks:{color:tick},grid:{color:grid}},
+      y:{ticks:{color:tick},grid:{color:grid},title:{display:true,text:'Load',color:tick}},
+      y2:{position:'right',ticks:{color:'#eab308'},grid:{drawOnChartArea:false},title:{display:true,text:'TSB',color:'#eab308'}}
+    }
+  }
+});
+
+// ─── STATUS CHART ─────────────────────────────────────────────────────────────
+// 4=Maintaining, 7=Productive, 5=Recovery, 2=Unproductive
+const statusLabels=['Jun26','Jul3','Jul10','Jul17','Jul24','Jul31','Aug7','Aug14','Aug21','Aug28','Sep4','Sep11','Sep18','Sep23'];
+const statusData =[4,7,7,5,4,4,7,7,7,7,4,4,2,2];
+const statusColors = statusData.map(v=>v===7?'rgba(34,197,94,0.7)':v===4?'rgba(59,130,246,0.7)':v===5?'rgba(245,158,11,0.7)':'rgba(239,68,68,0.7)');
+new Chart(document.getElementById('statusChart'),{
+  type:'bar',
+  data:{
+    labels:statusLabels,
+    datasets:[{ label:'Status', data:statusData, backgroundColor:statusColors, borderRadius:6 }]
+  },
+  options:{
+    responsive:true, maintainAspectRatio:false,
+    plugins:{ legend:{display:false}, tooltip:{
+      ...tip,
+      callbacks:{ label: ctx=>{const v=ctx.raw; return v===7?'Productive':v===4?'Maintaining':v===5?'Recovery':'Unproductive'; } }
+    }},
+    scales:{
+      x:{ticks:{color:tick},grid:{color:grid}},
+      y:{display:false, min:0, max:8}
+    }
+  }
+});
+
+// ─── VO2MAX TREND ─────────────────────────────────────────────────────────────
+new Chart(document.getElementById('vo2Chart'),{
+  type:'line',
+  data:{
+    labels:pmcLabels,
+    datasets:[{
+      label:'VO2max',data:vo2D,
+      borderColor:'#8b5cf6', backgroundColor:'rgba(139,92,246,0.1)', fill:true,
+      tension:0.4, borderWidth:2.5, pointRadius:4, pointHoverRadius:6,
+      pointBackgroundColor:'#8b5cf6'
+    }]
+  },
+  options:{
+    responsive:true, maintainAspectRatio:false,
+    plugins:{ legend:{display:false}, tooltip:tip },
+    scales:{
+      x:{ticks:{color:tick},grid:{color:grid}},
+      y:{ticks:{color:tick},grid:{color:grid},min:53,max:65,title:{display:true,text:'ml/kg/min',color:tick}}
+    }
+  }
+});
+
+// ─── HRV CHART (30 days) ──────────────────────────────────────────────────────
+const hrvDays=['Aug25','26','27','28','29','30','31','Sep1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23'];
+const hrvNightly=[54,45,43,41,43,43,42,48,54,51,51,51,45,44,59,55,59,48,60,49,51,57,52,54,51,55,43,52,43,52];
+const hrv7day=[47,47,46,45,44,44,44,44,45,46,47,48,49,49,50,51,52,51,52,53,54,54,53,53,53,53,52,52,50,50];
+const hrvStatus30=['BAL','BAL','BAL','BAL','UNB','UNB','UNB','UNB','BAL','BAL','BAL','BAL','BAL','BAL','BAL','BAL','BAL','BAL','BAL','BAL','UNB','BAL','BAL','BAL','BAL','BAL','BAL','BAL','BAL','BAL'];
+
+new Chart(document.getElementById('hrvChart'),{
+  type:'bar',
+  data:{
+    labels:hrvDays,
+    datasets:[
+      { label:'Nightly HRV', data:hrvNightly,
+        backgroundColor:hrvNightly.map((v,i)=>hrvStatus30[i]==='BAL'?'rgba(34,197,94,0.5)':'rgba(249,115,22,0.65)'),
+        borderRadius:4, order:2 },
+      { label:'7-day avg', data:hrv7day, type:'line',
+        borderColor:'#eab308', backgroundColor:'transparent',
+        tension:0.4, borderWidth:2, pointRadius:0, order:1 }
+    ]
+  },
+  options:{
+    responsive:true, maintainAspectRatio:false,
+    interaction:{mode:'index',intersect:false},
+    plugins:{ legend:{labels:{color:'#94a3b8',boxWidth:10,padding:10}}, tooltip:tip },
+    scales:axes('ms')
+  }
+});
+
+// ─── RESPIRATION CHART ───────────────────────────────────────────────────────
+const respDays=['Sep2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23'];
+const respSleep=[14,13,14,13,14,14,14,14,13,14,13,14,14,13,13,13,13,13,14,14,14,13];
+const respHigh =[16,20,19,21,23,19,20,19,20,20,23,21,18,24,18,18,20,21,23,20,20,19];
+new Chart(document.getElementById('respChart'),{
+  type:'line',
+  data:{
+    labels:respDays,
+    datasets:[
+      { label:'Sleep avg', data:respSleep, borderColor:'#06b6d4', backgroundColor:'rgba(6,182,212,0.1)', fill:true, tension:0.3, borderWidth:2, pointRadius:2 },
+      { label:'Highest', data:respHigh, borderColor:'rgba(249,115,22,0.4)', backgroundColor:'transparent', tension:0.3, borderWidth:1.5, borderDash:[3,3], pointRadius:0 }
+    ]
+  },
+  options:{
+    responsive:true, maintainAspectRatio:false,
+    plugins:{ legend:{labels:{color:'#94a3b8',boxWidth:10,padding:10}}, tooltip:tip },
+    scales:{ x:{ticks:{color:tick},grid:{color:grid}}, y:{ticks:{color:tick},grid:{color:grid},min:8,max:28,title:{display:true,text:'br/min',color:tick}} }
+  }
+});
+
+// ─── WEEK LOAD MINI ───────────────────────────────────────────────────────────
+new Chart(document.getElementById('weekLoadMini'),{
+  type:'bar',
+  data:{
+    labels:['W1','W2','W3','W4'],
+    datasets:[{ data:[9.5,11,12.5,7],
+      backgroundColor:['rgba(59,130,246,0.6)','rgba(59,130,246,0.7)','rgba(249,115,22,0.7)','rgba(34,197,94,0.6)'],
+      borderRadius:6 }]
+  },
+  options:{
+    responsive:true, maintainAspectRatio:false,
+    plugins:{ legend:{display:false}, tooltip:{...tip,callbacks:{label:c=>` ${c.raw}h`}} },
+    scales:{
+      x:{ticks:{color:tick,font:{size:10}},grid:{display:false}},
+      y:{display:false,min:0,max:15}
+    }
+  }
+});
+
+// ─── HRV 30-DAY GRID ──────────────────────────────────────────────────────────
+const grid30 = document.getElementById('hrvGrid30');
+const gridDates = ['25','26','27','28','29','30','31','1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23'];
+const gridLabels= ['A25','A26','A27','A28','A29','A30','A31','S1','S2','S3','S4','S5','S6','S7','S8','S9','S10','S11','S12','S13','S14','S15','S16','S17','S18','S19','S20','S21','S22','S23'];
+hrvNightly.forEach((v,i)=>{
+  const div = document.createElement('div');
+  div.className = 'hrv-chip ' + (hrvStatus30[i]==='BAL'?'hrv-bal':'hrv-unbal');
+  div.innerHTML = `<span>${v}</span><span class="hdate">${gridDates[i]}</span>`;
+  div.title = `${gridLabels[i]}: ${v}ms — ${hrvStatus30[i]==='BAL'?'Balanced':'Unbalanced'}`;
+  grid30.appendChild(div);
+});
+
+// ─── TAB NAVIGATION ───────────────────────────────────────────────────────────
+function showTab(id) {
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('tab-'+id).classList.add('active');
+  event.currentTarget.classList.add('active');
+}
+</script>
+</body>
+</html>
