@@ -1,0 +1,49 @@
+{
+  "activity_id": 23724892894,
+  "date": "2026-07-25",
+  "route_name": "Ghisallino Power",
+  "sport": "cycling",
+  "sub_sport": "road",
+  "has_power": true,
+  "session": {
+    "np_w": 183,
+    "avg_power_w": 159,
+    "max_power_w": 578,
+    "total_ascent_m": 1929,
+    "avg_hr_bpm": 145,
+    "max_hr_bpm": 180,
+    "avg_cadence_rpm": 77,
+    "total_distance_m": 94328,
+    "total_elapsed_time_s": 15190,
+    "total_timer_time_s": 14800,
+    "variability_index": 1.15,
+    "total_calories": 2516
+  },
+  "hr_drift": {
+    "hr_drift_pct": -16.0,
+    "interpretation": "significant_decoupling"
+  },
+  "temperature": {
+    "avg_temp_c": null
+  },
+  "pdc": {
+    "5s": 380,
+    "30s": null,
+    "1min": null,
+    "5min": null,
+    "10min": null,
+    "20min": 228,
+    "60min": null
+  },
+  "best_climbing_laps": [
+    {"lap": 5, "np_w": 228, "avg_power_w": 227, "avg_hr_bpm": 168},
+    {"lap": 6, "np_w": 222, "avg_power_w": 219, "avg_hr_bpm": 172}
+  ],
+  "shift_summary": {
+    "total_shifts": 400,
+    "proactive_pct": 68.0,
+    "reactive_pct": 20.0,
+    "avg_cadence_at_shift_rpm": 67
+  },
+  "notes": "Lactate Threshold label! Best Jul 25 effort. L5 228W NP HR 168bpm (Z4), L6 222W NP HR 172bpm (Z4). Season pre-Sep best."
+}

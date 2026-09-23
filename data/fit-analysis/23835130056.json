@@ -1,0 +1,48 @@
+{
+  "activity_id": 23835130056,
+  "date": "2026-08-03",
+  "route_name": "Cortina Giau Valparola Tre Croci Cimabanche",
+  "sport": "cycling",
+  "sub_sport": "road",
+  "has_power": true,
+  "session": {
+    "np_w": 169,
+    "avg_power_w": 133,
+    "max_power_w": 934,
+    "total_ascent_m": 2655,
+    "avg_hr_bpm": 136,
+    "max_hr_bpm": 162,
+    "avg_cadence_rpm": 72,
+    "total_distance_m": 100589,
+    "total_elapsed_time_s": 18869,
+    "total_timer_time_s": 18200,
+    "variability_index": 1.27,
+    "total_calories": 2979
+  },
+  "hr_drift": {
+    "hr_drift_pct": -21.4,
+    "interpretation": "significant_decoupling"
+  },
+  "temperature": {
+    "avg_temp_c": null
+  },
+  "pdc": {
+    "5s": 934,
+    "30s": null,
+    "1min": null,
+    "5min": null,
+    "10min": null,
+    "20min": 188,
+    "60min": null
+  },
+  "best_climbing_laps": [
+    {"lap": 3, "np_w": 189, "avg_power_w": 168, "avg_hr_bpm": 146}
+  ],
+  "shift_summary": {
+    "total_shifts": 510,
+    "proactive_pct": 65.0,
+    "reactive_pct": 23.0,
+    "avg_cadence_at_shift_rpm": 64
+  },
+  "notes": "Season best 5s sprint 934W! Extreme heat day. Giau plus Valparola plus Tre Croci. HR drift -21.4% (heat)."
+}

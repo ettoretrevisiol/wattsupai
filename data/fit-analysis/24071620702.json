@@ -1,0 +1,51 @@
+{
+  "activity_id": 24071620702,
+  "date": "2026-08-22",
+  "route_name": "Friuli Majano Monteaperta Remanzacco",
+  "sport": "cycling",
+  "sub_sport": "road",
+  "has_power": true,
+  "session": {
+    "np_w": 187,
+    "avg_power_w": 156,
+    "max_power_w": 512,
+    "total_ascent_m": 1136,
+    "avg_hr_bpm": 140,
+    "max_hr_bpm": 169,
+    "avg_cadence_rpm": 78,
+    "total_distance_m": 102910,
+    "total_elapsed_time_s": 15912,
+    "total_timer_time_s": 13071,
+    "variability_index": 1.20,
+    "total_calories": 2318
+  },
+  "hr_drift": {
+    "hr_drift_pct": -16.4,
+    "interpretation": "significant_decoupling"
+  },
+  "temperature": {
+    "avg_temp_c": 25.3,
+    "min_temp_c": 20,
+    "max_temp_c": 32
+  },
+  "pdc": {
+    "5s": 436,
+    "30s": 326,
+    "1min": 275,
+    "5min": 248,
+    "10min": 228,
+    "20min": 222,
+    "60min": 193
+  },
+  "best_climbing_laps": [
+    {"lap": 6, "np_w": 220, "avg_power_w": 201, "avg_hr_bpm": 147},
+    {"lap": 8, "np_w": 216, "avg_power_w": 201, "avg_hr_bpm": 153}
+  ],
+  "shift_summary": {
+    "total_shifts": 593,
+    "proactive_pct": 71.8,
+    "reactive_pct": 13.5,
+    "avg_cadence_at_shift_rpm": 66.4
+  },
+  "notes": "Long hilly ride with long break mid (Lap 17 high elapsed). Best laps L6 220W NP, L8 216W NP."
+}

@@ -1,0 +1,49 @@
+{
+  "activity_id": 23164118181,
+  "date": "2026-06-07",
+  "route_name": "Como Balcone Lugano",
+  "sport": "cycling",
+  "sub_sport": "road",
+  "has_power": true,
+  "session": {
+    "np_w": 149,
+    "avg_power_w": 118,
+    "max_power_w": 369,
+    "total_ascent_m": 1657,
+    "avg_hr_bpm": 132,
+    "max_hr_bpm": 172,
+    "avg_cadence_rpm": 73,
+    "total_distance_m": 103040,
+    "total_elapsed_time_s": 17457,
+    "total_timer_time_s": 17000,
+    "variability_index": 1.29,
+    "total_calories": 2400
+  },
+  "hr_drift": {
+    "hr_drift_pct": -30.0,
+    "interpretation": "significant_decoupling"
+  },
+  "temperature": {
+    "avg_temp_c": null
+  },
+  "pdc": {
+    "5s": 369,
+    "30s": null,
+    "1min": null,
+    "5min": null,
+    "10min": null,
+    "20min": 191,
+    "60min": null
+  },
+  "best_climbing_laps": [
+    {"lap": 4, "np_w": 178, "avg_power_w": 158, "avg_hr_bpm": 150},
+    {"lap": 7, "np_w": 174, "avg_power_w": 155, "avg_hr_bpm": 151}
+  ],
+  "shift_summary": {
+    "total_shifts": 420,
+    "proactive_pct": 59.0,
+    "reactive_pct": 28.0,
+    "avg_cadence_at_shift_rpm": 60
+  },
+  "notes": "Season low NP 149W. Hot day. Beginning of summer outdoor ramp-up."
+}

@@ -373,7 +373,7 @@ body::before {
       <div style="font-size:0.8rem;color:var(--dim);line-height:1.65;margin-bottom:14px;">
         <strong style="color:var(--text)">Deep analysis of all 29 power meter rides May–Sep 2026 using Normalized Power (NP) + Garmin training effect labels:</strong><br><br>
         NP range across 4 months: <strong style="color:var(--text)">149–189W</strong> (estimated FTP 256W (Garmin, Sep 12 2026) = 70–88% of FTP). Every single ride is Aerobic Base or Tempo label. <strong style="color:var(--green)">Only 1 Lactate Threshold label in 4 months:</strong> Ghisallino Jul 25 (NP 183W, load 405 — highest of the period).<br><br>
-        <strong style="color:var(--blue)">NP progression tells the real story:</strong> Friuli Aug 18→30 shows clear building: 166→179→187→184→189W NP, peaking right as VO2max hit 62. Sep rides: Ghisallino Sep 6 (177W), Culmine (181W), Tre Valli (182W) — intensity plateaued in the 176–182W band, just shy of threshold.<br><br>
+        <strong style="color:var(--blue)">NP progression tells the real story:</strong> Friuli Aug 18→30 shows clear building: 166→179→187→184→189W NP, peaking right as VO2max hit 62. Aug 22 Majano hit 20-min PDC 222W (2nd best of season). Aug 29 San Daniele best Friuli session: L5 224W, L6 220W. Sep rides: Ghisallino Sep 6 (177W), Culmine (181W/226W PDC), Tre Valli (182W/239W PDC — season peak) — Sep is where fitness peaked.<br><br>
         <strong style="color:var(--orange)">⚡ Why outdoor rides cap out:</strong> To regularly exceed 200W+ NP you need short, hard, targeted efforts. A 4+ hour ride structurally prevents sustained Z4 accumulation — you can get Z4 spikes (hence Tre Valli's 34 min power Z4 in zone counters) but not the sustained load. Structured Tue/Thu intervals are the only way to add this systematically.
       </div>
       <div style="display:flex;flex-wrap:wrap;gap:7px;">
@@ -466,10 +466,10 @@ body::before {
       <div class="kpi-delta up">↑ ~3.6 rides/week · 392h total</div>
     </div>
     <div class="card card-accent-violet">
-      <div class="card-title"><span class="ct-dot" style="background:var(--violet)"></span>Total Distance</div>
-      <div class="kpi-val">10,387<span class="kpi-unit">km</span></div>
-      <div class="kpi-label">12-month total (exact)</div>
-      <div class="kpi-delta up">↑ 866 km/month avg</div>
+      <div class="card-title"><span class="ct-dot" style="background:var(--violet)"></span>Season Peak 20min PDC</div>
+      <div class="kpi-val">239<span class="kpi-unit">W</span></div>
+      <div class="kpi-label">Sep 19 Tre Valli ← season peak</div>
+      <div class="kpi-delta up">↑ 2nd: 228W (Jul 25) · 3rd: 226W (Sep 12)</div>
     </div>
     <div class="card card-accent-green">
       <div class="card-title"><span class="ct-dot" style="background:var(--green)"></span>Season Peak VO2max</div>
@@ -525,6 +525,23 @@ body::before {
           <div class="ms-body"><div class="ms-date">Sep 19</div><div class="ms-title">Tre Valli Varesine</div><div class="ms-val">127km · 2,086m · avg 139bpm · max 180bpm</div></div>
         </div>
       </div>
+    </div>
+  </div>
+
+  <div class="section-label">20-min PDC Progression — Full Season (FIT-verified, all rides)</div>
+  <div class="card card-accent-blue" style="margin-bottom:16px;">
+    <div class="card-title"><span class="ct-dot"></span>Season 20-min Power Duration Curve — May→Sep 2026</div>
+    <div style="height:200px;position:relative;">
+      <canvas id="pdcProgressionChart"></canvas>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;font-size:0.72rem;">
+      <span class="badge b-violet">Season peak: <strong>&nbsp;239W — Sep 19</strong></span>
+      <span class="badge b-orange">2nd best: <strong>&nbsp;228W — Jul 25</strong></span>
+      <span class="badge b-blue">3rd best: <strong>&nbsp;226W — Sep 12</strong></span>
+      <span class="badge b-green">Aug best: <strong>&nbsp;222W — Aug 22</strong></span>
+    </div>
+    <div class="insight" style="margin-top:10px;">
+      <strong>Full season arc:</strong> Started May at 224W (spring fitness), dipped Jun–Jul as long mountain rides shifted load to endurance, hit first peak Jul 25=228W (Ghisallino). Aug Friuli block rebuilt: 188→222W. Sep hit new season peaks 226W (Sep 12 Culmine) then <strong>239W (Sep 19 Tre Valli) — season best</strong>.
     </div>
   </div>
 
@@ -842,6 +859,94 @@ body::before {
         </div>
       </div>  </div>
 
+  <div class="section-label">Best Climbing Laps (FIT lap-level NP)</div>
+  <div class="card card-accent-orange" style="margin-bottom:16px;">
+    <div class="card-title"><span class="ct-dot" style="background:var(--orange)"></span>Top Individual Climbing Laps — Season 2026</div>
+    <div style="overflow-x:auto;">
+      <table style="width:100%;border-collapse:collapse;font-size:0.76rem;">
+        <thead>
+          <tr style="border-bottom:1px solid var(--border);color:var(--muted);font-size:0.67rem;text-transform:uppercase;letter-spacing:0.06em;">
+            <th style="padding:8px 10px;text-align:left;font-weight:600;">Date &amp; Climb</th>
+            <th style="padding:8px 10px;text-align:center;font-weight:600;">NP</th>
+            <th style="padding:8px 10px;text-align:center;font-weight:600;">Avg HR</th>
+            <th style="padding:8px 10px;text-align:center;font-weight:600;">Zone</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom:1px solid rgba(34,40,64,0.5);">
+            <td style="padding:9px 10px;color:var(--text);font-weight:600;">Sep 12 Culmine L12 🏆</td>
+            <td style="padding:9px 10px;text-align:center;color:var(--orange);font-weight:800;">243W</td>
+            <td style="padding:9px 10px;text-align:center;color:var(--dim);">164bpm</td>
+            <td style="padding:9px 10px;text-align:center;"><span style="background:rgba(249,115,22,0.15);color:var(--orange);padding:2px 8px;border-radius:5px;font-size:0.67rem;font-weight:700;">Z4!</span></td>
+          </tr>
+          <tr style="border-bottom:1px solid rgba(34,40,64,0.5);">
+            <td style="padding:9px 10px;color:var(--text);font-weight:600;">Sep 19 Tre Valli L4</td>
+            <td style="padding:9px 10px;text-align:center;color:var(--orange);font-weight:800;">237W</td>
+            <td style="padding:9px 10px;text-align:center;color:var(--dim);">163bpm</td>
+            <td style="padding:9px 10px;text-align:center;"><span style="background:rgba(59,130,246,0.15);color:var(--blue);padding:2px 8px;border-radius:5px;font-size:0.67rem;font-weight:700;">Z3-Z4</span></td>
+          </tr>
+          <tr style="border-bottom:1px solid rgba(34,40,64,0.5);">
+            <td style="padding:9px 10px;color:var(--text);font-weight:600;">May 3 Onno L6</td>
+            <td style="padding:9px 10px;text-align:center;color:var(--orange);font-weight:800;">234W</td>
+            <td style="padding:9px 10px;text-align:center;color:var(--dim);">162bpm</td>
+            <td style="padding:9px 10px;text-align:center;"><span style="background:rgba(59,130,246,0.15);color:var(--blue);padding:2px 8px;border-radius:5px;font-size:0.67rem;font-weight:700;">Z3</span></td>
+          </tr>
+          <tr style="border-bottom:1px solid rgba(34,40,64,0.5);">
+            <td style="padding:9px 10px;color:var(--text);font-weight:600;">Jul 25 Ghisallino L5</td>
+            <td style="padding:9px 10px;text-align:center;color:var(--orange);font-weight:800;">228W</td>
+            <td style="padding:9px 10px;text-align:center;color:var(--dim);">168bpm</td>
+            <td style="padding:9px 10px;text-align:center;"><span style="background:rgba(249,115,22,0.15);color:var(--orange);padding:2px 8px;border-radius:5px;font-size:0.67rem;font-weight:700;">Z4!</span></td>
+          </tr>
+          <tr style="border-bottom:1px solid rgba(34,40,64,0.5);">
+            <td style="padding:9px 10px;color:var(--text);font-weight:600;">Aug 29 San Daniele L5</td>
+            <td style="padding:9px 10px;text-align:center;color:var(--blue);font-weight:800;">224W</td>
+            <td style="padding:9px 10px;text-align:center;color:var(--dim);">158bpm</td>
+            <td style="padding:9px 10px;text-align:center;"><span style="background:rgba(59,130,246,0.15);color:var(--blue);padding:2px 8px;border-radius:5px;font-size:0.67rem;font-weight:700;">Z3-Z4</span></td>
+          </tr>
+          <tr style="border-bottom:1px solid rgba(34,40,64,0.5);">
+            <td style="padding:9px 10px;color:var(--text);font-weight:600;">Jul 25 Ghisallino L6</td>
+            <td style="padding:9px 10px;text-align:center;color:var(--orange);font-weight:800;">222W</td>
+            <td style="padding:9px 10px;text-align:center;color:var(--dim);">172bpm</td>
+            <td style="padding:9px 10px;text-align:center;"><span style="background:rgba(249,115,22,0.15);color:var(--orange);padding:2px 8px;border-radius:5px;font-size:0.67rem;font-weight:700;">Z4!</span></td>
+          </tr>
+          <tr style="border-bottom:1px solid rgba(34,40,64,0.5);">
+            <td style="padding:9px 10px;color:var(--text);font-weight:600;">Aug 22 Majano L6</td>
+            <td style="padding:9px 10px;text-align:center;color:var(--blue);font-weight:800;">220W</td>
+            <td style="padding:9px 10px;text-align:center;color:var(--dim);">147bpm</td>
+            <td style="padding:9px 10px;text-align:center;"><span style="background:rgba(34,197,94,0.15);color:var(--green);padding:2px 8px;border-radius:5px;font-size:0.67rem;font-weight:700;">Z3 efficient</span></td>
+          </tr>
+          <tr style="border-bottom:1px solid rgba(34,40,64,0.5);">
+            <td style="padding:9px 10px;color:var(--text);font-weight:600;">Aug 29 San Daniele L6</td>
+            <td style="padding:9px 10px;text-align:center;color:var(--blue);font-weight:800;">220W</td>
+            <td style="padding:9px 10px;text-align:center;color:var(--dim);">160bpm</td>
+            <td style="padding:9px 10px;text-align:center;"><span style="background:rgba(59,130,246,0.15);color:var(--blue);padding:2px 8px;border-radius:5px;font-size:0.67rem;font-weight:700;">Z3-Z4</span></td>
+          </tr>
+          <tr style="border-bottom:1px solid rgba(34,40,64,0.5);">
+            <td style="padding:9px 10px;color:var(--text);font-weight:600;">Aug 22 Majano L8</td>
+            <td style="padding:9px 10px;text-align:center;color:var(--blue);font-weight:800;">216W</td>
+            <td style="padding:9px 10px;text-align:center;color:var(--dim);">153bpm</td>
+            <td style="padding:9px 10px;text-align:center;"><span style="background:rgba(34,197,94,0.15);color:var(--green);padding:2px 8px;border-radius:5px;font-size:0.67rem;font-weight:700;">Z3</span></td>
+          </tr>
+          <tr style="border-bottom:1px solid rgba(34,40,64,0.5);">
+            <td style="padding:9px 10px;color:var(--text);font-weight:600;">Aug 29 San Daniele L8</td>
+            <td style="padding:9px 10px;text-align:center;color:var(--blue);font-weight:800;">216W</td>
+            <td style="padding:9px 10px;text-align:center;color:var(--dim);">—</td>
+            <td style="padding:9px 10px;text-align:center;"><span style="background:rgba(34,197,94,0.15);color:var(--green);padding:2px 8px;border-radius:5px;font-size:0.67rem;font-weight:700;">Z3</span></td>
+          </tr>
+          <tr>
+            <td style="padding:9px 10px;color:var(--text);font-weight:600;">Aug 18 Tanamea L7-8</td>
+            <td style="padding:9px 10px;text-align:center;color:var(--blue);font-weight:800;">215–216W</td>
+            <td style="padding:9px 10px;text-align:center;color:var(--dim);">146–153bpm</td>
+            <td style="padding:9px 10px;text-align:center;"><span style="background:rgba(34,197,94,0.15);color:var(--green);padding:2px 8px;border-radius:5px;font-size:0.67rem;font-weight:700;">Z3</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="insight good" style="margin-top:10px;">
+      <strong>Aug 29 San Daniele = best Friuli session</strong> — L5 224W, L6 220W, L8 216W. Aug 19 Tanamea = best technique day of season (80% proactive shifting, 73.6rpm avg cadence at shift).
+    </div>
+  </div>
+
   <div class="section-label">Favourite Routes Recognised</div>
   <div class="g3">
     <div class="card">
@@ -877,12 +982,12 @@ body::before {
   <div class="g3" style="margin-bottom:4px;">
     <div class="card card-accent-orange">
       <div class="card-title"><span class="ct-dot" style="background:var(--orange)"></span>The Gap</div>
-      <div style="font-size:0.82rem;font-weight:700;color:var(--text);margin-bottom:8px;">NP plateau at 176–182W · FTP 256W (Garmin)</div>
+      <div style="font-size:0.82rem;font-weight:700;color:var(--text);margin-bottom:8px;">Season peak 239W 20min PDC · CTL 803 · VO2max 61</div>
       <ul class="alist">
-        <li><span class="ico">📊</span><div>4 months, 29 power meter rides: only <strong>1 Lactate Threshold label</strong> (Ghisallino Jul 25, NP 183W). Everything else Aerobic Base or Tempo.</div></li>
-        <li><span class="ico">🎯</span><div>To drive FTP, NP needs to reach <strong>183W+</strong> NP to get a LT label (last was Jul 25 at 183W). Sep plateau: 179W avg. Peak ever: 198W (Aug 27).</div></li>
+        <li><span class="ico">📊</span><div>4 months, 29 power meter rides: only <strong>1 Lactate Threshold label</strong> (Ghisallino Jul 25, NP 183W). Everything else Aerobic Base or Tempo. NP plateaued at 176–182W since Sep.</div></li>
+        <li><span class="ico">🎯</span><div>Goal: add structured Z4 load to flip from plateau → building before autumn. Autumn terrain shift: 15-20 min climbs = natural threshold intervals.</div></li>
         <li><span class="ico">🔑</span><div>Outdoor long rides structurally cap NP — descents drag it down. Structured <strong>short intervals</strong> are the only reliable way to accumulate threshold load.</div></li>
-        <li><span class="ico">✅</span><div>HRV 50ms, RHR 50bpm, CTL 803 — recovery is excellent. Full green light to increase intensity now.</div></li>
+        <li><span class="ico">✅</span><div>HRV 50ms, RHR 50bpm, CTL 803 — recovery excellent. Full green light to increase intensity now.</div></li>
       </ul>
     </div>
     <div class="card card-accent-blue">
@@ -919,46 +1024,46 @@ body::before {
   <!-- WEEK 1 -->
   <div class="week-block">
     <div class="week-hdr">
-      <div class="week-title">Week 1 <span class="week-sub">Sep 25–28 · First Quality Signal</span></div>
+      <div class="week-title">Week 1 <span class="week-sub">Sep 25–28 · Re-anchor Z3</span></div>
       <span class="week-tag wt-build">Build</span>
     </div>
     <div class="srow">
       <div class="sday">Thu Sep 25</div>
       <div><span class="stype st-tempo">Z3 Tempo</span></div>
-      <div class="sdesc"><strong>85 min · no power meter.</strong> Warm-up 20 min Z2 → 3×10 min Z3 (5 min easy between) → cool-down. RPE 7–7.5/10. End-of-rep HR: <strong>158–165bpm</strong>.</div>
+      <div class="sdesc"><strong>No power meter.</strong> Warm-up 15 min Z2 → 3×10 min Z3 tempo (193–230W / RPE 7–7.5/10), 10 min easy between → cool-down. End-of-rep HR: <strong>158–165bpm</strong>.</div>
     </div>
     <div class="srow">
       <div class="sday">Sat Sep 27</div>
-      <div><span class="stype st-big">Hills Z4</span></div>
-      <div class="sdesc"><strong>3.5–4h · 1,500–1,800m · NP target 185–195W.</strong> 4–5 climbs of 15–20 min at 212–235W, end-of-climb HR 166–174bpm. Z2 on descents and flats.</div>
+      <div><span class="stype st-big">Hills Z3</span></div>
+      <div class="sdesc"><strong>3–3.5h · 800–1,000m climbing · NP target 182–190W.</strong> Treat each 15–20 min climb as a Z3 effort. Z2 on descents and flats.</div>
     </div>
     <div class="srow">
       <div class="sday">Sun Sep 28</div>
       <div><span class="stype st-easy">Z2 Recovery</span></div>
-      <div class="sdesc"><strong>2.5–3h · flat · ≤145bpm.</strong></div>
+      <div class="sdesc"><strong>2.5–3h · flat · strict ≤145bpm.</strong></div>
     </div>
   </div>
 
   <!-- WEEK 2 -->
   <div class="week-block">
     <div class="week-hdr">
-      <div class="week-title">Week 2 <span class="week-sub">Sep 30–Oct 5 · Enter Z4</span></div>
+      <div class="week-title">Week 2 <span class="week-sub">Sep 30–Oct 5 · First Z4 Sessions</span></div>
       <span class="week-tag wt-build">Build+</span>
     </div>
     <div class="srow">
       <div class="sday">Tue Sep 30</div>
       <div><span class="stype st-tempo">Z3→Z4</span></div>
-      <div class="sdesc"><strong>90 min · no power meter.</strong> Warm-up → 2×15 min progressive with 8 min easy: first 7 min Z3 (RPE 7.5), last 8 min Z4 (RPE 8.5). End-of-rep HR: <strong>≥166bpm</strong>.</div>
+      <div class="sdesc"><strong>No power meter.</strong> Warm-up → 2×15 min progressive (Z3→Z4), 8 min easy between: first 7 min Z3 (RPE 7.5), last 8 min Z4 (RPE 8.5). End-of-rep HR: <strong>≥166bpm</strong>.</div>
     </div>
     <div class="srow">
       <div class="sday">Thu Oct 2</div>
       <div><span class="stype st-thresh">Z4 Threshold</span></div>
-      <div class="sdesc"><strong>75 min · no power meter.</strong> Warm-up → 4×8 min Z4 (5 min easy between). RPE 8.5–9/10. End-of-rep HR reps 3–4: <strong>166–174bpm</strong>.</div>
+      <div class="sdesc"><strong>No power meter.</strong> Warm-up → 4×8 min Z4 (231–268W / RPE 8.5–9/10), 6 min recovery. End-of-rep HR reps 3–4: <strong>166–174bpm</strong>.</div>
     </div>
     <div class="srow">
       <div class="sday">Sat Oct 4</div>
       <div><span class="stype st-big">Hills Z4</span></div>
-      <div class="sdesc"><strong>4–4.5h · 1,500–1,800m · NP target 192–202W.</strong> 4–6 climbs of 15–20 min at 212–240W, end-of-climb HR 166–174bpm. 60–80 min total above 165bpm. Z2 between climbs.</div>
+      <div class="sdesc"><strong>3.5–4h · 1,000–1,300m · NP target 185–192W.</strong> Each major climb pushed to Z4 HR. Z2 between climbs.</div>
     </div>
     <div class="srow">
       <div class="sday">Sun Oct 5</div>
@@ -976,22 +1081,22 @@ body::before {
     <div class="srow">
       <div class="sday">Tue Oct 7</div>
       <div><span class="stype st-thresh">Z4 Threshold</span></div>
-      <div class="sdesc"><strong>90 min · no power meter.</strong> Warm-up → 3×15 min Z4 (8 min easy between). RPE 8.5–9/10. HR from min 8: <strong>166–174bpm</strong>.</div>
+      <div class="sdesc"><strong>No power meter.</strong> Warm-up → 3×15 min Z4 (8 min easy between). RPE 8.5–9/10. HR from min 8: <strong>166–174bpm</strong>.</div>
     </div>
     <div class="srow">
       <div class="sday">Thu Oct 9</div>
       <div><span class="stype st-vo2">Z5 VO2max</span></div>
-      <div class="sdesc"><strong>75 min · no power meter.</strong> Warm-up → 5×6 min Z5 (5 min easy between). RPE 9–9.5/10. End-of-rep HR: <strong>172–179bpm</strong>.</div>
+      <div class="sdesc"><strong>No power meter.</strong> Warm-up → 5×6 min Z5 (269–307W / RPE 9–9.5/10), 5 min easy between. End-of-rep HR: <strong>172–179bpm</strong>.</div>
     </div>
     <div class="srow">
       <div class="sday">Sat Oct 11</div>
       <div><span class="stype st-big">Big Day</span></div>
-      <div class="sdesc"><strong>4.5–5h · 1,800–2,200m · NP target 198–215W.</strong> 5–7 climbs of 15–20 min at 215–250W, end-of-climb HR 168–177bpm. 80–100 min total above 165bpm.</div>
+      <div class="sdesc"><strong>4–4.5h · 1,400–1,700m · <strong style="color:var(--orange)">NP target 192–200W</strong></strong> (Lactate Threshold label goal). Each major climb pushed to Z4 HR (166–174bpm).</div>
     </div>
     <div class="srow">
       <div class="sday">Sun Oct 12</div>
       <div><span class="stype st-easy">Recovery</span></div>
-      <div class="sdesc"><strong>2h max · ≤140bpm.</strong></div>
+      <div class="sdesc"><strong>2h max · strict ≤140bpm.</strong></div>
     </div>
   </div>
 
@@ -1014,7 +1119,7 @@ body::before {
     <div class="srow">
       <div class="sday">Sat Oct 18</div>
       <div><span class="stype st-tempo">Moderate</span></div>
-      <div class="sdesc"><strong>2–2.5h · 400–600m climbing · NP target: 165–180W (Z2/Z3, recovery — legs down).</strong> 2–3 climbs at Z3 pace (176–211W / 155–165bpm). Enjoy it. This ride is a preview of where your new baseline sits. If it feels easy, good — that's the adaptation working.</div>
+      <div class="sdesc"><strong>2–2.5h · 400–600m climbing · NP target ~165–175W (Z2/Z3, recovery).</strong> Easy day — just enjoy the legs. 2–3 short climbs at Z3 pace.</div>
     </div>
     <div class="srow">
       <div class="sday">Sun Oct 19</div>
@@ -1028,11 +1133,12 @@ body::before {
     <div class="card card-accent-green">
       <div class="card-title"><span class="ct-dot" style="background:var(--green)"></span>Green — On Track</div>
       <ul class="alist">
-        <li><span class="ico">📈</span><div><strong>Sat NP progression:</strong> W1 185–195W → W2 192–202W → W3 198–215W+. This is the key metric. If Saturday NP is climbing week over week, the plan is working.</div></li>
-        <li><span class="ico">✅</span><div><strong>W3 Sat NP ≥198W (77%+ FTP) with LT label — matching or beating Jul 25 Ghisallino</strong> from Garmin — that's the first one since Ghisallino Jul 25.</div></li>
+        <li><span class="ico">📈</span><div><strong>Sat NP progression:</strong> W1 182–190W → W2 185–192W → W3 192–200W+. Each week higher than the last. This is the key metric.</div></li>
+        <li><span class="ico">✅</span><div><strong>W3 Sat gets Lactate Threshold label (Garmin)</strong> = plan succeeded. NP ≥192W on a 4–4.5h hilly ride triggers it.</div></li>
         <li><span class="ico">✅</span><div><strong>End-of-interval HR ≥166bpm</strong> on Thu reps 3–4 by W2 → Z4 is landing.</div></li>
-        <li><span class="ico">✅</span><div><strong>VO2max returns to 62</strong> by end of W3 → intensity signal absorbed.</div></li>
+        <li><span class="ico">✅</span><div><strong>VO2max holds at 61 or returns to 62</strong> by end of W3 → intensity signal absorbed.</div></li>
         <li><span class="ico">✅</span><div><strong>HRV stays ≥48ms weekly avg</strong> throughout → no overreaching.</div></li>
+        <li><span class="ico">✅</span><div><strong>Z4 time per week:</strong> ≥25 min in W2, ≥40 min in W3.</div></li>
       </ul>
     </div>
     <div class="card card-accent-orange">
@@ -1262,6 +1368,47 @@ hrvNightly.forEach((v,i)=>{
   div.title = `${gridLabels[i]}: ${v}ms — ${hrvStatus30[i]==='BAL'?'Balanced':'Unbalanced'}`;
   grid30.appendChild(div);
 });
+
+// ─── PDC PROGRESSION CHART ───────────────────────────────────────────────────
+if (document.getElementById('pdcProgressionChart')) {
+  const pdcLabels20 = ['May 3','May 9','May 29','Jun 6','Jun 7','Jun 14','Jun 20','Jun 27','Jul 4','Jul 12','Jul 19','Jul 25','Jul 31','Aug 3','Aug 6','Aug 9','Aug 11','Aug 13','Aug 16','Aug 18','Aug 19','Aug 22','Aug 23','Aug 25','Aug 27','Aug 29','Aug 30','Sep 5','Sep 6','Sep 12','Sep 19'];
+  const pdcValues20 = [224,214,189,174,191,185,195,186,195,178,199,228,193,188,189,201,201,210,197,201,204,222,211,186,203,198,207,209,208,226,239];
+  const pdcColors20 = pdcValues20.map((v,i) => {
+    if (i === 30) return 'rgba(249,115,22,0.95)';  // Sep 19 season peak
+    if (i === 11) return 'rgba(249,115,22,0.85)';  // Jul 25
+    if (i === 29) return 'rgba(59,130,246,0.9)';   // Sep 12
+    if (i === 21) return 'rgba(34,197,94,0.85)';   // Aug 22
+    if (v >= 220) return 'rgba(59,130,246,0.75)';
+    if (v >= 200) return 'rgba(59,130,246,0.55)';
+    return 'rgba(34,197,94,0.45)';
+  });
+  new Chart(document.getElementById('pdcProgressionChart'), {
+    type: 'bar',
+    data: {
+      labels: pdcLabels20,
+      datasets: [
+        { label: '20-min PDC (W)', data: pdcValues20, backgroundColor: pdcColors20, borderRadius: 4, order: 2 },
+        { label: 'FTP 256W', data: Array(pdcLabels20.length).fill(256), type: 'line', borderColor: 'rgba(239,68,68,0.35)', borderDash: [5,3], borderWidth: 1.5, pointRadius: 0, fill: false, order: 1 },
+        { label: 'Z3 floor 193W', data: Array(pdcLabels20.length).fill(193), type: 'line', borderColor: 'rgba(59,130,246,0.35)', borderDash: [3,3], borderWidth: 1, pointRadius: 0, fill: false, order: 1 },
+      ]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: {
+        legend: { labels: { color: '#94a3b8', boxWidth: 10, font: { size: 10 }, padding: 8 } },
+        tooltip: { ...tip, callbacks: { afterLabel: ctx => {
+          const idx = ctx.dataIndex;
+          const highlights = {11:'← Jul 25 peak (2nd best)', 21:'← Aug 22 best', 29:'← Sep 12', 30:'← SEASON PEAK'};
+          return highlights[idx] || '';
+        }}}
+      },
+      scales: {
+        x: { ticks: { color: tick, font: { size: 9 }, maxRotation: 45 }, grid: { color: grid } },
+        y: { min: 160, max: 250, ticks: { color: tick }, grid: { color: grid }, title: { display: true, text: '20-min PDC (W)', color: tick, font: { size: 10 } } }
+      }
+    }
+  });
+}
 
 // ─── NP TREND CHART ───────────────────────────────────────────────────────────
 const npLabels = ['Sep29','Oct1','Oct4','Oct5','Oct10','Oct11','Oct12','Oct18','Oct19','Oct25','Oct26','Nov3','Nov5','Nov6','Nov8','Nov9','Nov14','Nov18','Mar22','Mar28','Mar29','Apr4','Apr6','Apr19','Apr23','Apr25','May1','May2','May5','May6','May7','May10','May12','May15','May17','May21','May23','May27','May29','Jun6','Jun7','Jun13','Jun14','Jun20','Jun21','Jun27','Jul4','Jul12','Jul19','Jul25','Jul31','Aug3','Aug6','Aug9','Aug11','Aug13','Aug16','Aug18','Aug19','Aug22','Aug23','Aug27','Aug29','Aug30','Sep5','Sep6','Sep12','Sep19'];

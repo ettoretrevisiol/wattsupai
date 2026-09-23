@@ -1,0 +1,43 @@
+{
+  "activity_id": 24419641071,
+  "date": "2026-09-19",
+  "route_name": "Tre Valli Varesine",
+  "has_power": true,
+  "session": {
+    "np_w": 182,
+    "avg_power_w": 148,
+    "max_power_w": 809,
+    "total_ascent_m": 2086,
+    "avg_hr_bpm": 149,
+    "max_hr_bpm": 175,
+    "avg_cadence_rpm": 74,
+    "total_distance_m": 106000,
+    "variability_index": 1.23
+  },
+  "hr_drift": {
+    "hr_drift_pct": -2.0,
+    "interpretation": "well_coupled"
+  },
+  "temperature": {
+    "avg_temp_c": null,
+    "max_temp_c": null
+  },
+  "pdc": {
+    "5s": 494,
+    "30s": null,
+    "1min": null,
+    "5min": null,
+    "10min": null,
+    "20min": 239,
+    "60min": 163
+  },
+  "best_climbing_laps": [
+    { "lap": 4, "np_w": 237, "avg_power_w": 197, "ascent_m": 250, "avg_hr_bpm": 163, "notes": "best climb" }
+  ],
+  "shift_summary": {
+    "proactive_pct": null,
+    "avg_cadence_at_shift_rpm": null,
+    "total_shifts": null
+  },
+  "notes": "SEASON PEAK: 20min PDC 239W. HR drift -2% = well coupled. Peak fitness day."
+}

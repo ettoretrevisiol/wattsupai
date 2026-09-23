@@ -1,0 +1,49 @@
+{
+  "activity_id": 23247353161,
+  "date": "2026-06-14",
+  "route_name": "Mottarone Sovazza",
+  "sport": "cycling",
+  "sub_sport": "road",
+  "has_power": true,
+  "session": {
+    "np_w": 161,
+    "avg_power_w": 130,
+    "max_power_w": 569,
+    "total_ascent_m": 2001,
+    "avg_hr_bpm": 134,
+    "max_hr_bpm": 166,
+    "avg_cadence_rpm": 72,
+    "total_distance_m": 106046,
+    "total_elapsed_time_s": 18362,
+    "total_timer_time_s": 17800,
+    "variability_index": 1.28,
+    "total_calories": 2621
+  },
+  "hr_drift": {
+    "hr_drift_pct": -35.6,
+    "interpretation": "significant_decoupling"
+  },
+  "temperature": {
+    "avg_temp_c": null
+  },
+  "pdc": {
+    "5s": 569,
+    "30s": null,
+    "1min": null,
+    "5min": null,
+    "10min": null,
+    "20min": 185,
+    "60min": null
+  },
+  "best_climbing_laps": [
+    {"lap": 5, "np_w": 186, "avg_power_w": 166, "avg_hr_bpm": 148},
+    {"lap": 8, "np_w": 171, "avg_power_w": 152, "avg_hr_bpm": 147}
+  ],
+  "shift_summary": {
+    "total_shifts": 450,
+    "proactive_pct": 60.0,
+    "reactive_pct": 27.0,
+    "avg_cadence_at_shift_rpm": 61
+  },
+  "notes": "Very hot day, HR drift -35.6% (extreme heat). Mottarone long route."
+}

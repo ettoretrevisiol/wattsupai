@@ -1,0 +1,43 @@
+{
+  "activity_id": 24332535841,
+  "date": "2026-09-12",
+  "route_name": "Culmine di San Pietro",
+  "has_power": true,
+  "session": {
+    "np_w": 181,
+    "avg_power_w": 137,
+    "max_power_w": 700,
+    "total_ascent_m": 1983,
+    "avg_hr_bpm": 146,
+    "max_hr_bpm": 172,
+    "avg_cadence_rpm": 73,
+    "total_distance_m": 95000,
+    "variability_index": 1.32
+  },
+  "hr_drift": {
+    "hr_drift_pct": -15.1,
+    "interpretation": "significant_decoupling"
+  },
+  "temperature": {
+    "avg_temp_c": null,
+    "max_temp_c": null
+  },
+  "pdc": {
+    "5s": 431,
+    "30s": null,
+    "1min": null,
+    "5min": null,
+    "10min": null,
+    "20min": 226,
+    "60min": 185
+  },
+  "best_climbing_laps": [
+    { "lap": 12, "np_w": 243, "avg_power_w": 226, "ascent_m": 278, "avg_hr_bpm": 164, "notes": "Culmine climb - best Z4 lap of season" }
+  ],
+  "shift_summary": {
+    "proactive_pct": null,
+    "avg_cadence_at_shift_rpm": null,
+    "total_shifts": null
+  },
+  "notes": "L12 NP 243W = best climbing lap of season. HR 164bpm = Z4. FTP entered on Garmin this day (256W)."
+}

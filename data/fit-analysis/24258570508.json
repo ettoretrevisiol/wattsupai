@@ -1,0 +1,44 @@
+{
+  "activity_id": 24258570508,
+  "date": "2026-09-06",
+  "route_name": "Ghisallino",
+  "has_power": true,
+  "session": {
+    "np_w": 177,
+    "avg_power_w": 136,
+    "max_power_w": 600,
+    "total_ascent_m": 1898,
+    "avg_hr_bpm": 144,
+    "max_hr_bpm": 172,
+    "avg_cadence_rpm": 74,
+    "total_distance_m": 94000,
+    "variability_index": 1.26
+  },
+  "hr_drift": {
+    "hr_drift_pct": -14.7,
+    "interpretation": "significant_decoupling"
+  },
+  "temperature": {
+    "avg_temp_c": null,
+    "max_temp_c": null
+  },
+  "pdc": {
+    "5s": 340,
+    "30s": null,
+    "1min": null,
+    "5min": null,
+    "10min": null,
+    "20min": 208,
+    "60min": 200
+  },
+  "best_climbing_laps": [
+    { "lap": 5, "np_w": 201, "avg_power_w": 198, "ascent_m": 338, "avg_hr_bpm": null, "notes": "Ghisallino climb" },
+    { "lap": 6, "np_w": 191, "avg_power_w": 186, "ascent_m": 308, "avg_hr_bpm": null, "notes": "Ghisallino upper" }
+  ],
+  "shift_summary": {
+    "proactive_pct": null,
+    "avg_cadence_at_shift_rpm": null,
+    "total_shifts": null
+  },
+  "notes": "20min PDC 208W. L5 NP 201W on Ghisallino."
+}

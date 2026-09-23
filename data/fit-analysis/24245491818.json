@@ -1,0 +1,50 @@
+{
+  "activity_id": 24245491818,
+  "date": "2026-09-05",
+  "route_name": "Lecco Agueglio Morterone",
+  "sport": "cycling",
+  "sub_sport": "road",
+  "has_power": true,
+  "session": {
+    "np_w": 176,
+    "avg_power_w": 148,
+    "max_power_w": 512,
+    "total_ascent_m": 1867,
+    "avg_hr_bpm": 141,
+    "max_hr_bpm": 169,
+    "avg_cadence_rpm": 76,
+    "total_distance_m": 100774,
+    "total_elapsed_time_s": 16070,
+    "total_timer_time_s": 15800,
+    "variability_index": 1.19,
+    "total_calories": 2578
+  },
+  "hr_drift": {
+    "hr_drift_pct": -23.0,
+    "interpretation": "significant_decoupling"
+  },
+  "temperature": {
+    "avg_temp_c": null
+  },
+  "pdc": {
+    "5s": 483,
+    "30s": null,
+    "1min": null,
+    "5min": null,
+    "10min": null,
+    "20min": 209,
+    "60min": null
+  },
+  "best_climbing_laps": [
+    {"lap": 6, "np_w": 205, "avg_power_w": 185, "avg_hr_bpm": 156},
+    {"lap": 7, "np_w": 200, "avg_power_w": 178, "avg_hr_bpm": 155},
+    {"lap": 8, "np_w": 197, "avg_power_w": 174, "avg_hr_bpm": 157}
+  ],
+  "shift_summary": {
+    "total_shifts": 430,
+    "proactive_pct": 65.0,
+    "reactive_pct": 22.0,
+    "avg_cadence_at_shift_rpm": 67
+  },
+  "notes": "Hot day, large HR drift. Multiple climbs Agueglio/Morterone terrain."
+}

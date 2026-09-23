@@ -1,0 +1,51 @@
+{
+  "activity_id": 24034049473,
+  "date": "2026-08-19",
+  "route_name": "Friuli Tanamea Caporetto Cividale",
+  "sport": "cycling",
+  "sub_sport": "road",
+  "has_power": true,
+  "session": {
+    "np_w": 179,
+    "avg_power_w": 157,
+    "max_power_w": 335,
+    "total_ascent_m": 1249,
+    "avg_hr_bpm": 139,
+    "max_hr_bpm": 160,
+    "avg_cadence_rpm": 79,
+    "total_distance_m": 107044,
+    "total_elapsed_time_s": 14478,
+    "total_timer_time_s": 14021,
+    "variability_index": 1.14,
+    "total_calories": 2501
+  },
+  "hr_drift": {
+    "hr_drift_pct": 0.1,
+    "interpretation": "well_coupled"
+  },
+  "temperature": {
+    "avg_temp_c": 23.9,
+    "min_temp_c": 16,
+    "max_temp_c": 33
+  },
+  "pdc": {
+    "5s": 328,
+    "30s": 270,
+    "1min": 249,
+    "5min": 214,
+    "10min": 207,
+    "20min": 204,
+    "60min": 193
+  },
+  "best_climbing_laps": [
+    {"lap": 5, "np_w": 202, "avg_power_w": 200, "avg_hr_bpm": 149},
+    {"lap": 4, "np_w": 195, "avg_power_w": 192, "avg_hr_bpm": 145}
+  ],
+  "shift_summary": {
+    "total_shifts": 460,
+    "proactive_pct": 80.0,
+    "reactive_pct": 12.8,
+    "avg_cadence_at_shift_rpm": 73.6
+  },
+  "notes": "Well-coupled +0.1%. Highest proactive shifting of season (80%). Route via Caporetto/Cividale."
+}

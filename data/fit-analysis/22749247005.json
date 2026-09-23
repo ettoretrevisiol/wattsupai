@@ -1,0 +1,48 @@
+{
+  "activity_id": 22749247005,
+  "date": "2026-05-03",
+  "route_name": "Onno Ghisallino Power",
+  "sport": "cycling",
+  "sub_sport": "road",
+  "has_power": true,
+  "session": {
+    "np_w": 173,
+    "avg_power_w": 154,
+    "max_power_w": 447,
+    "total_ascent_m": 1514,
+    "avg_hr_bpm": 141,
+    "max_hr_bpm": 176,
+    "avg_cadence_rpm": 76,
+    "total_distance_m": 96284,
+    "total_elapsed_time_s": 14464,
+    "total_timer_time_s": 14100,
+    "variability_index": 1.12,
+    "total_calories": 2318
+  },
+  "hr_drift": {
+    "hr_drift_pct": -20.9,
+    "interpretation": "significant_decoupling"
+  },
+  "temperature": {
+    "avg_temp_c": null
+  },
+  "pdc": {
+    "5s": 447,
+    "30s": null,
+    "1min": null,
+    "5min": null,
+    "10min": null,
+    "20min": 224,
+    "60min": null
+  },
+  "best_climbing_laps": [
+    {"lap": 6, "np_w": 234, "avg_power_w": 218, "avg_hr_bpm": 162}
+  ],
+  "shift_summary": {
+    "total_shifts": 380,
+    "proactive_pct": 62.0,
+    "reactive_pct": 25.0,
+    "avg_cadence_at_shift_rpm": 61
+  },
+  "notes": "Season best 20min PDC pre-summer at 224W. L6 NP 234W at HR 162bpm (Z3 high). Strong May form."
+}

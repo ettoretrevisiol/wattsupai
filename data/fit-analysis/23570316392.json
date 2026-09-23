@@ -1,0 +1,49 @@
+{
+  "activity_id": 23570316392,
+  "date": "2026-07-12",
+  "route_name": "Cortina Giau Falzarego Tre Croci Cimabanche",
+  "sport": "cycling",
+  "sub_sport": "road",
+  "has_power": true,
+  "session": {
+    "np_w": 162,
+    "avg_power_w": 131,
+    "max_power_w": 390,
+    "total_ascent_m": 2910,
+    "avg_hr_bpm": 143,
+    "max_hr_bpm": 167,
+    "avg_cadence_rpm": 71,
+    "total_distance_m": 106136,
+    "total_elapsed_time_s": 20761,
+    "total_timer_time_s": 20100,
+    "variability_index": 1.24,
+    "total_calories": 3193
+  },
+  "hr_drift": {
+    "hr_drift_pct": -14.5,
+    "interpretation": "significant_decoupling"
+  },
+  "temperature": {
+    "avg_temp_c": null
+  },
+  "pdc": {
+    "5s": 342,
+    "30s": null,
+    "1min": null,
+    "5min": null,
+    "10min": null,
+    "20min": 178,
+    "60min": null
+  },
+  "best_climbing_laps": [
+    {"lap": 3, "np_w": 178, "avg_power_w": 160, "avg_hr_bpm": 147},
+    {"lap": 9, "np_w": 176, "avg_power_w": 159, "avg_hr_bpm": 149}
+  ],
+  "shift_summary": {
+    "total_shifts": 510,
+    "proactive_pct": 62.0,
+    "reactive_pct": 24.0,
+    "avg_cadence_at_shift_rpm": 63
+  },
+  "notes": "First Cortina 3-pass day. 2910m climbing. Season low point for 20min PDC."
+}

@@ -1,0 +1,48 @@
+{
+  "activity_id": 23055367709,
+  "date": "2026-05-29",
+  "route_name": "Valcava",
+  "sport": "cycling",
+  "sub_sport": "road",
+  "has_power": true,
+  "session": {
+    "np_w": 163,
+    "avg_power_w": 133,
+    "max_power_w": 428,
+    "total_ascent_m": 1598,
+    "avg_hr_bpm": 138,
+    "max_hr_bpm": 175,
+    "avg_cadence_rpm": 74,
+    "total_distance_m": 88393,
+    "total_elapsed_time_s": 14733,
+    "total_timer_time_s": 14400,
+    "variability_index": 1.22,
+    "total_calories": 2151
+  },
+  "hr_drift": {
+    "hr_drift_pct": -33.7,
+    "interpretation": "significant_decoupling"
+  },
+  "temperature": {
+    "avg_temp_c": null
+  },
+  "pdc": {
+    "5s": 428,
+    "30s": null,
+    "1min": null,
+    "5min": null,
+    "10min": null,
+    "20min": 189,
+    "60min": null
+  },
+  "best_climbing_laps": [
+    {"lap": 7, "np_w": 187, "avg_power_w": 170, "avg_hr_bpm": 152}
+  ],
+  "shift_summary": {
+    "total_shifts": 400,
+    "proactive_pct": 60.0,
+    "reactive_pct": 27.0,
+    "avg_cadence_at_shift_rpm": 61
+  },
+  "notes": "Hot day, -33.7% HR drift. Valcava climb."
+}

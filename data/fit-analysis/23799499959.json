@@ -1,0 +1,48 @@
+{
+  "activity_id": 23799499959,
+  "date": "2026-07-31",
+  "route_name": "Cortina Valparola Gardena Campolongo Falzarego",
+  "sport": "cycling",
+  "sub_sport": "road",
+  "has_power": true,
+  "session": {
+    "np_w": 169,
+    "avg_power_w": 137,
+    "max_power_w": 649,
+    "total_ascent_m": 2837,
+    "avg_hr_bpm": 139,
+    "max_hr_bpm": 168,
+    "avg_cadence_rpm": 73,
+    "total_distance_m": 105834,
+    "total_elapsed_time_s": 19649,
+    "total_timer_time_s": 19200,
+    "variability_index": 1.24,
+    "total_calories": 3086
+  },
+  "hr_drift": {
+    "hr_drift_pct": -16.9,
+    "interpretation": "significant_decoupling"
+  },
+  "temperature": {
+    "avg_temp_c": null
+  },
+  "pdc": {
+    "5s": 649,
+    "30s": null,
+    "1min": null,
+    "5min": null,
+    "10min": null,
+    "20min": 193,
+    "60min": null
+  },
+  "best_climbing_laps": [
+    {"lap": 17, "np_w": 190, "avg_power_w": 172, "avg_hr_bpm": 149}
+  ],
+  "shift_summary": {
+    "total_shifts": 550,
+    "proactive_pct": 64.0,
+    "reactive_pct": 23.0,
+    "avg_cadence_at_shift_rpm": 64
+  },
+  "notes": "Cortina 4-pass day. 2837m climbing."
+}

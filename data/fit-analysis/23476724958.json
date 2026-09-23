@@ -1,0 +1,48 @@
+{
+  "activity_id": 23476724958,
+  "date": "2026-07-04",
+  "route_name": "Cortina Giau Campolongo Valparola Falzarego",
+  "sport": "cycling",
+  "sub_sport": "road",
+  "has_power": true,
+  "session": {
+    "np_w": 166,
+    "avg_power_w": 133,
+    "max_power_w": 616,
+    "total_ascent_m": 3005,
+    "avg_hr_bpm": 143,
+    "max_hr_bpm": 174,
+    "avg_cadence_rpm": 72,
+    "total_distance_m": 104578,
+    "total_elapsed_time_s": 20753,
+    "total_timer_time_s": 20200,
+    "variability_index": 1.25,
+    "total_calories": 3187
+  },
+  "hr_drift": {
+    "hr_drift_pct": -11.5,
+    "interpretation": "moderate_decoupling"
+  },
+  "temperature": {
+    "avg_temp_c": null
+  },
+  "pdc": {
+    "5s": 616,
+    "30s": null,
+    "1min": null,
+    "5min": null,
+    "10min": null,
+    "20min": 195,
+    "60min": null
+  },
+  "best_climbing_laps": [
+    {"lap": 11, "np_w": 194, "avg_power_w": 176, "avg_hr_bpm": 151}
+  ],
+  "shift_summary": {
+    "total_shifts": 520,
+    "proactive_pct": 63.0,
+    "reactive_pct": 24.0,
+    "avg_cadence_at_shift_rpm": 64
+  },
+  "notes": "First Cortina arrival. 3005m climbing. Giau + Campolongo + Valparola."
+}

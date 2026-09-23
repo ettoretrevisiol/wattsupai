@@ -1,0 +1,52 @@
+{
+  "activity_id": 24113456628,
+  "date": "2026-08-25",
+  "route_name": "Friuli Fagagna Tavagnacco",
+  "sport": "cycling",
+  "sub_sport": "road",
+  "has_power": true,
+  "session": {
+    "np_w": 197,
+    "avg_power_w": 166,
+    "max_power_w": 394,
+    "total_ascent_m": 396,
+    "avg_hr_bpm": 140,
+    "max_hr_bpm": 171,
+    "avg_cadence_rpm": 77,
+    "total_distance_m": 42635,
+    "total_elapsed_time_s": 5335,
+    "total_timer_time_s": 5226,
+    "variability_index": 1.19,
+    "total_calories": 977
+  },
+  "hr_drift": {
+    "hr_drift_pct": 0.9,
+    "interpretation": "well_coupled"
+  },
+  "temperature": {
+    "avg_temp_c": 22.2,
+    "min_temp_c": 20,
+    "max_temp_c": 27
+  },
+  "pdc": {
+    "5s": 374,
+    "30s": 321,
+    "1min": 283,
+    "5min": 231,
+    "10min": 201,
+    "20min": 186,
+    "60min": 172
+  },
+  "best_climbing_laps": [
+    {"lap": 5, "np_w": 212, "avg_power_w": 182, "avg_hr_bpm": 144},
+    {"lap": 6, "np_w": 216, "avg_power_w": 191, "avg_hr_bpm": 144},
+    {"lap": 9, "np_w": 204, "avg_power_w": 149, "avg_hr_bpm": 137}
+  ],
+  "shift_summary": {
+    "total_shifts": 264,
+    "proactive_pct": 65.9,
+    "reactive_pct": 17.0,
+    "avg_cadence_at_shift_rpm": 63.8
+  },
+  "notes": "Well-coupled +0.9%. Short evening Friuli ride. Cool temps kept HR suppressed."
+}

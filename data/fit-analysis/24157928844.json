@@ -1,0 +1,50 @@
+{
+  "activity_id": 24157928844,
+  "date": "2026-08-29",
+  "route_name": "Friuli San Daniele Fagagna Sedilis",
+  "sport": "cycling",
+  "sub_sport": "road",
+  "has_power": true,
+  "session": {
+    "np_w": 189,
+    "avg_power_w": 162,
+    "max_power_w": 502,
+    "total_ascent_m": 1040,
+    "avg_hr_bpm": 143,
+    "max_hr_bpm": 175,
+    "avg_cadence_rpm": 79,
+    "total_distance_m": 100662,
+    "total_elapsed_time_s": 12138,
+    "total_timer_time_s": 11800,
+    "variability_index": 1.17,
+    "total_calories": 2100
+  },
+  "hr_drift": {
+    "hr_drift_pct": -10.3,
+    "interpretation": "moderate_decoupling"
+  },
+  "temperature": {
+    "avg_temp_c": null
+  },
+  "pdc": {
+    "5s": 548,
+    "30s": null,
+    "1min": null,
+    "5min": null,
+    "10min": null,
+    "20min": 198,
+    "60min": null
+  },
+  "best_climbing_laps": [
+    {"lap": 5, "np_w": 224, "avg_power_w": 210, "avg_hr_bpm": 158},
+    {"lap": 6, "np_w": 220, "avg_power_w": 207, "avg_hr_bpm": 160},
+    {"lap": 8, "np_w": 216, "avg_power_w": 204, "avg_hr_bpm": 162}
+  ],
+  "shift_summary": {
+    "total_shifts": 410,
+    "proactive_pct": 70.0,
+    "reactive_pct": 18.0,
+    "avg_cadence_at_shift_rpm": 68
+  },
+  "notes": "Best Friuli session. Multiple climbs 216-224W NP. HR drift only -10% indicates good aerobic fitness."
+}

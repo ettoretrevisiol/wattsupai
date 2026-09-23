@@ -1,0 +1,48 @@
+{
+  "activity_id": 23912303030,
+  "date": "2026-08-09",
+  "route_name": "Cortina Monster Giau Valparola Gardena Sella Pordoi",
+  "sport": "cycling",
+  "sub_sport": "road",
+  "has_power": true,
+  "session": {
+    "np_w": 171,
+    "avg_power_w": 139,
+    "max_power_w": 502,
+    "total_ascent_m": 3812,
+    "avg_hr_bpm": 140,
+    "max_hr_bpm": 169,
+    "avg_cadence_rpm": 72,
+    "total_distance_m": 130826,
+    "total_elapsed_time_s": 25354,
+    "total_timer_time_s": 24800,
+    "variability_index": 1.23,
+    "total_calories": 4037
+  },
+  "hr_drift": {
+    "hr_drift_pct": -14.8,
+    "interpretation": "significant_decoupling"
+  },
+  "temperature": {
+    "avg_temp_c": null
+  },
+  "pdc": {
+    "5s": 502,
+    "30s": null,
+    "1min": null,
+    "5min": null,
+    "10min": null,
+    "20min": 201,
+    "60min": null
+  },
+  "best_climbing_laps": [
+    {"lap": 9, "np_w": 199, "avg_power_w": 178, "avg_hr_bpm": 151}
+  ],
+  "shift_summary": {
+    "total_shifts": 580,
+    "proactive_pct": 67.0,
+    "reactive_pct": 21.0,
+    "avg_cadence_at_shift_rpm": 65
+  },
+  "notes": "Monster day - 5 Dolomite passes. 3812m climbing. PDC 20min 201W despite extreme duration."
+}

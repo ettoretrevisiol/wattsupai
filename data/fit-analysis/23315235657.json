@@ -1,0 +1,49 @@
+{
+  "activity_id": 23315235657,
+  "date": "2026-06-20",
+  "route_name": "Como Nesso Ghisallino Power",
+  "sport": "cycling",
+  "sub_sport": "road",
+  "has_power": true,
+  "session": {
+    "np_w": 175,
+    "avg_power_w": 152,
+    "max_power_w": 468,
+    "total_ascent_m": 1899,
+    "avg_hr_bpm": 142,
+    "max_hr_bpm": 175,
+    "avg_cadence_rpm": 78,
+    "total_distance_m": 94153,
+    "total_elapsed_time_s": 15704,
+    "total_timer_time_s": 15200,
+    "variability_index": 1.17,
+    "total_calories": 2527
+  },
+  "hr_drift": {
+    "hr_drift_pct": -9.5,
+    "interpretation": "well_coupled"
+  },
+  "temperature": {
+    "avg_temp_c": null
+  },
+  "pdc": {
+    "5s": 395,
+    "30s": null,
+    "1min": null,
+    "5min": null,
+    "10min": null,
+    "20min": 195,
+    "60min": null
+  },
+  "best_climbing_laps": [
+    {"lap": 5, "np_w": 194, "avg_power_w": 182, "avg_hr_bpm": 158},
+    {"lap": 6, "np_w": 190, "avg_power_w": 178, "avg_hr_bpm": 161}
+  ],
+  "shift_summary": {
+    "total_shifts": 390,
+    "proactive_pct": 64.0,
+    "reactive_pct": 23.0,
+    "avg_cadence_at_shift_rpm": 64
+  },
+  "notes": "Nearly coupled -9.5%, good fitness signal Jun 20."
+}

@@ -1,0 +1,48 @@
+{
+  "activity_id": 23961022502,
+  "date": "2026-08-13",
+  "route_name": "Cortina Falzarego Campolongo Valparola",
+  "sport": "cycling",
+  "sub_sport": "road",
+  "has_power": true,
+  "session": {
+    "np_w": 170,
+    "avg_power_w": 143,
+    "max_power_w": 459,
+    "total_ascent_m": 2289,
+    "avg_hr_bpm": 132,
+    "max_hr_bpm": 166,
+    "avg_cadence_rpm": 74,
+    "total_distance_m": 87760,
+    "total_elapsed_time_s": 16040,
+    "total_timer_time_s": 15600,
+    "variability_index": 1.19,
+    "total_calories": 2527
+  },
+  "hr_drift": {
+    "hr_drift_pct": -15.0,
+    "interpretation": "significant_decoupling"
+  },
+  "temperature": {
+    "avg_temp_c": null
+  },
+  "pdc": {
+    "5s": 307,
+    "30s": null,
+    "1min": null,
+    "5min": null,
+    "10min": null,
+    "20min": 210,
+    "60min": null
+  },
+  "best_climbing_laps": [
+    {"lap": 9, "np_w": 211, "avg_power_w": 192, "avg_hr_bpm": 152}
+  ],
+  "shift_summary": {
+    "total_shifts": 490,
+    "proactive_pct": 65.0,
+    "reactive_pct": 22.0,
+    "avg_cadence_at_shift_rpm": 64
+  },
+  "notes": "Big Cortina day. Three major passes."
+}
