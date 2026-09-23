@@ -26,32 +26,38 @@
 - Z4: 166–179 bpm
 - Z5: 179+ bpm
 
-### Power (from FTP test: 252W, last tested)
-- Z1 Recovery:    <138W  (<55% FTP)
-- Z2 Endurance:  138–189W (55–75% FTP)
-- Z3 Tempo:      190–226W (75–90% FTP)
-- Z4 Threshold:  227–264W (90–105% FTP)
-- Z5 VO2max:     265–302W (105–120% FTP)
-- Z6 Anaerobic:  303–378W (120–150% FTP)
-- Z7 NM:         378W+
-- **FTP: 252W (tested — last test result 252W)**
+### Power (FTP 256W — Garmin manual entry Sep 12 2026)
+- Z1 Recovery:    <141W  (<55% FTP)
+- Z2 Endurance:  141–192W (55–75% FTP)
+- Z3 Tempo:      193–230W (75–90% FTP)
+- Z4 Threshold:  231–268W (90–105% FTP)
+- Z5 VO2max:     269–307W (105–120% FTP)
+- Z6 Anaerobic:  308–384W (120–150% FTP)
+- Z7 NM:         384W+
+- **FTP: 256W (Garmin Connect, confirmed Sep 12 2026)**
 
 ## Key Analytical Findings (23 Sep 2026)
 
-### 4-Month Deep Analysis (May–Sep 2026, 29 power meter rides) — CORRECTED WITH FTP 252W
+### 12-Month Database Analysis (186 activities, 68 with NP data) — FTP 256W (Garmin, confirmed Sep 12 2026)
 - All rides analysed via **Normalized Power (NP) + Garmin training effect labels**
-- NP range across all 29 rides: **149–189W** = **59–75% of FTP** = Z2 endurance zone
-- **No ride reached Z4 (227W+) on a sustained lap basis**
-- Ghisallino Jul 25 NP 183W = 73% FTP = Z2/Z3 boundary. Got Lactate Threshold label from HR response, not power.
-- Every climbing lap at Tre Valli, Culmine, Friuli: Z2–Z3 by power (78–90% FTP)
-- **The real gap: all outdoor riding is Z2–Z3 power. Zero sustained Z4 (227W+) anywhere in 4 months.**
-- To hit Z4 at FTP 252W you need 227W+ sustained — never achieved in any lap this season
+- NP range outdoor rides: **143–198W** = **56–77% of FTP 256W**
+- Total riding: 392h · 10,386km · 29,581 training load
+- Training effect: 127 Aerobic Base (68%), 51 Tempo (27%), 5 Recovery, **2 LT, 1 VO2MAX**
 
-### NP by phase:
-- May–Jun: 149–175W (Aerobic Base / Tempo)
-- Jul 25 peak: 183W (Lactate Threshold — season high)
-- Aug Friuli block: building 166→189W NP (best sustained progression)
-- Sep plateau: 176–182W (Aerobic Base, NP not improving)
+### 3 High-Quality Sessions in 12 Months (only LT/VO2MAX labels):
+1. **Nov 3 2025** — Milano–Gaggiano, NP 187W (73% FTP) → LACTATE_THRESHOLD, load 235
+2. **Apr 23 2026** — Milano–Robecco, NP 196W (77% FTP) → **VO2MAX** (season best), load 338
+3. **Jul 25 2026** — Ghisallino, NP 183W (72% FTP) → LACTATE_THRESHOLD, load 405
+
+All three were spontaneous hard efforts on moderate terrain — NOT planned intervals.
+
+### NP by phase (FTP 256W):
+- Oct–Nov 2025: 146–191W outdoor (some Tempo)
+- Dec–May indoor block: 65 structured sessions
+- May–Jun 2026: avg 159W (62% FTP) outdoor ramp-up
+- Jul 2026 (Cortina): avg 169W (66% FTP), peak 183W (Ghisallino LT)
+- Aug 2026 (Friuli peak): avg 176W (69% FTP), peak 198W (Aug 27)
+- Sep 2026 (plateau): avg 179W (70% FTP), no LT label in 59 days
 
 ### Why outdoor long rides cap out:
 - Long rides (4–7h) structurally prevent sustained NP above ~185–190W
@@ -60,14 +66,14 @@
 - **Only structured short intervals can reliably accumulate sustained Z4 load**
 
 ### Weekday ride analysis (no power meter):
-- Flat rides (Abbiategrasso, Morimondo etc): confirmed Z2 with occasional unstructured Z3 drifts (8–16 min max)
-- No weekday ride ever showed end-of-lap HR ≥166bpm (Z4) on flat terrain
-- Conclusion: weekdays are Z2, zero Z4 — structurally correct diagnosis
+- Flat rides: Z2 with occasional unstructured Z3 drifts (8–16 min max)
+- No weekday ride ever showed end-of-lap HR ≥166bpm (Z4)
+- Conclusion: weekdays are Z2, zero Z4
 
 ### Training balance (current):
 - Z1/Z2: ~70% of time
-- Z3 Tempo: ~22% (healthy, consistent on climbs)
-- Z4 Threshold: ~3–5% (nearly absent, terrain-dependent spikes only)
+- Z3 Tempo: ~22% (healthy)
+- Z4 Threshold: ~3–5% (nearly absent)
 - Target Z4: ≥15% for FTP protection
 
 ### Recovery signals (as of 23 Sep 2026):
@@ -78,8 +84,9 @@
 
 ## Training History Summary
 - 186 rides in 12 months (Sep 2025–Sep 2026)
-- Total distance: 10,387 km exact (866 km/month avg)
-- Peak month: May 2026 (1,447 km)
+- Total distance: 10,386 km exact (866 km/month avg)
+- Total hours: 392h
+- Peak month: May 2026 (1,448 km)
 - Winter block Oct–Mar: structured indoor intervals (Z2+Z3+Z4), consistent 3-4x/week
 - Summer outdoor: Cortina Dolomites (Jul), Friuli (Aug) — holiday blocks, high volume
 - Post-holiday drift into plateau (Sep): volume maintained, intensity dropped
