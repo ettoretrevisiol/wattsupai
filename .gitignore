@@ -1,6 +1,9 @@
 # Don't commit Garmin tokens
 .garminconnect/
 
+# Activity database — large, rebuilt locally with scripts/build_db.py
+data/activities.json
+
 # Python cache
 __pycache__/
 *.pyc

@@ -1,0 +1,43 @@
+name: Lighthouse CI
+
+on:
+  push:
+    branches: [main]
+    paths: ['index.html']
+
+jobs:
+  lighthouse:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run Lighthouse
+        uses: treosh/lighthouse-ci-action@v11
+        with:
+          urls: |
+            https://ettore.trevisiol.net/wattsupai/
+          uploadArtifacts: true
+          temporaryPublicStorage: true
+          runs: 1
+
+      - name: Format results
+        if: always()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const results = JSON.parse(fs.readFileSync('./lhci_results.json', 'utf8'));
+            const r = results[0];
+            const scores = {
+              performance: Math.round(r.categories.performance.score * 100),
+              accessibility: Math.round(r.categories.accessibility.score * 100),
+              bestPractices: Math.round(r.categories['best-practices'].score * 100),
+              seo: Math.round(r.categories.seo.score * 100),
+            };
+            const emoji = (s) => s >= 90 ? '🟢' : s >= 70 ? '🟡' : '🔴';
+            const body = `## Lighthouse Results\n\n` +
+              `${emoji(scores.performance)} Performance: **${scores.performance}**\n` +
+              `${emoji(scores.accessibility)} Accessibility: **${scores.accessibility}**\n` +
+              `${emoji(scores.bestPractices)} Best Practices: **${scores.bestPractices}**\n` +
+              `${emoji(scores.seo)} SEO: **${scores.seo}**`;
+            console.log(body);
