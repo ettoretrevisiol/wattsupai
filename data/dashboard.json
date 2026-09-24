@@ -2116,7 +2116,9 @@
         "km": 40.0,
         "np_w": null,
         "pdc20_w": null,
-        "z4_min": 0
+        "z4_min": 0,
+        "drift_pct": null,
+        "max_hr": 161
       },
       {
         "date": "2026-09-23",
@@ -2125,7 +2127,9 @@
         "km": 41.0,
         "np_w": null,
         "pdc20_w": null,
-        "z4_min": 3.8
+        "z4_min": 3.8,
+        "drift_pct": null,
+        "max_hr": 169
       },
       {
         "date": "2026-09-24",
@@ -2134,7 +2138,9 @@
         "km": 40.0,
         "np_w": null,
         "pdc20_w": null,
-        "z4_min": 11.9
+        "z4_min": 11.9,
+        "drift_pct": null,
+        "max_hr": 179
       }
     ],
     "z4_min_total": 15.7,
@@ -2143,7 +2149,19 @@
     "sat_np_target": [
       182,
       190
-    ]
+    ],
+    "progression_flag": {
+      "flag": "increase",
+      "reason": "W1 base week: 16min Z4 accumulated. Good base \u2014 proceed to W2 Z4 target.",
+      "next_week": "2026-09-28",
+      "next_z4_tgt": 25
+    },
+    "next_session": {
+      "day": "Sat",
+      "type": "climb",
+      "desc": "3\u20133.5h \u00b7 800\u20131000m climbing \u00b7 NP 182\u2013190W",
+      "terrain_hint": "Target 800\u20131000m climbing in 3\u20134.5h. NP target 182\u2013190W \u2014 build to this across the ride, not just the first climb. Reference: 2026-07-09 lap 11.7min / 135.0m / NP 200W at 145bpm \u2014 this is the target feel. Closest historical Saturday: 2026-08-29 (1040m elev, NP 188W, 3.7h)."
+    }
   },
   "last_4_saturdays": [
     {

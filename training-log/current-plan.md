@@ -114,3 +114,14 @@
 
 > After each session: add a line here with date, key numbers, and one-line assessment.
 > Update compliance log above when done.
+
+### 2026-09-24 (auto-logged by update_dashboard.py)
+**40km · 32m · 13.0°C**
+
+- No power data (weekday bike)
+- avg HR: 144bpm · max HR: 179bpm
+- Z3: 15min · Z4+Z5: **12min**
+- Avg cadence: 75rpm
+
+**Auto-assessment:** Solid Z4 contribution (12min).
+**Subjective:** _(add: felt strong/ok/tired · RPE · any notes)_

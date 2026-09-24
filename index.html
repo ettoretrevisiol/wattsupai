@@ -1096,6 +1096,32 @@ function renderPlan(d) {
           <div style="font-size:.72rem;color:var(--dim);margin-top:8px;">
             Sat NP target: <strong style="color:var(--text)">${ws.sat_np_target[0]}–${ws.sat_np_target[1]}W</strong>
           </div>` : ''}
+          ${(() => {
+            const pf = ws?.progression_flag;
+            if (!pf) return '';
+            const pfColor = pf.flag === 'increase' ? 'var(--green)'
+                          : pf.flag === 'stay'     ? 'var(--orange)'
+                          : pf.flag === 'reduce'   ? 'var(--red)'
+                          : 'var(--blue)';
+            const pfIcon  = pf.flag === 'increase' ? '↑ Proceed to next week'
+                          : pf.flag === 'stay'     ? '→ Repeat this week'
+                          : pf.flag === 'reduce'   ? '↓ Reduce load'
+                          : '🔄 Recovery week next';
+            return `<div style="margin-top:10px;padding:8px 10px;background:rgba(0,0,0,.15);border-radius:6px;border-left:3px solid ${pfColor};">
+              <div style="font-size:.72rem;font-weight:700;color:${pfColor};margin-bottom:3px;">${pfIcon}</div>
+              <div style="font-size:.7rem;color:var(--dim);line-height:1.5;">${pf.reason}</div>
+            </div>`;
+          })()}
+          ${(() => {
+            const ns = ws?.next_session;
+            if (!ns || ns.message) return ns ? `<div style="font-size:.72rem;color:var(--dim);margin-top:8px;">${ns.message}</div>` : '';
+            return `<div style="margin-top:10px;padding:8px 10px;background:rgba(0,0,0,.12);border-radius:6px;">
+              <div style="font-size:.72rem;font-weight:700;color:var(--text);margin-bottom:4px;">
+                Next: <span style="color:var(--blue)">${ns.day}</span> ${ns.type} — ${ns.desc}
+              </div>
+              ${ns.terrain_hint ? `<div style="font-size:.7rem;color:var(--dim);line-height:1.5;">📍 ${ns.terrain_hint}</div>` : ''}
+            </div>`;
+          })()}
         </div>
         <div class="card card-accent-orange">
           <div class="card-title"><span class="ct-dot" style="background:var(--orange)"></span>Last 4 Saturdays — NP trend</div>
