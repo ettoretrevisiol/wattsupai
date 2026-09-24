@@ -2101,5 +2101,86 @@
         "ride": "Valcava"
       }
     ]
-  }
+  },
+  "week_summary": {
+    "week_start": "2026-09-21",
+    "week_end": "2026-09-24",
+    "week_label": "W1 Re-anchor Z3",
+    "plan_week_num": 1,
+    "rides_count": 3,
+    "rides": [
+      {
+        "date": "2026-09-21",
+        "sport": "road",
+        "has_power": false,
+        "km": 40.0,
+        "np_w": null,
+        "pdc20_w": null,
+        "z4_min": 0
+      },
+      {
+        "date": "2026-09-23",
+        "sport": "road",
+        "has_power": false,
+        "km": 41.0,
+        "np_w": null,
+        "pdc20_w": null,
+        "z4_min": 3.8
+      },
+      {
+        "date": "2026-09-24",
+        "sport": "road",
+        "has_power": false,
+        "km": 40.0,
+        "np_w": null,
+        "pdc20_w": null,
+        "z4_min": 11.9
+      }
+    ],
+    "z4_min_total": 15.7,
+    "z4_target_min": 0,
+    "z4_status": "bonus",
+    "sat_np_target": [
+      182,
+      190
+    ]
+  },
+  "last_4_saturdays": [
+    {
+      "date": "2026-09-19",
+      "np_w": 182,
+      "pdc20_w": 239,
+      "elev_m": 2086.0,
+      "km": 127.0,
+      "hours": 6.3,
+      "np_trend_vs_prev": "flat"
+    },
+    {
+      "date": "2026-09-12",
+      "np_w": 181,
+      "pdc20_w": 226,
+      "elev_m": 1983.0,
+      "km": 102.0,
+      "hours": 4.9,
+      "np_trend_vs_prev": "up"
+    },
+    {
+      "date": "2026-09-05",
+      "np_w": 176,
+      "pdc20_w": 209,
+      "elev_m": 1867.0,
+      "km": 101.0,
+      "hours": 4.7,
+      "np_trend_vs_prev": "down"
+    },
+    {
+      "date": "2026-08-29",
+      "np_w": 188,
+      "pdc20_w": 198,
+      "elev_m": 1040.0,
+      "km": 101.0,
+      "hours": 3.7,
+      "np_trend_vs_prev": null
+    }
+  ]
 }

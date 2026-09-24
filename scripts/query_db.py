@@ -524,6 +524,74 @@ print(f"  Z3 Tempo:     176–212W  (end HR 158–165bpm)")
 print(f"  Z4 Threshold: 212–247W  (end HR 166–174bpm)")
 print(f"  Z5 VO2max:    247–282W  (end HR 172–179bpm)")
 
+
+# ── Weekly compliance ─────────────────────────────────────────────────────────
+print(f"\n{'─'*74}")
+print("15. WEEKLY COMPLIANCE — current week + last 4 Saturdays")
+print(f"{'─'*74}")
+
+from datetime import date as dtdate
+today = dtdate.today()
+# Start of current ISO week (Monday)
+week_start = (today - __import__('datetime').timedelta(days=today.weekday())).isoformat()
+week_end   = today.isoformat()
+
+week_rides = q("""
+    SELECT a.date, a.sub_sport, a.has_power,
+           ROUND(a.distance_km,0) km,
+           a.np_w_computed np,
+           a.pdc_20min_w pdc20,
+           ROUND(zs.hr_z4_s/60.0 + zs.hr_z5_s/60.0, 1) z4min
+    FROM activities a
+    JOIN zone_summaries zs USING(activity_id)
+    WHERE a.date >= ? AND a.date <= ?
+    ORDER BY a.date
+""", (week_start, week_end))
+
+week_z4_total = sum((r['z4min'] or 0) for r in week_rides)
+week_np_rides = [r for r in week_rides if r['np']]
+
+print(f"\n  Week {week_start} → {week_end}:")
+if week_rides:
+    for r in week_rides:
+        pw_s  = f"NP={r['np']}W" if r['np'] else "no-power"
+        z4_s  = f"Z4={r['z4min']:.1f}min" if r['z4min'] else "Z4=0"
+        print(f"    {r['date']}  {r['sub_sport']:<16}  {pw_s:<12}  {z4_s}")
+else:
+    print("    (no rides yet this week)")
+
+print(f"\n  Week totals: {len(week_rides)} ride(s)  ·  Z4+Z5: {week_z4_total:.1f} min")
+
+# Plan targets for this week
+print(f"\n  Plan targets (W1 Sep 25–28):")
+print(f"    Thu: 3×10min Z3 (184–220W / end HR 158–165bpm)")
+print(f"    Sat: NP 182–190W, 800–1,000m climbing")
+print(f"    Z4 target this week: any Z4 is a bonus in W1 (re-anchor Z3)")
+
+# Last 4 Saturdays
+print(f"\n  Last 4 Saturdays (power meter rides):")
+sats = q("""
+    SELECT date, np_w_computed np, pdc_20min_w pdc20,
+           ROUND(elevation_gain_m,0) elev,
+           ROUND(distance_km,0) km,
+           ROUND(duration_s/3600.0, 1) hours
+    FROM activities
+    WHERE strftime('%w', date) = '6'
+      AND is_indoor = 0
+    ORDER BY date DESC
+    LIMIT 4
+""")
+
+prev_np = None
+for r in sats:
+    np_s = f"NP={r['np']}W" if r['np'] else "NP=-"
+    delta = ""
+    if prev_np and r['np']:
+        delta = f" ({r['np']-prev_np:+d}W MoM)"
+    pdc_s = f"PDC20={r['pdc20']}W" if r['pdc20'] else ""
+    print(f"    {r['date']}  {np_s}{delta}  {pdc_s}  {r['elev']:.0f}m  {r['km']:.0f}km  {r['hours']}h")
+    prev_np = r['np']
+
 print(f"\n{'═'*74}")
 print("✓ Analysis complete. Source: data/training.db (raw FIT → SQLite ETL)")
 

@@ -393,136 +393,50 @@ The 4-week plan's direction was right but its premise was understated. Revisions
 - Saturday: long + hard (hilly, 3–4.5h, power meter, NP target)
 - Sunday: long + easy Z2 (2.5–3h, strict ≤145bpm)
 
-## 4-Week Plan (Sep 25–Oct 19, 2026)
+---
 
-### Context
-Season peak fitness achieved: 239W 20min PDC (Sep 19), CTL 803, VO2max 61.
-Full 12-month FIT analysis (180+ rides) confirms:
-- Z4 work almost entirely absent outside 3 spontaneous efforts
-- Aerobic base is solid (well-coupled rides in Aug 6, Aug 11, Aug 19, Aug 25, Aug 27, Sep 19)
-- 20min PDC trend: 174W (Jun low) → 228W (Jul 25 peak) → 239W (Sep 19 new peak)
-- Shifting technique improved from 60-64rpm (May-Jun) to 67-74rpm (Sep)
-- Goal: add 2× structured Z4/week to prevent winter FTP fade
+## Current Plan → see training-log/current-plan.md
 
-### Week 1 (Sep 25–28) — Re-anchor Z3
-- Thu: 3×10 min Z3 tempo (193–230W / end HR 158–165bpm), 10 min easy between
-  Target: confirm aerobic coupling from Sep 19 peak is maintained
-- Sat: 3–3.5h, 800–1,000m climbing, target NP 182–190W
-  Each climb 15-20 min treated as Z3 effort. Check HR coupling at end.
-- Sun: Z2 recovery, strict ≤145bpm
+The active 4-week plan, week targets, success metrics, and session log are in:
+**`training-log/current-plan.md`**
 
-### Week 2 (Sep 30–Oct 5) — First Z4 sessions
-- Tue: 2×15 min progressive (Z3→Z4), end-of-rep HR ≥166bpm
-  First real Z4 load since Jul 25 LT effort. Cardiac lag normal — judge by END of interval.
-- Thu: 4×8 min Z4 (231–268W / end-rep HR 166–174bpm), 6 min recovery
-  This mirrors the Jul 25 effort that earned LT label.
-- Sat: 3.5–4h, 1,000–1,300m climbing, NP target 185–192W
-  Push each 15-20 min climb to HR ≥166bpm at the top.
-- Sun: Z2
+That file gets rewritten each time the plan changes. This file (coaching-context.md) holds permanent context only.
 
-### Week 3 (Oct 7–12) — Crack the Threshold
-- Tue: 3×15 min Z4 (end HR 166–174bpm sustained from min 8)
-- Thu: 5×6 min Z5 VO2max (269–307W / end-rep HR 172–179bpm)
-  Like the Dec 2025 VO2max sessions but outdoor if possible.
-- Sat: 4–4.5h, 1,400–1,700m climbing, NP target 192–200W
-  TARGET: Garmin Lactate Threshold label. This replicates what happened spontaneously Jul 25.
-- Sun: recovery ≤140bpm
-
-### Week 4 (Oct 13–19) — Recovery
-- Volume -40%, 2×10 min Z3 only on Thu, easy Sat NP ~165–175W
-
-### Success Metrics (FIT-backed targets)
-- Sat NP each week: W1=182–190W → W2=185–192W → W3=192–200W
-- W3 Sat gets Lactate Threshold label = plan working
-- VO2max holds at 61 or returns to 62 by W3
-- HRV stays ≥48ms, no crashes
-- Z4 time/week: ≥25 min in W2, ≥40 min in W3
-- Shifting quality: maintain ≥70% proactive (Sep 2026 benchmark)
-
-## WattsUpAI Status (as of 24 Sep 2026)
-- **Status: Unproductive → Week 1 Plan underway**
-- CTL: 812 | ATL: 878 | TSB: -66 (in training load — recovering from Tre Valli block)
-- Load ratio 1.0 = OPTIMAL acwr (not overreaching)
-- Garmin flag: AEROBIC_HIGH_SHORTAGE — confirms the need for structured Z4
-- VO2max: 61 (stable)
-- HRV this week: 43–55ms range, weekly avg 50ms — BALANCED, no stress signal
-- Sleep Sep 24: 6.9h, score 82 (GOOD), overnight HRV 52ms
-
-## Today's Training (Sep 24, Thu — Week 1 of plan)
-**Ride: Milano–Rosate–Vermezzo** — 40km flat, 73 min, weekday bike (no power)
-- avg HR 144bpm, max HR 179bpm (!), 13°C cool morning
-- Lap breakdown reveals clear effort structure:
-  - L1-2: warmup (HR 124–134bpm, Z1-Z2)
-  - L3: build (HR 147bpm, Z2 high)
-  - **L4: 7:08 @ HR 164bpm (Z3 high, 164bpm = just below Z4 threshold of 166)**
-  - **L5: 8:46 @ HR 160bpm (Z3, sustained)**
-  - L6-7: tempo effort (HR 151–153bpm, Z2 high)
-  - L8: cool-down (HR 130bpm, Z2)
-- Max HR 179bpm = clear sprint or hard acceleration occurred
-- Temp-HR pattern unusual: coldest third HR 161bpm vs warmest third 126bpm → did the hard effort in the cool early section (smart)
-- **Assessment**: This counts as a solid Z3 tempo ride. L4 at 164bpm is 1 beat below Z4 — very close. Without power it's hard to confirm, but RPE and HR profile suggest this was a good threshold-adjacent session — exactly what Week 1 Thu calls for (3×10 min Z3 target). Well executed on the weekday bike.
-- **Plan adherence**: ✅ Thu Week 1 target was 3×10 min Z3 (end HR 158–165bpm). L4 164bpm + L5 160bpm fits squarely in target range.
+---
 
 ## Session Continuity Protocol
-- At the end of every session, update this file with all new findings, decisions, and data.
-- When starting a new session, read this file + goals.md + schedule.md to restore full context.
-- Key files: data/dashboard.json (live dashboard), data/fit-analysis/ (184 JSONs), docs/coaching-context.md (this file)
 
-## Corrected Season PDC Peaks (verified Sep 24 2026)
-Previously the 5min/10min peaks were underestimated — the top 25 rides were missing those fields (written manually with only 20min). After re-fetching FIT data for the top 6 rides, Tre Valli is the season best across ALL durations:
+At the end of every session:
+1. Log the session in `training-log/current-plan.md` (date, key numbers, one-line assessment)
+2. Update the compliance log in the same file (mark the session done)
+3. If a significant finding changes the plan, update `training-log/current-plan.md` targets
+4. If a finding changes permanent context (zones, FTP, equipment, methodology), update this file
 
-| Duration | Peak | Date | Ride |
-|---|---|---|---|
-| 5s | 934W | Aug 3 | Cortina heat sprint |
-| 5min | **279W** | Sep 19 | Tre Valli Varesine |
-| 10min | **267W** | Sep 19 | Tre Valli Varesine |
-| 20min | **239W** | Sep 19 | Tre Valli Varesine |
-| 60min | 163W | Sep 19 | Tre Valli Varesine |
+When starting a new session, read:
+- `docs/coaching-context.md` (this file) — permanent context, zones, FTP, findings
+- `training-log/current-plan.md` — active plan, targets, session log
+- `goals.md` + `schedule.md` — current goals and availability
 
-- All values pass the 5min > 10min > 20min consistency check ✅
-- 2nd/3rd best 5min: 263W (May 3 Onno), 262W (Sep 12 Culmine)
-- 2nd/3rd best 10min: 254W (Sep 12 Culmine), 250W (May 3 Onno)
+Key data files:
+- `data/dashboard.json` — live dashboard data (week_summary, last_4_saturdays updated by update_dashboard.py)
+- `data/training.db` — SQLite ground truth (rebuild with: python3 scripts/fit_to_db.py)
+- `scripts/update_dashboard.py` — run after each ride to refresh week_summary in dashboard.json
 
-⚠️ **PDC coverage caveat**: only 18 of 37 outdoor power rides have 5min/10min data; all 37 have 20min. The 18 include all six highest-20min rides, so the season peaks are reliable — but the 5/10min *progression* over the season cannot be charted from this dataset.
-
-### Why the 20min figure (239W) is lower than the model predicts
-The decisive climb on Sep 19 was roughly **16 minutes** long, not 25. (Lap 4 in the FIT file spans 25:42 but that is a 5km auto-lap containing the climb plus surrounding terrain — do not read it as climb duration.) A best-20min window therefore necessarily includes ~4 minutes of non-climbing power, which drags the average down. 239W is a *terrain-limited* number, not a physiological ceiling.
-
-Critical-power model fitted to the two clean points:
-- 279W @ 5min and 267W @ 10min → **CP ≈ 255W, W' ≈ 7,200 J**
-- Model prediction for a pure 20-min effort: **≈261W**
-
-Two things follow:
-1. **A dedicated 20-min test would likely land 255–265W**, above the 239W recorded. This supports the current FTP of 256W (20min × 0.95 ≈ 250–252W; Garmin's 256W is at the optimistic end but defensible).
-2. **W' of 7,200 J is implausibly low** for a trained cyclist (typical 15,000–25,000 J). A W' that small means the 5→10min decay is almost flat, which is the signature of a *paced sub-maximal* effort rather than a maximal one. Conclusion: the 279W and 267W figures are themselves floors, not ceilings — Ettore has never actually tested 5min or 10min max.
-
-**Action implication**: the Week 3 Thu session (5×6 min Z5) and a possible dedicated 20-min test would give the first genuine maximal data points of the season. Until then, treat all PDC values as lower bounds.
-
-## Dashboard Infrastructure (as of Sep 24 2026)
-- URL: ettore.trevisiol.net/wattsupai (GitHub Pages, PWA installable)
-- Architecture: single index.html loads all data from data/dashboard.json
-- data/fit-analysis/: 184 JSON files (all rides Sep 2025–Sep 2026), README.md with schema
-- data/dashboard.json: single source of truth, includes weekday_interval_summary section
-- Season summary shows 6 KPI cards: 5min PDC, 10min PDC, 20min PDC, VO2max peak, Peak CTL, Total rides
-- Last commits pushed: 0a649c0 (corrected PDC peaks), f127242 (all flat rides analysis)
+---
 
 ## Dashboard Notes
-- Only index.html in the repo — always update that file
-- Push after every index.html change with: git add index.html && git commit --no-verify -m "..." && git push --no-verify origin main
-- Do NOT reopen browser after pushing — just confirm "done, pushed"
+- Push after every index.html or dashboard.json change:
+  `git add data/dashboard.json index.html && git commit --no-verify -m "..." && git push --no-verify origin main`
 - Do NOT suggest areas/locations in the plan — use meters of climbing only
 
 ## Zone Analysis Rules (CRITICAL)
 - **NEVER use Garmin lap averages (5km auto-laps) for zone analysis** — descents drag the avg down and completely mask the actual intensity on climbs
 - **Correct approach for intensity analysis:**
   1. `get_activity()` → check `normalized_power_watts`, `training_effect_label`, `training_load`, `max_power_watts`
-  2. For zone time: read the `avg_hr_bpm` and `max_hr_bpm` from the activity summary, or ask the user what Garmin shows in the activity detail (zone time breakdown)
+  2. For zone time: use `data/training.db` (per-second from raw FIT) or `get_activity_hr_in_timezones()`
   3. NP is the only honest single-number intensity metric for variable-terrain rides
-  4. Training effect label (Aerobic Base / Tempo / Lactate Threshold / VO2max) is Garmin's own summary of what the ride stimulated
-- **FTP 256W** — always use this as the reference, not estimated values from lap data
-- RPE scale: 1–3 easy, 4–6 Z2, 7–8 Z3, 8.5–9 Z4, 9.5–10 Z5
+  4. Training effect label (Aerobic Base / Tempo / Lactate Threshold / VO2max) is Garmin's own summary
+- **FTP 245W** — use this as the reference (manual entry Sep 24 2026)
 - HR zones: judge by END of interval, not during (cardiac lag)
 - Power zones: primary metric on power meter bike; RPE+HR on weekday bike
-- Zone analysis: use NP + training effect label for variable-terrain rides, NOT lap averages
-- 5km lap averages are misleading for hilly rides — descents drag the number down
 - Always check activity detail for NP, max_power, training_effect_label, training_load

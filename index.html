@@ -1044,6 +1044,75 @@ function renderPlan(d) {
     </div>
 
     <div class="section-label">Session-by-Session Plan — ${plan.period}</div>
+    ${(() => {
+      // ── Week compliance card + last 4 Saturdays ──────────────────────────
+      const ws = d.week_summary;
+      const sats = d.last_4_saturdays;
+      if (!ws && !sats) return '';
+
+      const z4Color = ws?.z4_status === 'on_track' ? 'var(--green)'
+                    : ws?.z4_status === 'partial'   ? 'var(--orange)'
+                    : ws?.z4_status === 'behind'     ? 'var(--red)'
+                    : 'var(--dim)';   // bonus
+      const z4Label = ws?.z4_status === 'on_track' ? '✅ on track'
+                    : ws?.z4_status === 'partial'   ? '⚠️ partial'
+                    : ws?.z4_status === 'behind'     ? '🔴 behind'
+                    : '➕ bonus';
+
+      const satRows = (sats || []).slice().reverse().map((s, i, arr) => {
+        const arrow = s.np_trend_vs_prev === 'up'   ? '↑'
+                    : s.np_trend_vs_prev === 'down'  ? '↓'
+                    : s.np_trend_vs_prev === 'flat'  ? '→' : '';
+        const arrowColor = s.np_trend_vs_prev === 'up' ? 'var(--green)'
+                         : s.np_trend_vs_prev === 'down' ? 'var(--red)' : 'var(--dim)';
+        const isLatest = i === arr.length - 1;
+        return `<tr style="opacity:${isLatest ? 1 : 0.7};">
+          <td style="padding:4px 8px;color:var(--dim);font-size:.72rem;">${s.date}</td>
+          <td style="padding:4px 8px;font-weight:${isLatest ? 700 : 400};color:${isLatest ? 'var(--orange)' : 'var(--text)'};">${s.np_w ? s.np_w+'W' : '—'}</td>
+          <td style="padding:4px 8px;color:${arrowColor};font-size:.85rem;">${arrow}</td>
+          <td style="padding:4px 8px;color:var(--dim);font-size:.72rem;">${s.pdc20_w ? s.pdc20_w+'W 20m' : ''}</td>
+          <td style="padding:4px 8px;color:var(--dim);font-size:.72rem;">${s.elev_m ? s.elev_m+'m' : ''}</td>
+        </tr>`;
+      }).join('');
+
+      return `
+      <div class="section-label">This Week</div>
+      <div class="g2" style="margin-bottom:20px;">
+        <div class="card card-accent-blue">
+          <div class="card-title"><span class="ct-dot"></span>${ws?.week_label || 'Current Week'} — ${ws?.week_start || ''}</div>
+          <div style="font-size:.82rem;margin-bottom:10px;">
+            <strong>${ws?.rides_count || 0}</strong> ride${(ws?.rides_count||0)===1?'':'s'} · 
+            <strong style="color:${z4Color};">Z4: ${ws?.z4_min_total || 0} min</strong>
+            ${ws?.z4_target_min ? ` / ${ws.z4_target_min} min target` : ' (W1 — any Z4 is bonus)'}
+            &nbsp;<span style="color:${z4Color};font-size:.8rem;">${z4Label}</span>
+          </div>
+          ${(ws?.rides || []).map(r => `
+          <div style="font-size:.72rem;color:var(--dim);padding:3px 0;border-bottom:1px solid var(--border);">
+            ${r.date} &nbsp; ${r.sport}
+            ${r.np_w ? ` &nbsp; NP <strong style="color:var(--text)">${r.np_w}W</strong>` : ' &nbsp; no power'}
+            &nbsp; Z4: <strong style="color:${r.z4_min > 5 ? 'var(--orange)' : 'var(--text)'}">${r.z4_min}min</strong>
+          </div>`).join('')}
+          ${ws?.sat_np_target ? `
+          <div style="font-size:.72rem;color:var(--dim);margin-top:8px;">
+            Sat NP target: <strong style="color:var(--text)">${ws.sat_np_target[0]}–${ws.sat_np_target[1]}W</strong>
+          </div>` : ''}
+        </div>
+        <div class="card card-accent-orange">
+          <div class="card-title"><span class="ct-dot" style="background:var(--orange)"></span>Last 4 Saturdays — NP trend</div>
+          <table style="width:100%;border-collapse:collapse;">
+            <thead><tr style="font-size:.7rem;color:var(--muted);">
+              <th style="padding:2px 8px;text-align:left;">Date</th>
+              <th style="padding:2px 8px;text-align:left;">NP</th>
+              <th style="padding:2px 8px;"></th>
+              <th style="padding:2px 8px;text-align:left;">PDC 20m</th>
+              <th style="padding:2px 8px;text-align:left;">Climbing</th>
+            </tr></thead>
+            <tbody>${satRows}</tbody>
+          </table>
+        </div>
+      </div>`;
+    })()}
+    <div class="section-label">Session-by-Session Plan — ${plan.period}</div>
     ${plan.weeks.map(week => `
     <div class="week-block">
       <div class="week-hdr">
