@@ -24,15 +24,22 @@
   },
   "pdc": {
     "5s": 431,
-    "30s": null,
-    "1min": null,
-    "5min": null,
-    "10min": null,
+    "30s": 344,
+    "1min": 308,
+    "5min": 262,
+    "10min": 254,
     "20min": 226,
     "60min": 185
   },
   "best_climbing_laps": [
-    { "lap": 12, "np_w": 243, "avg_power_w": 226, "ascent_m": 278, "avg_hr_bpm": 164, "notes": "Culmine climb - best Z4 lap of season" }
+    {
+      "lap": 12,
+      "np_w": 243,
+      "avg_power_w": 226,
+      "ascent_m": 278,
+      "avg_hr_bpm": 164,
+      "notes": "Culmine climb - best Z4 lap of season"
+    }
   ],
   "shift_summary": {
     "proactive_pct": null,

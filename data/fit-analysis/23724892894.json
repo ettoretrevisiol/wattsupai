@@ -28,16 +28,26 @@
   },
   "pdc": {
     "5s": 380,
-    "30s": null,
-    "1min": null,
-    "5min": null,
-    "10min": null,
+    "30s": 296,
+    "1min": 274,
+    "5min": 237,
+    "10min": 232,
     "20min": 228,
-    "60min": null
+    "60min": 216
   },
   "best_climbing_laps": [
-    {"lap": 5, "np_w": 228, "avg_power_w": 227, "avg_hr_bpm": 168},
-    {"lap": 6, "np_w": 222, "avg_power_w": 219, "avg_hr_bpm": 172}
+    {
+      "lap": 5,
+      "np_w": 228,
+      "avg_power_w": 227,
+      "avg_hr_bpm": 168
+    },
+    {
+      "lap": 6,
+      "np_w": 222,
+      "avg_power_w": 219,
+      "avg_hr_bpm": 172
+    }
   ],
   "shift_summary": {
     "total_shifts": 400,
