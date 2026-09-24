@@ -40,6 +40,7 @@
     "peak_lap_number": 10,
     "laps_above_z3_155": 1,
     "laps_above_z4_166": 0,
+    "n_laps_with_hr": 11,
     "max_lap_sequence": [
       [
         10,
@@ -62,5 +63,69 @@
     "reactive_pct": null,
     "avg_cadence_at_shift_rpm": null
   },
-  "notes": "Tempo effort — Z3 blocks present"
+  "notes": "Tempo effort \u2014 Z3 blocks present",
+  "lap_hr_time_in_zone_s": {
+    "z1": 640,
+    "z2": 4754,
+    "z3": 541,
+    "z4": 0,
+    "z5": 0
+  },
+  "laps_hr_raw": [
+    [
+      1,
+      72,
+      640
+    ],
+    [
+      2,
+      143,
+      589
+    ],
+    [
+      3,
+      150,
+      635
+    ],
+    [
+      4,
+      154,
+      565
+    ],
+    [
+      5,
+      154,
+      597
+    ],
+    [
+      6,
+      150,
+      590
+    ],
+    [
+      7,
+      151,
+      556
+    ],
+    [
+      8,
+      148,
+      625
+    ],
+    [
+      9,
+      147,
+      560
+    ],
+    [
+      10,
+      156,
+      541
+    ],
+    [
+      11,
+      148,
+      37
+    ]
+  ]
 }

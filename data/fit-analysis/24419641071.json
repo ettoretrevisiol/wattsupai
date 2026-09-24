@@ -12,7 +12,10 @@
     "max_hr_bpm": 175,
     "avg_cadence_rpm": 74,
     "total_distance_m": 106000,
-    "variability_index": 1.23
+    "variability_index": 1.23,
+    "total_elapsed_time_s": 22720.448,
+    "total_timer_time_s": 18861.978,
+    "total_calories": 3070
   },
   "hr_drift": {
     "hr_drift_pct": -2.0,
@@ -46,5 +49,165 @@
     "avg_cadence_at_shift_rpm": null,
     "total_shifts": null
   },
-  "notes": "SEASON PEAK: 20min PDC 239W. HR drift -2% = well coupled. Peak fitness day."
+  "notes": "SEASON PEAK: 20min PDC 239W. HR drift -2% = well coupled. Peak fitness day.",
+  "lap_hr_analysis": {
+    "peak_lap_hr": 163,
+    "peak_lap_number": 4,
+    "laps_above_z3_155": 1,
+    "laps_above_z4_166": 0,
+    "n_laps_with_hr": 26,
+    "max_lap_sequence": [
+      [
+        4,
+        163
+      ],
+      [
+        14,
+        151
+      ],
+      [
+        17,
+        151
+      ]
+    ]
+  },
+  "lap_hr_time_in_zone_s": {
+    "z1": 5857,
+    "z2": 15321,
+    "z3": 1543,
+    "z4": 0,
+    "z5": 0
+  },
+  "laps_hr_raw": [
+    [
+      1,
+      126,
+      689
+    ],
+    [
+      2,
+      145,
+      886
+    ],
+    [
+      3,
+      149,
+      864
+    ],
+    [
+      4,
+      163,
+      1543
+    ],
+    [
+      5,
+      114,
+      532
+    ],
+    [
+      6,
+      134,
+      621
+    ],
+    [
+      7,
+      148,
+      1196
+    ],
+    [
+      8,
+      135,
+      740
+    ],
+    [
+      9,
+      131,
+      1406
+    ],
+    [
+      10,
+      135,
+      630
+    ],
+    [
+      11,
+      126,
+      1348
+    ],
+    [
+      12,
+      141,
+      563
+    ],
+    [
+      13,
+      145,
+      857
+    ],
+    [
+      14,
+      151,
+      1148
+    ],
+    [
+      15,
+      114,
+      1350
+    ],
+    [
+      16,
+      139,
+      798
+    ],
+    [
+      17,
+      151,
+      1124
+    ],
+    [
+      18,
+      140,
+      609
+    ],
+    [
+      19,
+      125,
+      501
+    ],
+    [
+      20,
+      124,
+      1438
+    ],
+    [
+      21,
+      132,
+      622
+    ],
+    [
+      22,
+      136,
+      620
+    ],
+    [
+      23,
+      142,
+      610
+    ],
+    [
+      24,
+      142,
+      525
+    ],
+    [
+      25,
+      142,
+      1145
+    ],
+    [
+      26,
+      134,
+      357
+    ]
+  ]
 }

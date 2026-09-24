@@ -36,8 +36,18 @@
     "60min": null
   },
   "best_climbing_laps": [
-    {"lap": 5, "np_w": 186, "avg_power_w": 166, "avg_hr_bpm": 148},
-    {"lap": 8, "np_w": 171, "avg_power_w": 152, "avg_hr_bpm": 147}
+    {
+      "lap": 5,
+      "np_w": 186,
+      "avg_power_w": 166,
+      "avg_hr_bpm": 148
+    },
+    {
+      "lap": 8,
+      "np_w": 171,
+      "avg_power_w": 152,
+      "avg_hr_bpm": 147
+    }
   ],
   "shift_summary": {
     "total_shifts": 450,
@@ -45,5 +55,145 @@
     "reactive_pct": 27.0,
     "avg_cadence_at_shift_rpm": 61
   },
-  "notes": "Very hot day, HR drift -35.6% (extreme heat). Mottarone long route."
+  "notes": "Very hot day, HR drift -35.6% (extreme heat). Mottarone long route.",
+  "lap_hr_analysis": {
+    "peak_lap_hr": 148,
+    "peak_lap_number": 5,
+    "laps_above_z3_155": 0,
+    "laps_above_z4_166": 0,
+    "n_laps_with_hr": 22,
+    "max_lap_sequence": [
+      [
+        5,
+        148
+      ],
+      [
+        14,
+        146
+      ],
+      [
+        8,
+        144
+      ]
+    ]
+  },
+  "lap_hr_time_in_zone_s": {
+    "z1": 6508,
+    "z2": 14952,
+    "z3": 0,
+    "z4": 0,
+    "z5": 0
+  },
+  "laps_hr_raw": [
+    [
+      1,
+      123,
+      691
+    ],
+    [
+      2,
+      131,
+      616
+    ],
+    [
+      3,
+      137,
+      562
+    ],
+    [
+      4,
+      139,
+      683
+    ],
+    [
+      5,
+      148,
+      1205
+    ],
+    [
+      6,
+      136,
+      1438
+    ],
+    [
+      7,
+      142,
+      1505
+    ],
+    [
+      8,
+      144,
+      1834
+    ],
+    [
+      9,
+      140,
+      2078
+    ],
+    [
+      10,
+      101,
+      487
+    ],
+    [
+      11,
+      100,
+      541
+    ],
+    [
+      12,
+      115,
+      654
+    ],
+    [
+      13,
+      124,
+      614
+    ],
+    [
+      14,
+      146,
+      1392
+    ],
+    [
+      15,
+      138,
+      879
+    ],
+    [
+      16,
+      140,
+      1253
+    ],
+    [
+      17,
+      126,
+      2142
+    ],
+    [
+      18,
+      120,
+      582
+    ],
+    [
+      19,
+      135,
+      761
+    ],
+    [
+      20,
+      138,
+      745
+    ],
+    [
+      21,
+      115,
+      586
+    ],
+    [
+      22,
+      117,
+      212
+    ]
+  ]
 }

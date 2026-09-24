@@ -49,5 +49,135 @@
     "reactive_pct": 25.0,
     "avg_cadence_at_shift_rpm": 61
   },
-  "notes": "Season best 20min PDC pre-summer at 224W. L6 NP 234W at HR 162bpm (Z3 high). Strong May form."
+  "notes": "Season best 20min PDC pre-summer at 224W. L6 NP 234W at HR 162bpm (Z3 high). Strong May form.",
+  "lap_hr_analysis": {
+    "peak_lap_hr": 162,
+    "peak_lap_number": 6,
+    "laps_above_z3_155": 1,
+    "laps_above_z4_166": 0,
+    "n_laps_with_hr": 20,
+    "max_lap_sequence": [
+      [
+        6,
+        162
+      ],
+      [
+        9,
+        153
+      ],
+      [
+        18,
+        152
+      ]
+    ]
+  },
+  "lap_hr_time_in_zone_s": {
+    "z1": 2455,
+    "z2": 13294,
+    "z3": 985,
+    "z4": 0,
+    "z5": 0
+  },
+  "laps_hr_raw": [
+    [
+      1,
+      129,
+      591
+    ],
+    [
+      2,
+      146,
+      571
+    ],
+    [
+      3,
+      131,
+      725
+    ],
+    [
+      4,
+      135,
+      1051
+    ],
+    [
+      5,
+      131,
+      334
+    ],
+    [
+      6,
+      162,
+      985
+    ],
+    [
+      7,
+      146,
+      956
+    ],
+    [
+      8,
+      145,
+      877
+    ],
+    [
+      9,
+      153,
+      2180
+    ],
+    [
+      10,
+      120,
+      1042
+    ],
+    [
+      11,
+      106,
+      593
+    ],
+    [
+      12,
+      132,
+      834
+    ],
+    [
+      13,
+      140,
+      803
+    ],
+    [
+      14,
+      149,
+      640
+    ],
+    [
+      15,
+      146,
+      727
+    ],
+    [
+      16,
+      141,
+      715
+    ],
+    [
+      17,
+      142,
+      607
+    ],
+    [
+      18,
+      152,
+      1381
+    ],
+    [
+      19,
+      137,
+      893
+    ],
+    [
+      20,
+      115,
+      229
+    ]
+  ]
 }

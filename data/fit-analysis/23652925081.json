@@ -36,8 +36,18 @@
     "60min": null
   },
   "best_climbing_laps": [
-    {"lap": 4, "np_w": 189, "avg_power_w": 170, "avg_hr_bpm": 153},
-    {"lap": 9, "np_w": 197, "avg_power_w": 181, "avg_hr_bpm": 162}
+    {
+      "lap": 4,
+      "np_w": 189,
+      "avg_power_w": 170,
+      "avg_hr_bpm": 153
+    },
+    {
+      "lap": 9,
+      "np_w": 197,
+      "avg_power_w": 181,
+      "avg_hr_bpm": 162
+    }
   ],
   "shift_summary": {
     "total_shifts": 420,
@@ -45,5 +55,150 @@
     "reactive_pct": 25.0,
     "avg_cadence_at_shift_rpm": 63
   },
-  "notes": "Very hot day, large HR drift -32%. Long ride Como/Lugano."
+  "notes": "Very hot day, large HR drift -32%. Long ride Como/Lugano.",
+  "lap_hr_analysis": {
+    "peak_lap_hr": 155,
+    "peak_lap_number": 9,
+    "laps_above_z3_155": 1,
+    "laps_above_z4_166": 0,
+    "n_laps_with_hr": 23,
+    "max_lap_sequence": [
+      [
+        9,
+        155
+      ],
+      [
+        4,
+        150
+      ],
+      [
+        16,
+        150
+      ]
+    ]
+  },
+  "lap_hr_time_in_zone_s": {
+    "z1": 6517,
+    "z2": 11213,
+    "z3": 1953,
+    "z4": 0,
+    "z5": 0
+  },
+  "laps_hr_raw": [
+    [
+      1,
+      132,
+      729
+    ],
+    [
+      2,
+      137,
+      583
+    ],
+    [
+      3,
+      144,
+      536
+    ],
+    [
+      4,
+      150,
+      1370
+    ],
+    [
+      5,
+      138,
+      877
+    ],
+    [
+      6,
+      140,
+      1293
+    ],
+    [
+      7,
+      125,
+      749
+    ],
+    [
+      8,
+      146,
+      1482
+    ],
+    [
+      9,
+      155,
+      1953
+    ],
+    [
+      10,
+      102,
+      604
+    ],
+    [
+      11,
+      115,
+      1262
+    ],
+    [
+      12,
+      102,
+      474
+    ],
+    [
+      13,
+      120,
+      748
+    ],
+    [
+      14,
+      132,
+      707
+    ],
+    [
+      15,
+      141,
+      653
+    ],
+    [
+      16,
+      150,
+      875
+    ],
+    [
+      17,
+      121,
+      795
+    ],
+    [
+      18,
+      144,
+      664
+    ],
+    [
+      19,
+      139,
+      655
+    ],
+    [
+      20,
+      145,
+      789
+    ],
+    [
+      21,
+      128,
+      1019
+    ],
+    [
+      22,
+      121,
+      660
+    ],
+    [
+      23,
+      127,
+      205
+    ]
+  ]
 }

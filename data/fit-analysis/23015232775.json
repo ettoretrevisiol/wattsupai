@@ -40,6 +40,7 @@
     "peak_lap_number": 3,
     "laps_above_z3_155": 0,
     "laps_above_z4_166": 0,
+    "n_laps_with_hr": 10,
     "max_lap_sequence": [
       [
         3,
@@ -62,5 +63,64 @@
     "reactive_pct": null,
     "avg_cadence_at_shift_rpm": null
   },
-  "notes": "Z2 base ride"
+  "notes": "Z2 base ride",
+  "lap_hr_time_in_zone_s": {
+    "z1": 0,
+    "z2": 5942,
+    "z3": 0,
+    "z4": 0,
+    "z5": 0
+  },
+  "laps_hr_raw": [
+    [
+      1,
+      133,
+      645
+    ],
+    [
+      2,
+      151,
+      575
+    ],
+    [
+      3,
+      153,
+      641
+    ],
+    [
+      4,
+      150,
+      558
+    ],
+    [
+      5,
+      149,
+      680
+    ],
+    [
+      6,
+      146,
+      557
+    ],
+    [
+      7,
+      150,
+      662
+    ],
+    [
+      8,
+      150,
+      583
+    ],
+    [
+      9,
+      146,
+      592
+    ],
+    [
+      10,
+      141,
+      449
+    ]
+  ]
 }

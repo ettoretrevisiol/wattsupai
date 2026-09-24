@@ -19,10 +19,123 @@
     "variability_index": null,
     "total_calories": 1213
   },
-  "hr_drift": {"hr_drift_pct": null, "interpretation": "indoor_structured"},
-  "temperature": {"avg_temp_c": null},
-  "pdc": {"5s": null, "30s": null, "1min": null, "5min": null, "10min": null, "20min": null, "60min": null},
+  "hr_drift": {
+    "hr_drift_pct": null,
+    "interpretation": "indoor_structured"
+  },
+  "temperature": {
+    "avg_temp_c": null
+  },
+  "pdc": {
+    "5s": null,
+    "30s": null,
+    "1min": null,
+    "5min": null,
+    "10min": null,
+    "20min": null,
+    "60min": null
+  },
   "best_climbing_laps": [],
-  "shift_summary": {"total_shifts": 0, "proactive_pct": null, "reactive_pct": null, "avg_cadence_at_shift_rpm": null},
-  "notes": "Long structured: 1.5h with 7x Z3 tempo intervals."
+  "shift_summary": {
+    "total_shifts": 0,
+    "proactive_pct": null,
+    "reactive_pct": null,
+    "avg_cadence_at_shift_rpm": null
+  },
+  "notes": "Long structured: 1.5h with 7x Z3 tempo intervals.",
+  "lap_hr_analysis": {
+    "peak_lap_hr": 151,
+    "peak_lap_number": 4,
+    "laps_above_z3_155": 0,
+    "laps_above_z4_166": 0,
+    "n_laps_with_hr": 13,
+    "max_lap_sequence": [
+      [
+        4,
+        151
+      ],
+      [
+        8,
+        147
+      ],
+      [
+        10,
+        145
+      ]
+    ]
+  },
+  "lap_hr_time_in_zone_s": {
+    "z1": 1266,
+    "z2": 6017,
+    "z3": 0,
+    "z4": 0,
+    "z5": 0
+  },
+  "laps_hr_raw": [
+    [
+      3,
+      122,
+      1020
+    ],
+    [
+      4,
+      151,
+      180
+    ],
+    [
+      5,
+      139,
+      1020
+    ],
+    [
+      6,
+      144,
+      180
+    ],
+    [
+      7,
+      135,
+      1293
+    ],
+    [
+      8,
+      147,
+      180
+    ],
+    [
+      9,
+      137,
+      1020
+    ],
+    [
+      10,
+      145,
+      180
+    ],
+    [
+      11,
+      136,
+      1411
+    ],
+    [
+      12,
+      136,
+      5
+    ],
+    [
+      13,
+      142,
+      543
+    ],
+    [
+      14,
+      136,
+      5
+    ],
+    [
+      15,
+      122,
+      246
+    ]
+  ]
 }

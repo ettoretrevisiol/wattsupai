@@ -32,13 +32,152 @@
     "60min": 200
   },
   "best_climbing_laps": [
-    { "lap": 5, "np_w": 201, "avg_power_w": 198, "ascent_m": 338, "avg_hr_bpm": null, "notes": "Ghisallino climb" },
-    { "lap": 6, "np_w": 191, "avg_power_w": 186, "ascent_m": 308, "avg_hr_bpm": null, "notes": "Ghisallino upper" }
+    {
+      "lap": 5,
+      "np_w": 201,
+      "avg_power_w": 198,
+      "ascent_m": 338,
+      "avg_hr_bpm": null,
+      "notes": "Ghisallino climb"
+    },
+    {
+      "lap": 6,
+      "np_w": 191,
+      "avg_power_w": 186,
+      "ascent_m": 308,
+      "avg_hr_bpm": null,
+      "notes": "Ghisallino upper"
+    }
   ],
   "shift_summary": {
     "proactive_pct": null,
     "avg_cadence_at_shift_rpm": null,
     "total_shifts": null
   },
-  "notes": "20min PDC 208W. L5 NP 201W on Ghisallino."
+  "notes": "20min PDC 208W. L5 NP 201W on Ghisallino.",
+  "lap_hr_analysis": {
+    "peak_lap_hr": 149,
+    "peak_lap_number": 5,
+    "laps_above_z3_155": 0,
+    "laps_above_z4_166": 0,
+    "n_laps_with_hr": 19,
+    "max_lap_sequence": [
+      [
+        5,
+        149
+      ],
+      [
+        6,
+        149
+      ],
+      [
+        7,
+        148
+      ]
+    ]
+  },
+  "lap_hr_time_in_zone_s": {
+    "z1": 5174,
+    "z2": 13749,
+    "z3": 0,
+    "z4": 0,
+    "z5": 0
+  },
+  "laps_hr_raw": [
+    [
+      1,
+      131,
+      891
+    ],
+    [
+      2,
+      136,
+      627
+    ],
+    [
+      3,
+      139,
+      793
+    ],
+    [
+      4,
+      139,
+      732
+    ],
+    [
+      5,
+      149,
+      1500
+    ],
+    [
+      6,
+      149,
+      1493
+    ],
+    [
+      7,
+      148,
+      1380
+    ],
+    [
+      8,
+      102,
+      504
+    ],
+    [
+      9,
+      131,
+      1074
+    ],
+    [
+      10,
+      148,
+      1725
+    ],
+    [
+      11,
+      118,
+      1288
+    ],
+    [
+      12,
+      102,
+      565
+    ],
+    [
+      13,
+      128,
+      2165
+    ],
+    [
+      14,
+      139,
+      808
+    ],
+    [
+      15,
+      148,
+      612
+    ],
+    [
+      16,
+      141,
+      700
+    ],
+    [
+      17,
+      136,
+      734
+    ],
+    [
+      18,
+      140,
+      680
+    ],
+    [
+      19,
+      125,
+      652
+    ]
+  ]
 }

@@ -12,7 +12,10 @@
     "max_hr_bpm": 172,
     "avg_cadence_rpm": 73,
     "total_distance_m": 95000,
-    "variability_index": 1.32
+    "variability_index": 1.32,
+    "total_elapsed_time_s": 17672.408,
+    "total_timer_time_s": 16337.436,
+    "total_calories": 2595
   },
   "hr_drift": {
     "hr_drift_pct": -15.1,
@@ -46,5 +49,140 @@
     "avg_cadence_at_shift_rpm": null,
     "total_shifts": null
   },
-  "notes": "L12 NP 243W = best climbing lap of season. HR 164bpm = Z4. FTP entered on Garmin this day (256W)."
+  "notes": "L12 NP 243W = best climbing lap of season. HR 164bpm = Z4. FTP entered on Garmin this day (256W).",
+  "lap_hr_analysis": {
+    "peak_lap_hr": 164,
+    "peak_lap_number": 12,
+    "laps_above_z3_155": 2,
+    "laps_above_z4_166": 0,
+    "n_laps_with_hr": 21,
+    "max_lap_sequence": [
+      [
+        12,
+        164
+      ],
+      [
+        2,
+        158
+      ],
+      [
+        3,
+        150
+      ]
+    ]
+  },
+  "lap_hr_time_in_zone_s": {
+    "z1": 6241,
+    "z2": 8810,
+    "z3": 2622,
+    "z4": 0,
+    "z5": 0
+  },
+  "laps_hr_raw": [
+    [
+      1,
+      135,
+      859
+    ],
+    [
+      2,
+      158,
+      1400
+    ],
+    [
+      3,
+      150,
+      940
+    ],
+    [
+      4,
+      141,
+      977
+    ],
+    [
+      5,
+      148,
+      1532
+    ],
+    [
+      6,
+      123,
+      1165
+    ],
+    [
+      7,
+      110,
+      649
+    ],
+    [
+      8,
+      117,
+      1062
+    ],
+    [
+      9,
+      147,
+      980
+    ],
+    [
+      10,
+      104,
+      507
+    ],
+    [
+      11,
+      105,
+      466
+    ],
+    [
+      12,
+      164,
+      1222
+    ],
+    [
+      13,
+      122,
+      1227
+    ],
+    [
+      14,
+      112,
+      580
+    ],
+    [
+      15,
+      145,
+      522
+    ],
+    [
+      16,
+      141,
+      631
+    ],
+    [
+      17,
+      139,
+      610
+    ],
+    [
+      18,
+      145,
+      776
+    ],
+    [
+      19,
+      146,
+      724
+    ],
+    [
+      20,
+      125,
+      585
+    ],
+    [
+      21,
+      137,
+      259
+    ]
+  ]
 }

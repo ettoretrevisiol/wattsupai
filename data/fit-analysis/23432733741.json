@@ -36,8 +36,20 @@
     "60min": 167
   },
   "best_climbing_laps": [
-    {"lap": 2, "np_w": 215, "avg_power_w": 197, "avg_hr_bpm": 155, "ascent_m": 251},
-    {"lap": 5, "np_w": 213, "avg_power_w": 198, "avg_hr_bpm": 152, "ascent_m": 282}
+    {
+      "lap": 2,
+      "np_w": 215,
+      "avg_power_w": 197,
+      "avg_hr_bpm": 155,
+      "ascent_m": 251
+    },
+    {
+      "lap": 5,
+      "np_w": 213,
+      "avg_power_w": 198,
+      "avg_hr_bpm": 152,
+      "ascent_m": 282
+    }
   ],
   "shift_summary": {
     "total_shifts": 135,
@@ -45,5 +57,65 @@
     "reactive_pct": 22.2,
     "avg_cadence_at_shift_rpm": 61.8
   },
-  "notes": "Strong short climb effort, PDC 20min 221W. First week Cortina."
+  "notes": "Strong short climb effort, PDC 20min 221W. First week Cortina.",
+  "lap_hr_analysis": {
+    "peak_lap_hr": 155,
+    "peak_lap_number": 2,
+    "laps_above_z3_155": 1,
+    "laps_above_z4_166": 0,
+    "n_laps_with_hr": 6,
+    "max_lap_sequence": [
+      [
+        2,
+        155
+      ],
+      [
+        5,
+        152
+      ],
+      [
+        3,
+        149
+      ]
+    ]
+  },
+  "lap_hr_time_in_zone_s": {
+    "z1": 1733,
+    "z2": 2519,
+    "z3": 1165,
+    "z4": 0,
+    "z5": 0
+  },
+  "laps_hr_raw": [
+    [
+      1,
+      124,
+      1084
+    ],
+    [
+      2,
+      155,
+      1165
+    ],
+    [
+      3,
+      149,
+      1043
+    ],
+    [
+      4,
+      96,
+      504
+    ],
+    [
+      5,
+      152,
+      1476
+    ],
+    [
+      6,
+      103,
+      145
+    ]
+  ]
 }

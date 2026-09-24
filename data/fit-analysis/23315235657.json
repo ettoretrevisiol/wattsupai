@@ -36,8 +36,18 @@
     "60min": null
   },
   "best_climbing_laps": [
-    {"lap": 5, "np_w": 194, "avg_power_w": 182, "avg_hr_bpm": 158},
-    {"lap": 6, "np_w": 190, "avg_power_w": 178, "avg_hr_bpm": 161}
+    {
+      "lap": 5,
+      "np_w": 194,
+      "avg_power_w": 182,
+      "avg_hr_bpm": 158
+    },
+    {
+      "lap": 6,
+      "np_w": 190,
+      "avg_power_w": 178,
+      "avg_hr_bpm": 161
+    }
   ],
   "shift_summary": {
     "total_shifts": 390,
@@ -45,5 +55,130 @@
     "reactive_pct": 23.0,
     "avg_cadence_at_shift_rpm": 64
   },
-  "notes": "Nearly coupled -9.5%, good fitness signal Jun 20."
+  "notes": "Nearly coupled -9.5%, good fitness signal Jun 20.",
+  "lap_hr_analysis": {
+    "peak_lap_hr": 166,
+    "peak_lap_number": 18,
+    "laps_above_z3_155": 2,
+    "laps_above_z4_166": 1,
+    "n_laps_with_hr": 19,
+    "max_lap_sequence": [
+      [
+        18,
+        166
+      ],
+      [
+        10,
+        155
+      ],
+      [
+        5,
+        154
+      ]
+    ]
+  },
+  "lap_hr_time_in_zone_s": {
+    "z1": 1805,
+    "z2": 12943,
+    "z3": 1371,
+    "z4": 572,
+    "z5": 0
+  },
+  "laps_hr_raw": [
+    [
+      1,
+      135,
+      774
+    ],
+    [
+      2,
+      143,
+      649
+    ],
+    [
+      3,
+      141,
+      840
+    ],
+    [
+      4,
+      134,
+      664
+    ],
+    [
+      5,
+      154,
+      1561
+    ],
+    [
+      6,
+      154,
+      1587
+    ],
+    [
+      7,
+      141,
+      1232
+    ],
+    [
+      8,
+      104,
+      506
+    ],
+    [
+      9,
+      133,
+      795
+    ],
+    [
+      10,
+      155,
+      1371
+    ],
+    [
+      11,
+      134,
+      1099
+    ],
+    [
+      12,
+      110,
+      553
+    ],
+    [
+      13,
+      129,
+      746
+    ],
+    [
+      14,
+      135,
+      869
+    ],
+    [
+      15,
+      151,
+      664
+    ],
+    [
+      16,
+      148,
+      825
+    ],
+    [
+      17,
+      149,
+      737
+    ],
+    [
+      18,
+      166,
+      572
+    ],
+    [
+      19,
+      134,
+      647
+    ]
+  ]
 }

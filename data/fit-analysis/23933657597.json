@@ -38,9 +38,24 @@
     "60min": 175
   },
   "best_climbing_laps": [
-    {"lap": 11, "np_w": 214, "avg_power_w": 207, "avg_hr_bpm": 153},
-    {"lap": 12, "np_w": 181, "avg_power_w": 176, "avg_hr_bpm": 147},
-    {"lap": 13, "np_w": 172, "avg_power_w": 160, "avg_hr_bpm": 143}
+    {
+      "lap": 11,
+      "np_w": 214,
+      "avg_power_w": 207,
+      "avg_hr_bpm": 153
+    },
+    {
+      "lap": 12,
+      "np_w": 181,
+      "avg_power_w": 176,
+      "avg_hr_bpm": 147
+    },
+    {
+      "lap": 13,
+      "np_w": 172,
+      "avg_power_w": 160,
+      "avg_hr_bpm": 143
+    }
   ],
   "shift_summary": {
     "total_shifts": 273,
@@ -48,5 +63,115 @@
     "reactive_pct": 11.7,
     "avg_cadence_at_shift_rpm": 68.7
   },
-  "notes": "Well-coupled +4.0%. Cortina San Candido route. Best lap L11 214W NP at 153bpm."
+  "notes": "Well-coupled +4.0%. Cortina San Candido route. Best lap L11 214W NP at 153bpm.",
+  "lap_hr_analysis": {
+    "peak_lap_hr": 153,
+    "peak_lap_number": 11,
+    "laps_above_z3_155": 0,
+    "laps_above_z4_166": 0,
+    "n_laps_with_hr": 16,
+    "max_lap_sequence": [
+      [
+        11,
+        153
+      ],
+      [
+        12,
+        147
+      ],
+      [
+        2,
+        144
+      ]
+    ]
+  },
+  "lap_hr_time_in_zone_s": {
+    "z1": 7179,
+    "z2": 5342,
+    "z3": 0,
+    "z4": 0,
+    "z5": 0
+  },
+  "laps_hr_raw": [
+    [
+      1,
+      121,
+      791
+    ],
+    [
+      2,
+      144,
+      925
+    ],
+    [
+      3,
+      141,
+      751
+    ],
+    [
+      4,
+      122,
+      731
+    ],
+    [
+      5,
+      120,
+      472
+    ],
+    [
+      6,
+      121,
+      457
+    ],
+    [
+      7,
+      115,
+      560
+    ],
+    [
+      8,
+      122,
+      750
+    ],
+    [
+      9,
+      125,
+      1734
+    ],
+    [
+      10,
+      134,
+      832
+    ],
+    [
+      11,
+      153,
+      637
+    ],
+    [
+      12,
+      147,
+      875
+    ],
+    [
+      13,
+      143,
+      1322
+    ],
+    [
+      14,
+      125,
+      847
+    ],
+    [
+      15,
+      124,
+      666
+    ],
+    [
+      16,
+      98,
+      171
+    ]
+  ]
 }

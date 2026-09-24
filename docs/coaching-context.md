@@ -165,11 +165,68 @@ The 10 Z4 rides (verified against JSON, sorted by peak lap HR):
 
 **What this changes**: Zone distribution revised — Z3 17%→22%, Z4 3%→5%, Z2 55%→51%, Z1 25%→21%. These remain *estimates*, not measured Garmin time-in-zone.
 
-### Training balance (current):
-- Z1/Z2: ~70% of time
-- Z3 Tempo: ~22% (healthy)
-- Z4 Threshold: ~3–5% (nearly absent — only on Ghisallino/Culmine best efforts)
-- Target Z4: ≥15% for FTP protection
+### MEASURED Time-in-Zone — full end-to-end analysis, 24 Sep 2026
+**Methodology**: every lap of every ride in the local FIT-analysis database classified by its average HR; lap duration summed per zone. 183 rides with HR, **431.0 h analysed**. No weekday/weekend split — the whole dataset at once. Lap-level HR was fetched for all 184 rides and stored locally in `laps_hr_raw` so this never needs re-fetching.
+
+| Zone | Hours | % | Previous *estimate* |
+|---|---|---|---|
+| Z1 | 86.2 | **20.0%** | 21% |
+| Z2 | 300.6 | **69.7%** | 51% |
+| Z3 | 38.7 | **9.0%** | 22% ❌ |
+| Z4 | 5.5 | **1.3%** | 5% ❌ |
+| Z5 | 0.0 | **0.0%** | 1% ❌ |
+
+⚠️ **The earlier estimates were substantially wrong in the optimistic direction.** Measured Z3 is 9.0% not 22%; measured Z4 is 1.3% not 5%. The real Z4 gap against the ≥15% target is **13.7 percentage points**, not 10.
+
+**Known bias**: lap-average binning *understates* peak zones — a 10-min lap averaging 150bpm can contain minutes at 170bpm. So Z4/Z5 are lower bounds. But Z5 = 0.0% is robust: no lap in 13 months ever averaged ≥180bpm.
+
+### The Z4 drought — the single most important number
+- **Last ride with any measured Z4 time: 25 Jul 2026** (Ghisallino, 45.1 min Z4 — the LACTATE_THRESHOLD ride)
+- **61 days ago. 32 consecutive rides since with zero Z4.**
+- **Aug 2026 Z4: 0.0%. Sep 2026 Z4: 0.0%.**
+
+This is the direct, measured explanation for UNPRODUCTIVE / AEROBIC_HIGH_SHORTAGE. It is not fatigue and not lost fitness — it is two months with literally no threshold stimulus.
+
+### Monthly Z4 (measured minutes)
+```
+2025-10  26 min 1.9%      2026-04 116 min 5.0%  <- season peak
+2025-11  37 min 2.5%      2026-05  42 min 1.2%
+2025-12  16 min 1.8%      2026-06  10 min 0.3%
+2026-01   6 min 0.8%      2026-07  45 min 1.5%
+2026-02  12 min 1.3%      2026-08   0 min 0.0%  <- collapse
+2026-03  18 min 1.0%      2026-09   0 min 0.0%  <- collapse
+```
+Apr 2026 (116 min Z4) is the month that produced the season's only VO2MAX label. The correlation between measured Z4 minutes and Garmin quality labels is direct.
+
+### Structured Z4 already exists — it was indoor (KEY REFRAME)
+The prior narrative said "Z4 almost entirely absent outside 3 spontaneous efforts". That was wrong. Four winter indoor sessions contained **repeated structured Z4 intervals**:
+
+| Date | Z4 intervals | Z4 min | Peak lap HR |
+|---|---|---|---|
+| 2025-12-18 | 35 | 13.1 | 173 |
+| 2026-01-14 | 28 | 6.3 | 176 |
+| 2026-02-17 | 31 | 11.8 | 175 |
+| 2026-03-14 | 2 | 5.3 | 171 |
+
+- Indoor laps average **2.8 min** (short intervals by design) → many Z4 laps, modest total minutes (40 min Z4 all winter)
+- Outdoor laps average **10.6 min** (5km auto-laps) → only ever 1–2 Z4 laps, but larger totals when they happen (290 min Z4)
+- Outdoor supplies **90% of all hard (Z3+) time**; indoor only 10%
+
+**Interpretation**: the capability and the habit are not missing and do not need building from zero — they need re-activating. What changed in May was the *structure*, not the fitness. Moving outdoors removed the interval scaffolding that the trainer imposed automatically.
+
+### Aerobic efficiency (37 power rides)
+- Pearson r(NP, avg HR) = **+0.600**; mean 174W at 139bpm = **1.25 W/bpm**
+- Best: Jun 30 Baita Resch **1.42 W/bpm** (199W @ 140bpm); Aug 25 Fagagna 1.41; Aug 23 Taipana 1.37
+- The Aug Friuli block clusters at 1.34–1.41 W/bpm — strong aerobic efficiency, confirming the base is genuinely good
+- Worst: Jul 5 Dobbiaco 1.13, Jul 12 Giau 1.13, Jun 7 Lugano 1.13 (heat / fatigue days)
+
+### What this changes in the plan
+The 4-week plan's direction was right but its premise was understated. Revisions:
+1. The Z4 deficit is larger than documented (13.7pp, not 10pp) — W2/W3 Z4 sessions are more urgent, not less
+2. Z5 is at absolute zero — the W3 Thu 5×6min VO2max session is the first Z5 stimulus in 13 months and should not be skipped
+3. Use the **indoor template** for outdoor sessions: the winter sessions worked because laps were ~3 min and repeated 28–35×. Outdoor, that means deliberately structuring 8×3min or 4×8min rather than hoping a climb delivers it
+4. Track measured Z4 minutes per week as the primary compliance metric — target ≥25 min in W2, ≥40 min in W3 (currently 0)
+
 
 ### Recovery signals (as of 23 Sep 2026):
 - HRV: 50ms weekly avg, balanced — green light

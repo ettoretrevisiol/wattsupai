@@ -45,5 +45,80 @@
     "avg_cadence_at_shift_rpm": null,
     "notes": "Weekday bike - no DI2"
   },
-  "notes": "Weekday flat ride, no power meter. Notable: L4 avg HR 164bpm (Z4), L5 avg 160bpm (Z4). Max HR 179bpm - possible sprint or effort. Cool morning 13°C. Reverse temp-HR pattern: coolest third HR 161bpm vs hottest third 126bpm - rode hard in the cold early section. First Thu ride of Week 1 plan."
+  "notes": "Weekday flat ride, no power meter. Notable: L4 avg HR 164bpm (Z4), L5 avg 160bpm (Z4). Max HR 179bpm - possible sprint or effort. Cool morning 13\u00b0C. Reverse temp-HR pattern: coolest third HR 161bpm vs hottest third 126bpm - rode hard in the cold early section. First Thu ride of Week 1 plan.",
+  "lap_hr_analysis": {
+    "peak_lap_hr": 164,
+    "peak_lap_number": 4,
+    "laps_above_z3_155": 2,
+    "laps_above_z4_166": 0,
+    "n_laps_with_hr": 9,
+    "max_lap_sequence": [
+      [
+        4,
+        164
+      ],
+      [
+        5,
+        160
+      ],
+      [
+        6,
+        153
+      ]
+    ]
+  },
+  "lap_hr_time_in_zone_s": {
+    "z1": 632,
+    "z2": 2939,
+    "z3": 954,
+    "z4": 0,
+    "z5": 0
+  },
+  "laps_hr_raw": [
+    [
+      1,
+      124,
+      596
+    ],
+    [
+      2,
+      134,
+      561
+    ],
+    [
+      3,
+      147,
+      493
+    ],
+    [
+      4,
+      164,
+      428
+    ],
+    [
+      5,
+      160,
+      526
+    ],
+    [
+      6,
+      153,
+      651
+    ],
+    [
+      7,
+      151,
+      559
+    ],
+    [
+      8,
+      130,
+      675
+    ],
+    [
+      9,
+      118,
+      36
+    ]
+  ]
 }

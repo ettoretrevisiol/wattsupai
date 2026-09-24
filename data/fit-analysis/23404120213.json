@@ -36,8 +36,20 @@
     "60min": 156
   },
   "best_climbing_laps": [
-    {"lap": 6, "np_w": 176, "avg_power_w": 164, "avg_hr_bpm": 138, "ascent_m": 266},
-    {"lap": 2, "np_w": 167, "avg_power_w": 162, "avg_hr_bpm": 138, "ascent_m": 142}
+    {
+      "lap": 6,
+      "np_w": 176,
+      "avg_power_w": 164,
+      "avg_hr_bpm": 138,
+      "ascent_m": 266
+    },
+    {
+      "lap": 2,
+      "np_w": 167,
+      "avg_power_w": 162,
+      "avg_hr_bpm": 138,
+      "ascent_m": 142
+    }
   ],
   "shift_summary": {
     "total_shifts": 220,
@@ -45,5 +57,80 @@
     "reactive_pct": 19.1,
     "avg_cadence_at_shift_rpm": 66.2
   },
-  "notes": "Cortina Landro Antorno Misurina loop, 945m total ascent. Lap 6 main Misurina climb 266m at NP 176W."
+  "notes": "Cortina Landro Antorno Misurina loop, 945m total ascent. Lap 6 main Misurina climb 266m at NP 176W.",
+  "lap_hr_analysis": {
+    "peak_lap_hr": 138,
+    "peak_lap_number": 2,
+    "laps_above_z3_155": 0,
+    "laps_above_z4_166": 0,
+    "n_laps_with_hr": 9,
+    "max_lap_sequence": [
+      [
+        2,
+        138
+      ],
+      [
+        6,
+        138
+      ],
+      [
+        3,
+        135
+      ]
+    ]
+  },
+  "lap_hr_time_in_zone_s": {
+    "z1": 4233,
+    "z2": 4177,
+    "z3": 0,
+    "z4": 0,
+    "z5": 0
+  },
+  "laps_hr_raw": [
+    [
+      1,
+      121,
+      746
+    ],
+    [
+      2,
+      138,
+      968
+    ],
+    [
+      3,
+      135,
+      780
+    ],
+    [
+      4,
+      119,
+      729
+    ],
+    [
+      5,
+      134,
+      997
+    ],
+    [
+      6,
+      138,
+      1432
+    ],
+    [
+      7,
+      120,
+      1146
+    ],
+    [
+      8,
+      129,
+      1175
+    ],
+    [
+      9,
+      88,
+      437
+    ]
+  ]
 }

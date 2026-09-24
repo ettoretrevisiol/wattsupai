@@ -36,8 +36,20 @@
     "60min": 157
   },
   "best_climbing_laps": [
-    {"lap": 2, "np_w": 193, "avg_power_w": 188, "avg_hr_bpm": 149, "ascent_m": 140},
-    {"lap": 3, "np_w": 201, "avg_power_w": 196, "avg_hr_bpm": 165, "ascent_m": 81}
+    {
+      "lap": 2,
+      "np_w": 193,
+      "avg_power_w": 188,
+      "avg_hr_bpm": 149,
+      "ascent_m": 140
+    },
+    {
+      "lap": 3,
+      "np_w": 201,
+      "avg_power_w": 196,
+      "avg_hr_bpm": 165,
+      "ascent_m": 81
+    }
   ],
   "shift_summary": {
     "total_shifts": 139,
@@ -45,5 +57,70 @@
     "reactive_pct": 21.6,
     "avg_cadence_at_shift_rpm": 63.8
   },
-  "notes": "Lap 3 NP 201W at 165bpm (Z4). Short evening Cortina Cimabanche."
+  "notes": "Lap 3 NP 201W at 165bpm (Z4). Short evening Cortina Cimabanche.",
+  "lap_hr_analysis": {
+    "peak_lap_hr": 158,
+    "peak_lap_number": 3,
+    "laps_above_z3_155": 1,
+    "laps_above_z4_166": 0,
+    "n_laps_with_hr": 7,
+    "max_lap_sequence": [
+      [
+        3,
+        158
+      ],
+      [
+        2,
+        149
+      ],
+      [
+        4,
+        145
+      ]
+    ]
+  },
+  "lap_hr_time_in_zone_s": {
+    "z1": 1659,
+    "z2": 2338,
+    "z3": 673,
+    "z4": 0,
+    "z5": 0
+  },
+  "laps_hr_raw": [
+    [
+      1,
+      118,
+      746
+    ],
+    [
+      2,
+      149,
+      895
+    ],
+    [
+      3,
+      158,
+      673
+    ],
+    [
+      4,
+      145,
+      655
+    ],
+    [
+      5,
+      127,
+      496
+    ],
+    [
+      6,
+      124,
+      417
+    ],
+    [
+      7,
+      141,
+      788
+    ]
+  ]
 }

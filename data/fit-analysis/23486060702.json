@@ -16,7 +16,7 @@
     "total_distance_m": 66638,
     "total_elapsed_time_s": 11408,
     "total_timer_time_s": 9593,
-    "variability_index": 1.20,
+    "variability_index": 1.2,
     "total_calories": 1345
   },
   "hr_drift": {
@@ -36,7 +36,13 @@
     "60min": 132
   },
   "best_climbing_laps": [
-    {"lap": 2, "np_w": 152, "avg_power_w": 149, "avg_hr_bpm": 133, "ascent_m": 137}
+    {
+      "lap": 2,
+      "np_w": 152,
+      "avg_power_w": 149,
+      "avg_hr_bpm": 133,
+      "ascent_m": 137
+    }
   ],
   "shift_summary": {
     "total_shifts": 250,
@@ -44,5 +50,105 @@
     "reactive_pct": 18.0,
     "avg_cadence_at_shift_rpm": 65.8
   },
-  "notes": "Recovery day, well-coupled. Dobbiaco valley ride, low intensity."
+  "notes": "Recovery day, well-coupled. Dobbiaco valley ride, low intensity.",
+  "lap_hr_analysis": {
+    "peak_lap_hr": 139,
+    "peak_lap_number": 10,
+    "laps_above_z3_155": 0,
+    "laps_above_z4_166": 0,
+    "n_laps_with_hr": 14,
+    "max_lap_sequence": [
+      [
+        10,
+        139
+      ],
+      [
+        9,
+        138
+      ],
+      [
+        14,
+        135
+      ]
+    ]
+  },
+  "lap_hr_time_in_zone_s": {
+    "z1": 8110,
+    "z2": 3299,
+    "z3": 0,
+    "z4": 0,
+    "z5": 0
+  },
+  "laps_hr_raw": [
+    [
+      1,
+      115,
+      810
+    ],
+    [
+      2,
+      133,
+      1173
+    ],
+    [
+      3,
+      128,
+      838
+    ],
+    [
+      4,
+      124,
+      596
+    ],
+    [
+      5,
+      124,
+      531
+    ],
+    [
+      6,
+      124,
+      467
+    ],
+    [
+      7,
+      109,
+      2267
+    ],
+    [
+      8,
+      128,
+      937
+    ],
+    [
+      9,
+      138,
+      737
+    ],
+    [
+      10,
+      139,
+      862
+    ],
+    [
+      11,
+      128,
+      604
+    ],
+    [
+      12,
+      109,
+      427
+    ],
+    [
+      13,
+      127,
+      633
+    ],
+    [
+      14,
+      135,
+      527
+    ]
+  ]
 }

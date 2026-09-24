@@ -36,8 +36,18 @@
     "60min": null
   },
   "best_climbing_laps": [
-    {"lap": 9, "np_w": 207, "avg_power_w": 190, "avg_hr_bpm": 152},
-    {"lap": 10, "np_w": 205, "avg_power_w": 188, "avg_hr_bpm": 155}
+    {
+      "lap": 9,
+      "np_w": 207,
+      "avg_power_w": 190,
+      "avg_hr_bpm": 152
+    },
+    {
+      "lap": 10,
+      "np_w": 205,
+      "avg_power_w": 188,
+      "avg_hr_bpm": 155
+    }
   ],
   "shift_summary": {
     "total_shifts": 420,
@@ -45,5 +55,145 @@
     "reactive_pct": 20.0,
     "avg_cadence_at_shift_rpm": 67
   },
-  "notes": "Friuli hills. Two long climbs Forgaria and Versegnis."
+  "notes": "Friuli hills. Two long climbs Forgaria and Versegnis.",
+  "lap_hr_analysis": {
+    "peak_lap_hr": 156,
+    "peak_lap_number": 17,
+    "laps_above_z3_155": 1,
+    "laps_above_z4_166": 0,
+    "n_laps_with_hr": 22,
+    "max_lap_sequence": [
+      [
+        17,
+        156
+      ],
+      [
+        10,
+        154
+      ],
+      [
+        9,
+        149
+      ]
+    ]
+  },
+  "lap_hr_time_in_zone_s": {
+    "z1": 2079,
+    "z2": 12300,
+    "z3": 513,
+    "z4": 0,
+    "z5": 0
+  },
+  "laps_hr_raw": [
+    [
+      1,
+      137,
+      699
+    ],
+    [
+      2,
+      139,
+      534
+    ],
+    [
+      3,
+      141,
+      649
+    ],
+    [
+      4,
+      146,
+      531
+    ],
+    [
+      5,
+      138,
+      697
+    ],
+    [
+      6,
+      143,
+      1058
+    ],
+    [
+      7,
+      138,
+      567
+    ],
+    [
+      8,
+      136,
+      755
+    ],
+    [
+      9,
+      149,
+      1124
+    ],
+    [
+      10,
+      154,
+      1358
+    ],
+    [
+      11,
+      114,
+      490
+    ],
+    [
+      12,
+      112,
+      1088
+    ],
+    [
+      13,
+      123,
+      500
+    ],
+    [
+      14,
+      136,
+      585
+    ],
+    [
+      15,
+      143,
+      569
+    ],
+    [
+      16,
+      144,
+      509
+    ],
+    [
+      17,
+      156,
+      513
+    ],
+    [
+      18,
+      148,
+      513
+    ],
+    [
+      19,
+      146,
+      599
+    ],
+    [
+      20,
+      138,
+      670
+    ],
+    [
+      21,
+      146,
+      620
+    ],
+    [
+      22,
+      131,
+      262
+    ]
+  ]
 }

@@ -19,10 +19,108 @@
     "variability_index": null,
     "total_calories": 398
   },
-  "hr_drift": {"hr_drift_pct": null, "interpretation": "indoor_structured"},
-  "temperature": {"avg_temp_c": null},
-  "pdc": {"5s": null, "30s": null, "1min": null, "5min": null, "10min": null, "20min": null, "60min": null},
+  "hr_drift": {
+    "hr_drift_pct": null,
+    "interpretation": "indoor_structured"
+  },
+  "temperature": {
+    "avg_temp_c": null
+  },
+  "pdc": {
+    "5s": null,
+    "30s": null,
+    "1min": null,
+    "5min": null,
+    "10min": null,
+    "20min": null,
+    "60min": null
+  },
   "best_climbing_laps": [],
-  "shift_summary": {"total_shifts": 0, "proactive_pct": null, "reactive_pct": null, "avg_cadence_at_shift_rpm": null},
-  "notes": "Structured: 1h Z2 with 4x short Z3 intervals. Tempo work."
+  "shift_summary": {
+    "total_shifts": 0,
+    "proactive_pct": null,
+    "reactive_pct": null,
+    "avg_cadence_at_shift_rpm": null
+  },
+  "notes": "Structured: 1h Z2 with 4x short Z3 intervals. Tempo work.",
+  "lap_hr_analysis": {
+    "peak_lap_hr": 162,
+    "peak_lap_number": 7,
+    "laps_above_z3_155": 5,
+    "laps_above_z4_166": 0,
+    "n_laps_with_hr": 10,
+    "max_lap_sequence": [
+      [
+        7,
+        162
+      ],
+      [
+        8,
+        162
+      ],
+      [
+        9,
+        160
+      ]
+    ]
+  },
+  "lap_hr_time_in_zone_s": {
+    "z1": 420,
+    "z2": 1139,
+    "z3": 425,
+    "z4": 0,
+    "z5": 0
+  },
+  "laps_hr_raw": [
+    [
+      2,
+      33,
+      420
+    ],
+    [
+      3,
+      151,
+      180
+    ],
+    [
+      4,
+      148,
+      420
+    ],
+    [
+      5,
+      157,
+      180
+    ],
+    [
+      6,
+      152,
+      420
+    ],
+    [
+      7,
+      162,
+      180
+    ],
+    [
+      8,
+      162,
+      63
+    ],
+    [
+      9,
+      160,
+      1
+    ],
+    [
+      10,
+      160,
+      1
+    ],
+    [
+      11,
+      134,
+      119
+    ]
+  ]
 }

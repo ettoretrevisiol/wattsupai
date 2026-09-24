@@ -36,8 +36,18 @@
     "60min": null
   },
   "best_climbing_laps": [
-    {"lap": 3, "np_w": 187, "avg_power_w": 172, "avg_hr_bpm": 145},
-    {"lap": 8, "np_w": 195, "avg_power_w": 178, "avg_hr_bpm": 150}
+    {
+      "lap": 3,
+      "np_w": 187,
+      "avg_power_w": 172,
+      "avg_hr_bpm": 145
+    },
+    {
+      "lap": 8,
+      "np_w": 195,
+      "avg_power_w": 178,
+      "avg_hr_bpm": 150
+    }
   ],
   "shift_summary": {
     "total_shifts": 380,
@@ -45,5 +55,100 @@
     "reactive_pct": 22.0,
     "avg_cadence_at_shift_rpm": 65
   },
-  "notes": "Cool morning Cortina. Two big climbs Giau and Valparola."
+  "notes": "Cool morning Cortina. Two big climbs Giau and Valparola.",
+  "lap_hr_analysis": {
+    "peak_lap_hr": 155,
+    "peak_lap_number": 8,
+    "laps_above_z3_155": 1,
+    "laps_above_z4_166": 0,
+    "n_laps_with_hr": 13,
+    "max_lap_sequence": [
+      [
+        8,
+        155
+      ],
+      [
+        13,
+        149
+      ],
+      [
+        3,
+        147
+      ]
+    ]
+  },
+  "lap_hr_time_in_zone_s": {
+    "z1": 5418,
+    "z2": 6695,
+    "z3": 1487,
+    "z4": 0,
+    "z5": 0
+  },
+  "laps_hr_raw": [
+    [
+      1,
+      109,
+      1157
+    ],
+    [
+      2,
+      141,
+      1180
+    ],
+    [
+      3,
+      147,
+      1875
+    ],
+    [
+      4,
+      139,
+      1841
+    ],
+    [
+      5,
+      87,
+      514
+    ],
+    [
+      6,
+      116,
+      1059
+    ],
+    [
+      7,
+      138,
+      1190
+    ],
+    [
+      8,
+      155,
+      1487
+    ],
+    [
+      9,
+      110,
+      939
+    ],
+    [
+      10,
+      102,
+      427
+    ],
+    [
+      11,
+      97,
+      503
+    ],
+    [
+      12,
+      107,
+      818
+    ],
+    [
+      13,
+      149,
+      609
+    ]
+  ]
 }

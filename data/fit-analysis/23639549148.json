@@ -37,5 +37,140 @@
   },
   "best_climbing_laps": [],
   "shift_summary": null,
-  "notes": "No power meter (weekday bike). Hot day 29C avg. Long flat ride. HR 150avg indicates Z2-Z3 effort."
+  "notes": "No power meter (weekday bike). Hot day 29C avg. Long flat ride. HR 150avg indicates Z2-Z3 effort.",
+  "lap_hr_analysis": {
+    "peak_lap_hr": 161,
+    "peak_lap_number": 5,
+    "laps_above_z3_155": 4,
+    "laps_above_z4_166": 0,
+    "n_laps_with_hr": 21,
+    "max_lap_sequence": [
+      [
+        5,
+        161
+      ],
+      [
+        9,
+        160
+      ],
+      [
+        10,
+        157
+      ]
+    ]
+  },
+  "lap_hr_time_in_zone_s": {
+    "z1": 0,
+    "z2": 12168,
+    "z3": 2255,
+    "z4": 0,
+    "z5": 0
+  },
+  "laps_hr_raw": [
+    [
+      1,
+      138,
+      760
+    ],
+    [
+      2,
+      149,
+      840
+    ],
+    [
+      3,
+      153,
+      588
+    ],
+    [
+      4,
+      144,
+      624
+    ],
+    [
+      5,
+      161,
+      557
+    ],
+    [
+      6,
+      150,
+      567
+    ],
+    [
+      7,
+      147,
+      554
+    ],
+    [
+      8,
+      146,
+      934
+    ],
+    [
+      9,
+      160,
+      528
+    ],
+    [
+      10,
+      157,
+      578
+    ],
+    [
+      11,
+      149,
+      597
+    ],
+    [
+      12,
+      143,
+      2192
+    ],
+    [
+      13,
+      147,
+      591
+    ],
+    [
+      14,
+      150,
+      588
+    ],
+    [
+      15,
+      154,
+      614
+    ],
+    [
+      16,
+      155,
+      592
+    ],
+    [
+      17,
+      144,
+      821
+    ],
+    [
+      18,
+      153,
+      673
+    ],
+    [
+      19,
+      146,
+      603
+    ],
+    [
+      20,
+      151,
+      590
+    ],
+    [
+      21,
+      154,
+      32
+    ]
+  ]
 }

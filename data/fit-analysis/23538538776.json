@@ -36,8 +36,20 @@
     "60min": 165
   },
   "best_climbing_laps": [
-    {"lap": 2, "np_w": 211, "avg_power_w": 209, "avg_hr_bpm": 161, "ascent_m": 134},
-    {"lap": 3, "np_w": 200, "avg_power_w": 196, "avg_hr_bpm": 165, "ascent_m": 82}
+    {
+      "lap": 2,
+      "np_w": 211,
+      "avg_power_w": 209,
+      "avg_hr_bpm": 161,
+      "ascent_m": 134
+    },
+    {
+      "lap": 3,
+      "np_w": 200,
+      "avg_power_w": 196,
+      "avg_hr_bpm": 165,
+      "ascent_m": 82
+    }
   ],
   "shift_summary": {
     "total_shifts": 105,
@@ -45,5 +57,70 @@
     "reactive_pct": 17.1,
     "avg_cadence_at_shift_rpm": 71.6
   },
-  "notes": "Strong effort L2 NP 211W at 161bpm, L3 NP 200W at 165bpm (Z4!). Hot evening."
+  "notes": "Strong effort L2 NP 211W at 161bpm, L3 NP 200W at 165bpm (Z4!). Hot evening.",
+  "lap_hr_analysis": {
+    "peak_lap_hr": 165,
+    "peak_lap_number": 3,
+    "laps_above_z3_155": 3,
+    "laps_above_z4_166": 0,
+    "n_laps_with_hr": 7,
+    "max_lap_sequence": [
+      [
+        3,
+        165
+      ],
+      [
+        2,
+        161
+      ],
+      [
+        4,
+        155
+      ]
+    ]
+  },
+  "lap_hr_time_in_zone_s": {
+    "z1": 1121,
+    "z2": 1181,
+    "z3": 2028,
+    "z4": 0,
+    "z5": 0
+  },
+  "laps_hr_raw": [
+    [
+      1,
+      118,
+      732
+    ],
+    [
+      2,
+      161,
+      845
+    ],
+    [
+      3,
+      165,
+      645
+    ],
+    [
+      4,
+      155,
+      538
+    ],
+    [
+      5,
+      141,
+      477
+    ],
+    [
+      6,
+      126,
+      389
+    ],
+    [
+      7,
+      145,
+      704
+    ]
+  ]
 }

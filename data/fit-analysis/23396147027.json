@@ -36,8 +36,18 @@
     "60min": null
   },
   "best_climbing_laps": [
-    {"lap": 9, "np_w": 180, "avg_power_w": 161, "avg_hr_bpm": 145},
-    {"lap": 14, "np_w": 172, "avg_power_w": 155, "avg_hr_bpm": 147}
+    {
+      "lap": 9,
+      "np_w": 180,
+      "avg_power_w": 161,
+      "avg_hr_bpm": 145
+    },
+    {
+      "lap": 14,
+      "np_w": 172,
+      "avg_power_w": 155,
+      "avg_hr_bpm": 147
+    }
   ],
   "shift_summary": {
     "total_shifts": 540,
@@ -45,5 +55,155 @@
     "reactive_pct": 26.0,
     "avg_cadence_at_shift_rpm": 62
   },
-  "notes": "First big Dolomites day of season. 3297m climbing. 5 passes."
+  "notes": "First big Dolomites day of season. 3297m climbing. 5 passes.",
+  "lap_hr_analysis": {
+    "peak_lap_hr": 153,
+    "peak_lap_number": 9,
+    "laps_above_z3_155": 0,
+    "laps_above_z4_166": 0,
+    "n_laps_with_hr": 24,
+    "max_lap_sequence": [
+      [
+        9,
+        153
+      ],
+      [
+        14,
+        152
+      ],
+      [
+        20,
+        151
+      ]
+    ]
+  },
+  "lap_hr_time_in_zone_s": {
+    "z1": 6717,
+    "z2": 18948,
+    "z3": 0,
+    "z4": 0,
+    "z5": 0
+  },
+  "laps_hr_raw": [
+    [
+      1,
+      133,
+      1036
+    ],
+    [
+      2,
+      150,
+      1525
+    ],
+    [
+      3,
+      149,
+      1255
+    ],
+    [
+      4,
+      149,
+      1667
+    ],
+    [
+      5,
+      107,
+      508
+    ],
+    [
+      6,
+      109,
+      496
+    ],
+    [
+      7,
+      121,
+      902
+    ],
+    [
+      8,
+      144,
+      1037
+    ],
+    [
+      9,
+      153,
+      1587
+    ],
+    [
+      10,
+      143,
+      1193
+    ],
+    [
+      11,
+      139,
+      1260
+    ],
+    [
+      12,
+      149,
+      1583
+    ],
+    [
+      13,
+      127,
+      982
+    ],
+    [
+      14,
+      152,
+      1617
+    ],
+    [
+      15,
+      110,
+      711
+    ],
+    [
+      16,
+      104,
+      880
+    ],
+    [
+      17,
+      118,
+      565
+    ],
+    [
+      18,
+      133,
+      926
+    ],
+    [
+      19,
+      149,
+      1499
+    ],
+    [
+      20,
+      151,
+      1617
+    ],
+    [
+      21,
+      110,
+      729
+    ],
+    [
+      22,
+      113,
+      470
+    ],
+    [
+      23,
+      103,
+      474
+    ],
+    [
+      24,
+      139,
+      1146
+    ]
+  ]
 }

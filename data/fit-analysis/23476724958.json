@@ -36,7 +36,12 @@
     "60min": null
   },
   "best_climbing_laps": [
-    {"lap": 11, "np_w": 194, "avg_power_w": 176, "avg_hr_bpm": 151}
+    {
+      "lap": 11,
+      "np_w": 194,
+      "avg_power_w": 176,
+      "avg_hr_bpm": 151
+    }
   ],
   "shift_summary": {
     "total_shifts": 520,
@@ -44,5 +49,140 @@
     "reactive_pct": 24.0,
     "avg_cadence_at_shift_rpm": 64
   },
-  "notes": "First Cortina arrival. 3005m climbing. Giau + Campolongo + Valparola."
+  "notes": "First Cortina arrival. 3005m climbing. Giau + Campolongo + Valparola.",
+  "lap_hr_analysis": {
+    "peak_lap_hr": 162,
+    "peak_lap_number": 11,
+    "laps_above_z3_155": 4,
+    "laps_above_z4_166": 0,
+    "n_laps_with_hr": 21,
+    "max_lap_sequence": [
+      [
+        11,
+        162
+      ],
+      [
+        16,
+        159
+      ],
+      [
+        15,
+        157
+      ]
+    ]
+  },
+  "lap_hr_time_in_zone_s": {
+    "z1": 4203,
+    "z2": 11486,
+    "z3": 7254,
+    "z4": 0,
+    "z5": 0
+  },
+  "laps_hr_raw": [
+    [
+      1,
+      136,
+      1077
+    ],
+    [
+      2,
+      150,
+      1244
+    ],
+    [
+      3,
+      156,
+      1910
+    ],
+    [
+      4,
+      150,
+      1689
+    ],
+    [
+      5,
+      105,
+      541
+    ],
+    [
+      6,
+      125,
+      949
+    ],
+    [
+      7,
+      136,
+      892
+    ],
+    [
+      8,
+      147,
+      970
+    ],
+    [
+      9,
+      148,
+      652
+    ],
+    [
+      10,
+      154,
+      910
+    ],
+    [
+      11,
+      162,
+      2030
+    ],
+    [
+      12,
+      110,
+      530
+    ],
+    [
+      13,
+      125,
+      691
+    ],
+    [
+      14,
+      148,
+      1436
+    ],
+    [
+      15,
+      157,
+      1572
+    ],
+    [
+      16,
+      159,
+      1742
+    ],
+    [
+      17,
+      110,
+      481
+    ],
+    [
+      18,
+      110,
+      476
+    ],
+    [
+      19,
+      104,
+      535
+    ],
+    [
+      20,
+      142,
+      1649
+    ],
+    [
+      21,
+      146,
+      967
+    ]
+  ]
 }

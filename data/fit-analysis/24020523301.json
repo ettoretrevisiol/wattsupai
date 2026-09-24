@@ -38,8 +38,18 @@
     "60min": 172
   },
   "best_climbing_laps": [
-    {"lap": 7, "np_w": 215, "avg_power_w": 194, "avg_hr_bpm": 146},
-    {"lap": 8, "np_w": 216, "avg_power_w": 201, "avg_hr_bpm": 153}
+    {
+      "lap": 7,
+      "np_w": 215,
+      "avg_power_w": 194,
+      "avg_hr_bpm": 146
+    },
+    {
+      "lap": 8,
+      "np_w": 216,
+      "avg_power_w": 201,
+      "avg_hr_bpm": 153
+    }
   ],
   "shift_summary": {
     "total_shifts": 436,
@@ -47,5 +57,125 @@
     "reactive_pct": 17.9,
     "avg_cadence_at_shift_rpm": 66.6
   },
-  "notes": "Large HR drift -23.8%. Hot afternoon, high max power 873W (sprint). Best laps L7-L8 215-216W NP."
+  "notes": "Large HR drift -23.8%. Hot afternoon, high max power 873W (sprint). Best laps L7-L8 215-216W NP.",
+  "lap_hr_analysis": {
+    "peak_lap_hr": 146,
+    "peak_lap_number": 7,
+    "laps_above_z3_155": 0,
+    "laps_above_z4_166": 0,
+    "n_laps_with_hr": 18,
+    "max_lap_sequence": [
+      [
+        7,
+        146
+      ],
+      [
+        16,
+        141
+      ],
+      [
+        18,
+        138
+      ]
+    ]
+  },
+  "lap_hr_time_in_zone_s": {
+    "z1": 6662,
+    "z2": 7837,
+    "z3": 0,
+    "z4": 0,
+    "z5": 0
+  },
+  "laps_hr_raw": [
+    [
+      1,
+      131,
+      579
+    ],
+    [
+      2,
+      136,
+      835
+    ],
+    [
+      3,
+      131,
+      740
+    ],
+    [
+      4,
+      126,
+      769
+    ],
+    [
+      5,
+      124,
+      858
+    ],
+    [
+      6,
+      131,
+      1457
+    ],
+    [
+      7,
+      146,
+      1266
+    ],
+    [
+      8,
+      117,
+      993
+    ],
+    [
+      9,
+      115,
+      1138
+    ],
+    [
+      10,
+      90,
+      451
+    ],
+    [
+      11,
+      116,
+      543
+    ],
+    [
+      12,
+      112,
+      675
+    ],
+    [
+      13,
+      129,
+      591
+    ],
+    [
+      14,
+      126,
+      644
+    ],
+    [
+      15,
+      130,
+      776
+    ],
+    [
+      16,
+      141,
+      575
+    ],
+    [
+      17,
+      132,
+      1029
+    ],
+    [
+      18,
+      138,
+      580
+    ]
+  ]
 }

@@ -36,7 +36,12 @@
     "60min": null
   },
   "best_climbing_laps": [
-    {"lap": 9, "np_w": 211, "avg_power_w": 192, "avg_hr_bpm": 152}
+    {
+      "lap": 9,
+      "np_w": 211,
+      "avg_power_w": 192,
+      "avg_hr_bpm": 152
+    }
   ],
   "shift_summary": {
     "total_shifts": 490,
@@ -44,5 +49,125 @@
     "reactive_pct": 22.0,
     "avg_cadence_at_shift_rpm": 64
   },
-  "notes": "Big Cortina day. Three major passes."
+  "notes": "Big Cortina day. Three major passes.",
+  "lap_hr_analysis": {
+    "peak_lap_hr": 152,
+    "peak_lap_number": 9,
+    "laps_above_z3_155": 0,
+    "laps_above_z4_166": 0,
+    "n_laps_with_hr": 18,
+    "max_lap_sequence": [
+      [
+        9,
+        152
+      ],
+      [
+        13,
+        146
+      ],
+      [
+        2,
+        144
+      ]
+    ]
+  },
+  "lap_hr_time_in_zone_s": {
+    "z1": 5370,
+    "z2": 12069,
+    "z3": 0,
+    "z4": 0,
+    "z5": 0
+  },
+  "laps_hr_raw": [
+    [
+      1,
+      124,
+      1046
+    ],
+    [
+      2,
+      144,
+      1468
+    ],
+    [
+      3,
+      143,
+      1170
+    ],
+    [
+      4,
+      139,
+      1371
+    ],
+    [
+      5,
+      90,
+      436
+    ],
+    [
+      6,
+      93,
+      555
+    ],
+    [
+      7,
+      124,
+      679
+    ],
+    [
+      8,
+      137,
+      1672
+    ],
+    [
+      9,
+      152,
+      1175
+    ],
+    [
+      10,
+      102,
+      647
+    ],
+    [
+      11,
+      124,
+      673
+    ],
+    [
+      12,
+      136,
+      1384
+    ],
+    [
+      13,
+      146,
+      1638
+    ],
+    [
+      14,
+      142,
+      1229
+    ],
+    [
+      15,
+      101,
+      401
+    ],
+    [
+      16,
+      114,
+      455
+    ],
+    [
+      17,
+      94,
+      478
+    ],
+    [
+      18,
+      137,
+      962
+    ]
+  ]
 }

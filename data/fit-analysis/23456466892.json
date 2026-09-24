@@ -36,7 +36,13 @@
     "60min": 160
   },
   "best_climbing_laps": [
-    {"lap": 1, "np_w": 184, "avg_power_w": 178, "avg_hr_bpm": 147, "ascent_m": 351}
+    {
+      "lap": 1,
+      "np_w": 184,
+      "avg_power_w": 178,
+      "avg_hr_bpm": 147,
+      "ascent_m": 351
+    }
   ],
   "shift_summary": {
     "total_shifts": 176,
@@ -44,5 +50,70 @@
     "reactive_pct": 15.3,
     "avg_cadence_at_shift_rpm": 67.9
   },
-  "notes": "Misurina big climb L1 351m gain NP 184W. Hot."
+  "notes": "Misurina big climb L1 351m gain NP 184W. Hot.",
+  "lap_hr_analysis": {
+    "peak_lap_hr": 157,
+    "peak_lap_number": 7,
+    "laps_above_z3_155": 1,
+    "laps_above_z4_166": 0,
+    "n_laps_with_hr": 7,
+    "max_lap_sequence": [
+      [
+        7,
+        157
+      ],
+      [
+        3,
+        148
+      ],
+      [
+        1,
+        147
+      ]
+    ]
+  },
+  "lap_hr_time_in_zone_s": {
+    "z1": 1641,
+    "z2": 4517,
+    "z3": 304,
+    "z4": 0,
+    "z5": 0
+  },
+  "laps_hr_raw": [
+    [
+      1,
+      147,
+      1683
+    ],
+    [
+      2,
+      142,
+      689
+    ],
+    [
+      3,
+      148,
+      1001
+    ],
+    [
+      4,
+      146,
+      1144
+    ],
+    [
+      5,
+      100,
+      455
+    ],
+    [
+      6,
+      122,
+      1186
+    ],
+    [
+      7,
+      157,
+      304
+    ]
+  ]
 }

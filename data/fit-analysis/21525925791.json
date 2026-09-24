@@ -19,10 +19,128 @@
     "variability_index": null,
     "total_calories": 438
   },
-  "hr_drift": {"hr_drift_pct": null, "interpretation": "indoor_structured"},
-  "temperature": {"avg_temp_c": null},
-  "pdc": {"5s": null, "30s": null, "1min": null, "5min": null, "10min": null, "20min": null, "60min": null},
+  "hr_drift": {
+    "hr_drift_pct": null,
+    "interpretation": "indoor_structured"
+  },
+  "temperature": {
+    "avg_temp_c": null
+  },
+  "pdc": {
+    "5s": null,
+    "30s": null,
+    "1min": null,
+    "5min": null,
+    "10min": null,
+    "20min": null,
+    "60min": null
+  },
   "best_climbing_laps": [],
-  "shift_summary": {"total_shifts": 0, "proactive_pct": null, "reactive_pct": null, "avg_cadence_at_shift_rpm": null},
-  "notes": "Structured: 1h with 5x Z4 intervals. Threshold work."
+  "shift_summary": {
+    "total_shifts": 0,
+    "proactive_pct": null,
+    "reactive_pct": null,
+    "avg_cadence_at_shift_rpm": null
+  },
+  "notes": "Structured: 1h with 5x Z4 intervals. Threshold work.",
+  "lap_hr_analysis": {
+    "peak_lap_hr": 147,
+    "peak_lap_number": 9,
+    "laps_above_z3_155": 0,
+    "laps_above_z4_166": 0,
+    "n_laps_with_hr": 14,
+    "max_lap_sequence": [
+      [
+        9,
+        147
+      ],
+      [
+        11,
+        147
+      ],
+      [
+        13,
+        146
+      ]
+    ]
+  },
+  "lap_hr_time_in_zone_s": {
+    "z1": 1268,
+    "z2": 1558,
+    "z3": 0,
+    "z4": 0,
+    "z5": 0
+  },
+  "laps_hr_raw": [
+    [
+      1,
+      81,
+      344
+    ],
+    [
+      2,
+      115,
+      684
+    ],
+    [
+      3,
+      136,
+      170
+    ],
+    [
+      4,
+      133,
+      180
+    ],
+    [
+      5,
+      138,
+      180
+    ],
+    [
+      6,
+      123,
+      120
+    ],
+    [
+      7,
+      145,
+      180
+    ],
+    [
+      8,
+      130,
+      120
+    ],
+    [
+      9,
+      147,
+      180
+    ],
+    [
+      10,
+      133,
+      120
+    ],
+    [
+      11,
+      147,
+      180
+    ],
+    [
+      12,
+      128,
+      120
+    ],
+    [
+      13,
+      146,
+      180
+    ],
+    [
+      14,
+      140,
+      68
+    ]
+  ]
 }

@@ -36,8 +36,18 @@
     "60min": null
   },
   "best_climbing_laps": [
-    {"lap": 3, "np_w": 178, "avg_power_w": 160, "avg_hr_bpm": 147},
-    {"lap": 9, "np_w": 176, "avg_power_w": 159, "avg_hr_bpm": 149}
+    {
+      "lap": 3,
+      "np_w": 178,
+      "avg_power_w": 160,
+      "avg_hr_bpm": 147
+    },
+    {
+      "lap": 9,
+      "np_w": 176,
+      "avg_power_w": 159,
+      "avg_hr_bpm": 149
+    }
   ],
   "shift_summary": {
     "total_shifts": 510,
@@ -45,5 +55,145 @@
     "reactive_pct": 24.0,
     "avg_cadence_at_shift_rpm": 63
   },
-  "notes": "First Cortina 3-pass day. 2910m climbing. Season low point for 20min PDC."
+  "notes": "First Cortina 3-pass day. 2910m climbing. Season low point for 20min PDC.",
+  "lap_hr_analysis": {
+    "peak_lap_hr": 158,
+    "peak_lap_number": 9,
+    "laps_above_z3_155": 2,
+    "laps_above_z4_166": 0,
+    "n_laps_with_hr": 22,
+    "max_lap_sequence": [
+      [
+        9,
+        158
+      ],
+      [
+        15,
+        156
+      ],
+      [
+        3,
+        153
+      ]
+    ]
+  },
+  "lap_hr_time_in_zone_s": {
+    "z1": 4804,
+    "z2": 15245,
+    "z3": 2983,
+    "z4": 0,
+    "z5": 0
+  },
+  "laps_hr_raw": [
+    [
+      1,
+      127,
+      1081
+    ],
+    [
+      2,
+      148,
+      1238
+    ],
+    [
+      3,
+      153,
+      1956
+    ],
+    [
+      4,
+      149,
+      1743
+    ],
+    [
+      5,
+      102,
+      567
+    ],
+    [
+      6,
+      123,
+      1095
+    ],
+    [
+      7,
+      137,
+      976
+    ],
+    [
+      8,
+      150,
+      1193
+    ],
+    [
+      9,
+      158,
+      1502
+    ],
+    [
+      10,
+      153,
+      1476
+    ],
+    [
+      11,
+      113,
+      404
+    ],
+    [
+      12,
+      113,
+      516
+    ],
+    [
+      13,
+      112,
+      688
+    ],
+    [
+      14,
+      151,
+      2888
+    ],
+    [
+      15,
+      156,
+      1481
+    ],
+    [
+      16,
+      149,
+      884
+    ],
+    [
+      17,
+      132,
+      465
+    ],
+    [
+      18,
+      143,
+      839
+    ],
+    [
+      19,
+      153,
+      508
+    ],
+    [
+      20,
+      123,
+      453
+    ],
+    [
+      21,
+      141,
+      677
+    ],
+    [
+      22,
+      152,
+      402
+    ]
+  ]
 }

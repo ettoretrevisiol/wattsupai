@@ -19,10 +19,73 @@
     "variability_index": null,
     "total_calories": 473
   },
-  "hr_drift": {"hr_drift_pct": null, "interpretation": "indoor_structured"},
-  "temperature": {"avg_temp_c": null},
-  "pdc": {"5s": null, "30s": null, "1min": null, "5min": null, "10min": null, "20min": null, "60min": null},
+  "hr_drift": {
+    "hr_drift_pct": null,
+    "interpretation": "indoor_structured"
+  },
+  "temperature": {
+    "avg_temp_c": null
+  },
+  "pdc": {
+    "5s": null,
+    "30s": null,
+    "1min": null,
+    "5min": null,
+    "10min": null,
+    "20min": null,
+    "60min": null
+  },
   "best_climbing_laps": [],
-  "shift_summary": {"total_shifts": 0, "proactive_pct": null, "reactive_pct": null, "avg_cadence_at_shift_rpm": null},
-  "notes": "Base endurance session."
+  "shift_summary": {
+    "total_shifts": 0,
+    "proactive_pct": null,
+    "reactive_pct": null,
+    "avg_cadence_at_shift_rpm": null
+  },
+  "notes": "Base endurance session.",
+  "lap_hr_analysis": {
+    "peak_lap_hr": 142,
+    "peak_lap_number": 2,
+    "laps_above_z3_155": 0,
+    "laps_above_z4_166": 0,
+    "n_laps_with_hr": 3,
+    "max_lap_sequence": [
+      [
+        2,
+        142
+      ],
+      [
+        3,
+        140
+      ],
+      [
+        1,
+        98
+      ]
+    ]
+  },
+  "lap_hr_time_in_zone_s": {
+    "z1": 743,
+    "z2": 2469,
+    "z3": 0,
+    "z4": 0,
+    "z5": 0
+  },
+  "laps_hr_raw": [
+    [
+      1,
+      98,
+      743
+    ],
+    [
+      2,
+      142,
+      2401
+    ],
+    [
+      3,
+      140,
+      68
+    ]
+  ]
 }

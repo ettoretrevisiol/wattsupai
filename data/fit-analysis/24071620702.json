@@ -16,7 +16,7 @@
     "total_distance_m": 102910,
     "total_elapsed_time_s": 15912,
     "total_timer_time_s": 13071,
-    "variability_index": 1.20,
+    "variability_index": 1.2,
     "total_calories": 2318
   },
   "hr_drift": {
@@ -38,8 +38,18 @@
     "60min": 193
   },
   "best_climbing_laps": [
-    {"lap": 6, "np_w": 220, "avg_power_w": 201, "avg_hr_bpm": 147},
-    {"lap": 8, "np_w": 216, "avg_power_w": 201, "avg_hr_bpm": 153}
+    {
+      "lap": 6,
+      "np_w": 220,
+      "avg_power_w": 201,
+      "avg_hr_bpm": 147
+    },
+    {
+      "lap": 8,
+      "np_w": 216,
+      "avg_power_w": 201,
+      "avg_hr_bpm": 153
+    }
   ],
   "shift_summary": {
     "total_shifts": 593,
@@ -47,5 +57,140 @@
     "reactive_pct": 13.5,
     "avg_cadence_at_shift_rpm": 66.4
   },
-  "notes": "Long hilly ride with long break mid (Lap 17 high elapsed). Best laps L6 220W NP, L8 216W NP."
+  "notes": "Long hilly ride with long break mid (Lap 17 high elapsed). Best laps L6 220W NP, L8 216W NP.",
+  "lap_hr_analysis": {
+    "peak_lap_hr": 153,
+    "peak_lap_number": 8,
+    "laps_above_z3_155": 0,
+    "laps_above_z4_166": 0,
+    "n_laps_with_hr": 21,
+    "max_lap_sequence": [
+      [
+        8,
+        153
+      ],
+      [
+        6,
+        147
+      ],
+      [
+        15,
+        146
+      ]
+    ]
+  },
+  "lap_hr_time_in_zone_s": {
+    "z1": 3345,
+    "z2": 12569,
+    "z3": 0,
+    "z4": 0,
+    "z5": 0
+  },
+  "laps_hr_raw": [
+    [
+      1,
+      136,
+      605
+    ],
+    [
+      2,
+      138,
+      496
+    ],
+    [
+      3,
+      131,
+      1310
+    ],
+    [
+      4,
+      143,
+      557
+    ],
+    [
+      5,
+      144,
+      616
+    ],
+    [
+      6,
+      147,
+      703
+    ],
+    [
+      7,
+      144,
+      835
+    ],
+    [
+      8,
+      153,
+      1262
+    ],
+    [
+      9,
+      140,
+      1423
+    ],
+    [
+      10,
+      124,
+      725
+    ],
+    [
+      11,
+      118,
+      451
+    ],
+    [
+      12,
+      134,
+      463
+    ],
+    [
+      13,
+      140,
+      570
+    ],
+    [
+      14,
+      145,
+      449
+    ],
+    [
+      15,
+      146,
+      515
+    ],
+    [
+      16,
+      142,
+      498
+    ],
+    [
+      17,
+      128,
+      2169
+    ],
+    [
+      18,
+      139,
+      605
+    ],
+    [
+      19,
+      144,
+      638
+    ],
+    [
+      20,
+      138,
+      581
+    ],
+    [
+      21,
+      143,
+      443
+    ]
+  ]
 }

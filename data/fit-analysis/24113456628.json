@@ -38,9 +38,24 @@
     "60min": 172
   },
   "best_climbing_laps": [
-    {"lap": 5, "np_w": 212, "avg_power_w": 182, "avg_hr_bpm": 144},
-    {"lap": 6, "np_w": 216, "avg_power_w": 191, "avg_hr_bpm": 144},
-    {"lap": 9, "np_w": 204, "avg_power_w": 149, "avg_hr_bpm": 137}
+    {
+      "lap": 5,
+      "np_w": 212,
+      "avg_power_w": 182,
+      "avg_hr_bpm": 144
+    },
+    {
+      "lap": 6,
+      "np_w": 216,
+      "avg_power_w": 191,
+      "avg_hr_bpm": 144
+    },
+    {
+      "lap": 9,
+      "np_w": 204,
+      "avg_power_w": 149,
+      "avg_hr_bpm": 137
+    }
   ],
   "shift_summary": {
     "total_shifts": 264,
@@ -48,5 +63,80 @@
     "reactive_pct": 17.0,
     "avg_cadence_at_shift_rpm": 63.8
   },
-  "notes": "Well-coupled +0.9%. Short evening Friuli ride. Cool temps kept HR suppressed."
+  "notes": "Well-coupled +0.9%. Short evening Friuli ride. Cool temps kept HR suppressed.",
+  "lap_hr_analysis": {
+    "peak_lap_hr": 144,
+    "peak_lap_number": 5,
+    "laps_above_z3_155": 0,
+    "laps_above_z4_166": 0,
+    "n_laps_with_hr": 9,
+    "max_lap_sequence": [
+      [
+        5,
+        144
+      ],
+      [
+        6,
+        144
+      ],
+      [
+        2,
+        142
+      ]
+    ]
+  },
+  "lap_hr_time_in_zone_s": {
+    "z1": 0,
+    "z2": 5333,
+    "z3": 0,
+    "z4": 0,
+    "z5": 0
+  },
+  "laps_hr_raw": [
+    [
+      1,
+      136,
+      645
+    ],
+    [
+      2,
+      142,
+      526
+    ],
+    [
+      3,
+      140,
+      666
+    ],
+    [
+      4,
+      134,
+      628
+    ],
+    [
+      5,
+      144,
+      716
+    ],
+    [
+      6,
+      144,
+      547
+    ],
+    [
+      7,
+      142,
+      655
+    ],
+    [
+      8,
+      138,
+      551
+    ],
+    [
+      9,
+      137,
+      399
+    ]
+  ]
 }

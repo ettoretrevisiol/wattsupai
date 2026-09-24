@@ -61,5 +61,140 @@
     "reactive_pct": 18.0,
     "avg_cadence_at_shift_rpm": 68
   },
-  "notes": "Best Friuli session. Multiple climbs 216-224W NP. HR drift only -10% indicates good aerobic fitness."
+  "notes": "Best Friuli session. Multiple climbs 216-224W NP. HR drift only -10% indicates good aerobic fitness.",
+  "lap_hr_analysis": {
+    "peak_lap_hr": 158,
+    "peak_lap_number": 2,
+    "laps_above_z3_155": 2,
+    "laps_above_z4_166": 0,
+    "n_laps_with_hr": 21,
+    "max_lap_sequence": [
+      [
+        2,
+        158
+      ],
+      [
+        14,
+        155
+      ],
+      [
+        5,
+        152
+      ]
+    ]
+  },
+  "lap_hr_time_in_zone_s": {
+    "z1": 0,
+    "z2": 11790,
+    "z3": 1617,
+    "z4": 0,
+    "z5": 0
+  },
+  "laps_hr_raw": [
+    [
+      1,
+      132,
+      1411
+    ],
+    [
+      2,
+      158,
+      609
+    ],
+    [
+      3,
+      140,
+      566
+    ],
+    [
+      4,
+      138,
+      536
+    ],
+    [
+      5,
+      152,
+      653
+    ],
+    [
+      6,
+      147,
+      569
+    ],
+    [
+      7,
+      145,
+      695
+    ],
+    [
+      8,
+      148,
+      547
+    ],
+    [
+      9,
+      150,
+      790
+    ],
+    [
+      10,
+      137,
+      564
+    ],
+    [
+      11,
+      133,
+      521
+    ],
+    [
+      12,
+      140,
+      554
+    ],
+    [
+      13,
+      145,
+      850
+    ],
+    [
+      14,
+      155,
+      1008
+    ],
+    [
+      15,
+      131,
+      553
+    ],
+    [
+      16,
+      130,
+      539
+    ],
+    [
+      17,
+      141,
+      597
+    ],
+    [
+      18,
+      140,
+      585
+    ],
+    [
+      19,
+      132,
+      550
+    ],
+    [
+      20,
+      147,
+      625
+    ],
+    [
+      21,
+      138,
+      85
+    ]
+  ]
 }

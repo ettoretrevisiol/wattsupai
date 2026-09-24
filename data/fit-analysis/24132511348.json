@@ -36,8 +36,18 @@
     "60min": null
   },
   "best_climbing_laps": [
-    {"lap": 6, "np_w": 209, "avg_power_w": 196, "avg_hr_bpm": 152},
-    {"lap": 7, "np_w": 201, "avg_power_w": 188, "avg_hr_bpm": 150}
+    {
+      "lap": 6,
+      "np_w": 209,
+      "avg_power_w": 196,
+      "avg_hr_bpm": 152
+    },
+    {
+      "lap": 7,
+      "np_w": 201,
+      "avg_power_w": 188,
+      "avg_hr_bpm": 150
+    }
   ],
   "shift_summary": {
     "total_shifts": 220,
@@ -45,5 +55,80 @@
     "reactive_pct": 16.0,
     "avg_cadence_at_shift_rpm": 69
   },
-  "notes": "Well-coupled HR drift +4.4% - confirms aerobic fitness peaking. Flat/hilly short ride."
+  "notes": "Well-coupled HR drift +4.4% - confirms aerobic fitness peaking. Flat/hilly short ride.",
+  "lap_hr_analysis": {
+    "peak_lap_hr": 152,
+    "peak_lap_number": 6,
+    "laps_above_z3_155": 0,
+    "laps_above_z4_166": 0,
+    "n_laps_with_hr": 9,
+    "max_lap_sequence": [
+      [
+        6,
+        152
+      ],
+      [
+        7,
+        152
+      ],
+      [
+        3,
+        151
+      ]
+    ]
+  },
+  "lap_hr_time_in_zone_s": {
+    "z1": 0,
+    "z2": 4631,
+    "z3": 0,
+    "z4": 0,
+    "z5": 0
+  },
+  "laps_hr_raw": [
+    [
+      1,
+      133,
+      638
+    ],
+    [
+      2,
+      148,
+      572
+    ],
+    [
+      3,
+      151,
+      588
+    ],
+    [
+      4,
+      150,
+      559
+    ],
+    [
+      5,
+      147,
+      518
+    ],
+    [
+      6,
+      152,
+      550
+    ],
+    [
+      7,
+      152,
+      589
+    ],
+    [
+      8,
+      149,
+      586
+    ],
+    [
+      9,
+      145,
+      31
+    ]
+  ]
 }

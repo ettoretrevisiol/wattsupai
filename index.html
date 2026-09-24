@@ -724,6 +724,9 @@ function renderRecovery(d) {
 function renderRides(d) {
   const laps = d.best_climbing_laps;
   const wis = d.weekday_interval_summary;
+  const mz = d.measured_zone_distribution;
+  const zd = d.z4_drought;
+  const sz = d.structured_z4_precedent;
 
   document.getElementById('tab-rides').innerHTML = `
     <div class="section-label">Best Climbing Laps (FIT lap-level NP)</div>
@@ -754,6 +757,81 @@ function renderRides(d) {
       </div>
       <div class="insight good" style="margin-top:10px;">
         <strong>Aug 29 San Daniele = best Friuli session</strong> — L5 224W, L6 220W, L8 216W. Aug 19 Tanamea = best technique day (80% proactive shifting).
+      </div>
+    </div>
+
+    <div class="section-label">Measured Time-in-Zone — All ${mz.rides_included} Rides (${mz.total_hours_analysed}h)</div>
+    <div class="g21">
+      <div class="card card-accent-orange">
+        <div class="card-title"><span class="ct-dot" style="background:var(--orange)"></span>Duration-weighted HR zones — measured, not estimated</div>
+        <div style="margin:14px 0;">
+          ${[['Z1',mz.z1_pct,mz.z1_hours,'var(--dim)'],['Z2',mz.z2_pct,mz.z2_hours,'var(--blue)'],['Z3',mz.z3_pct,mz.z3_hours,'var(--green)'],['Z4',mz.z4_pct,mz.z4_hours,'var(--orange)'],['Z5',mz.z5_pct,mz.z5_hours,'var(--red)']].map(([z,p,h,c])=>`
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+            <div style="width:26px;font-size:.75rem;font-weight:700;color:${c}">${z}</div>
+            <div style="flex:1;background:rgba(255,255,255,.05);border-radius:4px;height:22px;position:relative;overflow:hidden;">
+              <div style="width:${Math.min(100,p*1.42)}%;height:100%;background:${c};opacity:.75;"></div>
+              <div style="position:absolute;left:8px;top:0;line-height:22px;font-size:.7rem;font-weight:700;">${p}%</div>
+            </div>
+            <div style="width:60px;text-align:right;font-size:.7rem;color:var(--dim)">${h}h</div>
+          </div>`).join('')}
+        </div>
+        <div class="insight" style="border-left-color:var(--orange)">
+          <strong>Z4 is ${mz.z4_pct}%, target is ${mz.z4_target_pct}% — a ${mz.z4_gap_pp}pp gap.</strong> The previous dashboard figure of 5% was an unvalidated estimate; the measured value is roughly four times lower. Z5 is <strong>0.0%</strong> — no lap in 13 months ever averaged ≥180bpm.
+        </div>
+        <div class="insight" style="margin-top:10px;font-size:.7rem;">
+          <strong>Method:</strong> ${mz.method} <em>${mz.known_bias}</em>
+        </div>
+      </div>
+      <div class="card card-accent-red">
+        <div class="card-title"><span class="ct-dot" style="background:var(--red)"></span>Z4 Drought</div>
+        <div class="kpi-val" style="color:var(--red);font-size:2.6rem;">${drought.days_since}<span class="kpi-unit">days</span></div>
+        <div class="kpi-label">since any measured Z4 time</div>
+        <div style="margin-top:14px;font-size:.75rem;line-height:1.9;">
+          <div><strong>${drought.consecutive_rides_zero_z4}</strong> consecutive rides with zero Z4</div>
+          <div>Last: <strong>${drought.last_ride_with_z4}</strong> — ${drought.last_ride_z4_minutes} min</div>
+          <div style="color:var(--dim)">${drought.last_ride_name}</div>
+          <div style="margin-top:10px;">Aug 2026 Z4: <strong style="color:var(--red)">${drought.aug_2026_z4_pct}%</strong></div>
+          <div>Sep 2026 Z4: <strong style="color:var(--red)">${drought.sep_2026_z4_pct}%</strong></div>
+        </div>
+        <div class="insight" style="margin-top:12px;border-left-color:var(--red);font-size:.72rem;">
+          ${drought.note}
+        </div>
+      </div>
+    </div>
+
+    <div class="section-label">Monthly Z4 — the collapse</div>
+    <div class="g21">
+      <div class="card card-accent-violet">
+        <div class="card-title"><span class="ct-dot" style="background:var(--violet)"></span>Z4 minutes per month (measured)</div>
+        <div style="margin-top:10px;">
+          ${mz.monthly.map(m=>`
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:5px;">
+            <div style="width:62px;font-size:.68rem;color:var(--dim)">${m.month}</div>
+            <div style="flex:1;background:rgba(255,255,255,.04);border-radius:3px;height:16px;position:relative;">
+              <div style="width:${Math.min(100,m.z4_min/1.2)}%;height:100%;background:${m.z4_min===0?'transparent':'var(--orange)'};opacity:.8;border-radius:3px;"></div>
+            </div>
+            <div style="width:74px;text-align:right;font-size:.68rem;">${m.z4_min} min · ${m.z4_pct}%</div>
+          </div>`).join('')}
+        </div>
+        <div class="insight" style="margin-top:12px;">
+          Peak was <strong>Apr 2026 (116 min, 5.0%)</strong> — the month that produced the season's only VO2MAX label. It has fallen to zero since Aug.
+        </div>
+      </div>
+      <div class="card card-accent-green">
+        <div class="card-title"><span class="ct-dot" style="background:var(--green)"></span>You already know how to do this</div>
+        <div class="insight good" style="margin-bottom:12px;">
+          ${sz.interpretation}
+        </div>
+        <div style="font-size:.72rem;color:var(--dim);margin-bottom:8px;">Winter indoor sessions with repeated Z4 intervals:</div>
+        <div class="ride-list">
+          ${sz.indoor_sessions.map(s=>`<div class="ride-item">
+            <div><div class="ride-name">${s.date}</div><div class="ride-meta">${s.z4_laps} Z4 intervals · peak ${s.peak_lap_hr}bpm</div></div>
+            <div class="ride-dist" style="color:var(--green)">${s.z4_min}<span style="font-size:.6rem;color:var(--dim)">min</span></div>
+          </div>`).join('')}
+        </div>
+        <div class="insight" style="margin-top:10px;font-size:.7rem;">
+          Indoor laps average <strong>2.8 min</strong> (short intervals). Outdoor laps average <strong>10.6 min</strong> (5km auto-laps) and never contain more than 1–2 Z4 laps. The structure, not the fitness, is what changed when the season moved outdoors.
+        </div>
       </div>
     </div>
 

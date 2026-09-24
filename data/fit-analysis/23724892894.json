@@ -55,5 +55,130 @@
     "reactive_pct": 20.0,
     "avg_cadence_at_shift_rpm": 67
   },
-  "notes": "Lactate Threshold label! Best Jul 25 effort. L5 228W NP HR 168bpm (Z4), L6 222W NP HR 172bpm (Z4). Season pre-Sep best."
+  "notes": "Lactate Threshold label! Best Jul 25 effort. L5 228W NP HR 168bpm (Z4), L6 222W NP HR 172bpm (Z4). Season pre-Sep best.",
+  "lap_hr_analysis": {
+    "peak_lap_hr": 172,
+    "peak_lap_number": 6,
+    "laps_above_z3_155": 4,
+    "laps_above_z4_166": 2,
+    "n_laps_with_hr": 19,
+    "max_lap_sequence": [
+      [
+        6,
+        172
+      ],
+      [
+        5,
+        168
+      ],
+      [
+        15,
+        157
+      ]
+    ]
+  },
+  "lap_hr_time_in_zone_s": {
+    "z1": 1873,
+    "z2": 10141,
+    "z3": 1311,
+    "z4": 2709,
+    "z5": 0
+  },
+  "laps_hr_raw": [
+    [
+      1,
+      133,
+      753
+    ],
+    [
+      2,
+      140,
+      637
+    ],
+    [
+      3,
+      143,
+      808
+    ],
+    [
+      4,
+      133,
+      648
+    ],
+    [
+      5,
+      168,
+      1353
+    ],
+    [
+      6,
+      172,
+      1356
+    ],
+    [
+      7,
+      154,
+      1321
+    ],
+    [
+      8,
+      104,
+      514
+    ],
+    [
+      9,
+      131,
+      897
+    ],
+    [
+      10,
+      151,
+      1448
+    ],
+    [
+      11,
+      130,
+      1137
+    ],
+    [
+      12,
+      110,
+      561
+    ],
+    [
+      13,
+      128,
+      798
+    ],
+    [
+      14,
+      147,
+      556
+    ],
+    [
+      15,
+      157,
+      620
+    ],
+    [
+      16,
+      155,
+      691
+    ],
+    [
+      17,
+      153,
+      725
+    ],
+    [
+      18,
+      154,
+      600
+    ],
+    [
+      19,
+      131,
+      611
+    ]
+  ]
 }
