@@ -1,30 +1,33 @@
 # WattsUpAI 🚴
 
-> Personal cycling training coach powered by live Garmin data, power analysis, and AI.  
-> Built for daily use. Data-driven. No fluff.
+> Personal cycling training coach powered by live Garmin data, raw FIT analysis, and AI.
 
 **Live dashboard → [ettore.trevisiol.net/wattsupai](https://ettore.trevisiol.net/wattsupai)**
 
 ---
 
-## Setup (New Machine)
+## What it is
+
+WattsUpAI is a personal training system built for one athlete. It:
+
+- Reads live Garmin Connect data (activities, HRV, sleep, training load)
+- Maintains a local SQLite database built from raw FIT files — no Garmin summaries, no lap averages
+- Computes NP, PDC, per-second HR/power zones, aerobic coupling, and aerobic efficiency from the raw signal
+- Publishes a web dashboard to a personal domain for mobile access
+- Runs an AI coach (Kiro agent) that reads the DB + live Garmin data to suggest daily sessions
+
+---
+
+## Setup (new machine)
 
 ```bash
-# 1. Clone the repo
 git clone https://github.com/ettoretrevisiol/wattsupai
 cd wattsupai
-
-# 2. Run setup — installs the Kiro agent, configures paths, handles Garmin auth
 bash scripts/setup.sh
 ```
 
-That's it. The setup script:
-- Checks for `kiro-cli` and `uvx` (install these first if missing — see below)
-- Installs the agent config into `~/.kiro/agents/wattsupai.json` with the correct absolute path
-- Copies the agent prompt to `~/.kiro/agents/prompts/wattsupai.md`
-- Runs Garmin authentication if no tokens are found in `~/.garminconnect`
+The setup script installs the Kiro agent config and handles Garmin auth. Then:
 
-Then start the coach:
 ```bash
 kiro-cli chat --agent wattsupai
 ```
@@ -34,86 +37,81 @@ kiro-cli chat --agent wattsupai
 | Tool | Install |
 |------|---------|
 | [Kiro CLI](https://kiro.ai) | Download from kiro.ai |
-| [uv / uvx](https://docs.astral.sh/uv/) | `curl -LsSf https://astral.sh/uv/install.sh \| sh` |
-| git | `brew install git` |
+| [uv](https://docs.astral.sh/uv/) | `curl -LsSf https://astral.sh/uv/install.sh \| sh` |
+| git | `brew install git` (macOS) |
 
-### Garmin Auth
+### Garmin auth
 
-Tokens are stored in `~/.garminconnect` (not in the repo — never committed). They last ~6 months. To re-authenticate at any time:
+Tokens are stored in `~/.garminconnect` (never committed). They last ~6 months.
+
 ```bash
 uvx --python 3.12 --from git+https://github.com/Taxuspt/garmin_mcp garmin-mcp-auth
 ```
 
-### Rebuild Activity Database
-
-The local database (`data/activities.json`) is seeded with historical data. To refresh with latest activities:
-```bash
-python3 scripts/build_db.py
-```
-
 ---
 
-
-
-WattsUpAI is a personal training system that:
-
-- Reads live Garmin Connect data (activities, HRV, sleep, training load, power zones)
-- Analyses 12 months of cycling history with correct power zones (FTP-based)
-- Maintains a local activity database for instant offline analysis
-- Generates a data-driven 4-week training plan anchored to actual performance metrics
-- Publishes a web dashboard to a personal domain for mobile access
-
-This is not a generic fitness app. It is built around one athlete's data, goals, and constraints.
-
----
-
-## Repo Structure
+## Repo structure
 
 ```
 wattsupai/
-├── index.html              # Dashboard (published to ettore.trevisiol.net/wattsupai)
-├── goals.md                # Current training goals — edit anytime
-├── schedule.md             # Weekly availability — edit anytime
+├── index.html                  # Dashboard — published to ettore.trevisiol.net/wattsupai
+├── manifest.json / sw.js       # PWA support
+├── goals.md                    # Current training goals — edit anytime
+├── schedule.md                 # Weekly availability — edit anytime
 │
 ├── data/
-│   └── activities.json     # Local activity database (186 activities, 12 months)
-│                           # Fields: NP, training effect, HR zones, power zones per ride
+│   ├── training.db             # SQLite database — source of truth for all analysis
+│   │                           # Tables: activities, laps, zone_summaries
+│   │                           # Rebuilt from raw FIT with: python3 scripts/fit_to_db.py
+│   ├── training_db_README.md   # DB schema + usage docs
+│   └── dashboard.json          # Dashboard data (updated after each session)
 │
 ├── scripts/
-│   └── build_db.py         # Database builder — fetches all activity details from Garmin
+│   ├── fit_to_db.py            # ETL: raw FIT files → training.db
+│   │                           # Run: python3 scripts/fit_to_db.py
+│   │                           # Options: --force (rebuild all), --activity ID (single)
+│   └── query_db.py             # Full season analysis report from training.db
+│                               # Run: python3 scripts/query_db.py
 │
 ├── docs/
-│   └── coaching-context.md # Full coaching context: zones, FTP, findings, rules
+│   ├── coaching-context.md     # Full coaching context: zones, FTP, findings, rules
+│   └── ZONES.md                # HR + power zone reference
 │
-└── training-log/           # Free-text session notes (optional, read by the coach agent)
-    └── YYYY-MM-DD.md
+├── agent/
+│   ├── agent.json.template     # Kiro agent config template (deployed by setup.sh)
+│   └── prompt.md               # Coach system prompt
+│
+└── icons/                      # PWA icons
 ```
+
+**Not in git (local only):**
+- `data/fit-raw/` — 184 raw FIT files (~45 MB). Contains GPS coordinates — never committed.
+- `data/fit-analysis/`, `data/seconds/`, `data/series/`, `data/deep/` — regenerable caches.
 
 ---
 
-## Athlete Profile
+## Athlete profile
 
 | Parameter | Value |
 |-----------|-------|
-| FTP | **256W** (manual entry, confirmed Sep 12 2026) |
-| Lactate Threshold HR | **171 bpm** |
-| Max HR | **194 bpm** (Garmin HRmax used) |
-| VO2max | **61** (peak this season: 62, Aug 2026) |
-| CTL | **803** |
+| FTP | **245W** (manual entry Sep 24 2026) |
+| VO2max | **61** (peak this season: 62, Aug–Sep 2026) |
+| CTL | ~803 |
+| W/kg | **3.77** at 65 kg |
 
-### Power Zones (FTP 256W)
+### Power zones (FTP 245W)
 
 | Zone | Name | Watts | % FTP |
 |------|------|-------|-------|
-| Z1 | Recovery | 0–140W | <55% |
-| Z2 | Endurance | 141–192W | 55–75% |
-| Z3 | Tempo | 193–230W | 75–90% |
-| Z4 | Threshold | 231–268W | 90–105% |
-| Z5 | VO2max | 269–307W | 105–120% |
-| Z6 | Anaerobic | 308–384W | 120–150% |
-| Z7 | Neuromuscular | 384W+ | >150% |
+| Z1 | Recovery | <134W | <55% |
+| Z2 | Endurance | 134–183W | 55–75% |
+| Z3 | Tempo | 184–220W | 75–90% |
+| Z4 | Threshold | 221–257W | 90–105% |
+| Z5 | VO2max | 258–294W | 105–120% |
+| Z6 | Anaerobic | 295–367W | 120–150% |
+| Z7 | Neuromuscular | 368W+ | >150% |
 
-### Heart Rate Zones
+### Heart rate zones
 
 | Zone | Name | BPM |
 |------|------|-----|
@@ -121,173 +119,126 @@ wattsupai/
 | Z2 | Endurance | 130–154 |
 | Z3 | Tempo | 155–165 |
 | Z4 | Threshold | 166–179 |
-| Z5 | VO2max | 180–194 |
-
-### Bike Setup
-
-| Bike | Power Meter | Used For |
-|------|------------|---------|
-| Weekend / climbing bike | ✅ Yes | Saturday rides — use watts as primary metric |
-| Weekday bike | ❌ No | Tue/Thu intervals — use RPE + end-of-interval HR |
-
-> **Key rule:** On the weekday bike, cardiac lag on short efforts is normal. Judge interval quality by HR at the **end** of each rep, not during it.
+| Z5 | VO2max | 180+ |
 
 ---
 
-## Key Findings (from 12-month analysis)
+## Data pipeline
 
-### Training Load
-- **186 rides** · **10,387 km** · **Sep 2025 – Sep 2026**
-- Winter Oct–Mar: structured indoor block (Z2+Z3+Z4 intervals, 3–4×/week)
-- Summer Jun–Sep: holiday blocks Cortina + Friuli, high volume outdoor
-- Post-holiday drift into plateau (Sep 2026)
-
-### Zone Distribution (outdoor power meter rides, last 4 months)
-- All climbing rides: NP range **149–189W** = **58–74% of FTP** = Z2 range
-- Z3 time (193–230W) accumulates during steep climbing sections
-- Z4 (231W+) visible in power zone counters on hard rides (e.g. Culmine Sep 12: 50 min Z4; Tre Valli Sep 19: 34 min Z4)
-- **No structured Z4 anywhere in the week** — the training gap
-
-### Current WattsUpAI Status: **Plateau**
-Aerobic low load: 3.7× above target. Aerobic high: **below target** (AEROBIC_HIGH_SHORTAGE confirmed by Garmin load balance). Recovery signals excellent. Fix: add 2× structured Z4 sessions/week (Tue/Thu).
-
----
-
-## 4-Week Plan (Sep 25 – Oct 19, 2026)
-
-Goal: **hold/increase FTP before winter**. Target NP progression on Saturday climbs.
-
-| Week | Tue | Thu | Sat target | Sat NP target |
-|------|-----|-----|-----------|---------------|
-| W1 Sep 25–28 | 3×10 min Z3 | — | 800–1,000m | 185–195W |
-| W2 Sep 30–Oct 5 | 2×15 min Z3→Z4 | 4×8 min Z4 | 1,000–1,300m | 193–205W |
-| W3 Oct 7–12 | 3×15 min Z4 | 5×6 min Z5 | 1,400–1,700m | **205–220W** |
-| W4 Oct 13–19 | Easy Z2 | 2×10 min Z3 | 400–600m | 170–185W |
-
-**Success metric:** W3 Saturday NP ≥205W with Lactate Threshold training effect label.
-
----
-
-## Monitoring Rules
-
-| Signal | Action |
-|--------|--------|
-| HRV weekly avg ≥50ms | Train as planned ✅ |
-| HRV 45–50ms | Soften Thursday to Z3 only |
-| HRV <45ms | Replace all quality with Z2 |
-| HRV drops >10ms in 2 days | Full rest day immediately |
-| Sleep respiration >16 br/min | Check for illness before intensity |
-| Sat NP not improving W1→W2→W3 | Check Thu session quality |
-
----
-
-## Local Activity Database
-
-`data/activities.json` contains structured records for all 186 activities:
-
-```json
-{
-  "id": 24419641071,
-  "date": "2026-09-19",
-  "name": "Tre Valli Varesine",
-  "category": "climbing_pm",
-  "duration_min": 314.4,
-  "distance_km": 126.8,
-  "elevation_m": 2086,
-  "np": 182,
-  "np_pct_ftp": 71.1,
-  "np_zone": "Z2 Endurance",
-  "training_effect_label": "AEROBIC_BASE",
-  "training_load": 371.1,
-  "power_zones": {
-    "3": 54.7,
-    "4": 34.1,
-    "5": 12.0
-  }
-}
+```
+data/fit-raw/*.fit
+      │
+      ▼
+scripts/fit_to_db.py  ──►  data/training.db
+                                  │
+                    ┌─────────────┼─────────────┐
+                    ▼             ▼             ▼
+              activities        laps      zone_summaries
+          (NP, PDC, drift)  (per-lap HR   (HR+power zones
+                             & power)     at FTP=245W)
+                    │
+                    ▼
+            scripts/query_db.py  ──►  stdout (full season report)
+                    │
+                    ▼
+            data/dashboard.json  ──►  index.html (live dashboard)
 ```
 
-To rebuild or update the database:
+`fit_to_db.py` computes everything from raw 1-second samples — no Garmin lap summaries used anywhere:
+- **NP** via 30s rolling average → 4th power mean
+- **PDC** at 5s / 30s / 1min / 5min / 10min / 20min / 60min
+- **HR/power zones** — every sample classified, weighted by actual interval
+- **Aerobic coupling** (HR drift %) — power:HR ratio first vs second half of ride
+- **Aerobic efficiency** — NP / avg_HR (W/bpm)
+
+### Rebuild the database
 
 ```bash
-cd scripts
-python3 build_db.py
+# Add only new activities (incremental)
+python3 scripts/fit_to_db.py
+
+# Full rebuild from scratch
+python3 scripts/fit_to_db.py --force
+
+# Reprocess one activity
+python3 scripts/fit_to_db.py --activity 24419641071
 ```
 
-Requires Garmin authentication tokens in `~/.garminconnect`. To re-authenticate:
-
+Requires `fitparse`:
 ```bash
-uvx --python 3.12 --from git+https://github.com/Taxuspt/garmin_mcp garmin-mcp-auth
+pip install fitparse
+# or with the uv env that already has it:
+# /Users/ettoretr/.cache/uv/archive-v0/kKQyyZw9eWA6xSrfjm0LO/bin/python3
 ```
 
 ---
 
-## Dashboard
+## Season summary (Sep 2025 – Sep 2026)
 
-The dashboard (`index.html`) is a self-contained single-file HTML/JS app. No build step, no dependencies beyond two CDN loads (Chart.js + Google Fonts).
+| Metric | Value |
+|--------|-------|
+| Total rides | 184 |
+| Distance | 10,313 km |
+| Elevation | 78,612 m |
+| HR-tracked time | 384h |
+| Season best 5-min power | **279W** (Sep 19, Tre Valli Varesine) |
+| Season best 20-min power | **239W** (Sep 19, Tre Valli Varesine) |
+| HR Z4+Z5 all-time | 857 min (3.7%) — gap to 15% target: 11.3pp |
+| Best aerobic efficiency | 1.421 W/bpm (Jun 30, Baita Resch) |
 
-Published via GitHub Pages to a custom domain. To update:
+---
+
+## 4-week plan (Sep 25 – Oct 19 2026)
+
+Goal: hold/increase FTP before winter. Full details in `data/dashboard.json` → `training_plan`.
+
+| Week | Tue | Thu | Sat NP target |
+|------|-----|-----|---------------|
+| W1 Sep 25–28 | 3×10 min Z3 (184–220W) | — | 182–190W |
+| W2 Sep 30–Oct 5 | 2×15 min Z3→Z4 | 4×8 min Z4 (221–250W) | 185–192W |
+| W3 Oct 7–12 | 3×15 min Z4 (221–250W) | 5×6 min Z5 (258–294W) | 192–200W |
+| W4 Oct 13–19 | Easy Z2 | 2×10 min Z3 | ~165–175W |
+
+---
+
+## Update the dashboard
+
+After any coaching session:
 
 ```bash
-# After editing index.html:
-git add index.html
+# Edit data/dashboard.json and/or index.html, then:
+git add data/dashboard.json index.html
 git commit --no-verify -m "describe change"
 git push --no-verify origin main
 # GitHub Pages redeploys in ~30 seconds
 ```
 
-**Tabs:**
-- Season Overview — 12-month stats, WattsUpAI status, NP trend chart, milestones
-- Training Load — PMC (CTL/ATL/TSB), VO2max trend, load snapshot
-- Recovery & HRV — 30-day HRV chart, respiration, monitoring rules
-- Best Rides — top climbs and longest rides
-- 4-Week Plan — session-by-session with NP targets, HR targets, coaching notes
+---
+
+## Monitoring rules
+
+| Signal | Action |
+|--------|--------|
+| HRV weekly avg ≥50ms | Train as planned ✅ |
+| HRV 45–50ms | Soften Thu to Z3 only |
+| HRV <45ms | Replace quality work with Z2 |
+| HRV drops >10ms in 2 days | Full rest day |
+| Sleep respiration >16 br/min | Check for illness before intensity |
 
 ---
 
-## AI Coach (WattsUpAI Agent)
+## Key files for the AI coach
 
-The Kiro AI agent `wattsupai` reads this repo + live Garmin data to answer questions and suggest daily sessions.
+The Kiro agent (`wattsupai`) auto-loads:
 
-```bash
-kiro-cli chat --agent wattsupai
-```
+| File | Purpose |
+|------|---------|
+| `goals.md` | Training goals and priorities |
+| `schedule.md` | Weekly availability |
+| `docs/coaching-context.md` | Full analytical context, zones, plan, findings |
 
-**Resources auto-loaded:** `goals.md`, `schedule.md`, `docs/coaching-context.md`, `training-log/`
-
-**37 Garmin tools enabled**, including:
-- `get_activity_hr_in_timezones` — exact HR zone time per activity
-- `get_activity_power_in_timezones` — exact power zone time per activity  
-- `get_cycling_ftp` — FTP from Garmin
-- `get_heart_rate_zones` — saved HR zones from device
-- `get_power_duration_curve` — season-best power curve
-- `get_training_load_balance` — aerobic low/high/anaerobic distribution
-- `get_lactate_threshold` — Garmin's LT estimate
-
-**Analysis rules (important):**
-- Never use 5km auto-lap averages for zone analysis — descents drag the average down
-- Use `get_activity()` for NP + training_effect_label (correct intensity metric for hilly rides)
-- Use `get_activity_power_in_timezones()` for actual time-in-zone data
-- FTP is **256W** — always use this, never estimate from lap data
+Live Garmin data is fetched at session start via the Garmin MCP integration.
 
 ---
 
-## Garmin Auth
-
-Tokens live in `~/.garminconnect`. They last ~6 months. To re-authenticate:
-
-```bash
-uvx --python 3.12 --from git+https://github.com/Taxuspt/garmin_mcp garmin-mcp-auth
-```
-
----
-
-## Goals
-
-See [`goals.md`](goals.md) for current training goals and priorities.  
-See [`schedule.md`](schedule.md) for weekly availability.  
-See [`docs/coaching-context.md`](docs/coaching-context.md) for full analytical context.
-
----
-
-*Last updated: 23 Sep 2026 · FTP 256W · CTL 803 · VO2max 61*
+*Last updated: Sep 24 2026 · FTP 245W · VO2max 61 · CTL ~803*

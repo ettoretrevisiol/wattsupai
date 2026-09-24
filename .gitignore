@@ -1,37 +1,53 @@
-# Don't commit Garmin tokens
+# ── Secrets / auth ───────────────────────────────────────────────────────────
 .garminconnect/
 
-# Activity database — large, rebuilt locally with scripts/build_db.py
-data/activities.json
+# ── macOS ─────────────────────────────────────────────────────────────────────
+.DS_Store
 
-# Python cache
+# ── Python ────────────────────────────────────────────────────────────────────
 __pycache__/
 *.pyc
 *.pyo
 .pytest_cache/
+*.egg-info/
+.venv/
+venv/
 
-# macOS
-.DS_Store
-
-# Editor
+# ── Editor ────────────────────────────────────────────────────────────────────
 .vscode/
 *.swp
+*.swo
 
-# Large data - keep activities.json but ignore future big exports
-data/raw/
-
-# Raw FIT archive — LOCAL ONLY, deliberately not committed.
-# These contain GPS position_lat/position_long for every second, i.e. home
-# address and daily routine. This repo is published via GitHub Pages, so
-# committing them would make that data publicly downloadable.
-# The archive is ~45MB, 184 files. Rebuild with:
-#   ~/.cache/uv/archive-v0/kKQyyZw9eWA6xSrfjm0LO/bin/python3 scripts/fit_to_db.py
+# ── Raw FIT archive — LOCAL ONLY, never commit ────────────────────────────────
+# Contains GPS position_lat/position_long per second (home address, daily routes).
+# This repo is published via GitHub Pages — committing would make it public.
+# 184 files, ~45 MB. Rebuild: python3 scripts/fit_to_db.py
 data/fit-raw/
 
-# Binary series cache (.npz per-second numpy arrays) — regenerable from fit-raw
-# ~10MB, 184 files, no value in version control
+# ── Regenerable intermediate caches ──────────────────────────────────────────
+# All of these are derived from data/fit-raw/ and/or data/training.db.
+# They add no information that isn't already in training.db, and bloat the repo.
+
+# Per-second zone totals JSON (superseded by training.db zone_summaries table)
+data/seconds/
+
+# Per-ride deep analysis JSONs (superseded by training.db laps + activities tables)
+data/fit-analysis/
+
+# Binary NumPy series cache (.npz, ~10 MB, regenerable via fit_series.py)
 data/series/
 
-# Deep analysis JSON cache — regenerable from fit-raw via fit_deep.py
-# Superseded by training.db which is now the canonical store
+# Per-ride deep JSON cache (regenerable via fit_deep.py)
 data/deep/
+
+# Garmin API activity list export (regenerated on demand, not version-controlled)
+data/activities.json
+
+# ── Retired scripts ───────────────────────────────────────────────────────────
+# Superseded by scripts/fit_to_db.py + scripts/query_db.py
+scripts/build_db.py
+scripts/full_analysis.py
+scripts/raw_analysis.py
+scripts/fit_series.py
+scripts/fit_deep.py
+scripts/fit_seconds.py

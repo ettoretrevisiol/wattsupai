@@ -1,67 +1,50 @@
-# Training Zones
+# Zone Reference
 
-_Last updated: 23 Sep 2026_
-
-## FTP
-
-**256W** — Garmin Connect, manual entry Sep 12 2026.
-
-To update: change in Garmin Connect → My Performance → Cycling FTP, then re-run `scripts/build_db.py` to reanalyse zone percentages.
+*FTP: 245W (manual entry Sep 24 2026) · Max HR: ~181 bpm (2026 season peak)*
 
 ---
+
+## Power Zones (FTP 245W)
+
+| Zone | Name | Watts | % FTP | Use |
+|------|------|-------|-------|-----|
+| Z1 | Recovery | <134W | <55% | Active recovery, cooldown |
+| Z2 | Endurance | 134–183W | 55–75% | Long base rides, aerobic development |
+| Z3 | Tempo | 184–220W | 75–90% | Sustained effort, sweet-spot adjacent |
+| Z4 | Threshold | 221–257W | 90–105% | FTP intervals, lactate threshold work |
+| Z5 | VO2max | 258–294W | 105–120% | Short hard intervals (3–8 min) |
+| Z6 | Anaerobic | 295–367W | 120–150% | <2 min maximal efforts |
+| Z7 | Neuromuscular | 368W+ | >150% | Sprints, accelerations |
 
 ## Heart Rate Zones
 
-Configured in Garmin Connect device settings.
+| Zone | Name | BPM | Typical feel |
+|------|------|-----|--------------|
+| Z1 | Recovery | 100–129 | Easy, conversational |
+| Z2 | Endurance | 130–154 | Comfortable, could hold hours |
+| Z3 | Tempo | 155–165 | Controlled hard, sentences possible |
+| Z4 | Threshold | 166–179 | Hard, short phrases only |
+| Z5 | VO2max | 180+ | Very hard, near max |
 
-| Zone | Name | BPM |
-|------|------|-----|
-| Z1 | Recovery | 100–129 |
-| Z2 | Endurance | 130–154 |
-| Z3 | Tempo | 155–165 |
-| Z4 | Threshold | 166–179 |
-| Z5 | VO2max | 180–194 |
+## Interval targets
 
-**Max HR used by Garmin:** 194 bpm  
-**Lactate threshold HR:** 171 bpm (Garmin estimate)
+| Session type | Power target | End-of-rep HR |
+|---|---|---|
+| Z3 Tempo (10–20 min) | 184–220W | 158–165 bpm |
+| Z4 Threshold (8–15 min) | 221–257W | 166–174 bpm |
+| Z5 VO2max (5–8 min) | 258–294W | 172–179 bpm |
 
----
+## Notes
 
-## Power Zones
+- **Cardiac lag is normal** on short intervals. Judge effort by HR at the *end* of each rep, not during.
+- Weekend/climbing bike has a power meter — use watts as primary metric.
+- Weekday bike has no power meter — use RPE + end-rep HR check.
+- NP (Normalized Power) is the correct intensity metric for variable-terrain rides. Never use 5km lap averages on hilly rides — descents drag the mean down.
 
-Calculated from FTP 256W using standard Garmin percentages.
+## FTP history
 
-| Zone | Name | Watts | % FTP |
-|------|------|-------|-------|
-| Z1 | Recovery | 0–140W | <55% |
-| Z2 | Endurance | 141–192W | 55–75% |
-| Z3 | Tempo | 193–230W | 75–90% |
-| Z4 | Threshold | 231–268W | 90–105% |
-| Z5 | VO2max | 269–307W | 105–120% |
-| Z6 | Anaerobic | 308–384W | 120–150% |
-| Z7 | Neuromuscular | 384W+ | >150% |
-
----
-
-## Two-Bike Setup
-
-| Bike | Power Meter | Primary metric |
-|------|------------|----------------|
-| Weekend / climbing bike | ✅ Yes | Watts (power meter) |
-| Weekday flat bike | ❌ No | RPE + end-of-interval HR |
-
-**Cardiac lag rule:** On the weekday bike, short intervals (6–10 min) won't show Z4 HR until the last 2–3 minutes. Judge quality by HR at the **end** of the rep, not during it.
-
----
-
-## Key NP Reference Points (historical)
-
-| NP | % FTP | Label | Notes |
-|----|-------|-------|-------|
-| 198W | 77% | AEROBIC_BASE | Aug 27 2026 — season peak NP |
-| 196W | 77% | VO2MAX | Apr 23 2026 — season best label |
-| 187W | 73% | LACTATE_THRESHOLD | Nov 3 2025 |
-| 183W | 72% | LACTATE_THRESHOLD | Jul 25 2026 Ghisallino |
-| 179W | 70% | AEROBIC_BASE | Sep 2026 plateau average |
-
-To get a **Lactate Threshold label**: NP needs to reach ~183W+ with corresponding HR response. Target for W3 Oct 11: NP 198–215W.
+| Date | FTP | Source |
+|------|-----|--------|
+| Sep 24 2026 | **245W** | Manual entry |
+| Sep 12 2026 | 256W | Manual entry (untested — never used in structured test) |
+| Evidence-based estimate | ~235W | Sep 19 2026: 15-min climb 261W × 0.90 |
