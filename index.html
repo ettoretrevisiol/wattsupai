@@ -760,78 +760,107 @@ function renderRides(d) {
       </div>
     </div>
 
-    <div class="section-label">Measured Time-in-Zone — All ${mz.rides_included} Rides (${mz.total_hours_analysed}h)</div>
+    <div class="section-label">True Time-in-Zone — Per-Second from Raw FIT (${(tz.data_points/1000000).toFixed(2)}M data points)</div>
     <div class="g21">
-      <div class="card card-accent-orange">
-        <div class="card-title"><span class="ct-dot" style="background:var(--orange)"></span>Duration-weighted HR zones — measured, not estimated</div>
+      <div class="card card-accent-green">
+        <div class="card-title"><span class="ct-dot" style="background:var(--green)"></span>Definitive HR zones — ${tz.rides_included} rides · ${tz.total_hours}h · sample-by-sample</div>
         <div style="margin:14px 0;">
-          ${[['Z1',mz.z1_pct,mz.z1_hours,'var(--dim)'],['Z2',mz.z2_pct,mz.z2_hours,'var(--blue)'],['Z3',mz.z3_pct,mz.z3_hours,'var(--green)'],['Z4',mz.z4_pct,mz.z4_hours,'var(--orange)'],['Z5',mz.z5_pct,mz.z5_hours,'var(--red)']].map(([z,p,h,c])=>`
+          ${[['Z1',tz.z1_pct,tz.z1_hours,'var(--dim)'],['Z2',tz.z2_pct,tz.z2_hours,'var(--blue)'],['Z3',tz.z3_pct,tz.z3_hours,'var(--green)'],['Z4',tz.z4_pct,tz.z4_hours,'var(--orange)'],['Z5',tz.z5_pct,tz.z5_hours,'var(--red)']].map(([z,p,h,c])=>`
           <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
             <div style="width:26px;font-size:.75rem;font-weight:700;color:${c}">${z}</div>
-            <div style="flex:1;background:rgba(255,255,255,.05);border-radius:4px;height:22px;position:relative;overflow:hidden;">
-              <div style="width:${Math.min(100,p*1.42)}%;height:100%;background:${c};opacity:.75;"></div>
-              <div style="position:absolute;left:8px;top:0;line-height:22px;font-size:.7rem;font-weight:700;">${p}%</div>
+            <div style="flex:1;background:rgba(255,255,255,.05);border-radius:4px;height:24px;position:relative;overflow:hidden;">
+              <div style="width:${Math.min(100,p*1.65)}%;height:100%;background:${c};opacity:.8;"></div>
+              <div style="position:absolute;left:8px;top:0;line-height:24px;font-size:.72rem;font-weight:700;">${p}%</div>
             </div>
-            <div style="width:60px;text-align:right;font-size:.7rem;color:var(--dim)">${h}h</div>
+            <div style="width:58px;text-align:right;font-size:.7rem;color:var(--dim)">${h}h</div>
           </div>`).join('')}
         </div>
-        <div class="insight" style="border-left-color:var(--orange)">
-          <strong>Z4 is ${mz.z4_pct}%, target is ${mz.z4_target_pct}% — a ${mz.z4_gap_pp}pp gap.</strong> The previous dashboard figure of 5% was an unvalidated estimate; the measured value is roughly four times lower. Z5 is <strong>0.0%</strong> — no lap in 13 months ever averaged ≥180bpm.
+        <div class="insight good">
+          <strong>Z4+Z5 is ${tz.z4_plus_z5_pct}% against a ${tz.z4_target_pct}% target — a ${tz.z4_gap_pp}pp gap.</strong> Real, but far from the picture lap-averaging painted. Z3+ combined is ${tz.z3_plus_pct}%, which is a respectable amount of quality work.
         </div>
         <div class="insight" style="margin-top:10px;font-size:.7rem;">
-          <strong>Method:</strong> ${mz.method} <em>${mz.known_bias}</em>
+          <strong>Method:</strong> ${tz.method}
         </div>
       </div>
       <div class="card card-accent-red">
-        <div class="card-title"><span class="ct-dot" style="background:var(--red)"></span>Z4 Drought</div>
-        <div class="kpi-val" style="color:var(--red);font-size:2.6rem;">${drought.days_since}<span class="kpi-unit">days</span></div>
-        <div class="kpi-label">since any measured Z4 time</div>
-        <div style="margin-top:14px;font-size:.75rem;line-height:1.9;">
-          <div><strong>${drought.consecutive_rides_zero_z4}</strong> consecutive rides with zero Z4</div>
-          <div>Last: <strong>${drought.last_ride_with_z4}</strong> — ${drought.last_ride_z4_minutes} min</div>
-          <div style="color:var(--dim)">${drought.last_ride_name}</div>
-          <div style="margin-top:10px;">Aug 2026 Z4: <strong style="color:var(--red)">${drought.aug_2026_z4_pct}%</strong></div>
-          <div>Sep 2026 Z4: <strong style="color:var(--red)">${drought.sep_2026_z4_pct}%</strong></div>
+        <div class="card-title"><span class="ct-dot" style="background:var(--red)"></span>⚠ Retraction — the "Z4 drought"</div>
+        <div class="insight" style="border-left-color:var(--red);margin-bottom:10px;">
+          <strong>Claimed earlier today:</strong> ${dr.what_was_claimed}
         </div>
-        <div class="insight" style="margin-top:12px;border-left-color:var(--red);font-size:.72rem;">
-          ${drought.note}
+        <div class="insight" style="border-left-color:var(--orange);margin-bottom:10px;">
+          <strong>Why it was wrong:</strong> ${dr.why_it_was_wrong}
+        </div>
+        <div class="insight good">
+          <strong>Truth:</strong> ${dr.truth}
+        </div>
+        <div style="margin-top:12px;font-size:.7rem;color:var(--dim);">
+          Lap-average vs per-second: ${tz.vs_lap_average}
         </div>
       </div>
     </div>
 
-    <div class="section-label">Monthly Z4 — the collapse</div>
+    <div class="section-label">Monthly Quality — Z4/Z5 minutes (per-second truth)</div>
     <div class="g21">
       <div class="card card-accent-violet">
-        <div class="card-title"><span class="ct-dot" style="background:var(--violet)"></span>Z4 minutes per month (measured)</div>
+        <div class="card-title"><span class="ct-dot" style="background:var(--violet)"></span>Z4/Z5 minutes per month</div>
         <div style="margin-top:10px;">
-          ${mz.monthly.map(m=>`
+          ${tz.monthly.map(m=>`
           <div style="display:flex;align-items:center;gap:8px;margin-bottom:5px;">
             <div style="width:62px;font-size:.68rem;color:var(--dim)">${m.month}</div>
-            <div style="flex:1;background:rgba(255,255,255,.04);border-radius:3px;height:16px;position:relative;">
-              <div style="width:${Math.min(100,m.z4_min/1.2)}%;height:100%;background:${m.z4_min===0?'transparent':'var(--orange)'};opacity:.8;border-radius:3px;"></div>
+            <div style="flex:1;background:rgba(255,255,255,.04);border-radius:3px;height:17px;">
+              <div style="width:${Math.min(100,m.z4z5_min/1.6)}%;height:100%;background:var(--orange);opacity:.8;border-radius:3px;"></div>
             </div>
-            <div style="width:74px;text-align:right;font-size:.68rem;">${m.z4_min} min · ${m.z4_pct}%</div>
+            <div style="width:88px;text-align:right;font-size:.68rem;">${m.z4z5_min} min · ${m.z4_pct}%</div>
           </div>`).join('')}
         </div>
         <div class="insight" style="margin-top:12px;">
-          Peak was <strong>Apr 2026 (116 min, 5.0%)</strong> — the month that produced the season's only VO2MAX label. It has fallen to zero since Aug.
+          Every month has Z4. Peak <strong>Apr 2026 (155 min)</strong> — the month that earned the only VO2MAX label. Season low <strong>Aug 2026 (28 min, 0.9%)</strong>, which is the genuine plateau signal. Sep has already recovered to 73 min.
         </div>
       </div>
-      <div class="card card-accent-green">
-        <div class="card-title"><span class="ct-dot" style="background:var(--green)"></span>You already know how to do this</div>
-        <div class="insight good" style="margin-bottom:12px;">
-          ${sz.interpretation}
+      <div class="card card-accent-orange">
+        <div class="card-title"><span class="ct-dot" style="background:var(--orange)"></span>Power zones — per-second, FTP 256W</div>
+        <div style="font-size:.72rem;color:var(--dim);margin-bottom:10px;">${pzd.rides_with_power} rides with power · ${pzd.total_hours}h</div>
+        ${[['Z1 <141',pzd.z1_pct],['Z2 141-192',pzd.z2_pct],['Z3 193-230',pzd.z3_pct],['Z4 231-268',pzd.z4_pct],['Z5 269-307',pzd.z5_pct],['Z6 308-384',pzd.z6_pct],['Z7 385+',pzd.z7_pct]].map(([l,p])=>`
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:5px;">
+          <div style="width:78px;font-size:.66rem;color:var(--dim)">${l}</div>
+          <div style="flex:1;background:rgba(255,255,255,.04);border-radius:3px;height:15px;">
+            <div style="width:${Math.min(100,p*2.4)}%;height:100%;background:var(--blue);opacity:.75;border-radius:3px;"></div>
+          </div>
+          <div style="width:42px;text-align:right;font-size:.66rem;">${p}%</div>
+        </div>`).join('')}
+        <div class="insight" style="margin-top:12px;">
+          Power Z4 and above: <strong>${pzd.z4_plus_pct}%</strong>. Note this exceeds HR Z4+ (${tz.z4_plus_z5_pct}%) — power responds instantly to a surge while HR lags, so short hard efforts register in power but never lift HR into Z4.
         </div>
-        <div style="font-size:.72rem;color:var(--dim);margin-bottom:8px;">Winter indoor sessions with repeated Z4 intervals:</div>
-        <div class="ride-list">
-          ${sz.indoor_sessions.map(s=>`<div class="ride-item">
-            <div><div class="ride-name">${s.date}</div><div class="ride-meta">${s.z4_laps} Z4 intervals · peak ${s.peak_lap_hr}bpm</div></div>
-            <div class="ride-dist" style="color:var(--green)">${s.z4_min}<span style="font-size:.6rem;color:var(--dim)">min</span></div>
+      </div>
+    </div>
+
+    <div class="section-label">Equipment Finding — the weekday power meter</div>
+    <div class="g21">
+      <div class="card card-accent-blue">
+        <div class="card-title"><span class="ct-dot"></span>The weekday bike used to have power</div>
+        <div class="insight good" style="margin-bottom:12px;">
+          <strong>${wpm.finding}</strong>
+        </div>
+        <div style="font-size:.75rem;line-height:1.9;">
+          <div>Flat rides with power: <strong>${wpm.flat_rides_with_power}</strong> of ${wpm.flat_rides_total}</div>
+          <div>Last one: <strong>${wpm.last_flat_ride_with_power}</strong></div>
+          <div>Rides mis-flagged in the database: <strong>${wpm.rides_misflagged}</strong> (flagged ${wpm.flagged_has_power}, actually ${wpm.actually_have_power})</div>
+        </div>
+        <div class="insight" style="margin-top:12px;border-left-color:var(--green)">
+          ${wpm.implication}
+        </div>
+      </div>
+      <div class="card card-accent-violet">
+        <div class="card-title"><span class="ct-dot" style="background:var(--violet)"></span>Z5 reality check</div>
+        <div class="kpi-val" style="font-size:2rem;">${z5r.total_minutes}<span class="kpi-unit">min</span></div>
+        <div class="kpi-label">total Z5 (≥180bpm) across 13 months · ${z5r.rides_with_z5} rides · peak ${z5r.highest_hr_recorded}bpm</div>
+        <div class="ride-list" style="margin-top:12px;">
+          ${z5r.top.map(t=>`<div class="ride-item">
+            <div><div class="ride-name">${t.ride}</div><div class="ride-meta">${t.date} · max ${t.max_hr}bpm</div></div>
+            <div class="ride-dist" style="color:var(--red)">${t.minutes}<span style="font-size:.6rem;color:var(--dim)">min</span></div>
           </div>`).join('')}
         </div>
-        <div class="insight" style="margin-top:10px;font-size:.7rem;">
-          Indoor laps average <strong>2.8 min</strong> (short intervals). Outdoor laps average <strong>10.6 min</strong> (5km auto-laps) and never contain more than 1–2 Z4 laps. The structure, not the fitness, is what changed when the season moved outdoors.
-        </div>
+        <div class="insight" style="margin-top:10px;font-size:.7rem;">${z5r.correction}</div>
       </div>
     </div>
 

@@ -165,7 +165,78 @@ The 10 Z4 rides (verified against JSON, sorted by peak lap HR):
 
 **What this changes**: Zone distribution revised — Z3 17%→22%, Z4 3%→5%, Z2 55%→51%, Z1 25%→21%. These remain *estimates*, not measured Garmin time-in-zone.
 
-### MEASURED Time-in-Zone — full end-to-end analysis, 24 Sep 2026
+### ⚠️ RETRACTION — the "Z4 drought" claim was WRONG (corrected 24 Sep 2026, evening)
+An earlier version of this file claimed: *"Last ride with any measured Z4 time: 25 Jul 2026. 61 days ago. 32 consecutive rides since with zero Z4. Aug 2026 Z4: 0.0%. Sep 2026 Z4: 0.0%."*
+
+**That was false.** It came from classifying each 5km auto-lap by its *average* HR — which erases every Z4 minute contained inside a lap whose mean sits in Z2. Per-second analysis of the raw FIT files shows **Z4 present in every single month of the dataset**, including the most recent ride.
+
+### DEFINITIVE Time-in-Zone — per-second from raw FIT (24 Sep 2026)
+**Method**: all 184 raw `.fit` files downloaded to `data/fit-raw/` and parsed sample-by-sample with fitparse. **1,189,036 data points**, 183 rides, 386.6 h. Each sample classified by instantaneous HR and weighted by its actual sample interval. No binning, no estimation. Rebuild anytime with `scripts/fit_seconds.py` — no network needed.
+
+| Zone | Hours | TRUE % | lap-avg said | original estimate |
+|---|---|---|---|---|
+| Z1 | 86.6 | **22.4%** | 20.0% | 21% |
+| Z2 | 226.9 | **58.7%** | 69.7% | 51% |
+| Z3 | 58.8 | **15.2%** | 9.0% | 22% |
+| Z4 | 14.1 | **3.6%** | 1.3% | 5% |
+| Z5 | 0.2 | **0.1%** | 0.0% | 1% |
+
+- **Z4+Z5 = 3.7%** against the ≥15% target → real gap is **11.3pp**
+- **Z3+ combined = 18.9%** — a respectable amount of quality work, not the wasteland lap-averaging suggested
+- Lesson: lap-averaging understated Z3 by 6.2pp and Z4 by 2.3pp. Never use lap averages for zone analysis (this was already a documented rule — I violated it and got burned).
+
+### Monthly Z4/Z5 minutes — per-second truth
+```
+2025-09    2.5      2026-04  154.6   <- season peak (VO2MAX label month)
+2025-10   70.9      2026-05  105.3
+2025-11   52.0      2026-06   63.1
+2025-12   35.1      2026-07  114.4
+2026-01   20.6      2026-08   28.5   <- season LOW, real plateau signal
+2026-02   49.0      2026-09   73.4   <- already recovering
+2026-03   88.4
+```
+**Aug 2026 was the genuine dip** (28.5 min, 0.9% — lowest of the season) and that is the honest explanation for UNPRODUCTIVE / AEROBIC_HIGH_SHORTAGE. But September has already climbed back to 73 min. The trend is recovering, not collapsing.
+
+### Z5 is small but real
+12.5 min total across 9 rides. Highest HR ever recorded: **193 bpm** (14 Mar 2026, indoor). Top: Mar 22 (4.7 min, 189bpm), Mar 14 (3.5 min, 193bpm), Oct 25 (1.2 min, 188bpm). Previously reported as 0.0% — another lap-averaging artifact.
+
+### Power zones — per-second, FTP 256W (141 rides, 312.2 h)
+| Zone | % |
+|---|---|
+| Z1 <141W | 38.2% |
+| Z2 141–192W | 40.0% |
+| Z3 193–230W | 15.6% |
+| Z4 231–268W | 4.1% |
+| Z5 269–307W | 1.4% |
+| Z6 308–384W | 0.5% |
+| Z7 385W+ | 0.1% |
+
+**Power Z4+ = 6.2%**, higher than HR Z4+ (3.7%). That divergence is expected and informative: power responds instantly to a surge, HR lags 30–60s. Short hard efforts show up in watts but never drag HR into Z4. It also means power is the better compliance metric for short intervals.
+
+### ⚠️ EQUIPMENT FINDING — the weekday bike HAD a power meter
+The standing assumption "weekday bike has NO power meter" is only true from **June 2026 onward**.
+
+- **23 flat rides (<150m ascent) carry power data, from 29 Sep 2025 to 27 May 2026**
+- Every flat ride from **1 Jun 2026** onward has none
+- The local JSON database mis-flagged this: 41 rides had `has_power: false` while their FIT contained power. Flagged 102, actually 142.
+- Nov 3 2025 LT ride: mean 176W, max 604W (power available)
+- Apr 23 2026 VO2MAX ride: mean 160W, max 660W (power available)
+
+**Action**: something stopped around end of May 2026 — battery, pairing, or the meter was moved to the climbing bike. If it can be revived, the Tue/Thu interval sessions run on watts instead of RPE+HR, which is a material precision upgrade for the 4-week plan. Worth checking the bike.
+
+### What this changes in the plan
+1. The Z4 deficit is **11.3pp**, not 13.7pp and not 10pp. Still the main gap, still the right intervention.
+2. Z5 is near-zero but not zero — the W3 VO2max session remains the first meaningful Z5 stimulus in 13 months.
+3. Aug's dip is real; Sep's recovery is real. He is not as detrained as the retracted analysis implied.
+4. Track compliance in **power Z4 minutes** if the weekday meter can be revived, else HR Z4 minutes. Targets ≥25 min (W2), ≥40 min (W3) remain appropriate — for reference, Apr 2026 hit 155 min in a month.
+
+### Local raw FIT archive (permanent)
+- `data/fit-raw/` — 184 `.fit` files, 45 MB. Downloaded once, reusable forever.
+- `data/seconds/` — 184 per-ride derived JSONs (per-second zone totals, HR and power).
+- `scripts/fit_seconds.py` — rebuild/extend. Only downloads what is missing. Run with the uv env at `~/.cache/uv/archive-v0/ncqKHR0kl2fa6nKpXwaoC/bin/python3`.
+- **All future historical analysis must use this archive, not the Garmin API.**
+
+
 **Methodology**: every lap of every ride in the local FIT-analysis database classified by its average HR; lap duration summed per zone. 183 rides with HR, **431.0 h analysed**. No weekday/weekend split — the whole dataset at once. Lap-level HR was fetched for all 184 rides and stored locally in `laps_hr_raw` so this never needs re-fetching.
 
 | Zone | Hours | % | Previous *estimate* |

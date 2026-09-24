@@ -1,0 +1,30 @@
+{
+ "activity_id": 24258570508,
+ "n_records": 15355,
+ "sample_interval_s": 1.0,
+ "hr_seconds_total": 15520,
+ "hr_time_in_zone_s": {
+  "z1": 4548,
+  "z2": 9839,
+  "z3": 730,
+  "z4": 403,
+  "z5": 0
+ },
+ "hr_min": 86,
+ "hr_mean": 137.1,
+ "hr_max": 177,
+ "has_power": true,
+ "power_seconds_total": 15499,
+ "power_time_in_zone_s": {
+  "p1": 5825,
+  "p2": 4187,
+  "p3": 4010,
+  "p4": 1217,
+  "p5": 207,
+  "p6": 47,
+  "p7": 6
+ },
+ "power_mean": 141.1,
+ "power_max": 469,
+ "source": "downloaded"
+}

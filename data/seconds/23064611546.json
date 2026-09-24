@@ -1,0 +1,22 @@
+{
+ "activity_id": 23064611546,
+ "n_records": 2276,
+ "sample_interval_s": 3.0,
+ "hr_seconds_total": 8193,
+ "hr_time_in_zone_s": {
+  "z1": 3375,
+  "z2": 4818,
+  "z3": 0,
+  "z4": 0,
+  "z5": 0
+ },
+ "hr_min": 81,
+ "hr_mean": 128.1,
+ "hr_max": 152,
+ "has_power": false,
+ "power_seconds_total": 0,
+ "power_time_in_zone_s": null,
+ "power_mean": null,
+ "power_max": null,
+ "source": "downloaded"
+}

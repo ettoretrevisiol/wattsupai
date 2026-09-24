@@ -19,3 +19,12 @@ __pycache__/
 
 # Large data - keep activities.json but ignore future big exports
 data/raw/
+
+# Raw FIT archive — LOCAL ONLY, deliberately not committed.
+# These contain GPS position_lat/position_long for every second, i.e. home
+# address and daily routine. This repo is published via GitHub Pages, so
+# committing them would make that data publicly downloadable.
+# The archive is ~45MB, 184 files. Rebuild with:
+#   ~/.cache/uv/archive-v0/ncqKHR0kl2fa6nKpXwaoC/bin/python3 scripts/fit_seconds.py
+# Derived data in data/seconds/ IS committed — it has no GPS, only zone totals.
+data/fit-raw/

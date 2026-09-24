@@ -2,7 +2,7 @@
   "_meta": {
     "last_updated": "2026-09-24",
     "updated_by": "WattsUpAI / Kiro session",
-    "version": "3.0",
+    "version": "4.0",
     "rides_analysed": 184,
     "file_composition": {
       "indoor_cycling": 65,
@@ -16,7 +16,13 @@
       "rides_with_5min_and_10min": 18,
       "note": "Only 18 of 37 outdoor power rides have full 5/10min PDC. Season 5min and 10min peaks are drawn from that subset \u2014 but it includes all 6 highest-20min rides, so the peaks are reliable."
     },
-    "analysis": "Full end-to-end: all 184 rides, lap-level HR for all, measured duration-weighted time-in-zone. No weekday/weekend split."
+    "analysis": "Definitive: 1,189,036 per-second data points from 183 raw FIT files archived locally in data/fit-raw/. Per-second HR and power zones. No weekday/weekend split.",
+    "raw_fit_archive": {
+      "path": "data/fit-raw/",
+      "files": 184,
+      "size_mb": 45,
+      "note": "Permanent local archive. Re-analysis needs no network. Rebuild/extend with scripts/fit_seconds.py"
+    }
   },
   "athlete": {
     "name": "Ettore",
@@ -1075,148 +1081,22 @@
     }
   ],
   "measured_zone_distribution": {
-    "method": "Duration-weighted: every lap in every ride classified by its average HR, lap duration summed per zone. Derived from local FIT-analysis database (laps_hr_raw), no re-estimation.",
+    "SUPERSEDED": true,
+    "note": "Lap-average method. Retained for provenance only. Use true_zone_distribution instead \u2014 it is computed per-second from raw FIT and is definitive.",
     "rides_included": 183,
     "total_hours_analysed": 431.0,
     "z1_pct": 20.0,
     "z2_pct": 69.7,
     "z3_pct": 9.0,
     "z4_pct": 1.3,
-    "z5_pct": 0.0,
-    "z1_hours": 86.2,
-    "z2_hours": 300.6,
-    "z3_hours": 38.7,
-    "z4_hours": 5.5,
-    "z5_hours": 0.0,
-    "z4_target_pct": 15,
-    "z4_gap_pp": 13.7,
-    "supersedes": "The previous zone_distribution (Z3 22%, Z4 5%) was an unvalidated estimate. Measured values are materially lower: Z3 9.0%, Z4 1.3%.",
-    "known_bias": "Lap-average binning UNDERSTATES peak zones: a 10-min lap averaging 150bpm can contain minutes at 170bpm. Treat Z4/Z5 as lower bounds. Z5 = 0.0% means no lap ever averaged >=180bpm.",
-    "by_type": {
-      "indoor": {
-        "z1_pct": 32.8,
-        "z2_pct": 59.4,
-        "z3_pct": 6.7,
-        "z4_pct": 1.2,
-        "z5_pct": 0.0,
-        "hours": 57.2
-      },
-      "outdoor": {
-        "z1_pct": 18.0,
-        "z2_pct": 71.3,
-        "z3_pct": 9.3,
-        "z4_pct": 1.3,
-        "z5_pct": 0.0,
-        "hours": 373.8
-      }
-    },
-    "hard_time_share": {
-      "indoor_pct": 10.1,
-      "outdoor_pct": 89.9
-    },
-    "monthly": [
-      {
-        "month": "2025-09",
-        "z4_min": 0,
-        "z4_pct": 0.0,
-        "z3_min": 10,
-        "hours": 5.7
-      },
-      {
-        "month": "2025-10",
-        "z4_min": 26,
-        "z4_pct": 1.9,
-        "z3_min": 196,
-        "hours": 22.8
-      },
-      {
-        "month": "2025-11",
-        "z4_min": 37,
-        "z4_pct": 2.5,
-        "z3_min": 105,
-        "hours": 24.5
-      },
-      {
-        "month": "2025-12",
-        "z4_min": 16,
-        "z4_pct": 1.8,
-        "z3_min": 83,
-        "hours": 14.6
-      },
-      {
-        "month": "2026-01",
-        "z4_min": 6,
-        "z4_pct": 0.8,
-        "z3_min": 48,
-        "hours": 13.8
-      },
-      {
-        "month": "2026-02",
-        "z4_min": 12,
-        "z4_pct": 1.3,
-        "z3_min": 65,
-        "hours": 15.2
-      },
-      {
-        "month": "2026-03",
-        "z4_min": 18,
-        "z4_pct": 1.0,
-        "z3_min": 369,
-        "hours": 30.0
-      },
-      {
-        "month": "2026-04",
-        "z4_min": 116,
-        "z4_pct": 5.0,
-        "z3_min": 261,
-        "hours": 38.8
-      },
-      {
-        "month": "2026-05",
-        "z4_min": 42,
-        "z4_pct": 1.2,
-        "z3_min": 221,
-        "hours": 61.3
-      },
-      {
-        "month": "2026-06",
-        "z4_min": 10,
-        "z4_pct": 0.3,
-        "z3_min": 198,
-        "hours": 54.3
-      },
-      {
-        "month": "2026-07",
-        "z4_min": 45,
-        "z4_pct": 1.5,
-        "z3_min": 395,
-        "hours": 48.7
-      },
-      {
-        "month": "2026-08",
-        "z4_min": 0,
-        "z4_pct": 0.0,
-        "z3_min": 175,
-        "hours": 59.0
-      },
-      {
-        "month": "2026-09",
-        "z4_min": 0,
-        "z4_pct": 0.0,
-        "z3_min": 195,
-        "hours": 42.2
-      }
-    ]
+    "z5_pct": 0.0
   },
   "z4_drought": {
-    "last_ride_with_z4": "2026-07-25",
-    "last_ride_name": "Ghisallino Power (LACTATE_THRESHOLD)",
-    "last_ride_z4_minutes": 45.1,
-    "days_since": 61,
-    "consecutive_rides_zero_z4": 32,
-    "aug_2026_z4_pct": 0.0,
-    "sep_2026_z4_pct": 0.0,
-    "note": "Aug and Sep 2026 contain ZERO measured Z4 time. This is the single clearest explanation for the Unproductive / AEROBIC_HIGH_SHORTAGE status."
+    "RETRACTED": true,
+    "what_was_claimed": "61 days with no Z4; 32 consecutive rides at zero; Aug and Sep 2026 both 0.0% Z4.",
+    "why_it_was_wrong": "Derived from lap-average binning. Classifying a 10-minute lap by its mean HR erases Z4 minutes inside it. Per-second data shows Z4 in EVERY month of the dataset.",
+    "truth": "Z4 has never been absent. Aug 2026 was the season LOW at 28.5 min (0.9%), but not zero. Sep 2026 has 73.4 min (3.1%). The most recent ride (24 Sep) contained 11.7 min of Z4/Z5.",
+    "corrected_on": "2026-09-24"
   },
   "structured_z4_precedent": {
     "finding": "Ettore already has a proven structured-Z4 habit \u2014 it was indoor. 4 winter trainer sessions contained repeated Z4 intervals (28-35 Z4 laps each, laps averaging 2.8 min). Outdoor rides never reproduced this: outdoor laps average 10.6 min and only ever contain 1-2 Z4 laps.",
@@ -1249,5 +1129,212 @@
     "indoor_total_z4_min": 40,
     "outdoor_total_z4_min": 290,
     "interpretation": "The capability is not missing and does not need building from zero \u2014 it needs re-activating. The winter indoor block is the template."
+  },
+  "true_zone_distribution": {
+    "method": "Per-second from raw FIT files in data/fit-raw/. Every recorded sample classified by instantaneous HR, weighted by actual sample interval. This is definitive \u2014 no binning, no estimation.",
+    "data_points": 1189036,
+    "rides_included": 183,
+    "total_hours": 386.6,
+    "z1_pct": 22.4,
+    "z2_pct": 58.7,
+    "z3_pct": 15.2,
+    "z4_pct": 3.6,
+    "z5_pct": 0.1,
+    "z1_hours": 86.6,
+    "z2_hours": 226.9,
+    "z3_hours": 58.8,
+    "z4_hours": 14.1,
+    "z5_hours": 0.2,
+    "z4_plus_z5_pct": 3.7,
+    "z3_plus_pct": 18.9,
+    "z4_target_pct": 15,
+    "z4_gap_pp": 11.3,
+    "vs_lap_average": "Lap-averaging understated the hard zones badly: it reported Z3 9.0% and Z4 1.3%. True values are Z3 15.2% and Z4 3.6%. Averaging a 10-min lap hides the minutes spent above its mean.",
+    "by_type": {
+      "indoor": {
+        "z1_pct": 28.7,
+        "z2_pct": 57.5,
+        "z3_pct": 9.8,
+        "z4_pct": 3.8,
+        "z5_pct": 0.1,
+        "hours": 53.7
+      },
+      "outdoor": {
+        "z1_pct": 21.4,
+        "z2_pct": 58.9,
+        "z3_pct": 16.1,
+        "z4_pct": 3.6,
+        "z5_pct": 0.0,
+        "hours": 332.8
+      }
+    },
+    "monthly": [
+      {
+        "month": "2025-09",
+        "z4z5_min": 3,
+        "z4_pct": 0.8,
+        "z3_pct": 8.0,
+        "hours": 5.2
+      },
+      {
+        "month": "2025-10",
+        "z4z5_min": 71,
+        "z4_pct": 5.6,
+        "z3_pct": 19.5,
+        "hours": 20.6
+      },
+      {
+        "month": "2025-11",
+        "z4z5_min": 52,
+        "z4_pct": 4.0,
+        "z3_pct": 9.4,
+        "hours": 21.6
+      },
+      {
+        "month": "2025-12",
+        "z4z5_min": 35,
+        "z4_pct": 4.2,
+        "z3_pct": 14.9,
+        "hours": 13.8
+      },
+      {
+        "month": "2026-01",
+        "z4z5_min": 21,
+        "z4_pct": 2.8,
+        "z3_pct": 9.9,
+        "hours": 12.4
+      },
+      {
+        "month": "2026-02",
+        "z4z5_min": 49,
+        "z4_pct": 5.9,
+        "z3_pct": 10.0,
+        "hours": 13.7
+      },
+      {
+        "month": "2026-03",
+        "z4z5_min": 88,
+        "z4_pct": 5.2,
+        "z3_pct": 20.9,
+        "hours": 25.7
+      },
+      {
+        "month": "2026-04",
+        "z4z5_min": 155,
+        "z4_pct": 7.5,
+        "z3_pct": 16.1,
+        "hours": 34.3
+      },
+      {
+        "month": "2026-05",
+        "z4z5_min": 105,
+        "z4_pct": 3.2,
+        "z3_pct": 14.0,
+        "hours": 54.2
+      },
+      {
+        "month": "2026-06",
+        "z4z5_min": 63,
+        "z4_pct": 2.2,
+        "z3_pct": 13.3,
+        "hours": 48.5
+      },
+      {
+        "month": "2026-07",
+        "z4z5_min": 114,
+        "z4_pct": 4.3,
+        "z3_pct": 22.6,
+        "hours": 44.2
+      },
+      {
+        "month": "2026-08",
+        "z4z5_min": 28,
+        "z4_pct": 0.9,
+        "z3_pct": 12.0,
+        "hours": 53.4
+      },
+      {
+        "month": "2026-09",
+        "z4z5_min": 73,
+        "z4_pct": 3.1,
+        "z3_pct": 16.2,
+        "hours": 38.7
+      }
+    ]
+  },
+  "z5_reality": {
+    "total_minutes": 12.5,
+    "rides_with_z5": 9,
+    "highest_hr_recorded": 193,
+    "top": [
+      {
+        "date": "2026-03-22",
+        "minutes": 4.67,
+        "max_hr": 189,
+        "ride": "Milano Mairano Bereguardo Robecco"
+      },
+      {
+        "date": "2026-03-14",
+        "minutes": 3.53,
+        "max_hr": 193,
+        "ride": "Indoor trainer session"
+      },
+      {
+        "date": "2025-10-25",
+        "minutes": 1.22,
+        "max_hr": 188,
+        "ride": "Milano Mairano Morimondo"
+      },
+      {
+        "date": "2026-04-23",
+        "minutes": 0.95,
+        "max_hr": 181,
+        "ride": "Milano Robecco Abbiategrasso (VO2M"
+      },
+      {
+        "date": "2025-11-09",
+        "minutes": 0.7,
+        "max_hr": 184,
+        "ride": "Milano Mairano Morimondo"
+      }
+    ],
+    "correction": "Previously reported as 0.0%. That was a lap-averaging artifact. Z5 is small but real: 12.5 min across 9 rides, peak 193bpm."
+  },
+  "power_zone_distribution": {
+    "method": "Per-second from raw FIT, FTP 256W.",
+    "rides_with_power": 141,
+    "total_hours": 312.2,
+    "z1_pct": 38.2,
+    "z2_pct": 40.0,
+    "z3_pct": 15.6,
+    "z4_pct": 4.1,
+    "z5_pct": 1.4,
+    "z6_pct": 0.5,
+    "z7_pct": 0.1,
+    "z4_plus_pct": 6.2
+  },
+  "weekday_power_meter": {
+    "finding": "The weekday bike DID have a power meter. 22 flat rides carry power data from Sep 2025 to 27 May 2026. Every flat ride from 1 Jun 2026 onward has none.",
+    "last_flat_ride_with_power": "2026-05-27",
+    "flat_rides_with_power": 23,
+    "flat_rides_total": 56,
+    "rides_misflagged": 40,
+    "flagged_has_power": 102,
+    "actually_have_power": 141,
+    "implication": "Power on the weekday bike stopped ~end of May 2026 (battery, pairing, or the meter was moved). If it can be revived, the Tue/Thu interval sessions could be run on watts instead of RPE+HR \u2014 a material upgrade to plan precision.",
+    "key_sessions_with_power": [
+      {
+        "date": "2025-11-03",
+        "mean_w": 176.3,
+        "max_w": 604,
+        "ride": "Milano Mairano Gaggiano (LT LABEL!"
+      },
+      {
+        "date": "2026-04-23",
+        "mean_w": 159.7,
+        "max_w": 660,
+        "ride": "Milano Robecco Abbiategrasso (VO2M"
+      }
+    ]
   }
 }
