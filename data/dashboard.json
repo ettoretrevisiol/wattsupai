@@ -39,8 +39,8 @@
   },
   "athlete": {
     "name": "Ettore",
-    "ftp_w": 256,
-    "ftp_date": "2026-09-12",
+    "ftp_w": 245,
+    "ftp_date": "2026-09-24",
     "vo2max_current": 61,
     "vo2max_peak": 62,
     "vo2max_peak_period": "Aug 19 \u2013 Sep 1 2026",
@@ -70,30 +70,30 @@
     "power_zones": {
       "z1": [
         0,
-        140
+        133
       ],
       "z2": [
-        141,
-        192
+        134,
+        183
       ],
       "z3": [
-        193,
-        230
+        184,
+        220
       ],
       "z4": [
-        231,
-        268
+        221,
+        257
       ],
       "z5": [
-        269,
-        307
+        258,
+        294
       ],
       "z6": [
-        308,
-        384
+        295,
+        367
       ],
       "z7": [
-        385,
+        368,
         9999
       ]
     }
@@ -1270,7 +1270,7 @@
             "type": "Z3 Tempo",
             "done": true,
             "actual_date": "2026-09-24",
-            "target": "3\u00d710 min Z3 \u00b7 176\u2013212W \u00b7 end HR 158\u2013165bpm",
+            "target": "3\u00d710 min Z3 \u00b7 184\u2013220W \u00b7 end HR 158\u2013165bpm",
             "actual": "L4 164bpm + L5 160bpm \u2014 plan nailed \u2705"
           },
           {
@@ -1296,12 +1296,12 @@
           {
             "day": "Tue Sep 30",
             "type": "Z3\u2192Z4",
-            "target": "2\u00d715 min progressive \u00b7 start 176\u2013212W (Z3) \u2192 finish 212\u2013230W (Z4) \u00b7 end HR \u2265166bpm"
+            "target": "2\u00d715 min progressive \u00b7 start 184\u2013220W (Z3) \u2192 finish 221\u2013240W (Z4) \u00b7 end HR \u2265166bpm"
           },
           {
             "day": "Thu Oct 2",
             "type": "Z4 Threshold",
-            "target": "4\u00d78 min Z4 \u00b7 215\u2013245W \u00b7 end-rep HR 166\u2013174bpm \u00b7 6 min recovery between"
+            "target": "4\u00d78 min Z4 \u00b7 221\u2013250W \u00b7 end-rep HR 166\u2013174bpm \u00b7 6 min recovery between"
           },
           {
             "day": "Sat Oct 4",
@@ -1326,12 +1326,12 @@
           {
             "day": "Tue Oct 7",
             "type": "Z4 Threshold",
-            "target": "3\u00d715 min Z4 \u00b7 212\u2013240W \u00b7 sustained HR 166\u2013174bpm from min 8"
+            "target": "3\u00d715 min Z4 \u00b7 221\u2013250W \u00b7 sustained HR 166\u2013174bpm from min 8"
           },
           {
             "day": "Thu Oct 9",
             "type": "Z5 VO2max",
-            "target": "5\u00d76 min Z5 \u00b7 247\u2013282W \u00b7 end-rep HR 172\u2013179bpm \u00b7 first Z5 stimulus in 13 months"
+            "target": "5\u00d76 min Z5 \u00b7 258\u2013294W \u00b7 end-rep HR 172\u2013179bpm \u00b7 first Z5 stimulus in 13 months"
           },
           {
             "day": "Sat Oct 11",
@@ -1361,7 +1361,7 @@
           {
             "day": "Thu Oct 16",
             "type": "Z2 + Z3",
-            "target": "60 min \u00b7 2\u00d710 min Z3 \u00b7 176\u2013212W \u00b7 end HR 158\u2013165bpm"
+            "target": "60 min \u00b7 2\u00d710 min Z3 \u00b7 184\u2013220W \u00b7 end HR 158\u2013165bpm"
           },
           {
             "day": "Sat Oct 18",
@@ -1384,11 +1384,11 @@
       "vo2max_target": "hold 61 or return to 62 by W3",
       "hrv_floor_ms": 48,
       "shifting_quality_target_pct": 70,
-      "interval_targets_ftp235": {
-        "z3_tempo_w": "176\u2013212W",
-        "z4_threshold_w": "212\u2013247W",
-        "z5_vo2max_w": "247\u2013282W",
-        "note": "FTP=235W evidence-based. Old FTP=256W targets (231-268W) were VO2max territory, not threshold."
+      "interval_targets_ftp245": {
+        "ftp_w": 245,
+        "z3_tempo_w": "184\u2013220W",
+        "z4_threshold_w": "221\u2013257W",
+        "z5_vo2max_w": "258\u2013294W"
       }
     }
   },
@@ -1667,7 +1667,8 @@
       "z4_plus_min": 2260,
       "vs_256_delta_min": 1096,
       "note": "At FTP=235W, 1096 min of true threshold work is no longer mis-classified as Tempo"
-    }
+    },
+    "current_ftp_note": "FTP=245W (manual Sep 24 2026). DB zone_summaries still computed at FTP=256 and FTP=235 \u2014 rerun fit_to_db.py --force to add FTP=245 column if needed."
   },
   "weekday_power_meter": {
     "finding": "The weekday bike DID have a power meter. 22 flat rides carry power data from Sep 2025 to 27 May 2026. Every flat ride from 1 Jun 2026 onward has none.",
@@ -1694,7 +1695,7 @@
     ]
   },
   "ftp_reassessment": {
-    "current_garmin_ftp": 256,
+    "current_garmin_ftp": 245,
     "evidence_based_ftp": 235,
     "confidence": "medium-high",
     "verdict": "FTP 256W is not supported by any power data in 13 months. It was a manual Garmin entry, never tested. Evidence converges on ~235W.",
@@ -1734,7 +1735,7 @@
     ],
     "recommended": 235,
     "why_it_matters": "Zone boundaries scale with FTP. At 256W, power Z4 starts at 231W \u2014 above his actual threshold \u2014 so Z4 was close to unreachable and looked like a training deficit. At 235W, Z4 starts at 212W and measured Z4+ time rises from 6.3% to 12.1%, close to the 15% target. The deficit was largely an artifact of a wrong FTP.",
-    "action": "Do a dedicated 20-min test on a climb long enough to not truncate it, or a 40-60min TT. Until then use 235W.",
+    "action": "FTP now set to 245W (manual entry Sep 24 2026). Use this for all interval targets.",
     "primary_basis": "15-minute maximal climb effort on Tre Valli Varesine, 19 Sep 2026",
     "fifteen_min_derivation": {
       "best_15min_power_w": 261,
@@ -1786,25 +1787,24 @@
     "w_per_kg": 3.61
   },
   "power_zones_corrected": {
-    "ftp": 235,
+    "ftp": 245,
+    "ftp_date": "2026-09-24",
     "zones_w": {
-      "z1": "<129",
-      "z2": "129-176",
-      "z3": "176-212",
-      "z4": "212-247",
-      "z5": "247-282",
-      "z6": "282-352"
+      "z1": "<134W",
+      "z2": "134\u2013183W",
+      "z3": "184\u2013220W",
+      "z4": "221\u2013257W",
+      "z5": "258\u2013294W",
+      "z6": "295\u2013367W",
+      "z7": "368W+"
     },
-    "old_ftp": 256,
-    "old_zones_w": {
-      "z1": "<141",
-      "z2": "141-192",
-      "z3": "192-230",
-      "z4": "230-269",
-      "z5": "269-307",
-      "z6": "307-384"
-    },
-    "note": "Use the corrected column for all interval targets. The old Z4 band (231-268W) is 98-114% of real FTP \u2014 that is VO2max, not threshold."
+    "previous_ftp": 256,
+    "previous_ftp_note": "Garmin manual entry Sep 12 2026, untested",
+    "evidence_ftp": 235,
+    "evidence_ftp_note": "Sep 19 15-min climb method (261W \u00d7 0.90)",
+    "current_ftp": 245,
+    "current_ftp_note": "Manually entered Sep 24 2026. Sits between evidence (235W) and old Garmin entry (256W). Use these zones.",
+    "w_per_kg": 3.77
   },
   "true_pdc": {
     "method": "Mean maximal power computed from per-second power records in training.db. No Garmin summaries.",
