@@ -760,6 +760,81 @@ function renderRides(d) {
       </div>
     </div>
 
+    <div class="section-label">⚠ FTP Reassessment — evidence says ${ftp.evidence_based_ftp}W, not ${ftp.current_garmin_ftp}W</div>
+    <div class="g21">
+      <div class="card card-accent-red">
+        <div class="card-title"><span class="ct-dot" style="background:var(--red)"></span>The Tre Valli evidence</div>
+        <div style="display:flex;gap:20px;align-items:baseline;margin:10px 0 16px;">
+          <div><div class="kpi-val" style="font-size:2.2rem;color:var(--red)">${ftp.current_garmin_ftp}<span class="kpi-unit">W</span></div><div class="kpi-label">Garmin (manual, untested)</div></div>
+          <div style="font-size:1.4rem;color:var(--dim)">→</div>
+          <div><div class="kpi-val" style="font-size:2.2rem;color:var(--green)">${ftp.evidence_based_ftp}<span class="kpi-unit">W</span></div><div class="kpi-label">evidence-based</div></div>
+        </div>
+        <div class="insight" style="border-left-color:var(--red)"><strong>${ftp.verdict}</strong></div>
+        <div style="font-size:.75rem;line-height:1.9;margin-top:12px;">
+          <div><strong>Decisive effort:</strong> ${ftp.tre_valli_evidence.decisive_effort}</div>
+          <div><strong>HR response:</strong> ${ftp.tre_valli_evidence.hr_during}</div>
+          <div><strong>At the end:</strong> ${ftp.tre_valli_evidence.final_5min_of_effort}</div>
+        </div>
+        <div class="insight" style="margin-top:12px;">
+          <strong>Why 20-min power misleads here:</strong> ${ftp.tre_valli_evidence.why_20min_is_misleading}
+        </div>
+        <div style="margin-top:14px;font-size:.72rem;">
+          ${ftp.estimates.map(e=>`<div style="display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px solid rgba(255,255,255,.04);${e.note&&e.note.startsWith('DISCARD')?'opacity:.45;text-decoration:line-through;':''}">
+            <span>${e.method}</span><span style="font-weight:700;">${e.watts}W</span></div>`).join('')}
+        </div>
+      </div>
+      <div class="card card-accent-green">
+        <div class="card-title"><span class="ct-dot" style="background:var(--green)"></span>Corrected power zones</div>
+        <div class="insight good" style="margin-bottom:14px;">${ftp.why_it_matters}</div>
+        <table style="width:100%;font-size:.74rem;border-collapse:collapse;">
+          <tr style="color:var(--dim);font-size:.68rem;"><th style="text-align:left;padding:4px;">zone</th><th style="text-align:right;">old (FTP 256)</th><th style="text-align:right;">USE THIS (FTP ${pzc.ftp})</th></tr>
+          ${['z1','z2','z3','z4','z5','z6'].map(k=>`<tr style="border-top:1px solid rgba(255,255,255,.05);${k==='z4'?'background:rgba(255,159,64,.10);':''}">
+            <td style="padding:5px;font-weight:${k==='z4'?'700':'400'};">${k.toUpperCase()}${k==='z4'?' threshold':''}</td>
+            <td style="text-align:right;color:var(--dim);text-decoration:line-through;">${pzc.old_zones_w[k]}</td>
+            <td style="text-align:right;font-weight:700;color:${k==='z4'?'var(--orange)':'inherit'}">${pzc.zones_w[k]}</td></tr>`).join('')}
+        </table>
+        <div class="insight" style="margin-top:12px;border-left-color:var(--orange)"><strong>${pzc.note}</strong></div>
+        <div class="insight" style="margin-top:10px;font-size:.72rem;">${ftp.action}</div>
+      </div>
+    </div>
+
+    <div class="section-label">True Power-Duration Curve — per-second, ${tpdc.rides_with_power} rides</div>
+    <div class="g21">
+      <div class="card card-accent-blue">
+        <div class="card-title"><span class="ct-dot"></span>Mean maximal power — computed from every second, no laps</div>
+        <div style="margin-top:12px;">
+          ${tpdc.curve.filter(c=>!c.suspect).map(c=>`
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px;${c.seconds===1200?'background:rgba(255,159,64,.08);border-radius:3px;':''}">
+            <div style="width:48px;font-size:.7rem;color:var(--dim);text-align:right;">${c.duration}</div>
+            <div style="flex:1;background:rgba(255,255,255,.04);border-radius:3px;height:16px;">
+              <div style="width:${Math.min(100,c.watts/9.5)}%;height:100%;background:var(--blue);opacity:.75;border-radius:3px;"></div>
+            </div>
+            <div style="width:46px;text-align:right;font-size:.7rem;font-weight:700;">${c.watts}W</div>
+            <div style="width:88px;font-size:.64rem;color:var(--dim);">${c.date.slice(5)} ${c.ride.slice(0,11)}</div>
+          </div>`).join('')}
+        </div>
+        <div class="insight" style="margin-top:12px;"><strong>Corrections:</strong> ${tpdc.corrections}</div>
+        <div class="insight" style="margin-top:8px;font-size:.68rem;">${tpdc.data_quality_note}</div>
+      </div>
+      <div class="card card-accent-violet">
+        <div class="card-title"><span class="ct-dot" style="background:var(--violet)"></span>Self-detected efforts (laps ignored)</div>
+        <div style="font-size:.7rem;color:var(--dim);margin-bottom:10px;">${sde.method}</div>
+        ${[sde.hr_z3_ge155,sde.hr_z4_ge166,sde.pw_z3_ge193,sde.pw_z4_ge231,sde.pw_z5_ge269].map(e=>`
+        <div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid rgba(255,255,255,.04);font-size:.73rem;">
+          <span style="color:var(--dim)">${e.threshold}</span>
+          <span><strong>${e.efforts}</strong> efforts · ${e.rides} rides · ${e.total_minutes} min</span>
+        </div>`).join('')}
+        <div class="insight good" style="margin-top:12px;">${sde.insight}</div>
+        <div style="font-size:.7rem;color:var(--dim);margin:12px 0 6px;">Longest continuous Z4 HR efforts ever:</div>
+        <div class="ride-list">
+          ${sde.longest_hr_z4_efforts.slice(0,5).map(e=>`<div class="ride-item">
+            <div><div class="ride-name">${e.ride}</div><div class="ride-meta">${e.date} · mean ${e.mean_hr} peak ${e.peak_hr}bpm</div></div>
+            <div class="ride-dist" style="color:var(--orange)">${e.dur}</div>
+          </div>`).join('')}
+        </div>
+      </div>
+    </div>
+
     <div class="section-label">True Time-in-Zone — Per-Second from Raw FIT (${(tz.data_points/1000000).toFixed(2)}M data points)</div>
     <div class="g21">
       <div class="card card-accent-green">

@@ -165,7 +165,74 @@ The 10 Z4 rides (verified against JSON, sorted by peak lap HR):
 
 **What this changes**: Zone distribution revised — Z3 17%→22%, Z4 3%→5%, Z2 55%→51%, Z1 25%→21%. These remain *estimates*, not measured Garmin time-in-zone.
 
-### ⚠️ RETRACTION — the "Z4 drought" claim was WRONG (corrected 24 Sep 2026, evening)
+## 🚨 FTP CORRECTION — 256W is wrong, evidence says ~235W (24 Sep 2026)
+
+**Primary evidence: the 15-minute climb on Tre Valli Varesine, 19 Sep 2026.**
+Analysed per-second from the raw FIT file. The climb — confirmed by Ettore as ~15 min — produced:
+- **14min 51s continuously above 231W at mean 262W**
+- Best 15-min window: **261W**, starting 36 min into the ride
+- HR mean 174, **peak 180 bpm = 99% of the 2026 season max (181)**
+- Final 3 min: HR 178 bpm at 244W — he was at the ceiling
+- → This was a genuine near-maximal 15-minute effort, the only one in 13 months
+
+**FTP from 15-min power:**
+| factor | FTP | basis |
+|---|---|---|
+| 0.88 | 229W | conservative |
+| **0.90** | **235W** | **standard 15-min conversion** |
+| 0.92 | 240W | aggressive |
+
+**Best estimate: FTP ≈ 235W (range 229–240W). 3.61 W/kg at 65kg.**
+
+### Cross-validation — three durations, one answer
+| measure | at FTP 235W | at FTP 256W |
+|---|---|---|
+| 15-min max 261W | 111% — expect 105–115% ✅ | 102% — implausibly low for a max effort ❌ |
+| best 60-min 216W | 92% — expect 88–95% ✅ | 84% — too low ❌ |
+| best 5-min 279W | 119% — expect 115–125% ✅ | 109% — too low ❌ |
+
+Every ratio is coherent at 235W and incoherent at 256W. The 256W figure was a **manual Garmin entry, never tested**.
+
+### Do NOT use the 20-min number for FTP here
+Best 20-min on that ride was 238W, which would imply FTP 226W. That is an artifact: the PDC falls from **257W at 18min to 238W at 20min** — a 19W cliff in two minutes. No physiological curve does that. The climb simply ended, so the 20-min window is forced to include descent. It measures terrain, not threshold. Discard it.
+
+### CORRECTED POWER ZONES — use these for all interval targets
+| Zone | OLD (FTP 256) | **USE (FTP 235)** |
+|---|---|---|
+| Z1 Recovery | <141W | **<129W** |
+| Z2 Endurance | 141–192W | **129–176W** |
+| Z3 Tempo | 193–230W | **176–212W** |
+| Z4 Threshold | 231–268W | **212–247W** |
+| Z5 VO2max | 269–307W | **247–282W** |
+| Z6 Anaerobic | 308–384W | **282–353W** |
+
+### Why this reframes the entire "Z4 deficit"
+Measured power time-in-zone depends entirely on where the boundaries sit:
+
+| | FTP 256W | FTP 235W | FTP 225W |
+|---|---|---|---|
+| Power Z4+ | 6.3% | **12.1%** | 16.1% |
+
+At the corrected FTP, Z4+ time is **12.1%**, not 6.3% — close to the ≥15% target. **Most of the apparent Z4 deficit was an artifact of a threshold set ~9% too high.** Z4 "started" at 231W, which is above his actual threshold, so the zone was nearly unreachable by definition.
+
+### 🚨 The 4-week plan's power targets are WRONG and must be rewritten
+The plan asks for "4×8 min Z4 at 231–268W". At real FTP 235W that is **98–114% of FTP** — VO2max/anaerobic territory, not threshold. He would fail the session or blow up mid-way, then conclude he lacks fitness. Corrected targets:
+
+| Session | OLD target | **CORRECTED** |
+|---|---|---|
+| W1 Thu 3×10min Z3 | 193–230W | **176–212W** |
+| W2 Tue 2×15min prog. Z3→Z4 | →231W+ | **→212–230W** |
+| W2 Thu 4×8min Z4 | 231–268W | **215–245W** |
+| W3 Tue 3×15min Z4 | 231–268W | **212–240W** |
+| W3 Thu 5×6min Z5 | 269–307W | **247–282W** |
+| Sat NP targets | 182–200W | unchanged (NP targets were set from actual ride data, not FTP%) |
+
+HR targets in the plan remain valid — they were derived from measured HR, not from FTP.
+
+### Action
+Do a dedicated test to settle it: a 20-min effort on a climb long enough not to truncate (needs ≥22 min of continuous climbing), or a 40–60 min TT. Until then **use 235W**.
+
+
 An earlier version of this file claimed: *"Last ride with any measured Z4 time: 25 Jul 2026. 61 days ago. 32 consecutive rides since with zero Z4. Aug 2026 Z4: 0.0%. Sep 2026 Z4: 0.0%."*
 
 **That was false.** It came from classifying each 5km auto-lap by its *average* HR — which erases every Z4 minute contained inside a lap whose mean sits in Z2. Per-second analysis of the raw FIT files shows **Z4 present in every single month of the dataset**, including the most recent ride.

@@ -25,6 +25,13 @@ data/raw/
 # address and daily routine. This repo is published via GitHub Pages, so
 # committing them would make that data publicly downloadable.
 # The archive is ~45MB, 184 files. Rebuild with:
-#   ~/.cache/uv/archive-v0/ncqKHR0kl2fa6nKpXwaoC/bin/python3 scripts/fit_seconds.py
-# Derived data in data/seconds/ IS committed — it has no GPS, only zone totals.
+#   ~/.cache/uv/archive-v0/kKQyyZw9eWA6xSrfjm0LO/bin/python3 scripts/fit_to_db.py
 data/fit-raw/
+
+# Binary series cache (.npz per-second numpy arrays) — regenerable from fit-raw
+# ~10MB, 184 files, no value in version control
+data/series/
+
+# Deep analysis JSON cache — regenerable from fit-raw via fit_deep.py
+# Superseded by training.db which is now the canonical store
+data/deep/
