@@ -132,31 +132,38 @@ Pre-season outdoor baseline (before full indoor block):
 - **Per FIT lap analysis: individual climbs DO hit 200–243W NP (Z3-Z4) — the signal exists**
 - **Only structured short intervals can reliably accumulate sustained Z4 LOAD**
 
-### Weekday ride analysis (no power meter) — Updated Sep 24 2026, full 184-ride FIT analysis:
+### Weekday ride analysis (no power meter) — CORRECTED 24 Sep 2026 (evening audit):
 **Finding: weekday rides DID include genuine Z3 and Z4 HR efforts — the 'No Z4 intervals' narrative was incomplete.**
 
-Key statistics from 184-ride FIT analysis (all rides, including weekday flat):
-- **51 rides** had at least one lap with avg HR ≥155bpm (Z3 threshold)
-- **10 rides** had at least one lap with avg HR ≥166bpm (Z4 threshold — genuine threshold work)
-- **45 rides** had session max HR ≥175bpm (sprint/hard acceleration)
+⚠️ **DENOMINATOR CORRECTION**: an earlier version of this file quoted these stats as "out of 184 rides". That was wrong. The 184 JSON files break down as: 65 indoor sessions + 37 outdoor power rides + 80 weekday no-power road rides + 2 incomplete. Only the 80 weekday rides have lap-level HR analysis, so that is the correct denominator. The corrected percentages are substantially HIGHER than previously stated.
 
-Z4 rides breakdown (laps_above_z4_166 > 0):
-1. **Nov 3 2025** — Milano Mairano Gaggiano (LT LABEL!): 5 Z4 laps, peak lap HR 168bpm, max HR 178bpm
-2. **Apr 23 2026** — Milano Robecco (VO2MAX LABEL!): 5 Z4 laps, peak lap HR 174bpm, max HR 181bpm
-3. **Apr 18 2026** — Albavilla Nesso Ghisallino Onno: 2 Z4 laps, peak lap HR 172bpm, max HR 179bpm
-4. **Oct 4 2025** — Milano Mairano Gaggiano: 1 Z4 lap, peak lap HR 167bpm, max HR 173bpm
-5. **Oct 5 2025** — Giro Tre Navigli: 1 Z4 lap, peak lap HR 171bpm, 11 Z3 laps, max HR 174bpm
-6. **Oct 25 2025** — Milano Mairano Morimondo: 1 Z4 lap, peak lap HR 166bpm, max HR 188bpm
-7. **Mar 8 2026** — Milano Basiano Abbiategrasso: 1 Z4 lap, peak lap HR 167bpm, max HR 179bpm
-8. **Apr 25 2026** — Milano Pavia Vigevano: 1 Z4 lap, peak lap HR 169bpm, max HR 179bpm
-9. **Apr 27 2026** — Milano Mairano Abbiategrasso evening: 1 Z4 lap, peak lap HR 170bpm, max HR 179bpm
-10. **May 1 2026** — Milano Tornavento: 1 Z4 lap, peak lap HR 167bpm, max HR 177bpm
+Statistics over the 80 weekday no-power rides:
+- **51 of 80 (64%)** had at least one lap with avg HR ≥155bpm (Z3 threshold)
+- **10 of 80 (12%)** had at least one lap with avg HR ≥166bpm (Z4 threshold — genuine threshold work)
+- **26 of 80 (32%)** had session max HR ≥175bpm (sprint/hard acceleration)
+- Median peak-lap HR across weekday rides: **156bpm** (i.e. the typical weekday ride touches Z3)
 
-Typical peak lap HR across Z3-effort rides: 155–174bpm. Median ~162bpm.
+Data quality: 1 ride (2025-11-05 Milano Abbiategrasso) has no HR data at all — all zeros. Excluded from HR conclusions.
 
-**Revised conclusion**: Weekdays are NOT purely Z2. In ~28% of rides (51/184) there was at least one Z3 lap; in 5.4% (10/184) a genuine Z4 lap occurred. The Apr 2026 spring block (Apr 18/23/25/27) shows a 10-day cluster of high-HR weekday rides coinciding with the only VO2MAX label of the season. The autumn 2025 baseline (Oct–Nov) also had early Z4 efforts before the indoor block. The main gap is *sustained/structured* Z4 — the Z4 laps found were unplanned sprint or surge moments, not repeated intervals. The new plan correctly targets structured Z4 for W2–W3.
+The 10 Z4 rides (verified against JSON, sorted by peak lap HR):
+| Date | Peak lap HR | Z3 laps | Z4 laps | Max HR | Ride |
+|---|---|---|---|---|---|
+| 2026-04-23 | 174 | 8 | 5 | 181 | Milano Robecco — **VO2MAX label** |
+| 2026-04-18 | 172 | 3 | 2 | 179 | Albavilla Nesso Ghisallino Onno |
+| 2025-10-05 | 171 | 11 | 1 | 174 | Giro Tre Navigli (most Z3 laps in dataset) |
+| 2026-04-27 | 170 | 2 | 1 | 179 | Milano Mairano Abbiategrasso evening |
+| 2026-04-25 | 169 | 3 | 1 | 179 | Milano Pavia Vigevano |
+| 2025-11-03 | 168 | 8 | 5 | 178 | Milano Mairano Gaggiano — **LT label** |
+| 2025-10-04 | 167 | 4 | 1 | 173 | Milano Mairano Gaggiano |
+| 2026-03-08 | 167 | 1 | 1 | 179 | Milano Basiano Abbiategrasso |
+| 2026-05-01 | 167 | 2 | 1 | 177 | Milano Tornavento |
+| 2025-10-25 | 166 | 3 | 1 | 188 | Milano Mairano Morimondo |
 
-**What this changes**: Zone distribution revised upward — Z3 from 17% → 22%, Z4 from 3% → 5%, Z2 from 55% → 51%, Z1 from 25% → 21%.
+**Revised conclusion**: Weekdays are emphatically NOT purely Z2 — roughly two-thirds of weekday rides touch Z3. The two rides with the most Z4 laps (5 each) are exactly the two that earned Garmin quality labels: Nov 3 2025 (LT) and Apr 23 2026 (VO2MAX). That is a strong internal validation: repeated Z4 laps → Garmin quality label. The Apr 2026 cluster (Apr 18/23/25/27) was a genuine 10-day high-intensity block.
+
+**The actual gap is not "no Z4" — it is "no REPEATED Z4".** 8 of the 10 Z4 rides had only a single Z4 lap (one surge). Only 2 rides had ≥2 Z4 laps. The plan's structured Z4 for W2–W3 remains the correct intervention, and the Nov 3 / Apr 23 pattern tells us what the target looks like: 5 Z4 laps in one ride is what produces a quality label.
+
+**What this changes**: Zone distribution revised — Z3 17%→22%, Z4 3%→5%, Z2 55%→51%, Z1 25%→21%. These remain *estimates*, not measured Garmin time-in-zone.
 
 ### Training balance (current):
 - Z1/Z2: ~70% of time
@@ -277,11 +284,24 @@ Previously the 5min/10min peaks were underestimated — the top 25 rides were mi
 | 20min | **239W** | Sep 19 | Tre Valli Varesine |
 | 60min | 163W | Sep 19 | Tre Valli Varesine |
 
-- 239W at 20min is internally consistent: the best climb (L4, 25:42) at NP 237W naturally yields ~239W for a best-20min window
-- PDC decay model from 5/10min predicts ~255W for a pure TT — 239W is conservative (race climb, not TT pacing)
-- All values pass 5min > 10min > 20min consistency check ✅
+- All values pass the 5min > 10min > 20min consistency check ✅
 - 2nd/3rd best 5min: 263W (May 3 Onno), 262W (Sep 12 Culmine)
 - 2nd/3rd best 10min: 254W (Sep 12 Culmine), 250W (May 3 Onno)
+
+⚠️ **PDC coverage caveat**: only 18 of 37 outdoor power rides have 5min/10min data; all 37 have 20min. The 18 include all six highest-20min rides, so the season peaks are reliable — but the 5/10min *progression* over the season cannot be charted from this dataset.
+
+### Why the 20min figure (239W) is lower than the model predicts
+The decisive climb on Sep 19 was roughly **16 minutes** long, not 25. (Lap 4 in the FIT file spans 25:42 but that is a 5km auto-lap containing the climb plus surrounding terrain — do not read it as climb duration.) A best-20min window therefore necessarily includes ~4 minutes of non-climbing power, which drags the average down. 239W is a *terrain-limited* number, not a physiological ceiling.
+
+Critical-power model fitted to the two clean points:
+- 279W @ 5min and 267W @ 10min → **CP ≈ 255W, W' ≈ 7,200 J**
+- Model prediction for a pure 20-min effort: **≈261W**
+
+Two things follow:
+1. **A dedicated 20-min test would likely land 255–265W**, above the 239W recorded. This supports the current FTP of 256W (20min × 0.95 ≈ 250–252W; Garmin's 256W is at the optimistic end but defensible).
+2. **W' of 7,200 J is implausibly low** for a trained cyclist (typical 15,000–25,000 J). A W' that small means the 5→10min decay is almost flat, which is the signature of a *paced sub-maximal* effort rather than a maximal one. Conclusion: the 279W and 267W figures are themselves floors, not ceilings — Ettore has never actually tested 5min or 10min max.
+
+**Action implication**: the Week 3 Thu session (5×6 min Z5) and a possible dedicated 20-min test would give the first genuine maximal data points of the season. Until then, treat all PDC values as lower bounds.
 
 ## Dashboard Infrastructure (as of Sep 24 2026)
 - URL: ettore.trevisiol.net/wattsupai (GitHub Pages, PWA installable)

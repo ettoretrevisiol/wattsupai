@@ -723,6 +723,7 @@ function renderRecovery(d) {
 // ── TAB 4: BEST RIDES ────────────────────────────────────────────────────────
 function renderRides(d) {
   const laps = d.best_climbing_laps;
+  const wis = d.weekday_interval_summary;
 
   document.getElementById('tab-rides').innerHTML = `
     <div class="section-label">Best Climbing Laps (FIT lap-level NP)</div>
@@ -753,6 +754,37 @@ function renderRides(d) {
       </div>
       <div class="insight good" style="margin-top:10px;">
         <strong>Aug 29 San Daniele = best Friuli session</strong> — L5 224W, L6 220W, L8 216W. Aug 19 Tanamea = best technique day (80% proactive shifting).
+      </div>
+    </div>
+
+    <div class="section-label">Weekday Rides — Hidden Interval Quality</div>
+    <div class="g21">
+      <div class="card card-accent-orange">
+        <div class="card-title"><span class="ct-dot" style="background:var(--orange)"></span>Lap-level HR analysis — ${wis.weekday_rides_analysed} weekday rides (no power meter)</div>
+        <div class="g4" style="margin-bottom:12px;">
+          <div><div class="kpi-val" style="font-size:1.6rem;">${wis.rides_with_z3_laps_pct}%</div><div class="kpi-label">touched Z3 (≥155bpm)<br>${wis.rides_with_z3_laps}/${wis.weekday_rides_analysed} rides</div></div>
+          <div><div class="kpi-val" style="font-size:1.6rem;color:var(--orange)">${wis.rides_with_z4_laps_pct}%</div><div class="kpi-label">hit Z4 (≥166bpm)<br>${wis.rides_with_z4_laps}/${wis.weekday_rides_analysed} rides</div></div>
+          <div><div class="kpi-val" style="font-size:1.6rem;">${wis.rides_with_sprint_175plus_pct}%</div><div class="kpi-label">max HR ≥175bpm<br>${wis.rides_with_sprint_175plus}/${wis.weekday_rides_analysed} rides</div></div>
+          <div><div class="kpi-val" style="font-size:1.6rem;">${wis.median_peak_lap_hr}</div><div class="kpi-label">median peak<br>lap HR (bpm)</div></div>
+        </div>
+        <div class="insight good">
+          <strong>Weekdays were never "just Z2".</strong> Roughly two-thirds of weekday rides touch Z3, and 1 in 8 reached genuine Z4. The real gap is not <em>absence</em> of Z4 — it is absence of <em>repeated</em> Z4: 8 of the 10 Z4 rides contained only a single Z4 lap (one surge).
+        </div>
+        <div class="insight" style="margin-top:10px;">
+          <strong>Internal validation:</strong> the only two rides with 5 Z4 laps each — Nov 3 2025 and Apr 23 2026 — are exactly the two weekday rides that earned Garmin quality labels (LACTATE_THRESHOLD and VO2MAX). Repeated Z4 laps → quality label. That is the template Week 2–3 is built to reproduce.
+        </div>
+      </div>
+      <div class="card card-accent-violet">
+        <div class="card-title"><span class="ct-dot" style="background:var(--violet)"></span>The 10 Z4 weekday rides</div>
+        <div class="ride-list">
+          ${wis.key_interval_sessions.map(r=>`<div class="ride-item">
+            <div><div class="ride-name">${r.route_name}</div><div class="ride-meta">${r.date} · ${r.laps_above_z3} Z3 laps · ${r.laps_above_z4} Z4 lap${r.laps_above_z4>1?'s':''}</div></div>
+            <div class="ride-dist" style="color:var(--orange)">${r.peak_lap_hr}<span style="font-size:.6rem;color:var(--dim)">bpm</span></div>
+          </div>`).join('')}
+        </div>
+        <div class="insight" style="margin-top:10px;font-size:.7rem;">
+          Showing top 5 by peak lap HR. ${wis.data_quality_note}
+        </div>
       </div>
     </div>
 

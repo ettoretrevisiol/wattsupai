@@ -2,9 +2,20 @@
   "_meta": {
     "last_updated": "2026-09-24",
     "updated_by": "WattsUpAI / Kiro session",
-    "version": "2.0",
+    "version": "2.1",
     "rides_analysed": 184,
-    "outdoor_power_rides": 37
+    "file_composition": {
+      "indoor_cycling": 65,
+      "outdoor_power_rides": 37,
+      "weekday_nopower_with_lap_hr": 80,
+      "other_or_incomplete": 2
+    },
+    "outdoor_power_rides": 37,
+    "pdc_coverage": {
+      "rides_with_20min": 37,
+      "rides_with_5min_and_10min": 18,
+      "note": "Only 18 of 37 outdoor power rides have full 5/10min PDC. Season 5min and 10min peaks are drawn from that subset — but it includes all 6 highest-20min rides, so the peaks are reliable."
+    }
   },
 
   "athlete": {
@@ -191,7 +202,7 @@
   },
 
   "zone_distribution": {
-    "source": "184 rides FIT-analysed (37 outdoor power rides + 147 HR-only); Z3/Z4 from lap HR analysis",
+    "source": "Estimated distribution. Basis: 37 outdoor power rides (NP + lap NP) + 80 weekday no-power rides (lap HR) + 65 indoor sessions. Z3/Z4 shares informed by lap-level HR on the weekday population.",
     "z1_pct": 21,
     "z2_pct": 51,
     "z3_pct": 22,
@@ -199,16 +210,23 @@
     "z5_pct": 1,
     "z4_target_pct": 15,
     "z4_gap_pct": 10,
-    "notes": "Revised upward: 51 rides had Z3 laps (laps_above_z3_155>0), 10 rides had genuine Z4 laps (laps_above_z4_166>0) across all 184 analysed rides including weekday flat HR-only rides"
+    "confidence": "medium — these are estimates, not measured time-in-zone totals from Garmin",
+    "notes": "Revised upward after weekday lap-HR analysis: 51 of 80 weekday rides (64%) had at least one Z3 lap and 10 of 80 (12%) had a genuine Z4 lap. Those Z4 laps were unplanned surges, not structured intervals — the sustained-Z4 gap remains the real deficit."
   },
 
   "weekday_interval_summary": {
-    "total_rides_analysed": 184,
+    "population_note": "Percentages are over the 80 weekday no-power road rides that have lap-level HR analysis — NOT over all 184 files (which include 65 indoor sessions and 37 outdoor power rides with no lap HR analysis).",
+    "weekday_rides_analysed": 80,
     "rides_with_z3_laps": 51,
+    "rides_with_z3_laps_pct": 64,
     "rides_with_z4_laps": 10,
-    "rides_with_sprint_175plus": 45,
+    "rides_with_z4_laps_pct": 12,
+    "rides_with_sprint_175plus": 26,
+    "rides_with_sprint_175plus_pct": 32,
+    "median_peak_lap_hr": 156,
     "max_lap_hr_ever": 174,
     "max_lap_hr_date": "2026-04-23",
+    "data_quality_note": "1 ride (2025-11-05 Milano Abbiategrasso) has no HR data at all (all zeros) — excluded from HR conclusions.",
     "key_interval_sessions": [
       {
         "date": "2026-04-23",
