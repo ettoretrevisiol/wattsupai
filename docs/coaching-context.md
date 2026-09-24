@@ -1,5 +1,5 @@
 # WattsUpAI — Coaching Context
-# Ettore Trevisiol · Last updated: 23 Sep 2026 (complete 12-month FIT analysis)
+# Ettore Trevisiol · Last updated: 24 Sep 2026
 
 ## Identity
 - Name: Ettore
@@ -217,12 +217,29 @@ Full 12-month FIT analysis (180+ rides) confirms:
 - Z4 time/week: ≥25 min in W2, ≥40 min in W3
 - Shifting quality: maintain ≥70% proactive (Sep 2026 benchmark)
 
-## WattsUpAI Status (as of 23 Sep 2026)
-- **Status: Plateau**
-- Fit (CTL 803, NP 176–182W, Z3 consistent), but adaptation stalled
-- Recovery excellent — green light for intensity
-- One thing missing: structured Z4 load mid-week
-- To flip to "Building": 2× structured Z4/week for 2 weeks
+## WattsUpAI Status (as of 24 Sep 2026)
+- **Status: Unproductive → Week 1 Plan underway**
+- CTL: 812 | ATL: 878 | TSB: -66 (in training load — recovering from Tre Valli block)
+- Load ratio 1.0 = OPTIMAL acwr (not overreaching)
+- Garmin flag: AEROBIC_HIGH_SHORTAGE — confirms the need for structured Z4
+- VO2max: 61 (stable)
+- HRV this week: 43–55ms range, weekly avg 50ms — BALANCED, no stress signal
+- Sleep Sep 24: 6.9h, score 82 (GOOD), overnight HRV 52ms
+
+## Today's Training (Sep 24, Thu — Week 1 of plan)
+**Ride: Milano–Rosate–Vermezzo** — 40km flat, 73 min, weekday bike (no power)
+- avg HR 144bpm, max HR 179bpm (!), 13°C cool morning
+- Lap breakdown reveals clear effort structure:
+  - L1-2: warmup (HR 124–134bpm, Z1-Z2)
+  - L3: build (HR 147bpm, Z2 high)
+  - **L4: 7:08 @ HR 164bpm (Z3 high, 164bpm = just below Z4 threshold of 166)**
+  - **L5: 8:46 @ HR 160bpm (Z3, sustained)**
+  - L6-7: tempo effort (HR 151–153bpm, Z2 high)
+  - L8: cool-down (HR 130bpm, Z2)
+- Max HR 179bpm = clear sprint or hard acceleration occurred
+- Temp-HR pattern unusual: coldest third HR 161bpm vs warmest third 126bpm → did the hard effort in the cool early section (smart)
+- **Assessment**: This counts as a solid Z3 tempo ride. L4 at 164bpm is 1 beat below Z4 — very close. Without power it's hard to confirm, but RPE and HR profile suggest this was a good threshold-adjacent session — exactly what Week 1 Thu calls for (3×10 min Z3 target). Well executed on the weekday bike.
+- **Plan adherence**: ✅ Thu Week 1 target was 3×10 min Z3 (end HR 158–165bpm). L4 164bpm + L5 160bpm fits squarely in target range.
 
 ## Dashboard Notes
 - Only index.html in the repo — always update that file
