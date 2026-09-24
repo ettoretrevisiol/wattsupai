@@ -971,10 +971,87 @@ function renderRides(d) {
       </div>
     </div>
 
-    <div class="section-label">Biggest Climbing Days</div>
-    <div class="g2">
+    <div class="section-label">Best VAM Laps — vertical speed (m/h)</div>
+    <div class="card card-accent-blue" style="margin-bottom:16px;">
+      <div class="card-title"><span class="ct-dot"></span>Top climbing laps by VAM · season 2026</div>
+      <div style="overflow-x:auto;">
+        <table style="width:100%;border-collapse:collapse;font-size:.75rem;">
+          <thead><tr style="border-bottom:1px solid var(--border);color:var(--muted);font-size:.66rem;text-transform:uppercase;letter-spacing:.06em;">
+            <th style="padding:7px 10px;text-align:left;">Date</th>
+            <th style="padding:7px 10px;text-align:center;">VAM</th>
+            <th style="padding:7px 10px;text-align:center;">Elev</th>
+            <th style="padding:7px 10px;text-align:center;">Time</th>
+            <th style="padding:7px 10px;text-align:center;">Power</th>
+            <th style="padding:7px 10px;text-align:center;">HR</th>
+          </tr></thead>
+          <tbody>
+          ${(d.best_vam_laps||[]).map((v,i) => {
+            const isTop = i < 3;
+            const vamColor = v.vam >= 900 ? 'var(--orange)' : v.vam >= 800 ? 'var(--blue)' : 'var(--text)';
+            return `<tr style="border-bottom:1px solid rgba(34,40,64,.5);">
+              <td style="padding:8px 10px;">
+                <a href="https://connect.garmin.com/modern/activity/${v.activity_id}" target="_blank"
+                   style="color:var(--text);text-decoration:none;font-weight:600;">
+                  ${v.date.replace('2026-','')}${isTop?' 🏆':''}
+                </a>
+                <span style="color:var(--muted);font-size:.67rem;"> L${v.lap_index}</span>
+              </td>
+              <td style="padding:8px 10px;text-align:center;font-weight:800;color:${vamColor};">${v.vam}<span style="font-size:.65rem;font-weight:400;color:var(--dim);"> m/h</span></td>
+              <td style="padding:8px 10px;text-align:center;color:var(--dim);">${v.elev_m}m</td>
+              <td style="padding:8px 10px;text-align:center;color:var(--dim);">${v.min}min</td>
+              <td style="padding:8px 10px;text-align:center;color:var(--blue);">${v.power_w ? v.power_w+'W' : '—'}</td>
+              <td style="padding:8px 10px;text-align:center;color:var(--dim);">${v.hr_bpm ? v.hr_bpm+'bpm' : '—'}</td>
+            </tr>`;
+          }).join('')}
+          </tbody>
+        </table>
+      </div>
+      <div class="insight" style="margin-top:10px;font-size:.7rem;">
+        VAM = vertical ascent metres per hour. Pro climbers: 1200–1600 m/h. Gifted amateurs: 900–1100 m/h. Good recreational: 700–900 m/h.
+      </div>
+    </div>
+
+    <div class="section-label">Longest Rides</div>
+    <div class="g2" style="margin-bottom:16px;">
       <div class="card card-accent-violet">
-        <div class="card-title"><span class="ct-dot" style="background:var(--violet)"></span>Top Climbing Days</div>
+        <div class="card-title"><span class="ct-dot" style="background:var(--violet)"></span>By distance</div>
+        <div class="ride-list">
+          ${(d.longest_rides?.by_distance||[]).map((r,i) => `
+          <div class="ride-item">
+            <div>
+              <div class="ride-name">
+                <a href="https://connect.garmin.com/modern/activity/${r.activity_id}" target="_blank"
+                   style="color:inherit;text-decoration:none;">
+                  ${i===0?'🥇 ':''}${r.date.replace('2026-','').replace('2025-','★ ')}
+                </a>
+              </div>
+              <div class="ride-meta">${r.hours}h · ${r.elev_m}m ⬆${r.np_w ? ` · NP ${r.np_w}W` : ''} · avg ${r.hr_bpm}bpm</div>
+            </div>
+            <div class="ride-dist" style="color:var(--violet);font-weight:800;">${r.km}<span style="font-size:.62rem;color:var(--dim)">km</span></div>
+          </div>`).join('')}
+        </div>
+      </div>
+      <div class="card card-accent-green">
+        <div class="card-title"><span class="ct-dot" style="background:var(--green)"></span>By duration</div>
+        <div class="ride-list">
+          ${(d.longest_rides?.by_duration||[]).map((r,i) => `
+          <div class="ride-item">
+            <div>
+              <div class="ride-name">
+                <a href="https://connect.garmin.com/modern/activity/${r.activity_id}" target="_blank"
+                   style="color:inherit;text-decoration:none;">
+                  ${i===0?'🥇 ':''}${r.date.replace('2026-','').replace('2025-','★ ')}
+                </a>
+              </div>
+              <div class="ride-meta">${r.km}km · ${r.elev_m}m ⬆${r.np_w ? ` · NP ${r.np_w}W` : ''} · avg ${r.hr_bpm}bpm</div>
+            </div>
+            <div class="ride-dist" style="color:var(--green);font-weight:800;">${r.hours}<span style="font-size:.62rem;color:var(--dim)">h</span></div>
+          </div>`).join('')}
+        </div>
+      </div>
+    </div>
+
+    <div class="section-label">Biggest Climbing Days</div>
         <div class="ride-list">
           ${[
             {name:'Falzarego·Gardena·Sella·Pordoi·Giau',date:'Aug 9',km:131,elev:3812,id:23912303030},

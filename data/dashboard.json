@@ -2200,5 +2200,257 @@
       "hours": 3.7,
       "np_trend_vs_prev": null
     }
-  ]
+  ],
+  "best_vam_laps": [
+    {
+      "date": "2026-07-25",
+      "lap_index": 4,
+      "vam": 929,
+      "elev_m": 349.0,
+      "min": 22.6,
+      "power_w": 228,
+      "hr_bpm": 168,
+      "activity_id": "23724892894"
+    },
+    {
+      "date": "2026-07-25",
+      "lap_index": 5,
+      "vam": 892,
+      "elev_m": 336.0,
+      "min": 22.6,
+      "power_w": 222,
+      "hr_bpm": 172,
+      "activity_id": "23724892894"
+    },
+    {
+      "date": "2026-09-12",
+      "lap_index": 1,
+      "vam": 882,
+      "elev_m": 343.0,
+      "min": 23.3,
+      "power_w": 215,
+      "hr_bpm": 158,
+      "activity_id": "24332535841"
+    },
+    {
+      "date": "2026-04-18",
+      "lap_index": 6,
+      "vam": 878,
+      "elev_m": 369.0,
+      "min": 25.2,
+      "power_w": 210,
+      "hr_bpm": 172,
+      "activity_id": "22570119691"
+    },
+    {
+      "date": "2026-05-09",
+      "lap_index": 7,
+      "vam": 865,
+      "elev_m": 392.0,
+      "min": 27.2,
+      "power_w": 208,
+      "hr_bpm": 162,
+      "activity_id": "22820987608"
+    },
+    {
+      "date": "2026-08-23",
+      "lap_index": 6,
+      "vam": 826,
+      "elev_m": 312.0,
+      "min": 22.7,
+      "power_w": 210,
+      "hr_bpm": 148,
+      "activity_id": "24083392793"
+    },
+    {
+      "date": "2026-08-30",
+      "lap_index": 9,
+      "vam": 822,
+      "elev_m": 310.0,
+      "min": 22.6,
+      "power_w": 207,
+      "hr_bpm": 154,
+      "activity_id": "24170541318"
+    },
+    {
+      "date": "2026-08-16",
+      "lap_index": 12,
+      "vam": 822,
+      "elev_m": 139.0,
+      "min": 10.2,
+      "power_w": 202,
+      "hr_bpm": 149,
+      "activity_id": "23996169972"
+    },
+    {
+      "date": "2026-09-12",
+      "lap_index": 11,
+      "vam": 819,
+      "elev_m": 278.0,
+      "min": 20.4,
+      "power_w": 243,
+      "hr_bpm": 164,
+      "activity_id": "24332535841"
+    },
+    {
+      "date": "2026-09-05",
+      "lap_index": 7,
+      "vam": 812,
+      "elev_m": 340.0,
+      "min": 25.1,
+      "power_w": 201,
+      "hr_bpm": 155,
+      "activity_id": "24245491818"
+    }
+  ],
+  "longest_rides": {
+    "by_distance": [
+      {
+        "date": "2026-04-11",
+        "km": 150.0,
+        "hours": 6.1,
+        "elev_m": 1171.0,
+        "np_w": 157,
+        "hr_bpm": 144,
+        "activity_id": "22488657053"
+      },
+      {
+        "date": "2026-05-23",
+        "km": 144.0,
+        "hours": 7.1,
+        "elev_m": 1693.0,
+        "np_w": 156,
+        "hr_bpm": 137,
+        "activity_id": "22984152670"
+      },
+      {
+        "date": "2026-05-17",
+        "km": 142.0,
+        "hours": 5.7,
+        "elev_m": 532.0,
+        "np_w": 160,
+        "hr_bpm": 143,
+        "activity_id": "22913695000"
+      },
+      {
+        "date": "2026-04-04",
+        "km": 132.0,
+        "hours": 5.5,
+        "elev_m": 249.0,
+        "np_w": 146,
+        "hr_bpm": 148,
+        "activity_id": "22405438246"
+      },
+      {
+        "date": "2026-08-09",
+        "km": 131.0,
+        "hours": 8.6,
+        "elev_m": 3812.0,
+        "np_w": 171,
+        "hr_bpm": 140,
+        "activity_id": "23912303030"
+      },
+      {
+        "date": "2026-09-19",
+        "km": 127.0,
+        "hours": 6.3,
+        "elev_m": 2086.0,
+        "np_w": 182,
+        "hr_bpm": 139,
+        "activity_id": "24419641071"
+      },
+      {
+        "date": "2026-06-06",
+        "km": 124.0,
+        "hours": 5.0,
+        "elev_m": 686.0,
+        "np_w": 159,
+        "hr_bpm": 139,
+        "activity_id": "23150708559"
+      },
+      {
+        "date": "2025-11-08",
+        "km": 121.0,
+        "hours": 6.0,
+        "elev_m": 292.0,
+        "np_w": 153,
+        "hr_bpm": 143,
+        "activity_id": "20929436812"
+      }
+    ],
+    "by_duration": [
+      {
+        "date": "2026-08-09",
+        "hours": 8.55,
+        "km": 131.0,
+        "elev_m": 3812.0,
+        "np_w": 171,
+        "hr_bpm": 140,
+        "activity_id": "23912303030"
+      },
+      {
+        "date": "2026-06-27",
+        "hours": 7.13,
+        "km": 120.0,
+        "elev_m": 3297.0,
+        "np_w": 162,
+        "hr_bpm": 139,
+        "activity_id": "23396147027"
+      },
+      {
+        "date": "2026-05-23",
+        "hours": 7.08,
+        "km": 144.0,
+        "elev_m": 1693.0,
+        "np_w": 156,
+        "hr_bpm": 137,
+        "activity_id": "22984152670"
+      },
+      {
+        "date": "2026-07-12",
+        "hours": 6.4,
+        "km": 106.0,
+        "elev_m": 2910.0,
+        "np_w": 162,
+        "hr_bpm": 143,
+        "activity_id": "23570316392"
+      },
+      {
+        "date": "2026-07-04",
+        "hours": 6.37,
+        "km": 105.0,
+        "elev_m": 3005.0,
+        "np_w": 166,
+        "hr_bpm": 143,
+        "activity_id": "23476724958"
+      },
+      {
+        "date": "2026-05-09",
+        "hours": 6.36,
+        "km": 116.0,
+        "elev_m": 2489.0,
+        "np_w": 171,
+        "hr_bpm": 144,
+        "activity_id": "22820987608"
+      },
+      {
+        "date": "2026-06-07",
+        "hours": 6.32,
+        "km": 103.0,
+        "elev_m": 1657.0,
+        "np_w": 149,
+        "hr_bpm": 132,
+        "activity_id": "23164118181"
+      },
+      {
+        "date": "2026-09-19",
+        "hours": 6.31,
+        "km": 127.0,
+        "elev_m": 2086.0,
+        "np_w": 182,
+        "hr_bpm": 139,
+        "activity_id": "24419641071"
+      }
+    ]
+  }
 }

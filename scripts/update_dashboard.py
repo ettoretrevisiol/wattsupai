@@ -369,6 +369,91 @@ def compute_next_session_suggestion(conn, week_summary):
     }
 
 
+# ── 4b. Best VAM laps ────────────────────────────────────────────────────────
+
+def compute_best_vam_laps(conn, limit=10):
+    """Top climbing laps by VAM (m/h), computed from elevation_gain / elapsed_time."""
+    rows = conn.execute("""
+        SELECT a.date,
+               l.lap_index,
+               ROUND(l.elevation_gain_m / (l.elapsed_time_s / 3600.0), 0) AS vam,
+               ROUND(l.elevation_gain_m, 0)                                AS elev_m,
+               ROUND(l.elapsed_time_s / 60.0, 1)                          AS min,
+               COALESCE(l.np_w, l.avg_power_w)                            AS pw,
+               l.avg_hr_bpm                                                AS hr,
+               a.activity_id
+        FROM laps l
+        JOIN activities a USING (activity_id)
+        WHERE a.is_indoor = 0
+          AND l.elevation_gain_m > 80
+          AND l.elapsed_time_s BETWEEN 300 AND 5400
+        ORDER BY (l.elevation_gain_m / l.elapsed_time_s) DESC
+        LIMIT ?
+    """, (limit,)).fetchall()
+
+    return [
+        {
+            "date":       r[0],
+            "lap_index":  r[1],
+            "vam":        int(r[2]),
+            "elev_m":     r[3],
+            "min":        r[4],
+            "power_w":    r[5],
+            "hr_bpm":     r[6],
+            "activity_id": r[7],
+        }
+        for r in rows
+    ]
+
+
+# ── 4c. Longest rides ─────────────────────────────────────────────────────────
+
+def compute_longest_rides(conn, limit=8):
+    """Top outdoor rides by distance and by duration."""
+    by_dist = conn.execute("""
+        SELECT date,
+               ROUND(distance_km, 0)            AS km,
+               ROUND(elapsed_time_s / 3600.0, 1) AS hours,
+               ROUND(elevation_gain_m, 0)        AS elev_m,
+               np_w_computed                     AS np,
+               avg_hr_bpm                        AS hr,
+               activity_id
+        FROM activities
+        WHERE is_indoor = 0
+        ORDER BY distance_km DESC
+        LIMIT ?
+    """, (limit,)).fetchall()
+
+    by_time = conn.execute("""
+        SELECT date,
+               ROUND(elapsed_time_s / 3600.0, 2)  AS hours,
+               ROUND(distance_km, 0)               AS km,
+               ROUND(elevation_gain_m, 0)           AS elev_m,
+               np_w_computed                       AS np,
+               avg_hr_bpm                          AS hr,
+               activity_id
+        FROM activities
+        WHERE is_indoor = 0
+        ORDER BY elapsed_time_s DESC
+        LIMIT ?
+    """, (limit,)).fetchall()
+
+    def fmt_dist(r):
+        return {"date": r[0], "km": r[1], "hours": r[2],
+                "elev_m": r[3], "np_w": r[4], "hr_bpm": r[5],
+                "activity_id": r[6]}
+
+    def fmt_time(r):
+        return {"date": r[0], "hours": r[1], "km": r[2],
+                "elev_m": r[3], "np_w": r[4], "hr_bpm": r[5],
+                "activity_id": r[6]}
+
+    return {
+        "by_distance": [fmt_dist(r) for r in by_dist],
+        "by_duration": [fmt_time(r) for r in by_time],
+    }
+
+
 # ── 4. Last 4 Saturdays ───────────────────────────────────────────────────────
 
 def compute_last_4_saturdays(conn):
@@ -577,6 +662,8 @@ def main():
     progression     = compute_progression_flag(week_summary)
     next_session    = compute_next_session_suggestion(conn, week_summary)
     last_4_sats     = compute_last_4_saturdays(conn)
+    best_vam_laps   = compute_best_vam_laps(conn)
+    longest_rides   = compute_longest_rides(conn)
 
     # Embed progression flag and next session into week_summary
     week_summary["progression_flag"] = progression
@@ -597,6 +684,8 @@ def main():
 
     d["week_summary"]     = week_summary
     d["last_4_saturdays"] = last_4_sats
+    d["best_vam_laps"]    = best_vam_laps
+    d["longest_rides"]    = longest_rides
 
     with open(DASH_PATH, "w") as f:
         json.dump(d, f, indent=2)
