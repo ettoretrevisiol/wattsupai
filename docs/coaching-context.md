@@ -1,5 +1,5 @@
 # WattsUpAI — Coaching Context
-# Ettore Trevisiol · Last updated: 24 Sep 2026
+# Ettore Trevisiol · Last updated: 24 Sep 2026 (evening)
 
 ## Identity
 - Name: Ettore
@@ -261,6 +261,36 @@ Full 12-month FIT analysis (180+ rides) confirms:
 - **Assessment**: This counts as a solid Z3 tempo ride. L4 at 164bpm is 1 beat below Z4 — very close. Without power it's hard to confirm, but RPE and HR profile suggest this was a good threshold-adjacent session — exactly what Week 1 Thu calls for (3×10 min Z3 target). Well executed on the weekday bike.
 - **Plan adherence**: ✅ Thu Week 1 target was 3×10 min Z3 (end HR 158–165bpm). L4 164bpm + L5 160bpm fits squarely in target range.
 
+## Session Continuity Protocol
+- At the end of every session, update this file with all new findings, decisions, and data.
+- When starting a new session, read this file + goals.md + schedule.md to restore full context.
+- Key files: data/dashboard.json (live dashboard), data/fit-analysis/ (184 JSONs), docs/coaching-context.md (this file)
+
+## Corrected Season PDC Peaks (verified Sep 24 2026)
+Previously the 5min/10min peaks were underestimated — the top 25 rides were missing those fields (written manually with only 20min). After re-fetching FIT data for the top 6 rides, Tre Valli is the season best across ALL durations:
+
+| Duration | Peak | Date | Ride |
+|---|---|---|---|
+| 5s | 934W | Aug 3 | Cortina heat sprint |
+| 5min | **279W** | Sep 19 | Tre Valli Varesine |
+| 10min | **267W** | Sep 19 | Tre Valli Varesine |
+| 20min | **239W** | Sep 19 | Tre Valli Varesine |
+| 60min | 163W | Sep 19 | Tre Valli Varesine |
+
+- 239W at 20min is internally consistent: the best climb (L4, 25:42) at NP 237W naturally yields ~239W for a best-20min window
+- PDC decay model from 5/10min predicts ~255W for a pure TT — 239W is conservative (race climb, not TT pacing)
+- All values pass 5min > 10min > 20min consistency check ✅
+- 2nd/3rd best 5min: 263W (May 3 Onno), 262W (Sep 12 Culmine)
+- 2nd/3rd best 10min: 254W (Sep 12 Culmine), 250W (May 3 Onno)
+
+## Dashboard Infrastructure (as of Sep 24 2026)
+- URL: ettore.trevisiol.net/wattsupai (GitHub Pages, PWA installable)
+- Architecture: single index.html loads all data from data/dashboard.json
+- data/fit-analysis/: 184 JSON files (all rides Sep 2025–Sep 2026), README.md with schema
+- data/dashboard.json: single source of truth, includes weekday_interval_summary section
+- Season summary shows 6 KPI cards: 5min PDC, 10min PDC, 20min PDC, VO2max peak, Peak CTL, Total rides
+- Last commits pushed: 0a649c0 (corrected PDC peaks), f127242 (all flat rides analysis)
+
 ## Dashboard Notes
 - Only index.html in the repo — always update that file
 - Push after every index.html change with: git add index.html && git commit --no-verify -m "..." && git push --no-verify origin main
@@ -274,7 +304,7 @@ Full 12-month FIT analysis (180+ rides) confirms:
   2. For zone time: read the `avg_hr_bpm` and `max_hr_bpm` from the activity summary, or ask the user what Garmin shows in the activity detail (zone time breakdown)
   3. NP is the only honest single-number intensity metric for variable-terrain rides
   4. Training effect label (Aerobic Base / Tempo / Lactate Threshold / VO2max) is Garmin's own summary of what the ride stimulated
-- **FTP 252W** — always use this as the reference, not estimated values from lap data
+- **FTP 256W** — always use this as the reference, not estimated values from lap data
 - RPE scale: 1–3 easy, 4–6 Z2, 7–8 Z3, 8.5–9 Z4, 9.5–10 Z5
 - HR zones: judge by END of interval, not during (cardiac lag)
 - Power zones: primary metric on power meter bike; RPE+HR on weekday bike
