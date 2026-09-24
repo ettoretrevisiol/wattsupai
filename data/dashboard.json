@@ -1,0 +1,294 @@
+{
+  "_meta": {
+    "last_updated": "2026-09-24",
+    "updated_by": "WattsUpAI / Kiro session",
+    "version": "2.0",
+    "rides_analysed": 118,
+    "outdoor_power_rides": 37
+  },
+
+  "athlete": {
+    "name": "Ettore",
+    "ftp_w": 256,
+    "ftp_date": "2026-09-12",
+    "vo2max_current": 61,
+    "vo2max_peak": 62,
+    "vo2max_peak_period": "Aug 19 – Sep 1 2026",
+    "vo2max_floor": 60,
+    "hr_zones": {
+      "z1": [100, 129],
+      "z2": [130, 154],
+      "z3": [155, 165],
+      "z4": [166, 179],
+      "z5": [180, 999]
+    },
+    "power_zones": {
+      "z1": [0, 140],
+      "z2": [141, 192],
+      "z3": [193, 230],
+      "z4": [231, 268],
+      "z5": [269, 307],
+      "z6": [308, 384],
+      "z7": [385, 9999]
+    }
+  },
+
+  "current_status": {
+    "date": "2026-09-24",
+    "label": "Plateau",
+    "color": "orange",
+    "garmin_status": "UNPRODUCTIVE_3",
+    "ctl": 812,
+    "atl": 878,
+    "tsb": -66,
+    "acwr": 1.0,
+    "acwr_status": "OPTIMAL",
+    "training_balance": "AEROBIC_HIGH_SHORTAGE",
+    "hrv_weekly_avg_ms": 50,
+    "hrv_last_night_ms": 52,
+    "hrv_status": "BALANCED",
+    "rhr_bpm": 50,
+    "sleep_last_night": {
+      "date": "2026-09-24",
+      "hours": 6.87,
+      "score": 82,
+      "score_label": "GOOD",
+      "hrv_ms": 52
+    },
+    "week_in_plan": 1,
+    "plan_start": "2026-09-25",
+    "last_ride": {
+      "date": "2026-09-24",
+      "name": "Milano Rosate Vermezzo",
+      "distance_km": 40.3,
+      "duration_min": 73,
+      "avg_hr": 144,
+      "max_hr": 179,
+      "ascent_m": 32,
+      "has_power": false,
+      "assessment": "✅ Week 1 Thu target hit. L4 164bpm + L5 160bpm = Z3 ceiling. Clean effort in cool morning.",
+      "plan_adherence": true
+    }
+  },
+
+  "season_summary": {
+    "period": "Sep 2025 – Sep 2026",
+    "total_rides": 186,
+    "total_hours": 392,
+    "total_km": 10386,
+    "avg_km_per_month": 866,
+    "peak_ctl": 843,
+    "peak_ctl_date": "2026-08-30",
+    "pdc_20min_peak_w": 239,
+    "pdc_20min_peak_date": "2026-09-19",
+    "pdc_20min_peak_ride": "Tre Valli Varesine",
+    "best_5s_sprint_w": 934,
+    "best_5s_sprint_date": "2026-08-03",
+    "lt_vo2max_sessions": 3,
+    "lt_sessions": [
+      {"date": "2025-11-03", "ride": "Milano Gaggiano", "np_w": 187, "label": "LACTATE_THRESHOLD"},
+      {"date": "2026-04-23", "ride": "Milano Robecco", "np_w": 196, "label": "VO2MAX"},
+      {"date": "2026-07-25", "ride": "Ghisallino", "np_w": 183, "label": "LACTATE_THRESHOLD"}
+    ]
+  },
+
+  "pdc_progression": {
+    "description": "20-min PDC across all FIT-verified outdoor power rides",
+    "data": [
+      {"date": "2026-05-03", "label": "May 3",  "w": 224},
+      {"date": "2026-05-09", "label": "May 9",  "w": 214},
+      {"date": "2026-05-29", "label": "May 29", "w": 189},
+      {"date": "2026-06-06", "label": "Jun 6",  "w": 174},
+      {"date": "2026-06-07", "label": "Jun 7",  "w": 191},
+      {"date": "2026-06-14", "label": "Jun 14", "w": 185},
+      {"date": "2026-06-20", "label": "Jun 20", "w": 195},
+      {"date": "2026-06-27", "label": "Jun 27", "w": 186},
+      {"date": "2026-06-28", "label": "Jun 28", "w": 182},
+      {"date": "2026-06-30", "label": "Jun 30", "w": 221},
+      {"date": "2026-07-02", "label": "Jul 2",  "w": 185},
+      {"date": "2026-07-04", "label": "Jul 4",  "w": 195},
+      {"date": "2026-07-05", "label": "Jul 5",  "w": 154},
+      {"date": "2026-07-07", "label": "Jul 7",  "w": 198},
+      {"date": "2026-07-09", "label": "Jul 9",  "w": 206},
+      {"date": "2026-07-12", "label": "Jul 12", "w": 178},
+      {"date": "2026-07-19", "label": "Jul 19", "w": 199},
+      {"date": "2026-07-25", "label": "Jul 25", "w": 228, "highlight": "2nd_best"},
+      {"date": "2026-07-31", "label": "Jul 31", "w": 193},
+      {"date": "2026-08-03", "label": "Aug 3",  "w": 188},
+      {"date": "2026-08-06", "label": "Aug 6",  "w": 189},
+      {"date": "2026-08-09", "label": "Aug 9",  "w": 201},
+      {"date": "2026-08-11", "label": "Aug 11", "w": 201},
+      {"date": "2026-08-13", "label": "Aug 13", "w": 210},
+      {"date": "2026-08-16", "label": "Aug 16", "w": 197},
+      {"date": "2026-08-18", "label": "Aug 18", "w": 201},
+      {"date": "2026-08-19", "label": "Aug 19", "w": 204},
+      {"date": "2026-08-22", "label": "Aug 22", "w": 222, "highlight": "aug_best"},
+      {"date": "2026-08-23", "label": "Aug 23", "w": 211},
+      {"date": "2026-08-25", "label": "Aug 25", "w": 186},
+      {"date": "2026-08-27", "label": "Aug 27", "w": 203},
+      {"date": "2026-08-29", "label": "Aug 29", "w": 198},
+      {"date": "2026-08-30", "label": "Aug 30", "w": 207},
+      {"date": "2026-09-05", "label": "Sep 5",  "w": 209},
+      {"date": "2026-09-06", "label": "Sep 6",  "w": 208},
+      {"date": "2026-09-12", "label": "Sep 12", "w": 226, "highlight": "3rd_best"},
+      {"date": "2026-09-19", "label": "Sep 19", "w": 239, "highlight": "season_peak"}
+    ]
+  },
+
+  "monthly_stats": [
+    {"month": "Oct 25", "distance_km": 622,  "elevation_km": 2.4},
+    {"month": "Nov 25", "distance_km": 660,  "elevation_km": 1.6},
+    {"month": "Dec 25", "distance_km": 389,  "elevation_km": 0.0},
+    {"month": "Jan 26", "distance_km": 420,  "elevation_km": 0.0},
+    {"month": "Feb 26", "distance_km": 445,  "elevation_km": 0.0},
+    {"month": "Mar 26", "distance_km": 790,  "elevation_km": 1.0},
+    {"month": "Apr 26", "distance_km": 959,  "elevation_km": 4.8},
+    {"month": "May 26", "distance_km": 1448, "elevation_km": 7.5},
+    {"month": "Jun 26", "distance_km": 1176, "elevation_km": 9.2},
+    {"month": "Jul 26", "distance_km": 1036, "elevation_km": 12.1},
+    {"month": "Aug 26", "distance_km": 1246, "elevation_km": 14.3},
+    {"month": "Sep 26", "distance_km": 995,  "elevation_km": 5.6}
+  ],
+
+  "pmc_weekly": {
+    "labels": ["Jun26","Jul3","Jul10","Jul17","Jul24","Jul31","Aug7","Aug14","Aug21","Aug28","Sep4","Sep11","Sep18","Sep23"],
+    "ctl":    [748,781,757,673,692,748,748,799,777,777,781,769,761,803],
+    "atl":    [599,800,543,398,626,877,772,840,617,627,632,605,620,810],
+    "tsb":    [149,-19,214,275,66,-129,-24,-41,160,150,149,164,141,-7],
+    "vo2max": [58,58,58,55,58,57,58,59,61,62,62,61,61,61],
+    "status": ["Maintaining","Productive","Productive","Recovery","Maintaining","Maintaining","Productive","Productive","Productive","Productive","Maintaining","Maintaining","Unproductive","Unproductive"]
+  },
+
+  "hrv_30day": {
+    "start": "2026-08-25",
+    "labels": ["Aug25","26","27","28","29","30","31","Sep1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24"],
+    "nightly": [54,45,43,41,43,43,42,48,54,51,51,51,45,44,59,55,59,48,60,49,51,57,52,54,51,55,43,52,43,52,52],
+    "weekly_avg": [47,47,46,45,44,44,44,44,45,46,47,48,49,49,50,51,52,51,52,53,54,54,53,53,53,53,52,52,50,50,50],
+    "status": ["BAL","BAL","BAL","BAL","UNB","UNB","UNB","UNB","BAL","BAL","BAL","BAL","BAL","BAL","BAL","BAL","BAL","BAL","BAL","BAL","UNB","BAL","BAL","BAL","BAL","BAL","BAL","BAL","BAL","BAL","BAL"]
+  },
+
+  "respiration_22day": {
+    "start": "2026-09-02",
+    "labels": ["Sep2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23"],
+    "sleep_avg": [14,13,14,13,14,14,14,14,13,14,13,14,14,13,13,13,13,13,14,14,14,13],
+    "daily_high": [16,20,19,21,23,19,20,19,20,20,23,21,18,24,18,18,20,21,23,20,20,19]
+  },
+
+  "zone_distribution": {
+    "source": "37 outdoor power rides FIT-verified",
+    "z1_pct": 25,
+    "z2_pct": 55,
+    "z3_pct": 17,
+    "z4_pct": 3,
+    "z5_pct": 1,
+    "z4_target_pct": 15,
+    "z4_gap_pct": 12
+  },
+
+  "best_climbing_laps": [
+    {"date":"2026-09-12","ride":"Culmine","lap":"L12","np_w":243,"avg_hr":164,"zone":"Z4","note":"best climb overall"},
+    {"date":"2026-09-19","ride":"Tre Valli","lap":"L4","np_w":237,"avg_hr":163,"zone":"Z3-Z4"},
+    {"date":"2026-05-03","ride":"Onno","lap":"L6","np_w":234,"avg_hr":162,"zone":"Z3"},
+    {"date":"2026-07-25","ride":"Ghisallino","lap":"L5","np_w":228,"avg_hr":168,"zone":"Z4"},
+    {"date":"2026-08-29","ride":"San Daniele","lap":"L5","np_w":224,"avg_hr":158,"zone":"Z3-Z4"},
+    {"date":"2026-07-25","ride":"Ghisallino","lap":"L6","np_w":222,"avg_hr":172,"zone":"Z4"},
+    {"date":"2026-08-22","ride":"Majano","lap":"L6","np_w":220,"avg_hr":147,"zone":"Z3 efficient"},
+    {"date":"2026-08-29","ride":"San Daniele","lap":"L6","np_w":220,"avg_hr":160,"zone":"Z3-Z4"},
+    {"date":"2026-08-22","ride":"Majano","lap":"L8","np_w":216,"avg_hr":153,"zone":"Z3"},
+    {"date":"2026-08-29","ride":"San Daniele","lap":"L8","np_w":216,"avg_hr":null,"zone":"Z3"},
+    {"date":"2026-08-18","ride":"Tanamea","lap":"L7-8","np_w":215,"avg_hr":146,"zone":"Z3","note":"80% proactive shifting"}
+  ],
+
+  "training_plan": {
+    "period": "Sep 25 – Oct 19 2026",
+    "goal": "Add structured Z4 load to prevent winter FTP fade",
+    "weeks": [
+      {
+        "number": 1,
+        "label": "Week 1",
+        "theme": "Re-anchor Z3",
+        "dates": "Sep 25–28",
+        "tag": "Build",
+        "estimated_hours": 9.5,
+        "sessions": [
+          {"day": "Thu Sep 25", "type": "Z3 Tempo", "done": true, "actual_date": "2026-09-24",
+           "target": "3×10 min Z3, end HR 158–165bpm",
+           "actual": "L4 164bpm + L5 160bpm — plan nailed ✅"},
+          {"day": "Sat Sep 27", "type": "Hills Z3",
+           "target": "3–3.5h · 800–1,000m · NP 182–190W"},
+          {"day": "Sun Sep 28", "type": "Z2 Recovery",
+           "target": "2.5–3h · flat · ≤145bpm"}
+        ]
+      },
+      {
+        "number": 2,
+        "label": "Week 2",
+        "theme": "First Z4 Sessions",
+        "dates": "Sep 30–Oct 5",
+        "tag": "Build+",
+        "estimated_hours": 11.0,
+        "sessions": [
+          {"day": "Tue Sep 30", "type": "Z3→Z4",
+           "target": "2×15 min progressive, end HR ≥166bpm"},
+          {"day": "Thu Oct 2", "type": "Z4 Threshold",
+           "target": "4×8 min Z4, end-rep HR 166–174bpm"},
+          {"day": "Sat Oct 4", "type": "Hills Z4",
+           "target": "3.5–4h · 1,000–1,300m · NP 185–192W"},
+          {"day": "Sun Oct 5", "type": "Z2 Recovery",
+           "target": "2.5–3h · flat · ≤145bpm"}
+        ]
+      },
+      {
+        "number": 3,
+        "label": "Week 3",
+        "theme": "Crack the Threshold",
+        "dates": "Oct 7–12",
+        "tag": "Peak",
+        "estimated_hours": 12.5,
+        "sessions": [
+          {"day": "Tue Oct 7", "type": "Z4 Threshold",
+           "target": "3×15 min Z4, HR from min 8: 166–174bpm"},
+          {"day": "Thu Oct 9", "type": "Z5 VO2max",
+           "target": "5×6 min Z5, end-rep HR 172–179bpm"},
+          {"day": "Sat Oct 11", "type": "Big Day",
+           "target": "4–4.5h · 1,400–1,700m · NP 192–200W — Lactate Threshold label goal"},
+          {"day": "Sun Oct 12", "type": "Recovery",
+           "target": "2h max · ≤140bpm"}
+        ]
+      },
+      {
+        "number": 4,
+        "label": "Week 4",
+        "theme": "Recovery – 40% Volume Drop",
+        "dates": "Oct 13–19",
+        "tag": "Rest",
+        "estimated_hours": 7.0,
+        "sessions": [
+          {"day": "Tue Oct 14", "type": "Easy",
+           "target": "60 min · Z2"},
+          {"day": "Thu Oct 16", "type": "Z2 + Z3",
+           "target": "60 min · 2×10 min Z3"},
+          {"day": "Sat Oct 18", "type": "Moderate",
+           "target": "2–2.5h · 400–600m · NP ~165–175W"},
+          {"day": "Sun Oct 19", "type": "Easy",
+           "target": "1.5h · Z2 · flat"}
+        ]
+      }
+    ],
+    "success_metrics": {
+      "sat_np_progression": "W1 182–190W → W2 185–192W → W3 192–200W",
+      "w3_sat_target": "Lactate Threshold Garmin label",
+      "z4_weekly_min_w2": 25,
+      "z4_weekly_min_w3": 40,
+      "vo2max_target": "hold 61 or return to 62 by W3",
+      "hrv_floor_ms": 48,
+      "shifting_quality_target_pct": 70
+    }
+  },
+
+  "favourite_routes": [
+    {"name": "Milano – Abbiategrasso", "type": "Daily base", "km": 40, "elevation_m": 50, "appearances": 20, "avg_hr": 147},
+    {"name": "Como – Nesso – Ghisallino Power", "type": "Classic quality", "km": 94, "elevation_m": 1900, "appearances": 3, "note": "Perfect Z4 climb candidate"},
+    {"name": "Milano – Tornavento", "type": "Weekend long", "km": 102, "elevation_m": 220, "appearances": 4, "avg_hr": 143}
+  ]
+}

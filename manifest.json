@@ -1,0 +1,45 @@
+{
+  "name": "WattsUpAI",
+  "short_name": "WattsUpAI",
+  "description": "Ettore's cycling training dashboard — AI-powered performance analysis",
+  "start_url": "/wattsupai/",
+  "scope": "/wattsupai/",
+  "display": "standalone",
+  "background_color": "#080a10",
+  "theme_color": "#080a10",
+  "orientation": "any",
+  "lang": "en",
+  "categories": ["sports", "health", "fitness"],
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [],
+  "shortcuts": [
+    {
+      "name": "Season Overview",
+      "url": "/wattsupai/#season",
+      "description": "12-month FIT analysis"
+    },
+    {
+      "name": "Training Plan",
+      "url": "/wattsupai/#plan",
+      "description": "4-week plan"
+    },
+    {
+      "name": "Recovery",
+      "url": "/wattsupai/#recovery",
+      "description": "HRV & recovery signals"
+    }
+  ]
+}
