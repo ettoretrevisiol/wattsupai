@@ -1,0 +1,66 @@
+{
+  "activity_id": 20556526088,
+  "date": "2025-10-01",
+  "route_name": "Milano Abbiategrasso",
+  "sport": "cycling",
+  "sub_sport": "road",
+  "has_power": false,
+  "session": {
+    "np_w": null,
+    "avg_power_w": null,
+    "max_power_w": null,
+    "total_ascent_m": 87.0,
+    "avg_hr_bpm": 149,
+    "max_hr_bpm": 177,
+    "avg_cadence_rpm": 84,
+    "total_distance_m": 37267.01,
+    "total_elapsed_time_s": 4508.077,
+    "total_timer_time_s": 4319.15,
+    "variability_index": null,
+    "total_calories": 852
+  },
+  "hr_drift": {
+    "hr_drift_pct": null,
+    "interpretation": "no_power_meter"
+  },
+  "temperature": {
+    "avg_temp_c": 22.445053687836122
+  },
+  "pdc": {
+    "5s": null,
+    "30s": null,
+    "1min": null,
+    "5min": null,
+    "10min": null,
+    "20min": null,
+    "60min": null
+  },
+  "lap_hr_analysis": {
+    "peak_lap_hr": 165,
+    "peak_lap_number": 4,
+    "laps_above_z3_155": 4,
+    "laps_above_z4_166": 0,
+    "max_lap_sequence": [
+      [
+        4,
+        165
+      ],
+      [
+        3,
+        161
+      ],
+      [
+        5,
+        155
+      ]
+    ]
+  },
+  "best_climbing_laps": [],
+  "shift_summary": {
+    "total_shifts": 0,
+    "proactive_pct": null,
+    "reactive_pct": null,
+    "avg_cadence_at_shift_rpm": null
+  },
+  "notes": "Interval session — Z3/Z4 work confirmed"
+}

@@ -1,7 +1,7 @@
 {
   "activity_id": 23737517606,
   "date": "2026-07-26",
-  "route_name": "Milano Bereguardo Abbiategrasso 135m flat",
+  "route_name": "Milano Bereguardo long",
   "sport": "cycling",
   "sub_sport": "road",
   "has_power": false,
@@ -9,22 +9,22 @@
     "np_w": null,
     "avg_power_w": null,
     "max_power_w": null,
-    "total_ascent_m": 135,
+    "total_ascent_m": 135.0,
     "avg_hr_bpm": 136,
     "max_hr_bpm": 171,
     "avg_cadence_rpm": 77,
     "total_distance_m": 82981.22,
     "total_elapsed_time_s": 13121.809,
-    "total_timer_time_s": 10047.509,
+    "total_timer_time_s": 10022.487,
     "variability_index": null,
     "total_calories": 1545
   },
   "hr_drift": {
     "hr_drift_pct": null,
-    "interpretation": null
+    "interpretation": "no_power_meter"
   },
   "temperature": {
-    "avg_temp_c": 27.7
+    "avg_temp_c": 27.537520474778557
   },
   "pdc": {
     "5s": null,
@@ -35,7 +35,32 @@
     "20min": null,
     "60min": null
   },
+  "lap_hr_analysis": {
+    "peak_lap_hr": 159,
+    "peak_lap_number": 14,
+    "laps_above_z3_155": 1,
+    "laps_above_z4_166": 0,
+    "max_lap_sequence": [
+      [
+        14,
+        159
+      ],
+      [
+        15,
+        150
+      ],
+      [
+        13,
+        149
+      ]
+    ]
+  },
   "best_climbing_laps": [],
-  "shift_summary": null,
-  "notes": "No power meter (weekday bike). No DI2 shifter. Flat ride Milano Bereguardo Abbiategrasso loop. Avg HR 136, max 171bpm. Temp avg 27.7C."
+  "shift_summary": {
+    "total_shifts": 0,
+    "proactive_pct": null,
+    "reactive_pct": null,
+    "avg_cadence_at_shift_rpm": null
+  },
+  "notes": "Tempo effort — Z3 blocks present"
 }

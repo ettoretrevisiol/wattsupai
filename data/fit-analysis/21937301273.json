@@ -1,0 +1,66 @@
+{
+  "activity_id": 21937301273,
+  "date": "2026-02-21",
+  "route_name": "Milano Mairano Basiano",
+  "sport": "cycling",
+  "sub_sport": "road",
+  "has_power": false,
+  "session": {
+    "np_w": null,
+    "avg_power_w": null,
+    "max_power_w": null,
+    "total_ascent_m": 137.0,
+    "avg_hr_bpm": 141,
+    "max_hr_bpm": 179,
+    "avg_cadence_rpm": 73,
+    "total_distance_m": 64034.67,
+    "total_elapsed_time_s": 10262.326,
+    "total_timer_time_s": 8253.05,
+    "variability_index": null,
+    "total_calories": 1098
+  },
+  "hr_drift": {
+    "hr_drift_pct": null,
+    "interpretation": "no_power_meter"
+  },
+  "temperature": {
+    "avg_temp_c": 12.16073952937471
+  },
+  "pdc": {
+    "5s": null,
+    "30s": null,
+    "1min": null,
+    "5min": null,
+    "10min": null,
+    "20min": null,
+    "60min": null
+  },
+  "lap_hr_analysis": {
+    "peak_lap_hr": 160,
+    "peak_lap_number": 11,
+    "laps_above_z3_155": 2,
+    "laps_above_z4_166": 0,
+    "max_lap_sequence": [
+      [
+        11,
+        160
+      ],
+      [
+        2,
+        158
+      ],
+      [
+        12,
+        154
+      ]
+    ]
+  },
+  "best_climbing_laps": [],
+  "shift_summary": {
+    "total_shifts": 0,
+    "proactive_pct": null,
+    "reactive_pct": null,
+    "avg_cadence_at_shift_rpm": null
+  },
+  "notes": "Interval session — Z3/Z4 work confirmed"
+}

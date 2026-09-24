@@ -1,0 +1,66 @@
+{
+  "activity_id": 24344106906,
+  "date": "2026-09-13",
+  "route_name": "Milano Tornavento long",
+  "sport": "cycling",
+  "sub_sport": "road",
+  "has_power": false,
+  "session": {
+    "np_w": null,
+    "avg_power_w": null,
+    "max_power_w": null,
+    "total_ascent_m": 204.0,
+    "avg_hr_bpm": 143,
+    "max_hr_bpm": 166,
+    "avg_cadence_rpm": 81,
+    "total_distance_m": 101307.29,
+    "total_elapsed_time_s": 13030.948,
+    "total_timer_time_s": 11567.87,
+    "variability_index": null,
+    "total_calories": 1848
+  },
+  "hr_drift": {
+    "hr_drift_pct": null,
+    "interpretation": "no_power_meter"
+  },
+  "temperature": {
+    "avg_temp_c": 24.270319346191542
+  },
+  "pdc": {
+    "5s": null,
+    "30s": null,
+    "1min": null,
+    "5min": null,
+    "10min": null,
+    "20min": null,
+    "60min": null
+  },
+  "lap_hr_analysis": {
+    "peak_lap_hr": 155,
+    "peak_lap_number": 16,
+    "laps_above_z3_155": 1,
+    "laps_above_z4_166": 0,
+    "max_lap_sequence": [
+      [
+        16,
+        155
+      ],
+      [
+        15,
+        154
+      ],
+      [
+        17,
+        152
+      ]
+    ]
+  },
+  "best_climbing_laps": [],
+  "shift_summary": {
+    "total_shifts": 0,
+    "proactive_pct": null,
+    "reactive_pct": null,
+    "avg_cadence_at_shift_rpm": null
+  },
+  "notes": "Tempo effort — Z3 blocks present"
+}

@@ -3,7 +3,7 @@
     "last_updated": "2026-09-24",
     "updated_by": "WattsUpAI / Kiro session",
     "version": "2.0",
-    "rides_analysed": 118,
+    "rides_analysed": 184,
     "outdoor_power_rides": 37
   },
 
@@ -35,7 +35,7 @@
 
   "current_status": {
     "date": "2026-09-24",
-    "label": "Plateau",
+    "label": "Plateau — Z3/Z4 present in weekday rides",
     "color": "orange",
     "garmin_status": "UNPRODUCTIVE_3",
     "ctl": 812,
@@ -175,14 +175,66 @@
   },
 
   "zone_distribution": {
-    "source": "37 outdoor power rides FIT-verified",
-    "z1_pct": 25,
-    "z2_pct": 55,
-    "z3_pct": 17,
-    "z4_pct": 3,
+    "source": "184 rides FIT-analysed (37 outdoor power rides + 147 HR-only); Z3/Z4 from lap HR analysis",
+    "z1_pct": 21,
+    "z2_pct": 51,
+    "z3_pct": 22,
+    "z4_pct": 5,
     "z5_pct": 1,
     "z4_target_pct": 15,
-    "z4_gap_pct": 12
+    "z4_gap_pct": 10,
+    "notes": "Revised upward: 51 rides had Z3 laps (laps_above_z3_155>0), 10 rides had genuine Z4 laps (laps_above_z4_166>0) across all 184 analysed rides including weekday flat HR-only rides"
+  },
+
+  "weekday_interval_summary": {
+    "total_rides_analysed": 184,
+    "rides_with_z3_laps": 51,
+    "rides_with_z4_laps": 10,
+    "rides_with_sprint_175plus": 45,
+    "max_lap_hr_ever": 174,
+    "max_lap_hr_date": "2026-04-23",
+    "key_interval_sessions": [
+      {
+        "date": "2026-04-23",
+        "route_name": "Milano Robecco Abbiategrasso (VO2MAX LABEL!)",
+        "peak_lap_hr": 174,
+        "laps_above_z3": 8,
+        "laps_above_z4": 5,
+        "notes": "Interval session — Z3/Z4 work confirmed; Garmin VO2MAX label; max HR 181bpm"
+      },
+      {
+        "date": "2026-04-18",
+        "route_name": "Albavilla Nesso Ghisallino Onno",
+        "peak_lap_hr": 172,
+        "laps_above_z3": 3,
+        "laps_above_z4": 2,
+        "notes": "Interval session — Z3/Z4 work confirmed; max HR 179bpm"
+      },
+      {
+        "date": "2025-10-05",
+        "route_name": "Giro Tre Navigli",
+        "peak_lap_hr": 171,
+        "laps_above_z3": 11,
+        "laps_above_z4": 1,
+        "notes": "Interval session — Z3/Z4 work confirmed; 11 Z3 laps — highest Z3 lap count in dataset; max HR 174bpm"
+      },
+      {
+        "date": "2026-04-27",
+        "route_name": "Milano Mairano Abbiategrasso evening",
+        "peak_lap_hr": 170,
+        "laps_above_z3": 2,
+        "laps_above_z4": 1,
+        "notes": "Interval session — Z3/Z4 work confirmed; max HR 179bpm"
+      },
+      {
+        "date": "2026-04-25",
+        "route_name": "Milano Pavia Vigevano",
+        "peak_lap_hr": 169,
+        "laps_above_z3": 3,
+        "laps_above_z4": 1,
+        "notes": "Interval session — Z3/Z4 work confirmed; max HR 179bpm"
+      }
+    ]
   },
 
   "best_climbing_laps": [

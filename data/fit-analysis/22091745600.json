@@ -1,279 +1,66 @@
 {
+  "activity_id": 22091745600,
+  "date": "2026-03-07",
+  "route_name": "Milano Tornavento",
+  "sport": "cycling",
+  "sub_sport": "road",
+  "has_power": false,
   "session": {
-    "sport": "cycling",
-    "sub_sport": "road",
-    "start_time": "2026-03-07 09:10:23",
-    "total_elapsed_time_s": 14307.98,
-    "total_timer_time_s": 12784.243,
-    "total_distance_m": 100212.46,
-    "total_calories": 2149,
-    "avg_speed_mps": 7.839,
-    "max_speed_mps": 10.87,
+    "np_w": null,
+    "avg_power_w": null,
+    "max_power_w": null,
+    "total_ascent_m": 281.0,
+    "avg_hr_bpm": 156,
+    "max_hr_bpm": 178,
     "avg_cadence_rpm": 78,
-    "max_cadence_rpm": 109,
-    "avg_heart_rate_bpm": 156,
-    "max_heart_rate_bpm": 178,
-    "total_ascent_m": 281,
-    "total_descent_m": 275,
-    "total_training_effect": 5.0,
-    "avg_left_power_phase_start_deg": [
-      null,
-      null,
-      null,
-      null
-    ],
-    "avg_right_power_phase_start_deg": [
-      null,
-      null,
-      null,
-      null
-    ],
-    "temperature_stats": {
-      "avg_temp_c": 16.3,
-      "min_temp_c": 12,
-      "max_temp_c": 28,
-      "temp_range_c": 16,
-      "avg_hr_coolest_third_bpm": 156.1,
-      "avg_hr_hottest_third_bpm": 154.7
-    }
+    "total_distance_m": 100212.46,
+    "total_elapsed_time_s": 14307.98,
+    "total_timer_time_s": 12755.169,
+    "variability_index": null,
+    "total_calories": 2149
   },
-  "laps": [
-    {
-      "lap_number": 1,
-      "start_time": "2026-03-07 09:10:23",
-      "total_elapsed_time_s": 694.045,
-      "total_distance_m": 5000.0,
-      "avg_speed_mps": 7.204,
-      "avg_cadence_rpm": 71,
-      "avg_heart_rate_bpm": 126,
-      "total_ascent_m": 15,
-      "total_descent_m": 8
-    },
-    {
-      "lap_number": 2,
-      "start_time": "2026-03-07 09:21:58",
-      "total_elapsed_time_s": 641.317,
-      "total_distance_m": 5000.0,
-      "avg_speed_mps": 7.796,
-      "avg_cadence_rpm": 77,
-      "avg_heart_rate_bpm": 161,
-      "total_ascent_m": 8,
-      "total_descent_m": 9
-    },
-    {
-      "lap_number": 3,
-      "start_time": "2026-03-07 09:32:40",
-      "total_elapsed_time_s": 658.777,
-      "total_distance_m": 5000.0,
-      "avg_speed_mps": 7.59,
-      "avg_cadence_rpm": 75,
-      "avg_heart_rate_bpm": 159,
-      "total_ascent_m": 12,
-      "total_descent_m": 10
-    },
-    {
-      "lap_number": 4,
-      "start_time": "2026-03-07 09:43:39",
-      "total_elapsed_time_s": 618.388,
-      "total_distance_m": 5000.0,
-      "avg_speed_mps": 8.086,
-      "avg_cadence_rpm": 81,
-      "avg_heart_rate_bpm": 159,
-      "total_ascent_m": 11,
-      "total_descent_m": 9
-    },
-    {
-      "lap_number": 5,
-      "start_time": "2026-03-07 09:53:58",
-      "total_elapsed_time_s": 709.177,
-      "total_distance_m": 5000.0,
-      "avg_speed_mps": 7.69,
-      "avg_cadence_rpm": 79,
-      "avg_heart_rate_bpm": 157,
-      "total_ascent_m": 13,
-      "total_descent_m": 6
-    },
-    {
-      "lap_number": 6,
-      "start_time": "2026-03-07 10:05:47",
-      "total_elapsed_time_s": 663.792,
-      "total_distance_m": 5000.0,
-      "avg_speed_mps": 7.613,
-      "avg_cadence_rpm": 78,
-      "avg_heart_rate_bpm": 153,
-      "total_ascent_m": 14,
-      "total_descent_m": 12
-    },
-    {
-      "lap_number": 7,
-      "start_time": "2026-03-07 10:16:50",
-      "total_elapsed_time_s": 622.082,
-      "total_distance_m": 5000.0,
-      "avg_speed_mps": 8.038,
-      "avg_cadence_rpm": 80,
-      "avg_heart_rate_bpm": 158,
-      "total_ascent_m": 12,
-      "total_descent_m": 11
-    },
-    {
-      "lap_number": 8,
-      "start_time": "2026-03-07 10:27:13",
-      "total_elapsed_time_s": 631.781,
-      "total_distance_m": 5000.0,
-      "avg_speed_mps": 7.914,
-      "avg_cadence_rpm": 80,
-      "avg_heart_rate_bpm": 157,
-      "total_ascent_m": 15,
-      "total_descent_m": 10
-    },
-    {
-      "lap_number": 9,
-      "start_time": "2026-03-07 10:37:44",
-      "total_elapsed_time_s": 1937.001,
-      "total_distance_m": 5000.0,
-      "avg_speed_mps": 7.415,
-      "avg_cadence_rpm": 74,
-      "avg_heart_rate_bpm": 151,
-      "total_ascent_m": 26,
-      "total_descent_m": 17
-    },
-    {
-      "lap_number": 10,
-      "start_time": "2026-03-07 11:10:03",
-      "total_elapsed_time_s": 678.972,
-      "total_distance_m": 5000.0,
-      "avg_speed_mps": 7.364,
-      "avg_cadence_rpm": 78,
-      "avg_heart_rate_bpm": 153,
-      "total_ascent_m": 53,
-      "total_descent_m": 9
-    },
-    {
-      "lap_number": 11,
-      "start_time": "2026-03-07 11:21:22",
-      "total_elapsed_time_s": 551.481,
-      "total_distance_m": 5000.0,
-      "avg_speed_mps": 9.066,
-      "avg_cadence_rpm": 82,
-      "avg_heart_rate_bpm": 163,
-      "total_ascent_m": 7,
-      "total_descent_m": 17
-    },
-    {
-      "lap_number": 12,
-      "start_time": "2026-03-07 11:30:33",
-      "total_elapsed_time_s": 629.073,
-      "total_distance_m": 5000.0,
-      "avg_speed_mps": 7.948,
-      "avg_cadence_rpm": 76,
-      "avg_heart_rate_bpm": 154,
-      "total_ascent_m": 13,
-      "total_descent_m": 27
-    },
-    {
-      "lap_number": 13,
-      "start_time": "2026-03-07 11:41:03",
-      "total_elapsed_time_s": 669.78,
-      "total_distance_m": 5000.0,
-      "avg_speed_mps": 8.254,
-      "avg_cadence_rpm": 82,
-      "avg_heart_rate_bpm": 155,
-      "total_ascent_m": 1,
-      "total_descent_m": 21
-    },
-    {
-      "lap_number": 14,
-      "start_time": "2026-03-07 11:52:12",
-      "total_elapsed_time_s": 653.27,
-      "total_distance_m": 5000.0,
-      "avg_speed_mps": 7.933,
-      "avg_cadence_rpm": 80,
-      "avg_heart_rate_bpm": 160,
-      "total_ascent_m": 21,
-      "total_descent_m": 32
-    },
-    {
-      "lap_number": 15,
-      "start_time": "2026-03-07 12:03:06",
-      "total_elapsed_time_s": 649.797,
-      "total_distance_m": 5000.0,
-      "avg_speed_mps": 7.815,
-      "avg_cadence_rpm": 79,
-      "avg_heart_rate_bpm": 158,
-      "total_ascent_m": 8,
-      "total_descent_m": 17
-    },
-    {
-      "lap_number": 16,
-      "start_time": "2026-03-07 12:13:55",
-      "total_elapsed_time_s": 625.587,
-      "total_distance_m": 5000.0,
-      "avg_speed_mps": 7.992,
-      "avg_cadence_rpm": 78,
-      "avg_heart_rate_bpm": 160,
-      "total_ascent_m": 14,
-      "total_descent_m": 13
-    },
-    {
-      "lap_number": 17,
-      "start_time": "2026-03-07 12:24:21",
-      "total_elapsed_time_s": 746.073,
-      "total_distance_m": 5000.0,
-      "avg_speed_mps": 7.715,
-      "avg_cadence_rpm": 78,
-      "avg_heart_rate_bpm": 155,
-      "total_ascent_m": 10,
-      "total_descent_m": 11
-    },
-    {
-      "lap_number": 18,
-      "start_time": "2026-03-07 12:36:47",
-      "total_elapsed_time_s": 629.342,
-      "total_distance_m": 5000.0,
-      "avg_speed_mps": 7.945,
-      "avg_cadence_rpm": 79,
-      "avg_heart_rate_bpm": 156,
-      "total_ascent_m": 4,
-      "total_descent_m": 10
-    },
-    {
-      "lap_number": 19,
-      "start_time": "2026-03-07 12:47:16",
-      "total_elapsed_time_s": 662.125,
-      "total_distance_m": 5000.0,
-      "avg_speed_mps": 7.551,
-      "avg_cadence_rpm": 77,
-      "avg_heart_rate_bpm": 154,
-      "total_ascent_m": 15,
-      "total_descent_m": 18
-    },
-    {
-      "lap_number": 20,
-      "start_time": "2026-03-07 12:58:19",
-      "total_elapsed_time_s": 607.318,
-      "total_distance_m": 5000.0,
-      "avg_speed_mps": 8.233,
-      "avg_cadence_rpm": 81,
-      "avg_heart_rate_bpm": 160,
-      "total_ascent_m": 9,
-      "total_descent_m": 8
-    },
-    {
-      "lap_number": 21,
-      "start_time": "2026-03-07 13:08:27",
-      "total_elapsed_time_s": 28.802,
-      "total_distance_m": 212.46,
-      "avg_speed_mps": 7.376,
-      "avg_cadence_rpm": 62,
-      "avg_heart_rate_bpm": 156,
-      "total_ascent_m": 0,
-      "total_descent_m": 0
-    }
-  ],
+  "hr_drift": {
+    "hr_drift_pct": null,
+    "interpretation": "no_power_meter"
+  },
+  "temperature": {
+    "avg_temp_c": 16.18117584254564
+  },
+  "pdc": {
+    "5s": null,
+    "30s": null,
+    "1min": null,
+    "5min": null,
+    "10min": null,
+    "20min": null,
+    "60min": null
+  },
+  "lap_hr_analysis": {
+    "peak_lap_hr": 163,
+    "peak_lap_number": 11,
+    "laps_above_z3_155": 15,
+    "laps_above_z4_166": 0,
+    "max_lap_sequence": [
+      [
+        11,
+        163
+      ],
+      [
+        2,
+        161
+      ],
+      [
+        14,
+        160
+      ]
+    ]
+  },
+  "best_climbing_laps": [],
   "shift_summary": {
     "total_shifts": 0,
-    "note": "No DI2 shift events found in FIT file"
+    "proactive_pct": null,
+    "reactive_pct": null,
+    "avg_cadence_at_shift_rpm": null
   },
-  "shifts": [],
-  "activity_id": 22091745600
+  "notes": "Interval session — Z3/Z4 work confirmed"
 }

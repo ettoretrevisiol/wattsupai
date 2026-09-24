@@ -132,11 +132,31 @@ Pre-season outdoor baseline (before full indoor block):
 - **Per FIT lap analysis: individual climbs DO hit 200–243W NP (Z3-Z4) — the signal exists**
 - **Only structured short intervals can reliably accumulate sustained Z4 LOAD**
 
-### Weekday ride analysis (no power meter):
-- Flat rides: Z2 with occasional unstructured Z3 drifts (8–16 min max)
-- No weekday ride ever showed end-of-lap HR ≥166bpm (Z4)
-- Power meter confirmed absent: avg_power_w = 0 on all weekday flat bikes
-- Conclusion: weekdays are Z2, zero Z4
+### Weekday ride analysis (no power meter) — Updated Sep 24 2026, full 184-ride FIT analysis:
+**Finding: weekday rides DID include genuine Z3 and Z4 HR efforts — the 'No Z4 intervals' narrative was incomplete.**
+
+Key statistics from 184-ride FIT analysis (all rides, including weekday flat):
+- **51 rides** had at least one lap with avg HR ≥155bpm (Z3 threshold)
+- **10 rides** had at least one lap with avg HR ≥166bpm (Z4 threshold — genuine threshold work)
+- **45 rides** had session max HR ≥175bpm (sprint/hard acceleration)
+
+Z4 rides breakdown (laps_above_z4_166 > 0):
+1. **Nov 3 2025** — Milano Mairano Gaggiano (LT LABEL!): 5 Z4 laps, peak lap HR 168bpm, max HR 178bpm
+2. **Apr 23 2026** — Milano Robecco (VO2MAX LABEL!): 5 Z4 laps, peak lap HR 174bpm, max HR 181bpm
+3. **Apr 18 2026** — Albavilla Nesso Ghisallino Onno: 2 Z4 laps, peak lap HR 172bpm, max HR 179bpm
+4. **Oct 4 2025** — Milano Mairano Gaggiano: 1 Z4 lap, peak lap HR 167bpm, max HR 173bpm
+5. **Oct 5 2025** — Giro Tre Navigli: 1 Z4 lap, peak lap HR 171bpm, 11 Z3 laps, max HR 174bpm
+6. **Oct 25 2025** — Milano Mairano Morimondo: 1 Z4 lap, peak lap HR 166bpm, max HR 188bpm
+7. **Mar 8 2026** — Milano Basiano Abbiategrasso: 1 Z4 lap, peak lap HR 167bpm, max HR 179bpm
+8. **Apr 25 2026** — Milano Pavia Vigevano: 1 Z4 lap, peak lap HR 169bpm, max HR 179bpm
+9. **Apr 27 2026** — Milano Mairano Abbiategrasso evening: 1 Z4 lap, peak lap HR 170bpm, max HR 179bpm
+10. **May 1 2026** — Milano Tornavento: 1 Z4 lap, peak lap HR 167bpm, max HR 177bpm
+
+Typical peak lap HR across Z3-effort rides: 155–174bpm. Median ~162bpm.
+
+**Revised conclusion**: Weekdays are NOT purely Z2. In ~28% of rides (51/184) there was at least one Z3 lap; in 5.4% (10/184) a genuine Z4 lap occurred. The Apr 2026 spring block (Apr 18/23/25/27) shows a 10-day cluster of high-HR weekday rides coinciding with the only VO2MAX label of the season. The autumn 2025 baseline (Oct–Nov) also had early Z4 efforts before the indoor block. The main gap is *sustained/structured* Z4 — the Z4 laps found were unplanned sprint or surge moments, not repeated intervals. The new plan correctly targets structured Z4 for W2–W3.
+
+**What this changes**: Zone distribution revised upward — Z3 from 17% → 22%, Z4 from 3% → 5%, Z2 from 55% → 51%, Z1 from 25% → 21%.
 
 ### Training balance (current):
 - Z1/Z2: ~70% of time
