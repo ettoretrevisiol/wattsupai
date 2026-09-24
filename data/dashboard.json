@@ -79,6 +79,22 @@
     "avg_km_per_month": 866,
     "peak_ctl": 843,
     "peak_ctl_date": "2026-08-30",
+    "pdc_5min_peak_w": 248,
+    "pdc_5min_peak_date": "2026-08-22",
+    "pdc_5min_peak_ride": "Friuli Majano",
+    "pdc_5min_top3": [
+      {"w": 248, "date": "2026-08-22", "ride": "Friuli Majano"},
+      {"w": 238, "date": "2026-08-18", "ride": "Friuli Tanamea Buia"},
+      {"w": 236, "date": "2026-07-07", "ride": "Cortina Cimabanche"}
+    ],
+    "pdc_10min_peak_w": 229,
+    "pdc_10min_peak_date": "2026-06-30",
+    "pdc_10min_peak_ride": "Cortina Baita Resch",
+    "pdc_10min_top3": [
+      {"w": 229, "date": "2026-06-30", "ride": "Cortina Baita Resch"},
+      {"w": 228, "date": "2026-08-22", "ride": "Friuli Majano"},
+      {"w": 220, "date": "2026-08-18", "ride": "Friuli Tanamea Buia"}
+    ],
     "pdc_20min_peak_w": 239,
     "pdc_20min_peak_date": "2026-09-19",
     "pdc_20min_peak_ride": "Tre Valli Varesine",

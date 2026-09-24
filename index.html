@@ -471,7 +471,7 @@ function renderSeason(d) {
     </div>
 
     <div class="section-label">12-Month Summary</div>
-    <div class="g4">
+    <div class="g3">
       <div class="card card-accent-blue">
         <div class="card-title"><span class="ct-dot"></span>Total Rides</div>
         <div class="kpi-val">${ss.total_rides}</div>
@@ -489,6 +489,18 @@ function renderSeason(d) {
         <div class="kpi-val">${d.athlete.vo2max_peak}<span class="kpi-unit">ml/kg/min</span></div>
         <div class="kpi-label">Reached ${d.athlete.vo2max_peak_period}</div>
         <div class="kpi-delta flat">→ Currently ${d.athlete.vo2max_current} · Floor: ${d.athlete.vo2max_floor} · Target: hold ${d.athlete.vo2max_floor}–${d.athlete.vo2max_peak}</div>
+      </div>
+      <div class="card card-accent-orange">
+        <div class="card-title"><span class="ct-dot" style="background:var(--orange)"></span>Peak 5-min PDC</div>
+        <div class="kpi-val">${ss.pdc_5min_peak_w}<span class="kpi-unit">W</span></div>
+        <div class="kpi-label">${ss.pdc_5min_peak_date} ${ss.pdc_5min_peak_ride}</div>
+        <div class="kpi-delta up">↑ 2nd: ${ss.pdc_5min_top3[1].w}W (${ss.pdc_5min_top3[1].date.slice(5)}) · 3rd: ${ss.pdc_5min_top3[2].w}W (${ss.pdc_5min_top3[2].date.slice(5)})</div>
+      </div>
+      <div class="card card-accent-blue">
+        <div class="card-title"><span class="ct-dot"></span>Peak 10-min PDC</div>
+        <div class="kpi-val">${ss.pdc_10min_peak_w}<span class="kpi-unit">W</span></div>
+        <div class="kpi-label">${ss.pdc_10min_peak_date} ${ss.pdc_10min_peak_ride}</div>
+        <div class="kpi-delta up">↑ 2nd: ${ss.pdc_10min_top3[1].w}W (${ss.pdc_10min_top3[1].date.slice(5)}) · 3rd: ${ss.pdc_10min_top3[2].w}W (${ss.pdc_10min_top3[2].date.slice(5)})</div>
       </div>
       <div class="card card-accent-orange">
         <div class="card-title"><span class="ct-dot" style="background:var(--orange)"></span>Peak CTL</div>
