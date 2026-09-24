@@ -578,6 +578,79 @@ function renderSeason(d) {
         </ul>
       </div>
     </div>
+
+    <div class="section-label">Numbers &amp; Milestones</div>
+    <div class="g2" style="margin-bottom:4px;">
+      <div class="card card-accent-orange">
+        <div class="card-title"><span class="ct-dot" style="background:var(--orange)"></span>W/kg — best 20min PDC at 65kg</div>
+        ${(d.milestones?.wpkg_pdc20||[]).map((r,i) => {
+          const bar = Math.round((r.wpkg / 4.5) * 100);
+          const col = i===0 ? 'var(--orange)' : 'var(--blue)';
+          return `<div style="display:flex;align-items:center;gap:10px;margin-bottom:7px;">
+            <div style="width:68px;font-size:.68rem;color:var(--dim);">${r.date.slice(5)}</div>
+            <div style="flex:1;background:rgba(255,255,255,.05);border-radius:3px;height:18px;position:relative;overflow:hidden;">
+              <div style="width:${bar}%;height:100%;background:${col};opacity:.8;border-radius:3px;"></div>
+              <div style="position:absolute;left:8px;top:0;line-height:18px;font-size:.7rem;font-weight:700;">${r.wpkg} W/kg</div>
+            </div>
+            <div style="width:42px;text-align:right;font-size:.68rem;color:var(--dim);">${r.pdc20_w}W</div>
+          </div>`;
+        }).join('')}
+        <div class="insight" style="margin-top:8px;font-size:.7rem;">
+          Cat 4 climber: ≥3.2 W/kg · Cat 3: ≥3.6 · Cat 2: ≥4.1 · Your peak <strong>${(d.milestones?.wpkg_pdc20||[])[0]?.wpkg||'—'} W/kg</strong> is solid Cat 3 territory.
+        </div>
+      </div>
+      <div class="card card-accent-violet">
+        <div class="card-title"><span class="ct-dot" style="background:var(--violet)"></span>Monthly elevation — outdoor rides</div>
+        ${(d.milestones?.monthly_elevation||[]).map(m => {
+          const maxElev = Math.max(...(d.milestones?.monthly_elevation||[]).map(x=>x.elev_m));
+          const bar = Math.round((m.elev_m / maxElev) * 100);
+          const isPeak = m.elev_m === maxElev;
+          return `<div style="display:flex;align-items:center;gap:8px;margin-bottom:5px;">
+            <div style="width:54px;font-size:.67rem;color:var(--dim);">${m.month.slice(5)}</div>
+            <div style="flex:1;background:rgba(255,255,255,.04);border-radius:3px;height:15px;position:relative;overflow:hidden;">
+              <div style="width:${bar}%;height:100%;background:${isPeak?'var(--orange)':'var(--violet)'};opacity:.75;border-radius:3px;"></div>
+            </div>
+            <div style="width:78px;text-align:right;font-size:.67rem;${isPeak?'color:var(--orange);font-weight:700;':'color:var(--dim);'}">${(m.elev_m/1000).toFixed(1)}k m${isPeak?' 🏆':''}</div>
+          </div>`;
+        }).join('')}
+      </div>
+    </div>
+    <div class="g2" style="margin-bottom:16px;">
+      <div class="card card-accent-green">
+        <div class="card-title"><span class="ct-dot" style="background:var(--green)"></span>Aerobic efficiency — top days (W/bpm)</div>
+        <div style="font-size:.7rem;color:var(--dim);margin-bottom:8px;">NP ÷ avg HR. Higher = more power for same cardiac cost.</div>
+        ${(d.milestones?.top_efficiency||[]).map((r,i) => `
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:5px 0;border-bottom:1px solid rgba(255,255,255,.04);">
+          <div>
+            <a href="https://connect.garmin.com/modern/activity/${r.activity_id}" target="_blank"
+               style="color:var(--text);text-decoration:none;font-size:.74rem;font-weight:${i===0?700:400};">
+              ${i===0?'🥇 ':''}${r.date.replace('2026-','').replace('2025-','★ ')}
+            </a>
+            <span style="font-size:.67rem;color:var(--dim);"> · ${r.np_w}W @ ${r.hr_bpm}bpm · ${r.elev_m}m</span>
+          </div>
+          <div style="font-weight:700;color:var(--green);font-size:.8rem;">${r.eff}</div>
+        </div>`).join('')}
+        <div class="insight good" style="margin-top:10px;font-size:.7rem;">
+          Well-trained cyclists: 1.2–1.4 W/bpm. Your best days cluster around <strong>1.37–1.42</strong> — the Aug Friuli block at its peak.
+        </div>
+      </div>
+      <div class="card card-accent-blue">
+        <div class="card-title"><span class="ct-dot"></span>Top calorie burn days</div>
+        <div class="ride-list">
+          ${(d.milestones?.top_calorie_days||[]).map((r,i) => `
+          <div class="ride-item">
+            <div>
+              <div class="ride-name">
+                <a href="https://connect.garmin.com/modern/activity/${r.activity_id}" target="_blank"
+                   style="color:inherit;text-decoration:none;">${i===0?'🔥 ':''}${r.date.replace('2026-','').replace('2025-','★ ')}</a>
+              </div>
+              <div class="ride-meta">${r.km}km · ${r.elev_m}m · ${r.hours}h</div>
+            </div>
+            <div class="ride-dist" style="color:var(--blue);font-weight:800;">${r.calories.toLocaleString()}<span style="font-size:.6rem;color:var(--dim)"> kcal</span></div>
+          </div>`).join('')}
+        </div>
+      </div>
+    </div>
   `;
 }
 

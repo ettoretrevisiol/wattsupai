@@ -369,6 +369,97 @@ def compute_next_session_suggestion(conn, week_summary):
     }
 
 
+# ── 4d. Numbers & Milestones ──────────────────────────────────────────────────
+
+def compute_milestones(conn):
+    """W/kg PDC, monthly elevation, top calorie days, aerobic efficiency top 5."""
+
+    # W/kg best 20min (weight 65kg)
+    WEIGHT_KG = 65.0
+    wpkg_rows = conn.execute("""
+        SELECT date, pdc_20min_w,
+               ROUND(pdc_20min_w / ?, 2) wpkg
+        FROM activities
+        WHERE pdc_20min_w IS NOT NULL
+        ORDER BY pdc_20min_w DESC
+        LIMIT 5
+    """, (WEIGHT_KG,)).fetchall()
+    wpkg = [{"date": r[0], "pdc20_w": r[1], "wpkg": r[2]} for r in wpkg_rows]
+
+    # Monthly elevation (outdoor only)
+    elev_rows = conn.execute("""
+        SELECT month,
+               ROUND(SUM(elevation_gain_m), 0) elev_m,
+               ROUND(SUM(distance_km), 0)      km,
+               COUNT(*)                         rides
+        FROM activities
+        WHERE is_indoor = 0
+        GROUP BY month
+        ORDER BY month
+    """).fetchall()
+    monthly_elev = [
+        {"month": r[0], "elev_m": r[1], "km": r[2], "rides": r[3]}
+        for r in elev_rows
+    ]
+
+    # Top calorie days
+    cal_rows = conn.execute("""
+        SELECT date, calories,
+               ROUND(distance_km, 0)           km,
+               ROUND(elapsed_time_s / 3600.0, 1) hours,
+               ROUND(elevation_gain_m, 0)       elev_m,
+               activity_id
+        FROM activities
+        WHERE is_indoor = 0 AND calories IS NOT NULL
+        ORDER BY calories DESC
+        LIMIT 6
+    """).fetchall()
+    top_calories = [
+        {"date": r[0], "calories": r[1], "km": r[2],
+         "hours": r[3], "elev_m": r[4], "activity_id": r[5]}
+        for r in cal_rows
+    ]
+
+    # Aerobic efficiency top 5 (W/bpm, outdoor power rides)
+    eff_rows = conn.execute("""
+        SELECT date,
+               ROUND(aerobic_eff_np_hr, 3)     eff,
+               np_w_computed                   np,
+               avg_hr_bpm                      hr,
+               ROUND(elevation_gain_m, 0)       elev_m,
+               activity_id
+        FROM activities
+        WHERE aerobic_eff_np_hr IS NOT NULL
+          AND is_indoor = 0 AND has_power = 1
+        ORDER BY aerobic_eff_np_hr DESC
+        LIMIT 5
+    """).fetchall()
+    top_efficiency = [
+        {"date": r[0], "eff": r[1], "np_w": r[2],
+         "hr_bpm": r[3], "elev_m": r[4], "activity_id": r[5]}
+        for r in eff_rows
+    ]
+
+    # Cadence monthly average
+    cad_rows = conn.execute("""
+        SELECT month, ROUND(AVG(avg_cadence_rpm), 1) avg_cad, COUNT(*) n
+        FROM activities
+        WHERE is_indoor = 0 AND avg_cadence_rpm > 50
+        GROUP BY month ORDER BY month
+    """).fetchall()
+    monthly_cadence = [{"month": r[0], "avg_rpm": r[1], "rides": r[2]}
+                       for r in cad_rows]
+
+    return {
+        "weight_kg":        WEIGHT_KG,
+        "wpkg_pdc20":       wpkg,
+        "monthly_elevation": monthly_elev,
+        "top_calorie_days": top_calories,
+        "top_efficiency":   top_efficiency,
+        "monthly_cadence":  monthly_cadence,
+    }
+
+
 # ── 4b. Best VAM laps ────────────────────────────────────────────────────────
 
 def compute_best_vam_laps(conn, limit=10):
@@ -664,6 +755,7 @@ def main():
     last_4_sats     = compute_last_4_saturdays(conn)
     best_vam_laps   = compute_best_vam_laps(conn)
     longest_rides   = compute_longest_rides(conn)
+    milestones      = compute_milestones(conn)
 
     # Embed progression flag and next session into week_summary
     week_summary["progression_flag"] = progression
@@ -686,6 +778,7 @@ def main():
     d["last_4_saturdays"] = last_4_sats
     d["best_vam_laps"]    = best_vam_laps
     d["longest_rides"]    = longest_rides
+    d["milestones"]       = milestones
 
     with open(DASH_PATH, "w") as f:
         json.dump(d, f, indent=2)
