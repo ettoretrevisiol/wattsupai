@@ -1270,13 +1270,13 @@
             "type": "Z3 Tempo",
             "done": true,
             "actual_date": "2026-09-24",
-            "target": "3\u00d710 min Z3, end HR 158\u2013165bpm",
+            "target": "3\u00d710 min Z3 \u00b7 176\u2013212W \u00b7 end HR 158\u2013165bpm",
             "actual": "L4 164bpm + L5 160bpm \u2014 plan nailed \u2705"
           },
           {
             "day": "Sat Sep 27",
             "type": "Hills Z3",
-            "target": "3\u20133.5h \u00b7 800\u20131,000m \u00b7 NP 182\u2013190W"
+            "target": "3\u20133.5h \u00b7 800\u20131,000m \u00b7 NP 182\u2013190W \u00b7 each climb push to end HR 158\u2013165bpm"
           },
           {
             "day": "Sun Sep 28",
@@ -1296,17 +1296,17 @@
           {
             "day": "Tue Sep 30",
             "type": "Z3\u2192Z4",
-            "target": "2\u00d715 min progressive, end HR \u2265166bpm"
+            "target": "2\u00d715 min progressive \u00b7 start 176\u2013212W (Z3) \u2192 finish 212\u2013230W (Z4) \u00b7 end HR \u2265166bpm"
           },
           {
             "day": "Thu Oct 2",
             "type": "Z4 Threshold",
-            "target": "4\u00d78 min Z4, end-rep HR 166\u2013174bpm"
+            "target": "4\u00d78 min Z4 \u00b7 215\u2013245W \u00b7 end-rep HR 166\u2013174bpm \u00b7 6 min recovery between"
           },
           {
             "day": "Sat Oct 4",
             "type": "Hills Z4",
-            "target": "3.5\u20134h \u00b7 1,000\u20131,300m \u00b7 NP 185\u2013192W"
+            "target": "3.5\u20134h \u00b7 1,000\u20131,300m \u00b7 NP 185\u2013192W \u00b7 each 15\u201320 min climb push to HR \u2265166bpm at top"
           },
           {
             "day": "Sun Oct 5",
@@ -1326,17 +1326,17 @@
           {
             "day": "Tue Oct 7",
             "type": "Z4 Threshold",
-            "target": "3\u00d715 min Z4, HR from min 8: 166\u2013174bpm"
+            "target": "3\u00d715 min Z4 \u00b7 212\u2013240W \u00b7 sustained HR 166\u2013174bpm from min 8"
           },
           {
             "day": "Thu Oct 9",
             "type": "Z5 VO2max",
-            "target": "5\u00d76 min Z5, end-rep HR 172\u2013179bpm"
+            "target": "5\u00d76 min Z5 \u00b7 247\u2013282W \u00b7 end-rep HR 172\u2013179bpm \u00b7 first Z5 stimulus in 13 months"
           },
           {
             "day": "Sat Oct 11",
             "type": "Big Day",
-            "target": "4\u20134.5h \u00b7 1,400\u20131,700m \u00b7 NP 192\u2013200W \u2014 Lactate Threshold label goal"
+            "target": "4\u20134.5h \u00b7 1,400\u20131,700m \u00b7 NP 192\u2013200W \u00b7 Lactate Threshold label goal"
           },
           {
             "day": "Sun Oct 12",
@@ -1356,12 +1356,12 @@
           {
             "day": "Tue Oct 14",
             "type": "Easy",
-            "target": "60 min \u00b7 Z2"
+            "target": "60 min \u00b7 Z2 \u00b7 \u2264154bpm"
           },
           {
             "day": "Thu Oct 16",
             "type": "Z2 + Z3",
-            "target": "60 min \u00b7 2\u00d710 min Z3"
+            "target": "60 min \u00b7 2\u00d710 min Z3 \u00b7 176\u2013212W \u00b7 end HR 158\u2013165bpm"
           },
           {
             "day": "Sat Oct 18",
@@ -1371,7 +1371,7 @@
           {
             "day": "Sun Oct 19",
             "type": "Easy",
-            "target": "1.5h \u00b7 Z2 \u00b7 flat"
+            "target": "1.5h \u00b7 Z2 \u00b7 flat \u00b7 \u2264145bpm"
           }
         ]
       }
@@ -1383,7 +1383,13 @@
       "z4_weekly_min_w3": 40,
       "vo2max_target": "hold 61 or return to 62 by W3",
       "hrv_floor_ms": 48,
-      "shifting_quality_target_pct": 70
+      "shifting_quality_target_pct": 70,
+      "interval_targets_ftp235": {
+        "z3_tempo_w": "176\u2013212W",
+        "z4_threshold_w": "212\u2013247W",
+        "z5_vo2max_w": "247\u2013282W",
+        "note": "FTP=235W evidence-based. Old FTP=256W targets (231-268W) were VO2max territory, not threshold."
+      }
     }
   },
   "favourite_routes": [
