@@ -1,27 +1,40 @@
 {
   "_meta": {
     "last_updated": "2026-09-24",
-    "updated_by": "WattsUpAI / Kiro session",
-    "version": "4.0",
+    "updated_by": "WattsUpAI / Kiro \u2014 raw FIT \u2192 SQLite ETL",
+    "version": "6.0",
     "rides_analysed": 184,
     "file_composition": {
       "indoor_cycling": 65,
-      "outdoor_power_rides": 37,
-      "weekday_nopower_with_lap_hr": 80,
-      "other_or_incomplete": 2
+      "outdoor_power_rides": 78,
+      "outdoor_no_power_rides": 41,
+      "total": 184
     },
-    "outdoor_power_rides": 37,
+    "outdoor_power_rides": 78,
     "pdc_coverage": {
       "rides_with_20min": 37,
       "rides_with_5min_and_10min": 18,
       "note": "Only 18 of 37 outdoor power rides have full 5/10min PDC. Season 5min and 10min peaks are drawn from that subset \u2014 but it includes all 6 highest-20min rides, so the peaks are reliable."
     },
-    "analysis": "Definitive: 1,189,036 per-second data points from 183 raw FIT files archived locally in data/fit-raw/. Per-second HR and power zones. No weekday/weekend split.",
+    "analysis": "Per-second from raw FIT files via training.db SQLite ETL. No Garmin summaries used anywhere.",
     "raw_fit_archive": {
       "path": "data/fit-raw/",
       "files": 184,
       "size_mb": 45,
       "note": "Permanent local archive. Re-analysis needs no network. Rebuild/extend with scripts/fit_seconds.py"
+    },
+    "pipeline": [
+      "scripts/fit_to_db.py   \u2014 ETL: raw FIT files \u2192 training.db (activities, laps, zone_summaries)",
+      "scripts/query_db.py    \u2014 full analysis from DB (SQL queries only)"
+    ],
+    "database": {
+      "path": "data/training.db",
+      "size_mb": 0.57,
+      "tables": [
+        "activities",
+        "laps",
+        "zone_summaries"
+      ]
     }
   },
   "athlete": {
@@ -124,9 +137,9 @@
   },
   "season_summary": {
     "period": "Sep 2025 \u2013 Sep 2026",
-    "total_rides": 186,
-    "total_hours": 392,
-    "total_km": 10386,
+    "total_rides": 184,
+    "total_hours": 390.3,
+    "total_km": 10313,
     "avg_km_per_month": 866,
     "peak_ctl": 843,
     "peak_ctl_date": "2026-08-30",
@@ -137,17 +150,17 @@
       {
         "w": 279,
         "date": "2026-09-19",
-        "ride": "Tre Valli Varesine"
+        "ride": "road"
       },
       {
         "w": 263,
         "date": "2026-05-03",
-        "ride": "Onno Ghisallino"
+        "ride": "road"
       },
       {
         "w": 262,
         "date": "2026-09-12",
-        "ride": "Culmine di San Pietro"
+        "ride": "road"
       }
     ],
     "pdc_10min_peak_w": 267,
@@ -157,17 +170,17 @@
       {
         "w": 267,
         "date": "2026-09-19",
-        "ride": "Tre Valli Varesine"
+        "ride": "road"
       },
       {
         "w": 254,
         "date": "2026-09-12",
-        "ride": "Culmine di San Pietro"
+        "ride": "road"
       },
       {
         "w": 250,
         "date": "2026-05-03",
-        "ride": "Onno Ghisallino"
+        "ride": "road"
       }
     ],
     "pdc_20min_peak_w": 239,
@@ -198,8 +211,173 @@
     ]
   },
   "pdc_progression": {
-    "description": "20-min PDC across all FIT-verified outdoor power rides",
+    "description": "20-min PDC across all 78 outdoor power rides. Computed from raw FIT per-second power.",
     "data": [
+      {
+        "date": "2025-09-28",
+        "label": "Sep 28",
+        "w": 182
+      },
+      {
+        "date": "2025-09-29",
+        "label": "Sep 29",
+        "w": 171
+      },
+      {
+        "date": "2025-10-01",
+        "label": "Oct 1",
+        "w": 202
+      },
+      {
+        "date": "2025-10-04",
+        "label": "Oct 4",
+        "w": 206
+      },
+      {
+        "date": "2025-10-05",
+        "label": "Oct 5",
+        "w": 192
+      },
+      {
+        "date": "2025-10-07",
+        "label": "Oct 7",
+        "w": 178
+      },
+      {
+        "date": "2025-10-10",
+        "label": "Oct 10",
+        "w": 184
+      },
+      {
+        "date": "2025-10-11",
+        "label": "Oct 11",
+        "w": 172
+      },
+      {
+        "date": "2025-10-12",
+        "label": "Oct 12",
+        "w": 179
+      },
+      {
+        "date": "2025-10-18",
+        "label": "Oct 18",
+        "w": 170
+      },
+      {
+        "date": "2025-10-19",
+        "label": "Oct 19",
+        "w": 172
+      },
+      {
+        "date": "2025-10-25",
+        "label": "Oct 25",
+        "w": 185
+      },
+      {
+        "date": "2025-10-26",
+        "label": "Oct 26",
+        "w": 173
+      },
+      {
+        "date": "2025-11-03",
+        "label": "Nov 3",
+        "w": 190
+      },
+      {
+        "date": "2025-11-05",
+        "label": "Nov 5",
+        "w": 184
+      },
+      {
+        "date": "2025-11-06",
+        "label": "Nov 6",
+        "w": 150
+      },
+      {
+        "date": "2025-11-08",
+        "label": "Nov 8",
+        "w": 168
+      },
+      {
+        "date": "2025-11-09",
+        "label": "Nov 9",
+        "w": 178
+      },
+      {
+        "date": "2025-11-14",
+        "label": "Nov 14",
+        "w": 186
+      },
+      {
+        "date": "2025-11-18",
+        "label": "Nov 18",
+        "w": 162
+      },
+      {
+        "date": "2025-11-30",
+        "label": "Nov 30",
+        "w": 178
+      },
+      {
+        "date": "2026-03-22",
+        "label": "Mar 22",
+        "w": 178
+      },
+      {
+        "date": "2026-03-28",
+        "label": "Mar 28",
+        "w": 179
+      },
+      {
+        "date": "2026-03-29",
+        "label": "Mar 29",
+        "w": 169
+      },
+      {
+        "date": "2026-04-04",
+        "label": "Apr 4",
+        "w": 154
+      },
+      {
+        "date": "2026-04-06",
+        "label": "Apr 6",
+        "w": 183
+      },
+      {
+        "date": "2026-04-11",
+        "label": "Apr 11",
+        "w": 173
+      },
+      {
+        "date": "2026-04-18",
+        "label": "Apr 18",
+        "w": 212
+      },
+      {
+        "date": "2026-04-19",
+        "label": "Apr 19",
+        "w": 162
+      },
+      {
+        "date": "2026-04-23",
+        "label": "Apr 23",
+        "w": 211
+      },
+      {
+        "date": "2026-04-25",
+        "label": "Apr 25",
+        "w": 193
+      },
+      {
+        "date": "2026-05-01",
+        "label": "May 1",
+        "w": 204
+      },
+      {
+        "date": "2026-05-02",
+        "label": "May 2",
+        "w": 146
+      },
       {
         "date": "2026-05-03",
         "label": "May 3",
@@ -209,6 +387,36 @@
         "date": "2026-05-09",
         "label": "May 9",
         "w": 214
+      },
+      {
+        "date": "2026-05-17",
+        "label": "May 17",
+        "w": 170
+      },
+      {
+        "date": "2026-05-21",
+        "label": "May 21",
+        "w": 179
+      },
+      {
+        "date": "2026-05-23",
+        "label": "May 23",
+        "w": 182
+      },
+      {
+        "date": "2026-05-24",
+        "label": "May 24",
+        "w": 178
+      },
+      {
+        "date": "2026-05-26",
+        "label": "May 26",
+        "w": 188
+      },
+      {
+        "date": "2026-05-27",
+        "label": "May 27",
+        "w": 186
       },
       {
         "date": "2026-05-29",
@@ -226,6 +434,11 @@
         "w": 191
       },
       {
+        "date": "2026-06-13",
+        "label": "Jun 13",
+        "w": 187
+      },
+      {
         "date": "2026-06-14",
         "label": "Jun 14",
         "w": 185
@@ -234,6 +447,11 @@
         "date": "2026-06-20",
         "label": "Jun 20",
         "w": 195
+      },
+      {
+        "date": "2026-06-21",
+        "label": "Jun 21",
+        "w": 178
       },
       {
         "date": "2026-06-27",
@@ -394,63 +612,87 @@
   "monthly_stats": [
     {
       "month": "Oct 25",
-      "distance_km": 622,
-      "elevation_km": 2.4
+      "distance_km": 607,
+      "elevation_km": 1.4,
+      "rides": 12,
+      "hours": 20.7
     },
     {
       "month": "Nov 25",
-      "distance_km": 660,
-      "elevation_km": 1.6
+      "distance_km": 659,
+      "elevation_km": 1.4,
+      "rides": 12,
+      "hours": 23.1
     },
     {
       "month": "Dec 25",
       "distance_km": 389,
-      "elevation_km": 0.0
+      "elevation_km": 0.2,
+      "rides": 13,
+      "hours": 13.8
     },
     {
       "month": "Jan 26",
       "distance_km": 420,
-      "elevation_km": 0.0
+      "elevation_km": 0.0,
+      "rides": 15,
+      "hours": 14.4
     },
     {
       "month": "Feb 26",
-      "distance_km": 445,
-      "elevation_km": 0.0
+      "distance_km": 427,
+      "elevation_km": 0.3,
+      "rides": 13,
+      "hours": 14.9
     },
     {
       "month": "Mar 26",
       "distance_km": 790,
-      "elevation_km": 1.0
+      "elevation_km": 0.9,
+      "rides": 18,
+      "hours": 27.5
     },
     {
       "month": "Apr 26",
       "distance_km": 959,
-      "elevation_km": 4.8
+      "elevation_km": 4.2,
+      "rides": 16,
+      "hours": 34.0
     },
     {
       "month": "May 26",
-      "distance_km": 1448,
-      "elevation_km": 7.5
+      "distance_km": 1447,
+      "elevation_km": 9.0,
+      "rides": 22,
+      "hours": 53.4
     },
     {
       "month": "Jun 26",
       "distance_km": 1176,
-      "elevation_km": 9.2
+      "elevation_km": 13.1,
+      "rides": 17,
+      "hours": 47.8
     },
     {
       "month": "Jul 26",
       "distance_km": 1036,
-      "elevation_km": 12.1
+      "elevation_km": 15.6,
+      "rides": 15,
+      "hours": 44.3
     },
     {
       "month": "Aug 26",
       "distance_km": 1246,
-      "elevation_km": 14.3
+      "elevation_km": 22.3,
+      "rides": 14,
+      "hours": 53.1
     },
     {
       "month": "Sep 26",
-      "distance_km": 995,
-      "elevation_km": 5.6
+      "distance_km": 1035,
+      "elevation_km": 8.6,
+      "rides": 15,
+      "hours": 38.0
     }
   ],
   "pmc_weekly": {
@@ -762,15 +1004,15 @@
     ]
   },
   "zone_distribution": {
-    "source": "Estimated distribution. Basis: 37 outdoor power rides (NP + lap NP) + 80 weekday no-power rides (lap HR) + 65 indoor sessions. Z3/Z4 shares informed by lap-level HR on the weekday population.",
-    "z1_pct": 21,
-    "z2_pct": 51,
-    "z3_pct": 22,
-    "z4_pct": 5,
-    "z5_pct": 1,
+    "source": "training.db per-second ETL \u2014 definitive",
+    "z1_pct": 22,
+    "z2_pct": 59,
+    "z3_pct": 15,
+    "z4_pct": 4,
+    "z5_pct": 0,
     "z4_target_pct": 15,
-    "z4_gap_pct": 10,
-    "confidence": "medium \u2014 these are estimates, not measured time-in-zone totals from Garmin",
+    "z4_gap_pct": 11,
+    "confidence": "high \u2014 per-second from raw FIT, no estimation",
     "notes": "Revised upward after weekday lap-HR analysis: 51 of 80 weekday rides (64%) had at least one Z3 lap and 10 of 80 (12%) had a genuine Z4 lap. Those Z4 laps were unplanned surges, not structured intervals \u2014 the sustained-Z4 gap remains the real deficit."
   },
   "weekday_interval_summary": {
@@ -832,93 +1074,183 @@
   "best_climbing_laps": [
     {
       "date": "2026-09-12",
-      "ride": "Culmine",
-      "lap": "L12",
+      "ride": "road",
+      "lap": "L11",
       "np_w": 243,
+      "avg_power_w": 226,
       "avg_hr": 164,
-      "zone": "Z4",
-      "note": "best climb overall"
+      "ascent_m": 278,
+      "dur_min": 20.4,
+      "hr_z4_min": 13.6,
+      "zone": "Z3-Z4"
     },
     {
       "date": "2026-09-19",
-      "ride": "Tre Valli",
-      "lap": "L4",
+      "ride": "road",
+      "lap": "L3",
       "np_w": 237,
+      "avg_power_w": 197,
       "avg_hr": 163,
+      "ascent_m": 250,
+      "dur_min": 25.7,
+      "hr_z4_min": 12.8,
       "zone": "Z3-Z4"
     },
     {
       "date": "2026-05-03",
-      "ride": "Onno",
-      "lap": "L6",
+      "ride": "road",
+      "lap": "L5",
       "np_w": 234,
+      "avg_power_w": 218,
       "avg_hr": 162,
-      "zone": "Z3"
+      "ascent_m": 222,
+      "dur_min": 16.4,
+      "hr_z4_min": 12.3,
+      "zone": "Z3-Z4"
     },
     {
       "date": "2026-07-25",
-      "ride": "Ghisallino",
-      "lap": "L5",
+      "ride": "road",
+      "lap": "L4",
       "np_w": 228,
+      "avg_power_w": 227,
       "avg_hr": 168,
+      "ascent_m": 349,
+      "dur_min": 22.6,
+      "hr_z4_min": 19.4,
       "zone": "Z4"
     },
     {
+      "date": "2026-09-19",
+      "ride": "road",
+      "lap": "L2",
+      "np_w": 225,
+      "avg_power_w": 192,
+      "avg_hr": 149,
+      "ascent_m": 98,
+      "dur_min": 14.4,
+      "hr_z4_min": 3.5,
+      "zone": "Z3"
+    },
+    {
       "date": "2026-08-29",
-      "ride": "San Daniele",
-      "lap": "L5",
-      "np_w": 224,
-      "avg_hr": 158,
-      "zone": "Z3-Z4"
+      "ride": "road",
+      "lap": "L6",
+      "np_w": 225,
+      "avg_power_w": 163,
+      "avg_hr": 145,
+      "ascent_m": 102,
+      "dur_min": 11.6,
+      "hr_z4_min": 1.6,
+      "zone": "Z3"
     },
     {
       "date": "2026-07-25",
-      "ride": "Ghisallino",
-      "lap": "L6",
+      "ride": "road",
+      "lap": "L5",
       "np_w": 222,
+      "avg_power_w": 219,
       "avg_hr": 172,
+      "ascent_m": 336,
+      "dur_min": 22.6,
+      "hr_z4_min": 22.0,
       "zone": "Z4"
     },
     {
-      "date": "2026-08-22",
-      "ride": "Majano",
+      "date": "2026-09-06",
+      "ride": "road",
       "lap": "L6",
       "np_w": 220,
+      "avg_power_w": 161,
+      "avg_hr": 148,
+      "ascent_m": 147,
+      "dur_min": 23.0,
+      "hr_z4_min": 6.7,
+      "zone": "Z3"
+    },
+    {
+      "date": "2026-08-22",
+      "ride": "road",
+      "lap": "L5",
+      "np_w": 220,
+      "avg_power_w": 201,
       "avg_hr": 147,
-      "zone": "Z3 efficient"
+      "ascent_m": 109,
+      "dur_min": 11.7,
+      "hr_z4_min": 0.3,
+      "zone": "Z3"
     },
     {
       "date": "2026-08-29",
-      "ride": "San Daniele",
-      "lap": "L6",
-      "np_w": 220,
-      "avg_hr": 160,
-      "zone": "Z3-Z4"
+      "ride": "road",
+      "lap": "L13",
+      "np_w": 219,
+      "avg_power_w": 192,
+      "avg_hr": 155,
+      "ascent_m": 169,
+      "dur_min": 16.8,
+      "hr_z4_min": 5.9,
+      "zone": "Z3"
+    },
+    {
+      "date": "2026-08-29",
+      "ride": "road",
+      "lap": "L8",
+      "np_w": 218,
+      "avg_power_w": 180,
+      "avg_hr": 150,
+      "ascent_m": 127,
+      "dur_min": 13.2,
+      "hr_z4_min": 2.0,
+      "zone": "Z3"
+    },
+    {
+      "date": "2026-08-29",
+      "ride": "road",
+      "lap": "L4",
+      "np_w": 216,
+      "avg_power_w": 178,
+      "avg_hr": 152,
+      "ascent_m": 84,
+      "dur_min": 10.9,
+      "hr_z4_min": 3.1,
+      "zone": "Z3"
     },
     {
       "date": "2026-08-22",
-      "ride": "Majano",
-      "lap": "L8",
+      "ride": "road",
+      "lap": "L7",
       "np_w": 216,
+      "avg_power_w": 201,
       "avg_hr": 153,
+      "ascent_m": 274,
+      "dur_min": 21.0,
+      "hr_z4_min": 0.1,
       "zone": "Z3"
     },
     {
-      "date": "2026-08-29",
-      "ride": "San Daniele",
-      "lap": "L8",
-      "np_w": 216,
-      "avg_hr": null,
-      "zone": "Z3"
+      "date": "2026-09-12",
+      "ride": "road",
+      "lap": "L1",
+      "np_w": 215,
+      "avg_power_w": 212,
+      "avg_hr": 158,
+      "ascent_m": 343,
+      "dur_min": 23.3,
+      "hr_z4_min": 1.1,
+      "zone": "Z3-Z4"
     },
     {
       "date": "2026-08-18",
-      "ride": "Tanamea",
-      "lap": "L7-8",
+      "ride": "road",
+      "lap": "L6",
       "np_w": 215,
+      "avg_power_w": 194,
       "avg_hr": 146,
-      "zone": "Z3",
-      "note": "80% proactive shifting"
+      "ascent_m": 267,
+      "dur_min": 21.1,
+      "hr_z4_min": 3.5,
+      "zone": "Z3"
     }
   ],
   "training_plan": {
@@ -1095,8 +1427,9 @@
     "RETRACTED": true,
     "what_was_claimed": "61 days with no Z4; 32 consecutive rides at zero; Aug and Sep 2026 both 0.0% Z4.",
     "why_it_was_wrong": "Derived from lap-average binning. Classifying a 10-minute lap by its mean HR erases Z4 minutes inside it. Per-second data shows Z4 in EVERY month of the dataset.",
-    "truth": "Z4 has never been absent. Aug 2026 was the season LOW at 28.5 min (0.9%), but not zero. Sep 2026 has 73.4 min (3.1%). The most recent ride (24 Sep) contained 11.7 min of Z4/Z5.",
-    "corrected_on": "2026-09-24"
+    "truth": "Z4 never absent. Aug 2026: 28.5 min (season low). Sep 2026: 73.1 min (recovering). Last Z4 ride: 2026-09-24 (11.9 min Z4). Source: training.db per-second analysis.",
+    "corrected_on": "2026-09-24",
+    "source": "training.db"
   },
   "structured_z4_precedent": {
     "finding": "Ettore already has a proven structured-Z4 habit \u2014 it was indoor. 4 winter trainer sessions contained repeated Z4 intervals (28-35 Z4 laps each, laps averaging 2.8 min). Outdoor rides never reproduced this: outdoor laps average 10.6 min and only ever contain 1-2 Z4 laps.",
@@ -1131,134 +1464,141 @@
     "interpretation": "The capability is not missing and does not need building from zero \u2014 it needs re-activating. The winter indoor block is the template."
   },
   "true_zone_distribution": {
-    "method": "Per-second from raw FIT files in data/fit-raw/. Every recorded sample classified by instantaneous HR, weighted by actual sample interval. This is definitive \u2014 no binning, no estimation.",
-    "data_points": 1189036,
-    "rides_included": 183,
-    "total_hours": 386.6,
+    "method": "Per-second from raw FIT files via training.db ETL. Every sample classified by instantaneous HR, weighted by actual sample interval. No binning, no Garmin summaries.",
+    "source": "training.db zone_summaries table",
+    "rides_included": 184,
+    "total_hours": 384.8,
     "z1_pct": 22.4,
     "z2_pct": 58.7,
     "z3_pct": 15.2,
-    "z4_pct": 3.6,
+    "z4_pct": 3.7,
     "z5_pct": 0.1,
-    "z1_hours": 86.6,
-    "z2_hours": 226.9,
-    "z3_hours": 58.8,
+    "z1_hours": 86.3,
+    "z2_hours": 225.7,
+    "z3_hours": 58.5,
     "z4_hours": 14.1,
     "z5_hours": 0.2,
     "z4_plus_z5_pct": 3.7,
     "z3_plus_pct": 18.9,
     "z4_target_pct": 15,
     "z4_gap_pp": 11.3,
-    "vs_lap_average": "Lap-averaging understated the hard zones badly: it reported Z3 9.0% and Z4 1.3%. True values are Z3 15.2% and Z4 3.6%. Averaging a 10-min lap hides the minutes spent above its mean.",
-    "by_type": {
-      "indoor": {
-        "z1_pct": 28.7,
-        "z2_pct": 57.5,
-        "z3_pct": 9.8,
-        "z4_pct": 3.8,
-        "z5_pct": 0.1,
-        "hours": 53.7
-      },
-      "outdoor": {
-        "z1_pct": 21.4,
-        "z2_pct": 58.9,
-        "z3_pct": 16.1,
-        "z4_pct": 3.6,
-        "z5_pct": 0.0,
-        "hours": 332.8
-      }
-    },
     "monthly": [
       {
         "month": "2025-09",
-        "z4z5_min": 3,
+        "z4z5_min": 2.5,
         "z4_pct": 0.8,
+        "z3_min": 25.1,
         "z3_pct": 8.0,
-        "hours": 5.2
+        "hours": 5.2,
+        "rides": 2
       },
       {
         "month": "2025-10",
-        "z4z5_min": 71,
-        "z4_pct": 5.6,
-        "z3_pct": 19.5,
-        "hours": 20.6
+        "z4z5_min": 70.6,
+        "z4_pct": 5.8,
+        "z3_min": 240.1,
+        "z3_pct": 19.6,
+        "hours": 20.4,
+        "rides": 12
       },
       {
         "month": "2025-11",
-        "z4z5_min": 52,
+        "z4z5_min": 51.6,
         "z4_pct": 4.0,
-        "z3_pct": 9.4,
-        "hours": 21.6
+        "z3_min": 120.0,
+        "z3_pct": 9.3,
+        "hours": 21.4,
+        "rides": 12
       },
       {
         "month": "2025-12",
-        "z4z5_min": 35,
+        "z4z5_min": 35.1,
         "z4_pct": 4.2,
+        "z3_min": 123.5,
         "z3_pct": 14.9,
-        "hours": 13.8
+        "hours": 13.8,
+        "rides": 13
       },
       {
         "month": "2026-01",
-        "z4z5_min": 21,
+        "z4z5_min": 20.6,
         "z4_pct": 2.8,
+        "z3_min": 73.0,
         "z3_pct": 9.9,
-        "hours": 12.4
+        "hours": 12.3,
+        "rides": 15
       },
       {
         "month": "2026-02",
-        "z4z5_min": 49,
-        "z4_pct": 5.9,
+        "z4z5_min": 49.2,
+        "z4_pct": 6.0,
+        "z3_min": 82.2,
         "z3_pct": 10.0,
-        "hours": 13.7
+        "hours": 13.7,
+        "rides": 13
       },
       {
         "month": "2026-03",
-        "z4z5_min": 88,
-        "z4_pct": 5.2,
-        "z3_pct": 20.9,
-        "hours": 25.7
+        "z4z5_min": 88.4,
+        "z4_pct": 5.8,
+        "z3_min": 322.0,
+        "z3_pct": 21.0,
+        "hours": 25.6,
+        "rides": 18
       },
       {
         "month": "2026-04",
-        "z4z5_min": 155,
-        "z4_pct": 7.5,
+        "z4z5_min": 155.2,
+        "z4_pct": 7.6,
+        "z3_min": 330.8,
         "z3_pct": 16.1,
-        "hours": 34.3
+        "hours": 34.2,
+        "rides": 16
       },
       {
         "month": "2026-05",
-        "z4z5_min": 105,
+        "z4z5_min": 104.5,
         "z4_pct": 3.2,
-        "z3_pct": 14.0,
-        "hours": 54.2
+        "z3_min": 454.7,
+        "z3_pct": 14.1,
+        "hours": 53.8,
+        "rides": 22
       },
       {
         "month": "2026-06",
-        "z4z5_min": 63,
+        "z4z5_min": 63.1,
         "z4_pct": 2.2,
+        "z3_min": 385.9,
         "z3_pct": 13.3,
-        "hours": 48.5
+        "hours": 48.3,
+        "rides": 17
       },
       {
         "month": "2026-07",
-        "z4z5_min": 114,
+        "z4z5_min": 114.2,
         "z4_pct": 4.3,
+        "z3_min": 598.3,
         "z3_pct": 22.6,
-        "hours": 44.2
+        "hours": 44.1,
+        "rides": 15
       },
       {
         "month": "2026-08",
-        "z4z5_min": 28,
+        "z4z5_min": 28.5,
         "z4_pct": 0.9,
+        "z3_min": 384.5,
         "z3_pct": 12.0,
-        "hours": 53.4
+        "hours": 53.4,
+        "rides": 14
       },
       {
         "month": "2026-09",
-        "z4z5_min": 73,
-        "z4_pct": 3.1,
-        "z3_pct": 16.2,
-        "hours": 38.7
+        "z4z5_min": 73.1,
+        "z4_pct": 3.2,
+        "z3_min": 371.6,
+        "z3_pct": 16.1,
+        "hours": 38.4,
+        "rides": 15
       }
     ]
   },
@@ -1301,17 +1641,27 @@
     "correction": "Previously reported as 0.0%. That was a lap-averaging artifact. Z5 is small but real: 12.5 min across 9 rides, peak 193bpm."
   },
   "power_zone_distribution": {
-    "method": "Per-second from raw FIT, FTP 256W.",
-    "rides_with_power": 141,
-    "total_hours": 312.2,
-    "z1_pct": 38.2,
-    "z2_pct": 40.0,
-    "z3_pct": 15.6,
-    "z4_pct": 4.1,
-    "z5_pct": 1.4,
-    "z6_pct": 0.5,
-    "z7_pct": 0.1,
-    "z4_plus_pct": 6.2
+    "method": "Per-second from raw FIT, training.db ETL.",
+    "source": "training.db zone_summaries table",
+    "rides_with_power": 142,
+    "total_hours": 310.4,
+    "ftp_256w": {
+      "z1_pct": 37.6,
+      "z2_pct": 39.7,
+      "z3_pct": 16.5,
+      "z4_pct": 4.2,
+      "z5_pct": 1.4,
+      "z6_pct": 0.5,
+      "z7_pct": 0.1,
+      "z4_plus_pct": 6.2,
+      "z4_plus_min": 1164
+    },
+    "ftp_235w": {
+      "z4_plus_pct": 12.1,
+      "z4_plus_min": 2260,
+      "vs_256_delta_min": 1096,
+      "note": "At FTP=235W, 1096 min of true threshold work is no longer mis-classified as Tempo"
+    }
   },
   "weekday_power_meter": {
     "finding": "The weekday bike DID have a power meter. 22 flat rides carry power data from Sep 2025 to 27 May 2026. Every flat ride from 1 Jun 2026 onward has none.",
@@ -1334,6 +1684,415 @@
         "mean_w": 159.7,
         "max_w": 660,
         "ride": "Milano Robecco Abbiategrasso (VO2M"
+      }
+    ]
+  },
+  "ftp_reassessment": {
+    "current_garmin_ftp": 256,
+    "evidence_based_ftp": 235,
+    "confidence": "medium-high",
+    "verdict": "FTP 256W is not supported by any power data in 13 months. It was a manual Garmin entry, never tested. Evidence converges on ~235W.",
+    "method": "Per-second analysis of the Tre Valli Varesine ride (19 Sep 2026) \u2014 the only near-maximal sustained effort in the dataset.",
+    "tre_valli_evidence": {
+      "decisive_effort": "14min 51s continuously above 231W at mean 262W",
+      "hr_during": "rose to 180bpm, which is 99% of the 2026 season max of 181bpm",
+      "final_5min_of_effort": "HR 178bpm at 249W \u2014 he was at the limit",
+      "best_15min": 261,
+      "best_18min": 257,
+      "best_20min": 238,
+      "why_20min_is_misleading": "The climb lasted ~15-16 min. The PDC drops 19W between 18min (257W) and 20min (238W) \u2014 a physiological curve cannot fall that fast. The 20-min window is forced to include post-climb descent, so it measures terrain, not threshold."
+    },
+    "estimates": [
+      {
+        "method": "15-min x 0.90",
+        "watts": 235
+      },
+      {
+        "method": "12-min x 0.88",
+        "watts": 233
+      },
+      {
+        "method": "CP model 3-20min fit",
+        "watts": 246,
+        "note": "W'=8141J, still low \u2014 suggests even this was sub-maximal at short durations"
+      },
+      {
+        "method": "CP x 0.97",
+        "watts": 239
+      },
+      {
+        "method": "20-min x 0.95",
+        "watts": 226,
+        "note": "DISCARD \u2014 20min window diluted by terrain"
+      }
+    ],
+    "recommended": 235,
+    "why_it_matters": "Zone boundaries scale with FTP. At 256W, power Z4 starts at 231W \u2014 above his actual threshold \u2014 so Z4 was close to unreachable and looked like a training deficit. At 235W, Z4 starts at 212W and measured Z4+ time rises from 6.3% to 12.1%, close to the 15% target. The deficit was largely an artifact of a wrong FTP.",
+    "action": "Do a dedicated 20-min test on a climb long enough to not truncate it, or a 40-60min TT. Until then use 235W.",
+    "primary_basis": "15-minute maximal climb effort on Tre Valli Varesine, 19 Sep 2026",
+    "fifteen_min_derivation": {
+      "best_15min_power_w": 261,
+      "starts_min_into_ride": 36,
+      "hr_mean": 174,
+      "hr_peak": 180,
+      "season_max_hr": 181,
+      "pct_of_max_hr": 99,
+      "last_3min": "HR 178bpm at 244W \u2014 he was at the ceiling",
+      "was_maximal": "Yes. HR reached 99% of season max and stayed there. Treat as a true 15-min max.",
+      "conversions": [
+        {
+          "factor": 0.88,
+          "ftp": 229,
+          "basis": "conservative"
+        },
+        {
+          "factor": 0.9,
+          "ftp": 235,
+          "basis": "standard 15-min conversion"
+        },
+        {
+          "factor": 0.92,
+          "ftp": 240,
+          "basis": "aggressive, well-developed aerobic base"
+        }
+      ],
+      "best_estimate": 235,
+      "range": [
+        229,
+        240
+      ]
+    },
+    "cross_validation": {
+      "at_235w": {
+        "15min_261w": "111% of FTP \u2014 expected 105-115% \u2713",
+        "60min_216w": "92% of FTP \u2014 expected 88-95% \u2713",
+        "5min_279w": "119% of FTP \u2014 expected 115-125% \u2713",
+        "verdict": "all coherent"
+      },
+      "at_256w": {
+        "15min_261w": "102% of FTP \u2014 implausibly low for a maximal 15min \u2717",
+        "60min_216w": "84% of FTP \u2014 too low \u2717",
+        "5min_279w": "109% of FTP \u2014 too low \u2717",
+        "verdict": "incoherent on every measure"
+      },
+      "conclusion": "Three independent durations all fit 235W and all contradict 256W."
+    },
+    "w_per_kg": 3.61
+  },
+  "power_zones_corrected": {
+    "ftp": 235,
+    "zones_w": {
+      "z1": "<129",
+      "z2": "129-176",
+      "z3": "176-212",
+      "z4": "212-247",
+      "z5": "247-282",
+      "z6": "282-352"
+    },
+    "old_ftp": 256,
+    "old_zones_w": {
+      "z1": "<141",
+      "z2": "141-192",
+      "z3": "192-230",
+      "z4": "230-269",
+      "z5": "269-307",
+      "z6": "307-384"
+    },
+    "note": "Use the corrected column for all interval targets. The old Z4 band (231-268W) is 98-114% of real FTP \u2014 that is VO2max, not threshold."
+  },
+  "true_pdc": {
+    "method": "Mean maximal power computed from per-second power records in training.db. No Garmin summaries.",
+    "rides_with_power": 142,
+    "curve": [
+      {
+        "duration": "5s",
+        "seconds": 5,
+        "watts": 934,
+        "date": "2026-08-03"
+      },
+      {
+        "duration": "30s",
+        "seconds": 30,
+        "watts": 445,
+        "date": "2025-11-09"
+      },
+      {
+        "duration": "1min",
+        "seconds": 60,
+        "watts": 358,
+        "date": "2025-11-09"
+      },
+      {
+        "duration": "5min",
+        "seconds": 300,
+        "watts": 279,
+        "date": "2026-09-19"
+      },
+      {
+        "duration": "10min",
+        "seconds": 600,
+        "watts": 267,
+        "date": "2026-09-19"
+      },
+      {
+        "duration": "20min",
+        "seconds": 1200,
+        "watts": 239,
+        "date": "2026-09-19"
+      },
+      {
+        "duration": "60min",
+        "seconds": 3600,
+        "watts": 216,
+        "date": "2026-07-25"
+      }
+    ],
+    "corrections": "60-min best is 216W, not the 163W previously recorded. 30-min (226W) and all sub-5min durations were never computed before.",
+    "data_quality_note": "1s peaks above ~1200W (2335W on 3 Aug, 1541W on 4 Jul, 1254W on 9 Aug) are sensor spikes, not real. Flagged, excluded from interpretation."
+  },
+  "self_detected_efforts": {
+    "method": "Efforts found by scanning the per-second signal for contiguous runs above a threshold (short dips tolerated). Garmin lap boundaries are not used at all.",
+    "hr_z3_ge155": {
+      "threshold": "HR >=155 for >=60s",
+      "efforts": 1040,
+      "rides": 150,
+      "total_minutes": 3927
+    },
+    "hr_z4_ge166": {
+      "threshold": "HR >=166 for >=60s",
+      "efforts": 221,
+      "rides": 86,
+      "total_minutes": 721
+    },
+    "pw_z3_ge193": {
+      "threshold": "power >=193W for >=30s",
+      "efforts": 2725,
+      "rides": 113,
+      "total_minutes": 3403
+    },
+    "pw_z4_ge231": {
+      "threshold": "power >=231W for >=30s",
+      "efforts": 641,
+      "rides": 87,
+      "total_minutes": 626
+    },
+    "pw_z5_ge269": {
+      "threshold": "power >=269W for >=30s",
+      "efforts": 128,
+      "rides": 42,
+      "total_minutes": 90
+    },
+    "longest_hr_z4_efforts": [
+      {
+        "dur": "35m36s",
+        "date": "2026-04-18",
+        "mean_hr": 172.3,
+        "peak_hr": 179,
+        "ride": "Albavilla Nesso Ghisallino Onn"
+      },
+      {
+        "dur": "19m00s",
+        "date": "2026-07-25",
+        "mean_hr": 172.5,
+        "peak_hr": 180,
+        "ride": "Ghisallino Power"
+      },
+      {
+        "dur": "17m01s",
+        "date": "2026-09-19",
+        "mean_hr": 176.4,
+        "peak_hr": 180,
+        "ride": "Tre Valli Varesine"
+      },
+      {
+        "dur": "16m42s",
+        "date": "2026-05-03",
+        "mean_hr": 172.2,
+        "peak_hr": 176,
+        "ride": "Onno Ghisallino Power"
+      },
+      {
+        "dur": "13m33s",
+        "date": "2026-09-12",
+        "mean_hr": 173.2,
+        "peak_hr": 178,
+        "ride": "Culmine di San Pietro"
+      },
+      {
+        "dur": "13m25s",
+        "date": "2026-07-25",
+        "mean_hr": 172.3,
+        "peak_hr": 177,
+        "ride": "Ghisallino Power"
+      },
+      {
+        "dur": "12m44s",
+        "date": "2026-07-25",
+        "mean_hr": 170.3,
+        "peak_hr": 174,
+        "ride": "Ghisallino Power"
+      },
+      {
+        "dur": "11m57s",
+        "date": "2025-10-05",
+        "mean_hr": 170.6,
+        "peak_hr": 174,
+        "ride": "Giro Tre Navigli"
+      }
+    ],
+    "insight": "221 discrete sustained Z4 HR efforts across 86 of 184 rides (47%). The longest is 35m36s on 18 Apr 2026. This is not a rider who lacks threshold exposure."
+  },
+  "climbs_detected": {
+    "method": "Climbs detected from smoothed altitude gradient alone \u2014 sustained positive-gradient segments with >=30m gain and >=120s duration. Garmin laps not used.",
+    "total_detected": 357,
+    "biggest": [
+      {
+        "gain_m": 1054.3,
+        "dur": "33m06s",
+        "vam": 1911,
+        "np_w": 183.5,
+        "hr_mean": 148.7,
+        "date": "2026-07-02",
+        "ride": "Cortina Misurina climbing"
+      },
+      {
+        "gain_m": 945.3,
+        "dur": "82m54s",
+        "vam": 684,
+        "np_w": 175.7,
+        "hr_mean": 149.0,
+        "date": "2026-06-27",
+        "ride": "Cortina Falzarego Valparola "
+      },
+      {
+        "gain_m": 944.1,
+        "dur": "81m46s",
+        "vam": 693,
+        "np_w": 179.5,
+        "hr_mean": 146.9,
+        "date": "2026-07-31",
+        "ride": "Cortina Valparola Gardena Ca"
+      },
+      {
+        "gain_m": 875.0,
+        "dur": "68m39s",
+        "vam": 765,
+        "np_w": 183.7,
+        "hr_mean": 156.2,
+        "date": "2026-05-29",
+        "ride": "Valcava"
+      },
+      {
+        "gain_m": 869.6,
+        "dur": "69m05s",
+        "vam": 755,
+        "np_w": 179.5,
+        "hr_mean": 157.0,
+        "date": "2026-08-09",
+        "ride": "Cortina Monster Giau Valparo"
+      },
+      {
+        "gain_m": 862.8,
+        "dur": "72m40s",
+        "vam": 712,
+        "np_w": 183.5,
+        "hr_mean": 143.3,
+        "date": "2026-08-13",
+        "ride": "Cortina Falzarego Campolongo"
+      },
+      {
+        "gain_m": 743.1,
+        "dur": "66m32s",
+        "vam": 670,
+        "np_w": 172.6,
+        "hr_mean": 154.9,
+        "date": "2026-07-12",
+        "ride": "Cortina Giau Falzarego Tre C"
+      },
+      {
+        "gain_m": 712.6,
+        "dur": "48m52s",
+        "vam": 875,
+        "np_w": 209.9,
+        "hr_mean": 169.8,
+        "date": "2026-04-18",
+        "ride": "Albavilla Nesso Ghisallino O"
+      },
+      {
+        "gain_m": 705.5,
+        "dur": "56m48s",
+        "vam": 745,
+        "np_w": 179.6,
+        "hr_mean": 155.1,
+        "date": "2026-07-04",
+        "ride": "Cortina Giau Campolongo Valp"
+      },
+      {
+        "gain_m": 701.1,
+        "dur": "45m36s",
+        "vam": 923,
+        "np_w": 225.9,
+        "hr_mean": 169.5,
+        "date": "2026-07-25",
+        "ride": "Ghisallino Power"
+      }
+    ]
+  },
+  "decoupling": {
+    "method": "Power:HR efficiency ratio, first vs second half of MOVING time only (speed>1m/s), per-second. Stopped time excluded so cafe stops cannot fake drift.",
+    "rides": 141,
+    "best": [
+      {
+        "pct": 0.4,
+        "date": "2026-08-19",
+        "ride": "Friuli Tanamea Caporetto Civid"
+      },
+      {
+        "pct": 0.7,
+        "date": "2025-10-07",
+        "ride": "Milano Robecco"
+      },
+      {
+        "pct": 0.7,
+        "date": "2026-04-11",
+        "ride": "Giro Lago di Como"
+      },
+      {
+        "pct": 0.7,
+        "date": "2026-05-15",
+        "ride": "Indoor trainer session"
+      },
+      {
+        "pct": 1.0,
+        "date": "2025-10-25",
+        "ride": "Milano Mairano Morimondo"
+      }
+    ],
+    "worst": [
+      {
+        "pct": -38.7,
+        "date": "2025-12-07",
+        "ride": "Indoor trainer session"
+      },
+      {
+        "pct": -35.7,
+        "date": "2026-06-07",
+        "ride": "Como Balcone Lugano"
+      },
+      {
+        "pct": -35.5,
+        "date": "2026-06-14",
+        "ride": "Mottarone Sovazza"
+      },
+      {
+        "pct": -33.8,
+        "date": "2026-07-19",
+        "ride": "Como Balcone Lugano"
+      },
+      {
+        "pct": -33.3,
+        "date": "2026-05-29",
+        "ride": "Valcava"
       }
     ]
   }
