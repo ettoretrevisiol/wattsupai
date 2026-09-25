@@ -2671,27 +2671,37 @@
       {
         "date": "2026-09-19",
         "pdc20_w": 239,
-        "wpkg": 3.68
+        "wpkg": 3.68,
+        "ride_name": "Tre Valli Varesine",
+        "activity_id": "24419641071"
       },
       {
         "date": "2026-07-25",
         "pdc20_w": 228,
-        "wpkg": 3.51
+        "wpkg": 3.51,
+        "ride_name": "Como - Nesso - Ghisallino",
+        "activity_id": "23724892894"
       },
       {
         "date": "2026-09-12",
         "pdc20_w": 226,
-        "wpkg": 3.48
+        "wpkg": 3.48,
+        "ride_name": "Lecco - Culmine - Taleggio",
+        "activity_id": "24332535841"
       },
       {
         "date": "2026-05-03",
         "pdc20_w": 224,
-        "wpkg": 3.45
+        "wpkg": 3.45,
+        "ride_name": "Onno - Ghisallino",
+        "activity_id": "22749247005"
       },
       {
         "date": "2026-08-22",
         "pdc20_w": 222,
-        "wpkg": 3.42
+        "wpkg": 3.42,
+        "ride_name": "Ara - Majano - Monteaperta",
+        "activity_id": "24071620702"
       }
     ],
     "monthly_elevation": [
@@ -2775,7 +2785,8 @@
         "km": 131.0,
         "hours": 8.6,
         "elev_m": 3812.0,
-        "activity_id": "23912303030"
+        "activity_id": "23912303030",
+        "ride_name": "Cortina - Falzarego - Gardena - Sella - Pordoi - Giau"
       },
       {
         "date": "2026-06-27",
@@ -2783,7 +2794,8 @@
         "km": 120.0,
         "hours": 7.1,
         "elev_m": 3297.0,
-        "activity_id": "23396147027"
+        "activity_id": "23396147027",
+        "ride_name": "Cortina - Falzarego - Gardena - Sella - Pordoi"
       },
       {
         "date": "2026-07-12",
@@ -2791,7 +2803,8 @@
         "km": 106.0,
         "hours": 6.4,
         "elev_m": 2910.0,
-        "activity_id": "23570316392"
+        "activity_id": "23570316392",
+        "ride_name": "Cortina - Giau - Falzarego - Tre Croci"
       },
       {
         "date": "2026-07-04",
@@ -2799,7 +2812,8 @@
         "km": 105.0,
         "hours": 6.4,
         "elev_m": 3005.0,
-        "activity_id": "23476724958"
+        "activity_id": "23476724958",
+        "ride_name": "Cortina - Giau - Campolongo - Falzarego"
       },
       {
         "date": "2026-05-09",
@@ -2807,7 +2821,8 @@
         "km": 116.0,
         "hours": 6.4,
         "elev_m": 2489.0,
-        "activity_id": "22820987608"
+        "activity_id": "22820987608",
+        "ride_name": "Ghisallo - Colma - Vicere"
       },
       {
         "date": "2026-05-23",
@@ -2815,7 +2830,8 @@
         "km": 144.0,
         "hours": 7.1,
         "elev_m": 1693.0,
-        "activity_id": "22984152670"
+        "activity_id": "22984152670",
+        "ride_name": "Tre Laghi"
       }
     ],
     "top_efficiency": [
@@ -2825,7 +2841,8 @@
         "np_w": 199,
         "hr_bpm": 140,
         "elev_m": 823.0,
-        "activity_id": "23432733741"
+        "activity_id": "23432733741",
+        "ride_name": "Cortina - Baita Resch"
       },
       {
         "date": "2026-08-25",
@@ -2833,7 +2850,8 @@
         "np_w": 196,
         "hr_bpm": 140,
         "elev_m": 396.0,
-        "activity_id": "24113456628"
+        "activity_id": "24113456628",
+        "ride_name": "Ara - Fagagna - Tavagnacco"
       },
       {
         "date": "2025-11-14",
@@ -2841,7 +2859,8 @@
         "np_w": 177,
         "hr_bpm": 127,
         "elev_m": 62.0,
-        "activity_id": "20986520209"
+        "activity_id": "20986520209",
+        "ride_name": "Milano - Abbiategrasso"
       },
       {
         "date": "2026-08-23",
@@ -2849,7 +2868,8 @@
         "np_w": 184,
         "hr_bpm": 134,
         "elev_m": 1821.0,
-        "activity_id": "24083392793"
+        "activity_id": "24083392793",
+        "ride_name": "Ara - Monteaperta - Taipana"
       },
       {
         "date": "2026-08-27",
@@ -2857,7 +2877,8 @@
         "np_w": 198,
         "hr_bpm": 148,
         "elev_m": 273.0,
-        "activity_id": "24132511348"
+        "activity_id": "24132511348",
+        "ride_name": "Ara - Attimis - Povoletto"
       }
     ],
     "monthly_cadence": [
