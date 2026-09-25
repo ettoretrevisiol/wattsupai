@@ -420,21 +420,40 @@ function renderSeason(d) {
       <div class="card card-accent-orange" style="position:relative;overflow:hidden;">
         <div style="position:absolute;top:-40px;right:-40px;width:160px;height:160px;border-radius:50%;background:radial-gradient(circle,rgba(249,115,22,.1) 0%,transparent 70%);pointer-events:none;"></div>
         <div class="card-title"><span class="ct-dot" style="background:var(--orange)"></span>⚡ WattsUpAI Status</div>
-        <div style="font-size:2rem;font-weight:900;color:var(--orange);letter-spacing:-.02em;margin-bottom:6px;">${s.label}</div>
-        <div style="font-size:.78rem;color:var(--dim);line-height:1.65;margin-bottom:14px;">
-          <strong style="color:var(--text)">Deep FIT analysis — ${d._meta.outdoor_power_rides} power meter rides:</strong><br><br>
-          NP range: <strong style="color:var(--text)">143–199W</strong> (FTP ${d.athlete.ftp_w}W = 56–78%). Nearly every ride is Aerobic Base or Tempo.
-          <strong style="color:var(--green)">Only ${ss.lt_vo2max_sessions} LT/VO2max sessions in 12 months.</strong><br><br>
-          <strong style="color:var(--blue)">20min PDC arc:</strong> Jun low ${d.pdc_progression.data.find(x=>x.highlight==='aug_best')?.['^']||174}W → Jul 25 peak 228W → Sep 19 <strong style="color:var(--orange)">${ss.pdc_20min_peak_w}W — season best</strong>.<br><br>
-          <strong style="color:var(--orange)">⚡ Why outdoor rides cap out:</strong> Long rides structurally prevent sustained Z4 accumulation. You get zone spikes (Culmine L12=243W, Tre Valli L4=237W) but not threshold load. Structured Tue/Thu intervals are the fix.
-        </div>
+        ${(() => {
+          const ws = d.wattsupai_status;
+          if (!ws) return `<div style="font-size:2rem;font-weight:900;color:var(--orange);">${s.label}</div>`;
+          const colMap = {green:'var(--green)',blue:'var(--blue)',orange:'var(--orange)',red:'var(--red)',yellow:'var(--amber)'};
+          const col = colMap[ws.color] || 'var(--orange)';
+          const codeLabel = {
+            BUILDING:    '↑ Building',
+            PRODUCTIVE:  '✓ Productive',
+            BASE_PHASE:  '⚡ Base Phase',
+            MAINTAINING: '→ Maintaining',
+            DETRAINING:  '↓ Detraining',
+            OVERREACHING:'🔴 Overreaching',
+          }[ws.code] || ws.code;
+          return `
+          <div style="font-size:2rem;font-weight:900;color:${col};letter-spacing:-.02em;margin-bottom:4px;">${codeLabel}</div>
+          <div style="font-size:.82rem;font-weight:600;color:var(--text);margin-bottom:10px;">${ws.label}</div>
+          <div style="font-size:.76rem;color:var(--dim);line-height:1.7;margin-bottom:14px;">${ws.explanation}</div>
+          <div style="font-size:.7rem;color:var(--muted);margin-bottom:10px;padding:8px;background:rgba(0,0,0,.15);border-radius:6px;">
+            <strong style="color:var(--text);">Signal breakdown (28 days):</strong><br>
+            🔋 Power Z4+ (Sat/weekend bike): <strong>${ws.pw_z4_min_28d}min</strong><br>
+            💓 HR Z4+ (weekday bike fallback): <strong>${ws.weekday_z4_min_28d}min</strong><br>
+            Combined dual-signal: <strong style="color:${col};">${ws.dual_z4_min_28d}min (${ws.dual_z4_pct_28d}%)</strong>
+            · ${ws.rides_28d} rides · ${ws.power_rides_28d} with power
+          </div>`;
+        })()}
         <div style="display:flex;flex-wrap:wrap;gap:7px;">
           <span class="badge b-green">✓ CTL ${s.ctl}</span>
-          <span class="badge b-green">✓ ${d._meta.outdoor_power_rides} power rides analysed</span>
           <span class="badge b-green">✓ HRV ${s.hrv_weekly_avg_ms}ms balanced</span>
-          <span class="badge b-orange">⚡ ${ss.lt_vo2max_sessions} LT/VO2max rides in 12mo</span>
-          <span class="badge b-orange">⚡ 20min PDC 174→${ss.pdc_20min_peak_w}W</span>
-          <span class="badge b-red">✗ No structured Z4 intervals yet</span>
+          <span class="badge b-${d.wattsupai_status?.dual_z4_pct_28d >= 10 ? 'green' : 'orange'}">
+            ⚡ Z4+ ${d.wattsupai_status?.dual_z4_pct_28d||'?'}% (dual-signal)
+          </span>
+          <span class="badge b-${d.wattsupai_status?.np_trend==='rising'?'green':'orange'}">
+            NP ${d.wattsupai_status?.latest_sat_np||'?'}W ${d.wattsupai_status?.np_trend==='rising'?'↑':d.wattsupai_status?.np_trend==='falling'?'↓':'→'}
+          </span>
         </div>
         ${planProgress ? `<div style="margin-top:10px;font-size:.72rem;color:var(--muted);">📅 ${planProgress}</div>` : ''}
       </div>
@@ -462,25 +481,61 @@ function renderSeason(d) {
         </div>
       </div>
 
+
       <div class="card card-accent-green">
         <div class="card-title"><span class="ct-dot" style="background:var(--green)"></span>Status Scale</div>
         <div style="display:flex;flex-direction:column;gap:8px;margin-top:4px;font-size:.76rem;">
           ${[
-            {label:'Peaking', desc:'CTL high, fresh, quality work landing', col:'var(--green)', active:s.label==='Peaking'},
-            {label:'Building', desc:'fitness trend positive, Z4 consistent', col:'#4ade80', active:s.label==='Building'},
-            {label:'Maintaining', desc:'load stable, no regression or progression', col:'var(--blue)', active:s.label==='Maintaining'},
-            {label:'Plateau', desc:'fit, Z2/Z3 solid, Z4 absent', col:'var(--orange)', active:s.label==='Plateau'},
-            {label:'Recovering', desc:'intentional rest, load reduced', col:'var(--amber)', active:s.label==='Recovering'},
-            {label:'Overreaching', desc:'HRV suppressed, RHR elevated', col:'var(--red)', active:s.label==='Overreaching'},
-          ].map(item => `
-          <div style="display:flex;align-items:center;gap:10px;${item.active?'opacity:1':'opacity:.65'}">
-            <span style="width:10px;height:10px;border-radius:50%;background:${item.col};flex-shrink:0;display:inline-block;${item.active?`box-shadow:0 0 6px ${item.col}`:''};"></span>
-            <div><strong style="color:${item.active?item.col:'var(--text)'}">${item.label}${item.active?' ← Ettore':''}</strong> <span style="color:var(--muted)">${item.desc}</span></div>
-          </div>`).join('')}
+            {code:'BUILDING',    label:'↑ Building',    desc:'Dual-signal Z4+ ≥12%, NP trending up',         col:'var(--green)'},
+            {code:'PRODUCTIVE',  label:'✓ Productive',  desc:'Z4+ 7–12%, base solid, intensity adequate',    col:'var(--blue)'},
+            {code:'BASE_PHASE',  label:'⚡ Base Phase',  desc:'Volume good, Z4 below target — add intensity', col:'var(--orange)'},
+            {code:'MAINTAINING', label:'→ Maintaining', desc:'Consistent but low stimulus, FTP holding',     col:'var(--amber)'},
+            {code:'DETRAINING',  label:'↓ Detraining',  desc:'Ride frequency or CTL dropping',              col:'#6b7280'},
+            {code:'OVERREACHING',label:'🔴 Overreaching',desc:'HRV suppressed, reduce load immediately',    col:'var(--red)'},
+          ].map(item => {
+            const active = d.wattsupai_status?.code === item.code;
+            return `<div style="display:flex;align-items:center;gap:10px;${active?'opacity:1':'opacity:.55'}">
+              <span style="width:10px;height:10px;border-radius:50%;background:${item.col};flex-shrink:0;display:inline-block;${active?`box-shadow:0 0 6px ${item.col}`:''};"></span>
+              <div><strong style="color:${active?item.col:'var(--text)'}">
+                ${item.label}${active?' ← now':''}
+              </strong> <span style="color:var(--muted)">${item.desc}</span></div>
+            </div>`;
+          }).join('')}
         </div>
         <div class="insight good" style="margin-top:12px;font-size:.72rem;">
-          <strong>To flip Plateau → Building:</strong> 2× structured Z4/week for 2 weeks.
+          <strong>Model:</strong> power Z4+ (FTP=245W, weekend bike) · HR Z4+ fallback (weekday bike) · trailing 28 days.
         </div>
+      </div>
+    </div>
+
+    <div class="section-label">Season Status History — WattsUpAI model, weekly</div>
+    <div class="card card-accent-blue" style="margin-bottom:16px;">
+      <div class="card-title"><span class="ct-dot"></span>Status timeline — ${(d.wattsupai_status_history||[]).length} weeks · bar height = dual-signal Z4%</div>
+      <div style="overflow-x:auto;padding-bottom:4px;">
+        <div style="display:flex;align-items:flex-end;gap:3px;min-width:600px;height:80px;padding-top:8px;">
+          ${(d.wattsupai_status_history||[]).map(w => {
+            const colMap = {BUILDING:'var(--green)',PRODUCTIVE:'var(--blue)',BASE_PHASE:'var(--orange)',MAINTAINING:'var(--amber)',DETRAINING:'#6b7280',OVERREACHING:'var(--red)'};
+            const col = colMap[w.code] || 'var(--dim)';
+            const ht = Math.max(8, Math.min(64, Math.round(w.dual_z4_pct * 4)));
+            const isNow = w === (d.wattsupai_status_history||[]).slice(-1)[0];
+            return `<div title="${w.week}: ${w.code} · Z4=${w.dual_z4_pct}% · NP=${w.latest_sat_np||'?'}W"
+              style="flex:1;min-width:6px;height:${ht}px;background:${col};opacity:${isNow?1:.75};
+                     border-radius:2px 2px 0 0;${isNow?`box-shadow:0 0 6px ${col}`:''};"></div>`;
+          }).join('')}
+        </div>
+        <div style="display:flex;justify-content:space-between;margin-top:4px;font-size:.62rem;color:var(--muted);">
+          <span>${(d.wattsupai_status_history||[])[0]?.week?.slice(0,7)||''}</span>
+          <span>${(d.wattsupai_status_history||[]).slice(-1)[0]?.week?.slice(0,7)||''}</span>
+        </div>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:10px;font-size:.7rem;">
+        ${[['BUILDING','var(--green)','↑ Building'],['PRODUCTIVE','var(--blue)','✓ Productive'],
+           ['BASE_PHASE','var(--orange)','⚡ Base Phase'],['MAINTAINING','var(--amber)','→ Maintaining'],
+           ['DETRAINING','#6b7280','↓ Detraining']].map(([code,col,lbl])=>
+          `<span style="display:flex;align-items:center;gap:4px;">
+            <span style="width:8px;height:8px;border-radius:2px;background:${col};display:inline-block;"></span>
+            <span style="color:var(--dim);">${lbl}</span>
+          </span>`).join('')}
       </div>
     </div>
 

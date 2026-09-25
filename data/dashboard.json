@@ -2316,7 +2316,7 @@
   },
   "week_summary": {
     "week_start": "2026-09-21",
-    "week_end": "2026-09-24",
+    "week_end": "2026-09-25",
     "week_label": "W1 Re-anchor Z3",
     "plan_week_num": 1,
     "rides_count": 3,
@@ -2383,8 +2383,7 @@
       "elev_m": 2086.0,
       "km": 127.0,
       "hours": 6.3,
-      "np_trend_vs_prev": "flat",
-      "ride_name": "Tre Valli Varesine"
+      "np_trend_vs_prev": "flat"
     },
     {
       "date": "2026-09-12",
@@ -2393,8 +2392,7 @@
       "elev_m": 1983.0,
       "km": 102.0,
       "hours": 4.9,
-      "np_trend_vs_prev": "up",
-      "ride_name": "Lecco - Culmine"
+      "np_trend_vs_prev": "up"
     },
     {
       "date": "2026-09-05",
@@ -2403,8 +2401,7 @@
       "elev_m": 1867.0,
       "km": 101.0,
       "hours": 4.7,
-      "np_trend_vs_prev": "down",
-      "ride_name": "Lecco - Agueglio - Morterone"
+      "np_trend_vs_prev": "down"
     },
     {
       "date": "2026-08-29",
@@ -2413,8 +2410,7 @@
       "elev_m": 1040.0,
       "km": 101.0,
       "hours": 3.7,
-      "np_trend_vs_prev": null,
-      "ride_name": "Ara - San Daniele - Fagagna"
+      "np_trend_vs_prev": null
     }
   ],
   "best_vam_laps": [
@@ -2426,8 +2422,7 @@
       "min": 22.6,
       "power_w": 228,
       "hr_bpm": 168,
-      "activity_id": "23724892894",
-      "ride_name": "Como - Nesso - Ghisallino"
+      "activity_id": "23724892894"
     },
     {
       "date": "2026-07-25",
@@ -2437,8 +2432,7 @@
       "min": 22.6,
       "power_w": 222,
       "hr_bpm": 172,
-      "activity_id": "23724892894",
-      "ride_name": "Como - Nesso - Ghisallino"
+      "activity_id": "23724892894"
     },
     {
       "date": "2026-09-12",
@@ -2448,8 +2442,7 @@
       "min": 23.3,
       "power_w": 215,
       "hr_bpm": 158,
-      "activity_id": "24332535841",
-      "ride_name": "Lecco - Culmine - Taleggio"
+      "activity_id": "24332535841"
     },
     {
       "date": "2026-04-18",
@@ -2459,8 +2452,7 @@
       "min": 25.2,
       "power_w": 210,
       "hr_bpm": 172,
-      "activity_id": "22570119691",
-      "ride_name": "Albavilla - Nesso - Ghisallino"
+      "activity_id": "22570119691"
     },
     {
       "date": "2026-05-09",
@@ -2470,8 +2462,7 @@
       "min": 27.2,
       "power_w": 208,
       "hr_bpm": 162,
-      "activity_id": "22820987608",
-      "ride_name": "Ghisallo - Colma - Vicere"
+      "activity_id": "22820987608"
     },
     {
       "date": "2026-08-23",
@@ -2481,8 +2472,7 @@
       "min": 22.7,
       "power_w": 210,
       "hr_bpm": 148,
-      "activity_id": "24083392793",
-      "ride_name": "Ara - Monteaperta - Taipana"
+      "activity_id": "24083392793"
     },
     {
       "date": "2026-08-30",
@@ -2492,8 +2482,7 @@
       "min": 22.6,
       "power_w": 207,
       "hr_bpm": 154,
-      "activity_id": "24170541318",
-      "ride_name": "Ara - Forgaria - Versegnis"
+      "activity_id": "24170541318"
     },
     {
       "date": "2026-08-16",
@@ -2503,8 +2492,7 @@
       "min": 10.2,
       "power_w": 202,
       "hr_bpm": 149,
-      "activity_id": "23996169972",
-      "ride_name": "Cortina - Giau - Valparola"
+      "activity_id": "23996169972"
     },
     {
       "date": "2026-09-12",
@@ -2514,8 +2502,7 @@
       "min": 20.4,
       "power_w": 243,
       "hr_bpm": 164,
-      "activity_id": "24332535841",
-      "ride_name": "Lecco - Culmine - Taleggio"
+      "activity_id": "24332535841"
     },
     {
       "date": "2026-09-05",
@@ -2525,8 +2512,7 @@
       "min": 25.1,
       "power_w": 201,
       "hr_bpm": 155,
-      "activity_id": "24245491818",
-      "ride_name": "Lecco - Agueglio - Morterone"
+      "activity_id": "24245491818"
     }
   ],
   "longest_rides": {
@@ -2538,8 +2524,7 @@
         "elev_m": 1171.0,
         "np_w": 157,
         "hr_bpm": 144,
-        "activity_id": "22488657053",
-        "ride_name": "Giro del Lago di Como"
+        "activity_id": "22488657053"
       },
       {
         "date": "2026-05-23",
@@ -2548,8 +2533,7 @@
         "elev_m": 1693.0,
         "np_w": 156,
         "hr_bpm": 137,
-        "activity_id": "22984152670",
-        "ride_name": "Tre Laghi"
+        "activity_id": "22984152670"
       },
       {
         "date": "2026-05-17",
@@ -2558,8 +2542,7 @@
         "elev_m": 532.0,
         "np_w": 160,
         "hr_bpm": 143,
-        "activity_id": "22913695000",
-        "ride_name": "Milano - Sesto Calende"
+        "activity_id": "22913695000"
       },
       {
         "date": "2026-04-04",
@@ -2568,8 +2551,7 @@
         "elev_m": 249.0,
         "np_w": 146,
         "hr_bpm": 148,
-        "activity_id": "22405438246",
-        "ride_name": "Milano - Maddalena - Morimondo"
+        "activity_id": "22405438246"
       },
       {
         "date": "2026-08-09",
@@ -2578,8 +2560,7 @@
         "elev_m": 3812.0,
         "np_w": 171,
         "hr_bpm": 140,
-        "activity_id": "23912303030",
-        "ride_name": "Cortina - Falzarego - Gardena - Sella - Pordoi - Giau"
+        "activity_id": "23912303030"
       },
       {
         "date": "2026-09-19",
@@ -2588,8 +2569,7 @@
         "elev_m": 2086.0,
         "np_w": 182,
         "hr_bpm": 139,
-        "activity_id": "24419641071",
-        "ride_name": "Tre Valli Varesine"
+        "activity_id": "24419641071"
       },
       {
         "date": "2026-06-06",
@@ -2598,8 +2578,7 @@
         "elev_m": 686.0,
         "np_w": 159,
         "hr_bpm": 139,
-        "activity_id": "23150708559",
-        "ride_name": "Oltre Po"
+        "activity_id": "23150708559"
       },
       {
         "date": "2025-11-08",
@@ -2608,8 +2587,7 @@
         "elev_m": 292.0,
         "np_w": 153,
         "hr_bpm": 143,
-        "activity_id": "20929436812",
-        "ride_name": "Milano - Pavia - Ticino - Robecco"
+        "activity_id": "20929436812"
       }
     ],
     "by_duration": [
@@ -2620,8 +2598,7 @@
         "elev_m": 3812.0,
         "np_w": 171,
         "hr_bpm": 140,
-        "activity_id": "23912303030",
-        "ride_name": "Cortina - Falzarego - Gardena - Sella - Pordoi - Giau"
+        "activity_id": "23912303030"
       },
       {
         "date": "2026-06-27",
@@ -2630,8 +2607,7 @@
         "elev_m": 3297.0,
         "np_w": 162,
         "hr_bpm": 139,
-        "activity_id": "23396147027",
-        "ride_name": "Cortina - Falzarego - Gardena - Sella - Pordoi"
+        "activity_id": "23396147027"
       },
       {
         "date": "2026-05-23",
@@ -2640,8 +2616,7 @@
         "elev_m": 1693.0,
         "np_w": 156,
         "hr_bpm": 137,
-        "activity_id": "22984152670",
-        "ride_name": "Tre Laghi"
+        "activity_id": "22984152670"
       },
       {
         "date": "2026-07-12",
@@ -2650,8 +2625,7 @@
         "elev_m": 2910.0,
         "np_w": 162,
         "hr_bpm": 143,
-        "activity_id": "23570316392",
-        "ride_name": "Cortina - Giau - Falzarego - Tre Croci"
+        "activity_id": "23570316392"
       },
       {
         "date": "2026-07-04",
@@ -2660,8 +2634,7 @@
         "elev_m": 3005.0,
         "np_w": 166,
         "hr_bpm": 143,
-        "activity_id": "23476724958",
-        "ride_name": "Cortina - Giau - Campolongo - Falzarego"
+        "activity_id": "23476724958"
       },
       {
         "date": "2026-05-09",
@@ -2670,8 +2643,7 @@
         "elev_m": 2489.0,
         "np_w": 171,
         "hr_bpm": 144,
-        "activity_id": "22820987608",
-        "ride_name": "Ghisallo - Colma - Vicere"
+        "activity_id": "22820987608"
       },
       {
         "date": "2026-06-07",
@@ -2680,8 +2652,7 @@
         "elev_m": 1657.0,
         "np_w": 149,
         "hr_bpm": 132,
-        "activity_id": "23164118181",
-        "ride_name": "Como - Balcone - Lugano"
+        "activity_id": "23164118181"
       },
       {
         "date": "2026-09-19",
@@ -2690,8 +2661,7 @@
         "elev_m": 2086.0,
         "np_w": 182,
         "hr_bpm": 139,
-        "activity_id": "24419641071",
-        "ride_name": "Tre Valli Varesine"
+        "activity_id": "24419641071"
       }
     ]
   },
@@ -2805,8 +2775,7 @@
         "km": 131.0,
         "hours": 8.6,
         "elev_m": 3812.0,
-        "activity_id": "23912303030",
-        "ride_name": "Cortina - Falzarego - Gardena - Sella - Pordoi - Giau"
+        "activity_id": "23912303030"
       },
       {
         "date": "2026-06-27",
@@ -2814,8 +2783,7 @@
         "km": 120.0,
         "hours": 7.1,
         "elev_m": 3297.0,
-        "activity_id": "23396147027",
-        "ride_name": "Cortina - Falzarego - Gardena - Sella - Pordoi"
+        "activity_id": "23396147027"
       },
       {
         "date": "2026-07-12",
@@ -2823,8 +2791,7 @@
         "km": 106.0,
         "hours": 6.4,
         "elev_m": 2910.0,
-        "activity_id": "23570316392",
-        "ride_name": "Cortina - Giau - Falzarego - Tre Croci"
+        "activity_id": "23570316392"
       },
       {
         "date": "2026-07-04",
@@ -2832,8 +2799,7 @@
         "km": 105.0,
         "hours": 6.4,
         "elev_m": 3005.0,
-        "activity_id": "23476724958",
-        "ride_name": "Cortina - Giau - Campolongo - Falzarego"
+        "activity_id": "23476724958"
       },
       {
         "date": "2026-05-09",
@@ -2841,8 +2807,7 @@
         "km": 116.0,
         "hours": 6.4,
         "elev_m": 2489.0,
-        "activity_id": "22820987608",
-        "ride_name": "Ghisallo - Colma - Vicere"
+        "activity_id": "22820987608"
       },
       {
         "date": "2026-05-23",
@@ -2850,8 +2815,7 @@
         "km": 144.0,
         "hours": 7.1,
         "elev_m": 1693.0,
-        "activity_id": "22984152670",
-        "ride_name": "Tre Laghi"
+        "activity_id": "22984152670"
       }
     ],
     "top_efficiency": [
@@ -2861,8 +2825,7 @@
         "np_w": 199,
         "hr_bpm": 140,
         "elev_m": 823.0,
-        "activity_id": "23432733741",
-        "ride_name": "Cortina - Baita Resch"
+        "activity_id": "23432733741"
       },
       {
         "date": "2026-08-25",
@@ -2886,8 +2849,7 @@
         "np_w": 184,
         "hr_bpm": 134,
         "elev_m": 1821.0,
-        "activity_id": "24083392793",
-        "ride_name": "Ara - Monteaperta - Taipana"
+        "activity_id": "24083392793"
       },
       {
         "date": "2026-08-27",
@@ -2960,5 +2922,659 @@
         "rides": 15
       }
     ]
-  }
+  },
+  "wattsupai_status": {
+    "code": "PRODUCTIVE",
+    "label": "Productive \u2014 base solid, intensity adequate",
+    "color": "blue",
+    "explanation": "Z4+ at 10.9% (dual-signal, 28d). NP falling at 182W. Above minimum threshold stimulus. Continue current structure.",
+    "dual_z4_min_28d": 297.9,
+    "dual_z4_pct_28d": 10.9,
+    "pw_z4_min_28d": 272.1,
+    "weekday_z4_min_28d": 25.8,
+    "this_week_z4_min": 15.7,
+    "np_trend": "falling",
+    "latest_sat_np": 182,
+    "rides_28d": 17,
+    "power_rides_28d": 6,
+    "signal_note": "Power Z4 (Sat/weekend bike, FTP=245W): 272min | HR Z4 (weekday bike, fallback): 26min"
+  },
+  "wattsupai_status_history": [
+    {
+      "week": "2025-09-22",
+      "code": "DETRAINING",
+      "color": "red",
+      "dual_z4_min": 0,
+      "dual_z4_pct": 0,
+      "pw_z4_min": 0,
+      "wd_z4_min": 0,
+      "rides_28d": 0,
+      "power_rides": 0,
+      "latest_sat_np": null
+    },
+    {
+      "week": "2025-09-29",
+      "code": "DETRAINING",
+      "color": "red",
+      "dual_z4_min": 17.3,
+      "dual_z4_pct": 5.6,
+      "pw_z4_min": 17.3,
+      "wd_z4_min": 0,
+      "rides_28d": 2,
+      "power_rides": 2,
+      "latest_sat_np": null
+    },
+    {
+      "week": "2025-10-06",
+      "code": "DETRAINING",
+      "color": "red",
+      "dual_z4_min": 64.3,
+      "dual_z4_pct": 10.4,
+      "pw_z4_min": 64.3,
+      "wd_z4_min": 0,
+      "rides_28d": 5,
+      "power_rides": 5,
+      "latest_sat_np": 190
+    },
+    {
+      "week": "2025-10-13",
+      "code": "PRODUCTIVE",
+      "color": "blue",
+      "dual_z4_min": 101.5,
+      "dual_z4_pct": 9.2,
+      "pw_z4_min": 101.5,
+      "wd_z4_min": 0,
+      "rides_28d": 9,
+      "power_rides": 9,
+      "latest_sat_np": 160
+    },
+    {
+      "week": "2025-10-20",
+      "code": "PRODUCTIVE",
+      "color": "blue",
+      "dual_z4_min": 106.6,
+      "dual_z4_pct": 8.2,
+      "pw_z4_min": 105.9,
+      "wd_z4_min": 0.7,
+      "rides_28d": 12,
+      "power_rides": 11,
+      "latest_sat_np": 155
+    },
+    {
+      "week": "2025-10-27",
+      "code": "PRODUCTIVE",
+      "color": "blue",
+      "dual_z4_min": 111.2,
+      "dual_z4_pct": 8.9,
+      "pw_z4_min": 110.5,
+      "wd_z4_min": 0.7,
+      "rides_28d": 12,
+      "power_rides": 11,
+      "latest_sat_np": 175
+    },
+    {
+      "week": "2025-11-03",
+      "code": "PRODUCTIVE",
+      "color": "blue",
+      "dual_z4_min": 81.7,
+      "dual_z4_pct": 7.4,
+      "pw_z4_min": 75.0,
+      "wd_z4_min": 6.6,
+      "rides_28d": 11,
+      "power_rides": 9,
+      "latest_sat_np": 175
+    },
+    {
+      "week": "2025-11-10",
+      "code": "BASE_PHASE",
+      "color": "orange",
+      "dual_z4_min": 71.0,
+      "dual_z4_pct": 6.1,
+      "pw_z4_min": 64.4,
+      "wd_z4_min": 6.6,
+      "rides_28d": 11,
+      "power_rides": 9,
+      "latest_sat_np": 153
+    },
+    {
+      "week": "2025-11-17",
+      "code": "BASE_PHASE",
+      "color": "orange",
+      "dual_z4_min": 71.1,
+      "dual_z4_pct": 6.8,
+      "pw_z4_min": 65.1,
+      "wd_z4_min": 6.0,
+      "rides_28d": 9,
+      "power_rides": 8,
+      "latest_sat_np": 153
+    },
+    {
+      "week": "2025-11-24",
+      "code": "BASE_PHASE",
+      "color": "orange",
+      "dual_z4_min": 57.9,
+      "dual_z4_pct": 5.6,
+      "pw_z4_min": 46.4,
+      "wd_z4_min": 11.4,
+      "rides_28d": 9,
+      "power_rides": 7,
+      "latest_sat_np": 153
+    },
+    {
+      "week": "2025-12-01",
+      "code": "BASE_PHASE",
+      "color": "orange",
+      "dual_z4_min": 45.0,
+      "dual_z4_pct": 3.8,
+      "pw_z4_min": 39.5,
+      "wd_z4_min": 5.5,
+      "rides_28d": 10,
+      "power_rides": 7,
+      "latest_sat_np": 153
+    },
+    {
+      "week": "2025-12-08",
+      "code": "BASE_PHASE",
+      "color": "orange",
+      "dual_z4_min": 21.2,
+      "dual_z4_pct": 2.6,
+      "pw_z4_min": 15.7,
+      "wd_z4_min": 5.5,
+      "rides_28d": 9,
+      "power_rides": 6,
+      "latest_sat_np": 153
+    },
+    {
+      "week": "2025-12-15",
+      "code": "BASE_PHASE",
+      "color": "orange",
+      "dual_z4_min": 32.5,
+      "dual_z4_pct": 3.0,
+      "pw_z4_min": 27.0,
+      "wd_z4_min": 5.5,
+      "rides_28d": 12,
+      "power_rides": 8,
+      "latest_sat_np": 153
+    },
+    {
+      "week": "2025-12-22",
+      "code": "BASE_PHASE",
+      "color": "orange",
+      "dual_z4_min": 37.3,
+      "dual_z4_pct": 3.4,
+      "pw_z4_min": 37.3,
+      "wd_z4_min": 0,
+      "rides_28d": 14,
+      "power_rides": 11,
+      "latest_sat_np": 153
+    },
+    {
+      "week": "2025-12-29",
+      "code": "BASE_PHASE",
+      "color": "orange",
+      "dual_z4_min": 32.6,
+      "dual_z4_pct": 3.9,
+      "pw_z4_min": 32.6,
+      "wd_z4_min": 0,
+      "rides_28d": 13,
+      "power_rides": 12,
+      "latest_sat_np": 153
+    },
+    {
+      "week": "2026-01-05",
+      "code": "BASE_PHASE",
+      "color": "orange",
+      "dual_z4_min": 29.9,
+      "dual_z4_pct": 4.4,
+      "pw_z4_min": 29.9,
+      "wd_z4_min": 0,
+      "rides_28d": 10,
+      "power_rides": 9,
+      "latest_sat_np": 153
+    },
+    {
+      "week": "2026-01-12",
+      "code": "BASE_PHASE",
+      "color": "orange",
+      "dual_z4_min": 13.8,
+      "dual_z4_pct": 2.5,
+      "pw_z4_min": 13.8,
+      "wd_z4_min": 0,
+      "rides_28d": 10,
+      "power_rides": 10,
+      "latest_sat_np": 153
+    },
+    {
+      "week": "2026-01-19",
+      "code": "BASE_PHASE",
+      "color": "orange",
+      "dual_z4_min": 14.8,
+      "dual_z4_pct": 2.7,
+      "pw_z4_min": 14.8,
+      "wd_z4_min": 0,
+      "rides_28d": 10,
+      "power_rides": 10,
+      "latest_sat_np": 153
+    },
+    {
+      "week": "2026-01-26",
+      "code": "BASE_PHASE",
+      "color": "orange",
+      "dual_z4_min": 31.9,
+      "dual_z4_pct": 4.2,
+      "pw_z4_min": 31.9,
+      "wd_z4_min": 0,
+      "rides_28d": 13,
+      "power_rides": 13,
+      "latest_sat_np": 153
+    },
+    {
+      "week": "2026-02-02",
+      "code": "BASE_PHASE",
+      "color": "orange",
+      "dual_z4_min": 31.9,
+      "dual_z4_pct": 3.5,
+      "pw_z4_min": 31.9,
+      "wd_z4_min": 0,
+      "rides_28d": 16,
+      "power_rides": 16,
+      "latest_sat_np": 153
+    },
+    {
+      "week": "2026-02-09",
+      "code": "BASE_PHASE",
+      "color": "orange",
+      "dual_z4_min": 46.9,
+      "dual_z4_pct": 6.3,
+      "pw_z4_min": 46.9,
+      "wd_z4_min": 0,
+      "rides_28d": 14,
+      "power_rides": 14,
+      "latest_sat_np": 153
+    },
+    {
+      "week": "2026-02-16",
+      "code": "BASE_PHASE",
+      "color": "orange",
+      "dual_z4_min": 47.0,
+      "dual_z4_pct": 6.0,
+      "pw_z4_min": 47.0,
+      "wd_z4_min": 0,
+      "rides_28d": 14,
+      "power_rides": 14,
+      "latest_sat_np": 153
+    },
+    {
+      "week": "2026-02-23",
+      "code": "PRODUCTIVE",
+      "color": "blue",
+      "dual_z4_min": 68.6,
+      "dual_z4_pct": 7.7,
+      "pw_z4_min": 54.8,
+      "wd_z4_min": 13.8,
+      "rides_28d": 13,
+      "power_rides": 11,
+      "latest_sat_np": 153
+    },
+    {
+      "week": "2026-03-02",
+      "code": "PRODUCTIVE",
+      "color": "blue",
+      "dual_z4_min": 82.8,
+      "dual_z4_pct": 8.5,
+      "pw_z4_min": 69.0,
+      "wd_z4_min": 13.8,
+      "rides_28d": 13,
+      "power_rides": 11,
+      "latest_sat_np": 153
+    },
+    {
+      "week": "2026-03-09",
+      "code": "PRODUCTIVE",
+      "color": "blue",
+      "dual_z4_min": 104.0,
+      "dual_z4_pct": 7.7,
+      "pw_z4_min": 65.0,
+      "wd_z4_min": 39.0,
+      "rides_28d": 15,
+      "power_rides": 11,
+      "latest_sat_np": 153
+    },
+    {
+      "week": "2026-03-16",
+      "code": "PRODUCTIVE",
+      "color": "blue",
+      "dual_z4_min": 119.7,
+      "dual_z4_pct": 9.0,
+      "pw_z4_min": 80.7,
+      "wd_z4_min": 39.0,
+      "rides_28d": 16,
+      "power_rides": 12,
+      "latest_sat_np": 153
+    },
+    {
+      "week": "2026-03-23",
+      "code": "PRODUCTIVE",
+      "color": "blue",
+      "dual_z4_min": 110.5,
+      "dual_z4_pct": 8.9,
+      "pw_z4_min": 85.3,
+      "wd_z4_min": 25.2,
+      "rides_28d": 15,
+      "power_rides": 13,
+      "latest_sat_np": 153
+    },
+    {
+      "week": "2026-03-30",
+      "code": "PRODUCTIVE",
+      "color": "blue",
+      "dual_z4_min": 132.9,
+      "dual_z4_pct": 9.0,
+      "pw_z4_min": 107.7,
+      "wd_z4_min": 25.2,
+      "rides_28d": 16,
+      "power_rides": 14,
+      "latest_sat_np": 158
+    },
+    {
+      "week": "2026-04-06",
+      "code": "PRODUCTIVE",
+      "color": "blue",
+      "dual_z4_min": 128.9,
+      "dual_z4_pct": 8.2,
+      "pw_z4_min": 128.9,
+      "wd_z4_min": 0,
+      "rides_28d": 16,
+      "power_rides": 16,
+      "latest_sat_np": 146
+    },
+    {
+      "week": "2026-04-13",
+      "code": "PRODUCTIVE",
+      "color": "blue",
+      "dual_z4_min": 129.9,
+      "dual_z4_pct": 7.3,
+      "pw_z4_min": 129.9,
+      "wd_z4_min": 0,
+      "rides_28d": 15,
+      "power_rides": 15,
+      "latest_sat_np": 157
+    },
+    {
+      "week": "2026-04-20",
+      "code": "PRODUCTIVE",
+      "color": "blue",
+      "dual_z4_min": 149.9,
+      "dual_z4_pct": 7.7,
+      "pw_z4_min": 149.9,
+      "wd_z4_min": 0,
+      "rides_28d": 16,
+      "power_rides": 16,
+      "latest_sat_np": 170
+    },
+    {
+      "week": "2026-04-27",
+      "code": "PRODUCTIVE",
+      "color": "blue",
+      "dual_z4_min": 176.2,
+      "dual_z4_pct": 8.8,
+      "pw_z4_min": 165.8,
+      "wd_z4_min": 10.4,
+      "rides_28d": 16,
+      "power_rides": 15,
+      "latest_sat_np": 167
+    },
+    {
+      "week": "2026-05-04",
+      "code": "PRODUCTIVE",
+      "color": "blue",
+      "dual_z4_min": 213.3,
+      "dual_z4_pct": 10.1,
+      "pw_z4_min": 192.1,
+      "wd_z4_min": 21.3,
+      "rides_28d": 16,
+      "power_rides": 14,
+      "latest_sat_np": 139
+    },
+    {
+      "week": "2026-05-11",
+      "code": "PRODUCTIVE",
+      "color": "blue",
+      "dual_z4_min": 226.2,
+      "dual_z4_pct": 10.3,
+      "pw_z4_min": 204.9,
+      "wd_z4_min": 21.3,
+      "rides_28d": 17,
+      "power_rides": 15,
+      "latest_sat_np": 171
+    },
+    {
+      "week": "2026-05-18",
+      "code": "PRODUCTIVE",
+      "color": "blue",
+      "dual_z4_min": 222.3,
+      "dual_z4_pct": 9.5,
+      "pw_z4_min": 191.2,
+      "wd_z4_min": 31.2,
+      "rides_28d": 18,
+      "power_rides": 14,
+      "latest_sat_np": 171
+    },
+    {
+      "week": "2026-05-25",
+      "code": "PRODUCTIVE",
+      "color": "blue",
+      "dual_z4_min": 236.7,
+      "dual_z4_pct": 9.3,
+      "pw_z4_min": 209.1,
+      "wd_z4_min": 27.6,
+      "rides_28d": 18,
+      "power_rides": 14,
+      "latest_sat_np": 156
+    },
+    {
+      "week": "2026-06-01",
+      "code": "PRODUCTIVE",
+      "color": "blue",
+      "dual_z4_min": 211.8,
+      "dual_z4_pct": 7.8,
+      "pw_z4_min": 190.4,
+      "wd_z4_min": 21.3,
+      "rides_28d": 20,
+      "power_rides": 14,
+      "latest_sat_np": 156
+    },
+    {
+      "week": "2026-06-08",
+      "code": "PRODUCTIVE",
+      "color": "blue",
+      "dual_z4_min": 208.2,
+      "dual_z4_pct": 7.4,
+      "pw_z4_min": 181.1,
+      "wd_z4_min": 27.1,
+      "rides_28d": 18,
+      "power_rides": 11,
+      "latest_sat_np": 159
+    },
+    {
+      "week": "2026-06-15",
+      "code": "PRODUCTIVE",
+      "color": "blue",
+      "dual_z4_min": 203.3,
+      "dual_z4_pct": 7.1,
+      "pw_z4_min": 182.6,
+      "wd_z4_min": 20.7,
+      "rides_28d": 17,
+      "power_rides": 10,
+      "latest_sat_np": 165
+    },
+    {
+      "week": "2026-06-22",
+      "code": "BASE_PHASE",
+      "color": "orange",
+      "dual_z4_min": 179.5,
+      "dual_z4_pct": 6.2,
+      "pw_z4_min": 156.2,
+      "wd_z4_min": 23.3,
+      "rides_28d": 17,
+      "power_rides": 9,
+      "latest_sat_np": 175
+    },
+    {
+      "week": "2026-06-29",
+      "code": "BASE_PHASE",
+      "color": "orange",
+      "dual_z4_min": 149.4,
+      "dual_z4_pct": 5.5,
+      "pw_z4_min": 128.0,
+      "wd_z4_min": 21.5,
+      "rides_28d": 15,
+      "power_rides": 8,
+      "latest_sat_np": 162
+    },
+    {
+      "week": "2026-07-06",
+      "code": "BASE_PHASE",
+      "color": "orange",
+      "dual_z4_min": 162.6,
+      "dual_z4_pct": 5.9,
+      "pw_z4_min": 146.8,
+      "wd_z4_min": 15.8,
+      "rides_28d": 16,
+      "power_rides": 10,
+      "latest_sat_np": 166
+    },
+    {
+      "week": "2026-07-13",
+      "code": "BASE_PHASE",
+      "color": "orange",
+      "dual_z4_min": 156.0,
+      "dual_z4_pct": 6.1,
+      "pw_z4_min": 143.7,
+      "wd_z4_min": 12.3,
+      "rides_28d": 15,
+      "power_rides": 11,
+      "latest_sat_np": 166
+    },
+    {
+      "week": "2026-07-20",
+      "code": "BASE_PHASE",
+      "color": "orange",
+      "dual_z4_min": 124.2,
+      "dual_z4_pct": 5.1,
+      "pw_z4_min": 114.3,
+      "wd_z4_min": 9.9,
+      "rides_28d": 14,
+      "power_rides": 10,
+      "latest_sat_np": 166
+    },
+    {
+      "week": "2026-07-27",
+      "code": "PRODUCTIVE",
+      "color": "blue",
+      "dual_z4_min": 167.8,
+      "dual_z4_pct": 7.2,
+      "pw_z4_min": 151.7,
+      "wd_z4_min": 16.0,
+      "rides_28d": 14,
+      "power_rides": 9,
+      "latest_sat_np": 183
+    },
+    {
+      "week": "2026-08-03",
+      "code": "BASE_PHASE",
+      "color": "orange",
+      "dual_z4_min": 147.8,
+      "dual_z4_pct": 6.3,
+      "pw_z4_min": 127.4,
+      "wd_z4_min": 20.4,
+      "rides_28d": 13,
+      "power_rides": 7,
+      "latest_sat_np": 183
+    },
+    {
+      "week": "2026-08-10",
+      "code": "BASE_PHASE",
+      "color": "orange",
+      "dual_z4_min": 161.3,
+      "dual_z4_pct": 6.3,
+      "pw_z4_min": 140.9,
+      "wd_z4_min": 20.4,
+      "rides_28d": 12,
+      "power_rides": 6,
+      "latest_sat_np": 183
+    },
+    {
+      "week": "2026-08-17",
+      "code": "BASE_PHASE",
+      "color": "orange",
+      "dual_z4_min": 178.4,
+      "dual_z4_pct": 6.8,
+      "pw_z4_min": 165.1,
+      "wd_z4_min": 13.3,
+      "rides_28d": 12,
+      "power_rides": 8,
+      "latest_sat_np": 183
+    },
+    {
+      "week": "2026-08-24",
+      "code": "PRODUCTIVE",
+      "color": "blue",
+      "dual_z4_min": 261.9,
+      "dual_z4_pct": 8.8,
+      "pw_z4_min": 257.5,
+      "wd_z4_min": 4.4,
+      "rides_28d": 12,
+      "power_rides": 11,
+      "latest_sat_np": 186
+    },
+    {
+      "week": "2026-08-31",
+      "code": "BUILDING",
+      "color": "green",
+      "dual_z4_min": 365.5,
+      "dual_z4_pct": 12.7,
+      "pw_z4_min": 365.5,
+      "wd_z4_min": 0,
+      "rides_28d": 13,
+      "power_rides": 13,
+      "latest_sat_np": 188
+    },
+    {
+      "week": "2026-09-07",
+      "code": "BUILDING",
+      "color": "green",
+      "dual_z4_min": 392.0,
+      "dual_z4_pct": 13.7,
+      "pw_z4_min": 391.1,
+      "wd_z4_min": 1.0,
+      "rides_28d": 15,
+      "power_rides": 13,
+      "latest_sat_np": 176
+    },
+    {
+      "week": "2026-09-14",
+      "code": "BUILDING",
+      "color": "green",
+      "dual_z4_min": 402.7,
+      "dual_z4_pct": 14.2,
+      "pw_z4_min": 399.9,
+      "wd_z4_min": 2.8,
+      "rides_28d": 16,
+      "power_rides": 11,
+      "latest_sat_np": 181
+    },
+    {
+      "week": "2026-09-21",
+      "code": "BUILDING",
+      "color": "green",
+      "dual_z4_min": 328.9,
+      "dual_z4_pct": 12.0,
+      "pw_z4_min": 318.8,
+      "wd_z4_min": 10.1,
+      "rides_28d": 17,
+      "power_rides": 8,
+      "latest_sat_np": 182
+    }
+  ]
 }

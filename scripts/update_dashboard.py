@@ -369,6 +369,279 @@ def compute_next_session_suggestion(conn, week_summary):
     }
 
 
+# ── WattsUpAI custom status ───────────────────────────────────────────────────
+
+def compute_wattsupai_status(conn, hrv_weekly_avg, hrv_last_night, ctl, atl, tsb):
+    """
+    Compute a context-aware training status that accounts for:
+    - Two-bike setup: power meter on weekend bike only
+    - Weekday rides: HR-only, structured intervals possible
+    - Primary signal: power Z4+ minutes (last 28d) where available
+    - Secondary signal: HR Z4+ minutes (fallback for no-power days)
+    - Recovery: HRV trend, TSB, RHR
+
+    Returns a dict with label, color, code, explanation, and key metrics.
+    """
+    from datetime import date as dtdate
+
+    today = dtdate.today().isoformat()
+
+    # ── Collect signals ────────────────────────────────────────────────────────
+    r = conn.execute("""
+        SELECT
+            -- Dual-signal Z4: power where available, HR as fallback
+            ROUND(SUM(
+                CASE WHEN a.has_power=1
+                     THEN zs.pw245_z4_s+zs.pw245_z5_s+zs.pw245_z6_s+zs.pw245_z7_s
+                     ELSE zs.hr_z4_s+zs.hr_z5_s END
+            )/60.0, 1)                                                          AS dual_z4_min,
+            ROUND(100.0*SUM(
+                CASE WHEN a.has_power=1
+                     THEN zs.pw245_z4_s+zs.pw245_z5_s+zs.pw245_z6_s+zs.pw245_z7_s
+                     ELSE zs.hr_z4_s+zs.hr_z5_s END
+            )/NULLIF(SUM(
+                CASE WHEN a.has_power=1 THEN zs.pw245_total_s ELSE zs.hr_total_s END
+            ),0), 1)                                                            AS dual_z4_pct,
+            -- Power-only Z4 (quality climbing rides)
+            ROUND(SUM(CASE WHEN a.has_power=1
+                           THEN zs.pw245_z4_s+zs.pw245_z5_s+zs.pw245_z6_s+zs.pw245_z7_s
+                           ELSE 0 END)/60.0, 1)                                AS pw_z4_min,
+            -- Recent NP trend (last 4 Saturdays with power)
+            COUNT(DISTINCT a.activity_id)                                       AS rides_28d,
+            SUM(CASE WHEN a.has_power=1 THEN 1 ELSE 0 END)                     AS power_rides_28d,
+            -- Weekday Z4 (HR signal, no-power rides)
+            ROUND(SUM(CASE WHEN a.has_power=0
+                           THEN zs.hr_z4_s+zs.hr_z5_s ELSE 0 END)/60.0, 1)   AS weekday_z4_min
+        FROM activities a
+        JOIN zone_summaries zs USING(activity_id)
+        WHERE a.date >= date(?, '-28 days')
+    """, (today,)).fetchone()
+
+    dual_z4_min     = r[0] or 0
+    dual_z4_pct     = r[1] or 0
+    pw_z4_min       = r[2] or 0
+    rides_28d       = r[3] or 0
+    power_rides_28d = r[4] or 0
+    weekday_z4_min  = r[5] or 0
+
+    # Last 4 Sat NP trend
+    sats = conn.execute("""
+        SELECT np_w_computed FROM activities
+        WHERE strftime('%w',date)='6' AND has_power=1 AND is_indoor=0
+          AND date >= date(?, '-28 days')
+        ORDER BY date DESC LIMIT 4
+    """, (today,)).fetchall()
+    sat_nps = [s[0] for s in sats if s[0]]
+    np_trend = "rising" if len(sat_nps) >= 2 and sat_nps[0] > sat_nps[-1] + 3 else \
+               "falling" if len(sat_nps) >= 2 and sat_nps[0] < sat_nps[-1] - 3 else "flat"
+    latest_sat_np = sat_nps[0] if sat_nps else None
+
+    # This week Z4
+    week_start = (dtdate.today() - __import__('datetime').timedelta(days=dtdate.today().weekday())).isoformat()
+    this_week_z4 = conn.execute("""
+        SELECT ROUND(SUM(
+            CASE WHEN a.has_power=1
+                 THEN zs.pw245_z4_s+zs.pw245_z5_s+zs.pw245_z6_s+zs.pw245_z7_s
+                 ELSE zs.hr_z4_s+zs.hr_z5_s END
+        )/60.0, 1)
+        FROM activities a JOIN zone_summaries zs USING(activity_id)
+        WHERE a.date >= ?
+    """, (week_start,)).fetchone()[0] or 0
+
+    # ── Classify status ────────────────────────────────────────────────────────
+    # Recovery check (overrides everything)
+    hrv_drop = (hrv_weekly_avg or 50) - (hrv_last_night or 50)
+    if tsb < -120 or hrv_drop > 12:
+        code = "OVERREACHING"
+        label = "Overreaching — reduce load"
+        color = "red"
+        explanation = (
+            f"HRV dropped {hrv_drop:.0f}ms below weekly avg, or TSB {tsb} is critically low. "
+            "Body is not absorbing training. Replace all quality with Z2 today."
+        )
+    # Detraining
+    elif rides_28d < 8 or (ctl < 600 and tsb > 50):
+        code = "DETRAINING"
+        label = "Detraining — volume too low"
+        color = "red"
+        explanation = (
+            f"Only {rides_28d} rides in 28 days. CTL {ctl} dropping with TSB {tsb}. "
+            "Fitness eroding. Increase frequency before adding intensity."
+        )
+    # Building — quality work is present and producing
+    elif dual_z4_pct >= 12 and np_trend in ("rising", "flat") and (hrv_weekly_avg or 0) >= 48:
+        code = "BUILDING"
+        label = "Building — quality stimulus present"
+        color = "green"
+        explanation = (
+            f"Dual-signal Z4+: {dual_z4_min:.0f}min ({dual_z4_pct:.1f}%) over 28 days. "
+            f"NP trend {np_trend} (last Sat: {latest_sat_np}W). "
+            f"HRV {hrv_weekly_avg}ms — recovery holding. Plan is working."
+        )
+    # Productive — intensity there but not peak
+    elif dual_z4_pct >= 7 and (hrv_weekly_avg or 0) >= 45:
+        code = "PRODUCTIVE"
+        label = "Productive — base solid, intensity adequate"
+        color = "blue"
+        explanation = (
+            f"Z4+ at {dual_z4_pct:.1f}% (dual-signal, 28d). "
+            f"NP {np_trend} at {latest_sat_np}W. "
+            "Above minimum threshold stimulus. Continue current structure."
+        )
+    # Base phase — volume there, intensity missing
+    elif rides_28d >= 8 and dual_z4_pct < 7:
+        code = "BASE_PHASE"
+        label = "Base Phase — intensity needed"
+        color = "orange"
+        # Diagnose which part is missing
+        if pw_z4_min >= 40 and weekday_z4_min < 20:
+            gap = "Saturday climbing contributes quality, but weekday intervals are missing. Add 2 structured sessions/week."
+        elif pw_z4_min < 40 and weekday_z4_min >= 20:
+            gap = "Weekday HR Z4 present, but Saturday NP needs pushing harder on climbs."
+        else:
+            gap = "Both weekday intervals and Saturday NP targets need stepping up."
+        explanation = (
+            f"Dual-signal Z4+: only {dual_z4_min:.0f}min ({dual_z4_pct:.1f}%) over 28 days. "
+            f"Volume solid ({rides_28d} rides), aerobic base good. {gap}"
+        )
+    else:
+        code = "MAINTAINING"
+        label = "Maintaining — consistent but low stimulus"
+        color = "yellow"
+        explanation = (
+            f"Z4+: {dual_z4_min:.0f}min over 28 days. "
+            f"Ride frequency {rides_28d}/28d is adequate. "
+            "FTP holding but not improving. Add one quality session to progress."
+        )
+
+    return {
+        "code":              code,
+        "label":             label,
+        "color":             color,
+        "explanation":       explanation,
+        "dual_z4_min_28d":   round(dual_z4_min, 1),
+        "dual_z4_pct_28d":   round(dual_z4_pct, 1),
+        "pw_z4_min_28d":     round(pw_z4_min, 1),
+        "weekday_z4_min_28d": round(weekday_z4_min, 1),
+        "this_week_z4_min":  round(this_week_z4, 1),
+        "np_trend":          np_trend,
+        "latest_sat_np":     latest_sat_np,
+        "rides_28d":         rides_28d,
+        "power_rides_28d":   power_rides_28d,
+        "signal_note":       (
+            f"Power Z4 (Sat/weekend bike, FTP=245W): {pw_z4_min:.0f}min | "
+            f"HR Z4 (weekday bike, fallback): {weekday_z4_min:.0f}min"
+        ),
+    }
+
+
+def compute_status_history(conn):
+    """
+    Run the WattsUpAI status model for every calendar week in the DB.
+    Returns a list of weekly snapshots ordered oldest-first — used to draw
+    the season status timeline on the dashboard.
+    """
+    import datetime
+
+    # Find season start and end
+    bounds = conn.execute(
+        "SELECT MIN(date), MAX(date) FROM activities WHERE is_indoor=0"
+    ).fetchone()
+    if not bounds or not bounds[0]:
+        return []
+
+    season_start = datetime.date.fromisoformat(bounds[0])
+    season_end   = datetime.date.fromisoformat(bounds[1])
+
+    # Walk week by week (Monday-based)
+    # Start at the Monday of the first week with outdoor rides
+    cursor = season_start - datetime.timedelta(days=season_start.weekday())
+    today  = datetime.date.today()
+
+    history = []
+
+    while cursor <= min(season_end, today):
+        week_end_s   = cursor.isoformat()
+        window_start = (cursor - datetime.timedelta(days=28)).isoformat()
+
+        # Dual-signal Z4 in trailing 28 days ending this week
+        r = conn.execute("""
+            SELECT
+                ROUND(SUM(
+                    CASE WHEN a.has_power=1
+                         THEN zs.pw245_z4_s+zs.pw245_z5_s+zs.pw245_z6_s+zs.pw245_z7_s
+                         ELSE zs.hr_z4_s+zs.hr_z5_s END
+                )/60.0, 1)                                              AS dual_z4_min,
+                ROUND(100.0*SUM(
+                    CASE WHEN a.has_power=1
+                         THEN zs.pw245_z4_s+zs.pw245_z5_s+zs.pw245_z6_s+zs.pw245_z7_s
+                         ELSE zs.hr_z4_s+zs.hr_z5_s END
+                )/NULLIF(SUM(
+                    CASE WHEN a.has_power=1 THEN zs.pw245_total_s ELSE zs.hr_total_s END
+                ),0), 1)                                                AS dual_z4_pct,
+                ROUND(SUM(CASE WHEN a.has_power=1
+                               THEN zs.pw245_z4_s+zs.pw245_z5_s+zs.pw245_z6_s+zs.pw245_z7_s
+                               ELSE 0 END)/60.0, 1)                    AS pw_z4_min,
+                ROUND(SUM(CASE WHEN a.has_power=0
+                               THEN zs.hr_z4_s+zs.hr_z5_s ELSE 0 END)/60.0,1) AS wd_z4_min,
+                COUNT(DISTINCT a.activity_id)                           AS rides,
+                SUM(CASE WHEN a.has_power=1 THEN 1 ELSE 0 END)         AS power_rides
+            FROM activities a
+            JOIN zone_summaries zs USING(activity_id)
+            WHERE a.date > ? AND a.date <= ?
+        """, (window_start, week_end_s)).fetchone()
+
+        dual_z4_min  = r[0] or 0
+        dual_z4_pct  = r[1] or 0
+        pw_z4_min    = r[2] or 0
+        wd_z4_min    = r[3] or 0
+        rides_28d    = r[4] or 0
+        power_rides  = r[5] or 0
+
+        # Latest Sat NP up to this week
+        sat = conn.execute("""
+            SELECT np_w_computed FROM activities
+            WHERE strftime('%w',date)='6' AND has_power=1 AND is_indoor=0
+              AND date <= ?
+            ORDER BY date DESC LIMIT 1
+        """, (week_end_s,)).fetchone()
+        latest_np = sat[0] if sat else None
+
+        # Classify (simplified — no live HRV for historical weeks)
+        if rides_28d < 8:
+            code  = "DETRAINING"
+            color = "red"
+        elif dual_z4_pct >= 12:
+            code  = "BUILDING"
+            color = "green"
+        elif dual_z4_pct >= 7:
+            code  = "PRODUCTIVE"
+            color = "blue"
+        elif rides_28d >= 8:
+            code  = "BASE_PHASE"
+            color = "orange"
+        else:
+            code  = "MAINTAINING"
+            color = "yellow"
+
+        history.append({
+            "week":           week_end_s,
+            "code":           code,
+            "color":          color,
+            "dual_z4_min":    round(dual_z4_min, 1),
+            "dual_z4_pct":    round(dual_z4_pct, 1),
+            "pw_z4_min":      round(pw_z4_min, 1),
+            "wd_z4_min":      round(wd_z4_min, 1),
+            "rides_28d":      rides_28d,
+            "power_rides":    power_rides,
+            "latest_sat_np":  latest_np,
+        })
+
+        cursor += datetime.timedelta(weeks=1)
+
+    return history
+
+
 # ── 4d. Numbers & Milestones ──────────────────────────────────────────────────
 
 def compute_milestones(conn):
@@ -749,6 +1022,10 @@ def main():
 
     conn = sqlite3.connect(DB_PATH)
 
+    # Load dashboard.json early — needed for current_status HRV/CTL inputs
+    with open(DASH_PATH) as f:
+        d = json.load(f)
+
     week_summary    = compute_week_summary(conn)
     progression     = compute_progression_flag(week_summary)
     next_session    = compute_next_session_suggestion(conn, week_summary)
@@ -756,6 +1033,20 @@ def main():
     best_vam_laps   = compute_best_vam_laps(conn)
     longest_rides   = compute_longest_rides(conn)
     milestones      = compute_milestones(conn)
+
+    # WattsUpAI custom status (current)
+    s = d.get("current_status", {})
+    wattsupai_status = compute_wattsupai_status(
+        conn,
+        hrv_weekly_avg=s.get("hrv_weekly_avg_ms"),
+        hrv_last_night=s.get("hrv_last_night_ms"),
+        ctl=s.get("ctl", 800),
+        atl=s.get("atl", 800),
+        tsb=s.get("tsb", 0),
+    )
+
+    # Historical weekly status timeline (full season)
+    wattsupai_status_history = compute_status_history(conn)
 
     # Embed progression flag and next session into week_summary
     week_summary["progression_flag"] = progression
@@ -771,14 +1062,13 @@ def main():
     conn.close()
 
     # Patch dashboard.json
-    with open(DASH_PATH) as f:
-        d = json.load(f)
-
-    d["week_summary"]     = week_summary
-    d["last_4_saturdays"] = last_4_sats
-    d["best_vam_laps"]    = best_vam_laps
-    d["longest_rides"]    = longest_rides
-    d["milestones"]       = milestones
+    d["week_summary"]              = week_summary
+    d["last_4_saturdays"]          = last_4_sats
+    d["best_vam_laps"]             = best_vam_laps
+    d["longest_rides"]             = longest_rides
+    d["milestones"]                = milestones
+    d["wattsupai_status"]          = wattsupai_status
+    d["wattsupai_status_history"]  = wattsupai_status_history
 
     with open(DASH_PATH, "w") as f:
         json.dump(d, f, indent=2)
@@ -788,6 +1078,10 @@ def main():
     print(f"  Week {week_summary['week_start']}: "
           f"{week_summary['rides_count']} ride(s) · "
           f"Z4={week_summary['z4_min_total']}min ({week_summary['z4_status']})")
+    ws_status = wattsupai_status
+    print(f"  WattsUpAI: {ws_status['code']} — {ws_status['label']}")
+    print(f"    Z4 28d: {ws_status['dual_z4_min_28d']}min ({ws_status['dual_z4_pct_28d']}%) · "
+          f"Sat NP: {ws_status['latest_sat_np']}W ({ws_status['np_trend']})")
 
     p = progression
     flag_icon = {"increase": "↑", "stay": "→", "reduce": "↓", "recovery": "🔄"}.get(p["flag"], "?")
