@@ -810,10 +810,20 @@ function renderRecovery(d) {
 // ── TAB 4: BEST RIDES ────────────────────────────────────────────────────────
 function renderRides(d) {
   const laps = d.best_climbing_laps;
-  const wis = d.weekday_interval_summary;
-  const mz = d.measured_zone_distribution;
-  const zd = d.z4_drought;
-  const sz = d.structured_z4_precedent;
+  const wis  = d.weekday_interval_summary;
+  const mz   = d.measured_zone_distribution;
+  const zd   = d.z4_drought;
+  const sz   = d.structured_z4_precedent;
+  // Legacy deep-analysis sections (computed from raw FIT, stored in dashboard.json)
+  const ftp  = d.ftp_reassessment;
+  const pzc  = d.power_zones_corrected;
+  const tpdc = d.true_pdc;
+  const sde  = d.self_detected_efforts;
+  const tz   = d.true_zone_distribution;
+  const dr   = d.z4_drought;      // same object, alias used in retraction card
+  const pzd  = d.power_zone_distribution;
+  const wpm  = d.weekday_power_meter;
+  const z5r  = d.z5_reality;
 
   document.getElementById('tab-rides').innerHTML = `
     <div class="section-label">Best Climbing Laps (FIT lap-level NP)</div>
