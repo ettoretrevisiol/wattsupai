@@ -550,7 +550,7 @@ function renderSeason(d) {
       <div class="card card-accent-violet">
         <div class="card-title"><span class="ct-dot" style="background:var(--violet)"></span>Season Peak 20min PDC</div>
         <div class="kpi-val">${ss.pdc_20min_peak_w}<span class="kpi-unit">W</span></div>
-        <div class="kpi-label"><a href="https://connect.garmin.com/modern/activity/${ss.pdc_20min_activity_id}" target="_blank" style="color:inherit;text-decoration:underline dotted;">${ss.pdc_20min_peak_date} ${ss.pdc_20min_peak_ride}</a></div>
+        <div class="kpi-label"><a href="https://connect.garmin.com/modern/activity/${ss.pdc_20min_activity_id}" target="_blank" style="color:inherit;text-decoration:underline dotted;">${ss.pdc_20min_peak_ride}</a><div style="font-size:.65rem;color:var(--muted);">${ss.pdc_20min_peak_date}</div></div>
         <div class="kpi-delta up">↑ 2nd: 228W (Jul 25) · 3rd: 226W (Sep 12)</div>
       </div>
       <div class="card card-accent-green">
@@ -562,13 +562,13 @@ function renderSeason(d) {
       <div class="card card-accent-orange">
         <div class="card-title"><span class="ct-dot" style="background:var(--orange)"></span>Peak 5-min PDC</div>
         <div class="kpi-val">${ss.pdc_5min_peak_w}<span class="kpi-unit">W</span></div>
-        <div class="kpi-label"><a href="https://connect.garmin.com/modern/activity/${ss.pdc_5min_activity_id}" target="_blank" style="color:inherit;text-decoration:underline dotted;">${ss.pdc_5min_peak_date} ${ss.pdc_5min_peak_ride}</a></div>
+        <div class="kpi-label"><a href="https://connect.garmin.com/modern/activity/${ss.pdc_5min_activity_id}" target="_blank" style="color:inherit;text-decoration:underline dotted;">${ss.pdc_5min_peak_ride}</a><div style="font-size:.65rem;color:var(--muted);">${ss.pdc_5min_peak_date}</div></div>
         <div class="kpi-delta up">↑ 2nd: ${ss.pdc_5min_top3[1].w}W (${ss.pdc_5min_top3[1].ride||ss.pdc_5min_top3[1].date}) · 3rd: ${ss.pdc_5min_top3[2].w}W (${ss.pdc_5min_top3[2].ride||ss.pdc_5min_top3[2].date})</div>
       </div>
       <div class="card card-accent-blue">
         <div class="card-title"><span class="ct-dot"></span>Peak 10-min PDC</div>
         <div class="kpi-val">${ss.pdc_10min_peak_w}<span class="kpi-unit">W</span></div>
-        <div class="kpi-label"><a href="https://connect.garmin.com/modern/activity/${ss.pdc_10min_activity_id}" target="_blank" style="color:inherit;text-decoration:underline dotted;">${ss.pdc_10min_peak_date} ${ss.pdc_10min_peak_ride}</a></div>
+        <div class="kpi-label"><a href="https://connect.garmin.com/modern/activity/${ss.pdc_10min_activity_id}" target="_blank" style="color:inherit;text-decoration:underline dotted;">${ss.pdc_10min_peak_ride}</a><div style="font-size:.65rem;color:var(--muted);">${ss.pdc_10min_peak_date}</div></div>
         <div class="kpi-delta up">↑ 2nd: ${ss.pdc_10min_top3[1].w}W (${ss.pdc_10min_top3[1].ride||ss.pdc_10min_top3[1].date}) · 3rd: ${ss.pdc_10min_top3[2].w}W (${ss.pdc_10min_top3[2].ride||ss.pdc_10min_top3[2].date})</div>
       </div>
       <div class="card card-accent-orange">
@@ -606,13 +606,13 @@ function renderSeason(d) {
       <div class="card-title"><span class="ct-dot"></span>Season 20-min Power Duration Curve — May→Sep 2026 (${d.pdc_progression.data.length} rides)</div>
       <div style="height:200px;position:relative;"><canvas id="pdcProgressionChart"></canvas></div>
       <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;font-size:.72rem;">
-        <span class="badge b-violet">Season peak: <strong>&nbsp;${ss.pdc_20min_peak_w}W — ${ss.pdc_20min_peak_date}</strong></span>
+        <span class="badge b-violet">Season peak: <strong>&nbsp;${ss.pdc_20min_peak_w}W — ${ss.pdc_20min_peak_ride||ss.pdc_20min_peak_date}</strong></span>
         <span class="badge b-orange">2nd best: <strong>&nbsp;228W — Jul 25</strong></span>
         <span class="badge b-blue">3rd best: <strong>&nbsp;226W — Sep 12</strong></span>
         <span class="badge b-green">Aug best: <strong>&nbsp;222W — Aug 22</strong></span>
       </div>
       <div class="insight" style="margin-top:10px;">
-        <strong>Full season arc:</strong> Started May at 224W (spring fitness), dipped Jun–Jul as long mountain rides shifted load to endurance, hit first peak Jul 25=228W (Ghisallino LT). Aug Friuli rebuilt: 188→222W. Sep: new peaks 226W (Sep 12) then <strong>${ss.pdc_20min_peak_w}W (${ss.pdc_20min_peak_date}) — season best</strong>.
+        <strong>Full season arc:</strong> Started May at 224W (spring fitness), dipped Jun–Jul as long mountain rides shifted load to endurance, hit first peak Jul 25=228W (Ghisallino LT). Aug Friuli rebuilt: 188→222W. Sep: new peaks 226W (Sep 12) then <strong>${ss.pdc_20min_peak_w}W (${ss.pdc_20min_peak_ride||ss.pdc_20min_peak_date}) — season best</strong>.
       </div>
     </div>
 
