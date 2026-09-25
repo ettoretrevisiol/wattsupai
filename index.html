@@ -835,9 +835,11 @@ function renderRides(d) {
       <div style="overflow-x:auto;">
         <table style="width:100%;border-collapse:collapse;font-size:.76rem;">
           <thead><tr style="border-bottom:1px solid var(--border);color:var(--muted);font-size:.67rem;text-transform:uppercase;letter-spacing:.06em;">
-            <th style="padding:8px 10px;text-align:left;font-weight:600;">Date & Climb</th>
+            <th style="padding:8px 10px;text-align:left;font-weight:600;">Climb</th>
             <th style="padding:8px 10px;text-align:center;font-weight:600;">NP</th>
-            <th style="padding:8px 10px;text-align:center;font-weight:600;">Avg HR</th>
+            <th style="padding:8px 10px;text-align:center;font-weight:600;">Climb time</th>
+            <th style="padding:8px 10px;text-align:center;font-weight:600;">Ascent</th>
+            <th style="padding:8px 10px;text-align:center;font-weight:600;">HR</th>
             <th style="padding:8px 10px;text-align:center;font-weight:600;">Zone</th>
           </tr></thead>
           <tbody>
@@ -845,9 +847,18 @@ function renderRides(d) {
             const zoneColor = l.zone.includes('Z4') ? 'var(--orange)' : l.zone.includes('Z3-Z4') ? 'var(--blue)' : 'var(--green)';
             const zoneBg = l.zone.includes('Z4') ? 'rgba(249,115,22,.15)' : l.zone.includes('Z3-Z4') ? 'rgba(59,130,246,.15)' : 'rgba(34,197,94,.15)';
             const isTop3 = laps.indexOf(l) < 3;
+            const climbTime = l.climb_min ? `${l.climb_min}min` : (l.dur_min ? `${l.dur_min}min` : '—');
+            const climbNote = l.climb_min && l.elapsed_min && l.climb_min < l.elapsed_min * 0.9
+              ? `<span style="color:var(--muted);font-size:.65rem;"> (${l.elapsed_min}min lap)</span>` : '';
             return `<tr style="border-bottom:1px solid rgba(34,40,64,.5);">
-              <td style="padding:9px 10px;color:var(--text);font-weight:600;"><a href="https://connect.garmin.com/modern/activity/${l.activity_id}" target="_blank" style="color:inherit;text-decoration:underline dotted;">${l.ride_name||l.date} ${l.lap}</a>${l.note?` <span style="color:var(--muted);font-weight:400;font-size:.68rem;">— ${l.note}</span>`:''}${isTop3?' 🏆':''}</td>
+              <td style="padding:9px 10px;color:var(--text);font-weight:600;">
+                <a href="https://connect.garmin.com/modern/activity/${l.activity_id}" target="_blank" style="color:inherit;text-decoration:underline dotted;">${l.ride_name||l.date} ${l.lap}</a>
+                ${isTop3?' 🏆':''}
+                <div style="font-size:.67rem;color:var(--dim);font-weight:400;">${l.date}</div>
+              </td>
               <td style="padding:9px 10px;text-align:center;color:${isTop3?'var(--orange)':'var(--blue)'};font-weight:800;">${l.np_w}W</td>
+              <td style="padding:9px 10px;text-align:center;color:var(--text);">${climbTime}${climbNote}</td>
+              <td style="padding:9px 10px;text-align:center;color:var(--dim);">${l.ascent_m}m</td>
               <td style="padding:9px 10px;text-align:center;color:var(--dim);">${l.avg_hr ? l.avg_hr+'bpm' : '—'}</td>
               <td style="padding:9px 10px;text-align:center;"><span style="background:${zoneBg};color:${zoneColor};padding:2px 8px;border-radius:5px;font-size:.67rem;font-weight:700;">${l.zone}</span></td>
             </tr>`;
