@@ -606,6 +606,9 @@ function renderSeason(d) {
               <div style="position:absolute;left:8px;top:0;line-height:18px;font-size:.7rem;font-weight:700;">${r.wpkg} W/kg</div>
             </div>
             <div style="width:42px;text-align:right;font-size:.68rem;color:var(--dim);">${r.pdc20_w}W</div>
+          </div>
+          <div style="font-size:.66rem;color:var(--dim);margin-top:-4px;margin-bottom:6px;padding-left:78px;">
+            <a href="https://connect.garmin.com/modern/activity/${r.activity_id}" target="_blank" style="color:var(--dim);text-decoration:underline dotted;">${r.ride_name||r.date}</a>
           </div>`;
         }).join('')}
         <div class="insight" style="margin-top:8px;font-size:.7rem;">
@@ -636,8 +639,8 @@ function renderSeason(d) {
         <div style="display:flex;justify-content:space-between;align-items:center;padding:5px 0;border-bottom:1px solid rgba(255,255,255,.04);">
           <div>
             <a href="https://connect.garmin.com/modern/activity/${r.activity_id}" target="_blank"
-               style="color:var(--text);text-decoration:none;font-size:.74rem;font-weight:${i===0?700:400};">
-              ${i===0?'🥇 ':''}${r.date.replace('2026-','').replace('2025-','★ ')}
+               style="color:var(--text);text-decoration:underline dotted;font-size:.74rem;font-weight:${i===0?700:400};">
+              ${i===0?'🥇 ':''}${r.ride_name||r.date}
             </a>
             <span style="font-size:.67rem;color:var(--dim);"> · ${r.np_w}W @ ${r.hr_bpm}bpm · ${r.elev_m}m</span>
           </div>
@@ -655,9 +658,9 @@ function renderSeason(d) {
             <div>
               <div class="ride-name">
                 <a href="https://connect.garmin.com/modern/activity/${r.activity_id}" target="_blank"
-                   style="color:inherit;text-decoration:none;">${i===0?'🔥 ':''}${r.date.replace('2026-','').replace('2025-','★ ')}</a>
+                   style="color:inherit;text-decoration:underline dotted;">${i===0?'🔥 ':''}${r.ride_name||r.date}</a>
               </div>
-              <div class="ride-meta">${r.km}km · ${r.elev_m}m · ${r.hours}h</div>
+              <div class="ride-meta">${r.date.slice(0,7)} · ${r.km}km · ${r.elev_m}m · ${r.hours}h</div>
             </div>
             <div class="ride-dist" style="color:var(--blue);font-weight:800;">${r.calories.toLocaleString()}<span style="font-size:.6rem;color:var(--dim)"> kcal</span></div>
           </div>`).join('')}
@@ -843,7 +846,7 @@ function renderRides(d) {
             const zoneBg = l.zone.includes('Z4') ? 'rgba(249,115,22,.15)' : l.zone.includes('Z3-Z4') ? 'rgba(59,130,246,.15)' : 'rgba(34,197,94,.15)';
             const isTop3 = laps.indexOf(l) < 3;
             return `<tr style="border-bottom:1px solid rgba(34,40,64,.5);">
-              <td style="padding:9px 10px;color:var(--text);font-weight:600;"><a href="https://connect.garmin.com/modern/activity/${l.activity_id}" target="_blank" style="color:inherit;text-decoration:underline dotted;">${l.date.replace('2026-','')} ${l.ride} ${l.lap}</a>${l.note?` <span style="color:var(--muted);font-weight:400;font-size:.68rem;">— ${l.note}</span>`:''}${isTop3?' 🏆':''}</td>
+              <td style="padding:9px 10px;color:var(--text);font-weight:600;"><a href="https://connect.garmin.com/modern/activity/${l.activity_id}" target="_blank" style="color:inherit;text-decoration:underline dotted;">${l.ride_name||l.date} ${l.lap}</a>${l.note?` <span style="color:var(--muted);font-weight:400;font-size:.68rem;">— ${l.note}</span>`:''}${isTop3?' 🏆':''}</td>
               <td style="padding:9px 10px;text-align:center;color:${isTop3?'var(--orange)':'var(--blue)'};font-weight:800;">${l.np_w}W</td>
               <td style="padding:9px 10px;text-align:center;color:var(--dim);">${l.avg_hr ? l.avg_hr+'bpm' : '—'}</td>
               <td style="padding:9px 10px;text-align:center;"><span style="background:${zoneBg};color:${zoneColor};padding:2px 8px;border-radius:5px;font-size:.67rem;font-weight:700;">${l.zone}</span></td>
@@ -936,7 +939,7 @@ function renderRides(d) {
         <div style="font-size:.7rem;color:var(--dim);margin:12px 0 6px;">Longest continuous Z4 HR efforts ever:</div>
         <div class="ride-list">
           ${sde.longest_hr_z4_efforts.slice(0,5).map(e=>`<div class="ride-item">
-            <div><div class="ride-name"><a href="https://connect.garmin.com/modern/activity/${e.activity_id}" target="_blank" style="color:inherit;text-decoration:underline dotted;">${e.ride}</a></div><div class="ride-meta">${e.date} · mean ${e.mean_hr} peak ${e.peak_hr}bpm</div></div>
+            <div><div class="ride-name"><a href="https://connect.garmin.com/modern/activity/${e.activity_id}" target="_blank" style="color:inherit;text-decoration:underline dotted;">${e.ride_name||e.ride}</a></div><div class="ride-meta">${e.date} · mean ${e.mean_hr} peak ${e.peak_hr}bpm</div></div>
             <div class="ride-dist" style="color:var(--orange)">${e.dur}</div>
           </div>`).join('')}
         </div>
@@ -1039,7 +1042,7 @@ function renderRides(d) {
         <div class="kpi-label">total Z5 (≥180bpm) across 13 months · ${z5r.rides_with_z5} rides · peak ${z5r.highest_hr_recorded}bpm</div>
         <div class="ride-list" style="margin-top:12px;">
           ${z5r.top.map(t=>`<div class="ride-item">
-            <div><div class="ride-name"><a href="https://connect.garmin.com/modern/activity/${t.activity_id}" target="_blank" style="color:inherit;text-decoration:underline dotted;">${t.ride}</a></div><div class="ride-meta">${t.date} · max ${t.max_hr}bpm</div></div>
+            <div><div class="ride-name"><a href="https://connect.garmin.com/modern/activity/${t.activity_id}" target="_blank" style="color:inherit;text-decoration:underline dotted;">${t.ride_name||t.ride}</a></div><div class="ride-meta">${t.date} · max ${t.max_hr}bpm</div></div>
             <div class="ride-dist" style="color:var(--red)">${t.minutes}<span style="font-size:.6rem;color:var(--dim)">min</span></div>
           </div>`).join('')}
         </div>
@@ -1068,7 +1071,7 @@ function renderRides(d) {
         <div class="card-title"><span class="ct-dot" style="background:var(--violet)"></span>The 10 Z4 weekday rides</div>
         <div class="ride-list">
           ${wis.key_interval_sessions.map(r=>`<div class="ride-item">
-            <div><div class="ride-name"><a href="https://connect.garmin.com/modern/activity/${r.activity_id}" target="_blank" style="color:inherit;text-decoration:underline dotted;">${r.route_name}</a></div><div class="ride-meta">${r.date} · ${r.laps_above_z3} Z3 laps · ${r.laps_above_z4} Z4 lap${r.laps_above_z4>1?'s':''}</div></div>
+            <div><div class="ride-name"><a href="https://connect.garmin.com/modern/activity/${r.activity_id}" target="_blank" style="color:inherit;text-decoration:underline dotted;">${r.ride_name||r.route_name}</a></div><div class="ride-meta">${r.date} · ${r.laps_above_z3} Z3 laps · ${r.laps_above_z4} Z4 lap${r.laps_above_z4>1?'s':''}</div></div>
             <div class="ride-dist" style="color:var(--orange)">${r.peak_lap_hr}<span style="font-size:.6rem;color:var(--dim)">bpm</span></div>
           </div>`).join('')}
         </div>
@@ -1098,8 +1101,8 @@ function renderRides(d) {
             return `<tr style="border-bottom:1px solid rgba(34,40,64,.5);">
               <td style="padding:8px 10px;">
                 <a href="https://connect.garmin.com/modern/activity/${v.activity_id}" target="_blank"
-                   style="color:var(--text);text-decoration:none;font-weight:600;">
-                  ${v.date.replace('2026-','')}${isTop?' 🏆':''}
+                   style="color:var(--text);text-decoration:underline dotted;font-weight:600;">
+                  ${v.ride_name||v.date}${isTop?' 🏆':''}
                 </a>
                 <span style="color:var(--muted);font-size:.67rem;"> L${v.lap_index}</span>
               </td>
@@ -1128,11 +1131,11 @@ function renderRides(d) {
             <div>
               <div class="ride-name">
                 <a href="https://connect.garmin.com/modern/activity/${r.activity_id}" target="_blank"
-                   style="color:inherit;text-decoration:none;">
-                  ${i===0?'🥇 ':''}${r.date.replace('2026-','').replace('2025-','★ ')}
+                   style="color:inherit;text-decoration:underline dotted;">
+                  ${i===0?'🥇 ':''}${r.ride_name||r.date}
                 </a>
               </div>
-              <div class="ride-meta">${r.hours}h · ${r.elev_m}m ⬆${r.np_w ? ` · NP ${r.np_w}W` : ''} · avg ${r.hr_bpm}bpm</div>
+              <div class="ride-meta">${r.date.slice(0,7)} · ${r.hours}h · ${r.elev_m}m ⬆${r.np_w ? ` · NP ${r.np_w}W` : ''}</div>
             </div>
             <div class="ride-dist" style="color:var(--violet);font-weight:800;">${r.km}<span style="font-size:.62rem;color:var(--dim)">km</span></div>
           </div>`).join('')}
@@ -1146,11 +1149,11 @@ function renderRides(d) {
             <div>
               <div class="ride-name">
                 <a href="https://connect.garmin.com/modern/activity/${r.activity_id}" target="_blank"
-                   style="color:inherit;text-decoration:none;">
-                  ${i===0?'🥇 ':''}${r.date.replace('2026-','').replace('2025-','★ ')}
+                   style="color:inherit;text-decoration:underline dotted;">
+                  ${i===0?'🥇 ':''}${r.ride_name||r.date}
                 </a>
               </div>
-              <div class="ride-meta">${r.km}km · ${r.elev_m}m ⬆${r.np_w ? ` · NP ${r.np_w}W` : ''} · avg ${r.hr_bpm}bpm</div>
+              <div class="ride-meta">${r.date.slice(0,7)} · ${r.km}km · ${r.elev_m}m ⬆${r.np_w ? ` · NP ${r.np_w}W` : ''}</div>
             </div>
             <div class="ride-dist" style="color:var(--green);font-weight:800;">${r.hours}<span style="font-size:.62rem;color:var(--dim)">h</span></div>
           </div>`).join('')}

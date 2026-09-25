@@ -147,7 +147,7 @@
     "peak_ctl_date": "2026-08-30",
     "pdc_5min_peak_w": 279,
     "pdc_5min_peak_date": "2026-09-19",
-    "pdc_5min_peak_ride": "Tre Valli Varesine",
+    "pdc_5min_peak_ride": "Cortina - Giau - Valparola - Tre Croci",
     "pdc_5min_top3": [
       {
         "w": 279,
@@ -194,21 +194,21 @@
     "lt_sessions": [
       {
         "date": "2025-11-03",
-        "ride": "Milano Gaggiano",
+        "ride": "Milano - Mairano - Gaggiano (LT)",
         "np_w": 187,
         "label": "LACTATE_THRESHOLD",
         "activity_id": "20879106410"
       },
       {
         "date": "2026-04-23",
-        "ride": "Milano Robecco",
+        "ride": "Milano - Robecco (VO2MAX)",
         "np_w": 196,
         "label": "VO2MAX",
         "activity_id": "22633717234"
       },
       {
         "date": "2026-07-25",
-        "ride": "Ghisallino",
+        "ride": "Como - Nesso - Ghisallino",
         "np_w": 183,
         "label": "LACTATE_THRESHOLD",
         "activity_id": "23724892894"
@@ -1045,7 +1045,8 @@
         "laps_above_z3": 8,
         "laps_above_z4": 5,
         "notes": "Interval session \u2014 Z3/Z4 work confirmed; Garmin VO2MAX label; max HR 181bpm",
-        "activity_id": "22633717234"
+        "activity_id": "22633717234",
+        "ride_name": "Milano - Robecco (VO2MAX)"
       },
       {
         "date": "2026-04-18",
@@ -1054,7 +1055,8 @@
         "laps_above_z3": 3,
         "laps_above_z4": 2,
         "notes": "Interval session \u2014 Z3/Z4 work confirmed; max HR 179bpm",
-        "activity_id": "22570119691"
+        "activity_id": "22570119691",
+        "ride_name": "Albavilla - Nesso - Ghisallino"
       },
       {
         "date": "2025-10-05",
@@ -1063,7 +1065,8 @@
         "laps_above_z3": 11,
         "laps_above_z4": 1,
         "notes": "Interval session \u2014 Z3/Z4 work confirmed; 11 Z3 laps \u2014 highest Z3 lap count in dataset; max HR 174bpm",
-        "activity_id": "20596377932"
+        "activity_id": "20596377932",
+        "ride_name": "Giro dei Tre Navigli"
       },
       {
         "date": "2026-04-27",
@@ -1081,7 +1084,8 @@
         "laps_above_z3": 3,
         "laps_above_z4": 1,
         "notes": "Interval session \u2014 Z3/Z4 work confirmed; max HR 179bpm",
-        "activity_id": "22652819701"
+        "activity_id": "22652819701",
+        "ride_name": "Milano - Pavia - Vigevano"
       }
     ]
   },
@@ -1097,7 +1101,8 @@
       "dur_min": 20.4,
       "hr_z4_min": 13.6,
       "zone": "Z3-Z4",
-      "activity_id": "24332535841"
+      "activity_id": "24332535841",
+      "ride_name": "Lecco - Culmine - Taleggio"
     },
     {
       "date": "2026-09-19",
@@ -1110,7 +1115,8 @@
       "dur_min": 25.7,
       "hr_z4_min": 12.8,
       "zone": "Z3-Z4",
-      "activity_id": "24419641071"
+      "activity_id": "24419641071",
+      "ride_name": "Tre Valli Varesine"
     },
     {
       "date": "2026-05-03",
@@ -1123,7 +1129,8 @@
       "dur_min": 16.4,
       "hr_z4_min": 12.3,
       "zone": "Z3-Z4",
-      "activity_id": "22749247005"
+      "activity_id": "22749247005",
+      "ride_name": "Onno - Ghisallino"
     },
     {
       "date": "2026-07-25",
@@ -1136,7 +1143,8 @@
       "dur_min": 22.6,
       "hr_z4_min": 19.4,
       "zone": "Z4",
-      "activity_id": "23724892894"
+      "activity_id": "23724892894",
+      "ride_name": "Como - Nesso - Ghisallino"
     },
     {
       "date": "2026-09-19",
@@ -1149,7 +1157,8 @@
       "dur_min": 14.4,
       "hr_z4_min": 3.5,
       "zone": "Z3",
-      "activity_id": "24419641071"
+      "activity_id": "24419641071",
+      "ride_name": "Tre Valli Varesine"
     },
     {
       "date": "2026-08-29",
@@ -1162,7 +1171,8 @@
       "dur_min": 11.6,
       "hr_z4_min": 1.6,
       "zone": "Z3",
-      "activity_id": "24157928844"
+      "activity_id": "24157928844",
+      "ride_name": "Ara - San Daniele - Fagagna"
     },
     {
       "date": "2026-07-25",
@@ -1175,7 +1185,8 @@
       "dur_min": 22.6,
       "hr_z4_min": 22.0,
       "zone": "Z4",
-      "activity_id": "23724892894"
+      "activity_id": "23724892894",
+      "ride_name": "Como - Nesso - Ghisallino"
     },
     {
       "date": "2026-09-06",
@@ -1188,7 +1199,8 @@
       "dur_min": 23.0,
       "hr_z4_min": 6.7,
       "zone": "Z3",
-      "activity_id": "24258570508"
+      "activity_id": "24258570508",
+      "ride_name": "Como - Nesso - Ghisallino"
     },
     {
       "date": "2026-08-22",
@@ -1201,7 +1213,8 @@
       "dur_min": 11.7,
       "hr_z4_min": 0.3,
       "zone": "Z3",
-      "activity_id": "24071620702"
+      "activity_id": "24071620702",
+      "ride_name": "Ara - Majano - Monteaperta"
     },
     {
       "date": "2026-08-29",
@@ -1214,7 +1227,8 @@
       "dur_min": 16.8,
       "hr_z4_min": 5.9,
       "zone": "Z3",
-      "activity_id": "24157928844"
+      "activity_id": "24157928844",
+      "ride_name": "Ara - San Daniele - Fagagna"
     },
     {
       "date": "2026-08-29",
@@ -1227,7 +1241,8 @@
       "dur_min": 13.2,
       "hr_z4_min": 2.0,
       "zone": "Z3",
-      "activity_id": "24157928844"
+      "activity_id": "24157928844",
+      "ride_name": "Ara - San Daniele - Fagagna"
     },
     {
       "date": "2026-08-29",
@@ -1240,7 +1255,8 @@
       "dur_min": 10.9,
       "hr_z4_min": 3.1,
       "zone": "Z3",
-      "activity_id": "24157928844"
+      "activity_id": "24157928844",
+      "ride_name": "Ara - San Daniele - Fagagna"
     },
     {
       "date": "2026-08-22",
@@ -1253,7 +1269,8 @@
       "dur_min": 21.0,
       "hr_z4_min": 0.1,
       "zone": "Z3",
-      "activity_id": "24071620702"
+      "activity_id": "24071620702",
+      "ride_name": "Ara - Majano - Monteaperta"
     },
     {
       "date": "2026-09-12",
@@ -1266,7 +1283,8 @@
       "dur_min": 23.3,
       "hr_z4_min": 1.1,
       "zone": "Z3-Z4",
-      "activity_id": "24332535841"
+      "activity_id": "24332535841",
+      "ride_name": "Lecco - Culmine - Taleggio"
     },
     {
       "date": "2026-08-18",
@@ -1279,7 +1297,8 @@
       "dur_min": 21.1,
       "hr_z4_min": 3.5,
       "zone": "Z3",
-      "activity_id": "24020523301"
+      "activity_id": "24020523301",
+      "ride_name": "Ara - Tanamea - Buia"
     }
   ],
   "training_plan": {
@@ -1647,7 +1666,8 @@
         "minutes": 4.67,
         "max_hr": 189,
         "ride": "Milano Mairano Bereguardo Robecco",
-        "activity_id": "22260143387"
+        "activity_id": "22260143387",
+        "ride_name": "Milano - Mairano - Bereguardo"
       },
       {
         "date": "2026-03-14",
@@ -1661,14 +1681,16 @@
         "minutes": 1.22,
         "max_hr": 188,
         "ride": "Milano Mairano Morimondo",
-        "activity_id": "20791394339"
+        "activity_id": "20791394339",
+        "ride_name": "Milano - Mairano - Morimondo"
       },
       {
         "date": "2026-04-23",
         "minutes": 0.95,
         "max_hr": 181,
         "ride": "Milano Robecco Abbiategrasso (VO2M",
-        "activity_id": "22633717234"
+        "activity_id": "22633717234",
+        "ride_name": "Milano - Robecco (VO2MAX)"
       },
       {
         "date": "2025-11-09",
@@ -1929,7 +1951,8 @@
         "mean_hr": 172.3,
         "peak_hr": 179,
         "ride": "Albavilla Nesso Ghisallino Onn",
-        "activity_id": "22570119691"
+        "activity_id": "22570119691",
+        "ride_name": "Albavilla - Nesso - Ghisallino"
       },
       {
         "dur": "19m00s",
@@ -1937,7 +1960,8 @@
         "mean_hr": 172.5,
         "peak_hr": 180,
         "ride": "Ghisallino Power",
-        "activity_id": "23724892894"
+        "activity_id": "23724892894",
+        "ride_name": "Como - Nesso - Ghisallino"
       },
       {
         "dur": "17m01s",
@@ -1945,7 +1969,8 @@
         "mean_hr": 176.4,
         "peak_hr": 180,
         "ride": "Tre Valli Varesine",
-        "activity_id": "24419641071"
+        "activity_id": "24419641071",
+        "ride_name": "Tre Valli Varesine"
       },
       {
         "dur": "16m42s",
@@ -1953,7 +1978,8 @@
         "mean_hr": 172.2,
         "peak_hr": 176,
         "ride": "Onno Ghisallino Power",
-        "activity_id": "22749247005"
+        "activity_id": "22749247005",
+        "ride_name": "Onno - Ghisallino"
       },
       {
         "dur": "13m33s",
@@ -1961,7 +1987,8 @@
         "mean_hr": 173.2,
         "peak_hr": 178,
         "ride": "Culmine di San Pietro",
-        "activity_id": "24332535841"
+        "activity_id": "24332535841",
+        "ride_name": "Lecco - Culmine - Taleggio"
       },
       {
         "dur": "13m25s",
@@ -1969,7 +1996,8 @@
         "mean_hr": 172.3,
         "peak_hr": 177,
         "ride": "Ghisallino Power",
-        "activity_id": "23724892894"
+        "activity_id": "23724892894",
+        "ride_name": "Como - Nesso - Ghisallino"
       },
       {
         "dur": "12m44s",
@@ -1977,7 +2005,8 @@
         "mean_hr": 170.3,
         "peak_hr": 174,
         "ride": "Ghisallino Power",
-        "activity_id": "23724892894"
+        "activity_id": "23724892894",
+        "ride_name": "Como - Nesso - Ghisallino"
       },
       {
         "dur": "11m57s",
@@ -1985,7 +2014,8 @@
         "mean_hr": 170.6,
         "peak_hr": 174,
         "ride": "Giro Tre Navigli",
-        "activity_id": "20596377932"
+        "activity_id": "20596377932",
+        "ride_name": "Giro dei Tre Navigli"
       }
     ],
     "insight": "221 discrete sustained Z4 HR efforts across 86 of 184 rides (47%). The longest is 35m36s on 18 Apr 2026. This is not a rider who lacks threshold exposure."
@@ -2252,7 +2282,8 @@
       "min": 22.6,
       "power_w": 228,
       "hr_bpm": 168,
-      "activity_id": "23724892894"
+      "activity_id": "23724892894",
+      "ride_name": "Como - Nesso - Ghisallino"
     },
     {
       "date": "2026-07-25",
@@ -2262,7 +2293,8 @@
       "min": 22.6,
       "power_w": 222,
       "hr_bpm": 172,
-      "activity_id": "23724892894"
+      "activity_id": "23724892894",
+      "ride_name": "Como - Nesso - Ghisallino"
     },
     {
       "date": "2026-09-12",
@@ -2272,7 +2304,8 @@
       "min": 23.3,
       "power_w": 215,
       "hr_bpm": 158,
-      "activity_id": "24332535841"
+      "activity_id": "24332535841",
+      "ride_name": "Lecco - Culmine - Taleggio"
     },
     {
       "date": "2026-04-18",
@@ -2282,7 +2315,8 @@
       "min": 25.2,
       "power_w": 210,
       "hr_bpm": 172,
-      "activity_id": "22570119691"
+      "activity_id": "22570119691",
+      "ride_name": "Albavilla - Nesso - Ghisallino"
     },
     {
       "date": "2026-05-09",
@@ -2292,7 +2326,8 @@
       "min": 27.2,
       "power_w": 208,
       "hr_bpm": 162,
-      "activity_id": "22820987608"
+      "activity_id": "22820987608",
+      "ride_name": "Ghisallo - Colma - Vicere"
     },
     {
       "date": "2026-08-23",
@@ -2302,7 +2337,8 @@
       "min": 22.7,
       "power_w": 210,
       "hr_bpm": 148,
-      "activity_id": "24083392793"
+      "activity_id": "24083392793",
+      "ride_name": "Ara - Monteaperta - Taipana"
     },
     {
       "date": "2026-08-30",
@@ -2312,7 +2348,8 @@
       "min": 22.6,
       "power_w": 207,
       "hr_bpm": 154,
-      "activity_id": "24170541318"
+      "activity_id": "24170541318",
+      "ride_name": "Ara - Forgaria - Versegnis"
     },
     {
       "date": "2026-08-16",
@@ -2322,7 +2359,8 @@
       "min": 10.2,
       "power_w": 202,
       "hr_bpm": 149,
-      "activity_id": "23996169972"
+      "activity_id": "23996169972",
+      "ride_name": "Cortina - Giau - Valparola"
     },
     {
       "date": "2026-09-12",
@@ -2332,7 +2370,8 @@
       "min": 20.4,
       "power_w": 243,
       "hr_bpm": 164,
-      "activity_id": "24332535841"
+      "activity_id": "24332535841",
+      "ride_name": "Lecco - Culmine - Taleggio"
     },
     {
       "date": "2026-09-05",
@@ -2342,7 +2381,8 @@
       "min": 25.1,
       "power_w": 201,
       "hr_bpm": 155,
-      "activity_id": "24245491818"
+      "activity_id": "24245491818",
+      "ride_name": "Lecco - Agueglio - Morterone"
     }
   ],
   "longest_rides": {
@@ -2354,7 +2394,8 @@
         "elev_m": 1171.0,
         "np_w": 157,
         "hr_bpm": 144,
-        "activity_id": "22488657053"
+        "activity_id": "22488657053",
+        "ride_name": "Giro del Lago di Como"
       },
       {
         "date": "2026-05-23",
@@ -2363,7 +2404,8 @@
         "elev_m": 1693.0,
         "np_w": 156,
         "hr_bpm": 137,
-        "activity_id": "22984152670"
+        "activity_id": "22984152670",
+        "ride_name": "Tre Laghi"
       },
       {
         "date": "2026-05-17",
@@ -2372,7 +2414,8 @@
         "elev_m": 532.0,
         "np_w": 160,
         "hr_bpm": 143,
-        "activity_id": "22913695000"
+        "activity_id": "22913695000",
+        "ride_name": "Milano - Sesto Calende"
       },
       {
         "date": "2026-04-04",
@@ -2381,7 +2424,8 @@
         "elev_m": 249.0,
         "np_w": 146,
         "hr_bpm": 148,
-        "activity_id": "22405438246"
+        "activity_id": "22405438246",
+        "ride_name": "Milano - Maddalena - Morimondo"
       },
       {
         "date": "2026-08-09",
@@ -2390,7 +2434,8 @@
         "elev_m": 3812.0,
         "np_w": 171,
         "hr_bpm": 140,
-        "activity_id": "23912303030"
+        "activity_id": "23912303030",
+        "ride_name": "Cortina - Falzarego - Gardena - Sella - Pordoi - Giau"
       },
       {
         "date": "2026-09-19",
@@ -2399,7 +2444,8 @@
         "elev_m": 2086.0,
         "np_w": 182,
         "hr_bpm": 139,
-        "activity_id": "24419641071"
+        "activity_id": "24419641071",
+        "ride_name": "Tre Valli Varesine"
       },
       {
         "date": "2026-06-06",
@@ -2408,7 +2454,8 @@
         "elev_m": 686.0,
         "np_w": 159,
         "hr_bpm": 139,
-        "activity_id": "23150708559"
+        "activity_id": "23150708559",
+        "ride_name": "Oltre Po"
       },
       {
         "date": "2025-11-08",
@@ -2417,7 +2464,8 @@
         "elev_m": 292.0,
         "np_w": 153,
         "hr_bpm": 143,
-        "activity_id": "20929436812"
+        "activity_id": "20929436812",
+        "ride_name": "Milano - Pavia - Ticino - Robecco"
       }
     ],
     "by_duration": [
@@ -2428,7 +2476,8 @@
         "elev_m": 3812.0,
         "np_w": 171,
         "hr_bpm": 140,
-        "activity_id": "23912303030"
+        "activity_id": "23912303030",
+        "ride_name": "Cortina - Falzarego - Gardena - Sella - Pordoi - Giau"
       },
       {
         "date": "2026-06-27",
@@ -2437,7 +2486,8 @@
         "elev_m": 3297.0,
         "np_w": 162,
         "hr_bpm": 139,
-        "activity_id": "23396147027"
+        "activity_id": "23396147027",
+        "ride_name": "Cortina - Falzarego - Gardena - Sella - Pordoi"
       },
       {
         "date": "2026-05-23",
@@ -2446,7 +2496,8 @@
         "elev_m": 1693.0,
         "np_w": 156,
         "hr_bpm": 137,
-        "activity_id": "22984152670"
+        "activity_id": "22984152670",
+        "ride_name": "Tre Laghi"
       },
       {
         "date": "2026-07-12",
@@ -2455,7 +2506,8 @@
         "elev_m": 2910.0,
         "np_w": 162,
         "hr_bpm": 143,
-        "activity_id": "23570316392"
+        "activity_id": "23570316392",
+        "ride_name": "Cortina - Giau - Falzarego - Tre Croci"
       },
       {
         "date": "2026-07-04",
@@ -2464,7 +2516,8 @@
         "elev_m": 3005.0,
         "np_w": 166,
         "hr_bpm": 143,
-        "activity_id": "23476724958"
+        "activity_id": "23476724958",
+        "ride_name": "Cortina - Giau - Campolongo - Falzarego"
       },
       {
         "date": "2026-05-09",
@@ -2473,7 +2526,8 @@
         "elev_m": 2489.0,
         "np_w": 171,
         "hr_bpm": 144,
-        "activity_id": "22820987608"
+        "activity_id": "22820987608",
+        "ride_name": "Ghisallo - Colma - Vicere"
       },
       {
         "date": "2026-06-07",
@@ -2482,7 +2536,8 @@
         "elev_m": 1657.0,
         "np_w": 149,
         "hr_bpm": 132,
-        "activity_id": "23164118181"
+        "activity_id": "23164118181",
+        "ride_name": "Como - Balcone - Lugano"
       },
       {
         "date": "2026-09-19",
@@ -2491,7 +2546,8 @@
         "elev_m": 2086.0,
         "np_w": 182,
         "hr_bpm": 139,
-        "activity_id": "24419641071"
+        "activity_id": "24419641071",
+        "ride_name": "Tre Valli Varesine"
       }
     ]
   },
@@ -2605,7 +2661,8 @@
         "km": 131.0,
         "hours": 8.6,
         "elev_m": 3812.0,
-        "activity_id": "23912303030"
+        "activity_id": "23912303030",
+        "ride_name": "Cortina - Falzarego - Gardena - Sella - Pordoi - Giau"
       },
       {
         "date": "2026-06-27",
@@ -2613,7 +2670,8 @@
         "km": 120.0,
         "hours": 7.1,
         "elev_m": 3297.0,
-        "activity_id": "23396147027"
+        "activity_id": "23396147027",
+        "ride_name": "Cortina - Falzarego - Gardena - Sella - Pordoi"
       },
       {
         "date": "2026-07-12",
@@ -2621,7 +2679,8 @@
         "km": 106.0,
         "hours": 6.4,
         "elev_m": 2910.0,
-        "activity_id": "23570316392"
+        "activity_id": "23570316392",
+        "ride_name": "Cortina - Giau - Falzarego - Tre Croci"
       },
       {
         "date": "2026-07-04",
@@ -2629,7 +2688,8 @@
         "km": 105.0,
         "hours": 6.4,
         "elev_m": 3005.0,
-        "activity_id": "23476724958"
+        "activity_id": "23476724958",
+        "ride_name": "Cortina - Giau - Campolongo - Falzarego"
       },
       {
         "date": "2026-05-09",
@@ -2637,7 +2697,8 @@
         "km": 116.0,
         "hours": 6.4,
         "elev_m": 2489.0,
-        "activity_id": "22820987608"
+        "activity_id": "22820987608",
+        "ride_name": "Ghisallo - Colma - Vicere"
       },
       {
         "date": "2026-05-23",
@@ -2645,7 +2706,8 @@
         "km": 144.0,
         "hours": 7.1,
         "elev_m": 1693.0,
-        "activity_id": "22984152670"
+        "activity_id": "22984152670",
+        "ride_name": "Tre Laghi"
       }
     ],
     "top_efficiency": [
@@ -2655,7 +2717,8 @@
         "np_w": 199,
         "hr_bpm": 140,
         "elev_m": 823.0,
-        "activity_id": "23432733741"
+        "activity_id": "23432733741",
+        "ride_name": "Cortina - Baita Resch"
       },
       {
         "date": "2026-08-25",
@@ -2679,7 +2742,8 @@
         "np_w": 184,
         "hr_bpm": 134,
         "elev_m": 1821.0,
-        "activity_id": "24083392793"
+        "activity_id": "24083392793",
+        "ride_name": "Ara - Monteaperta - Taipana"
       },
       {
         "date": "2026-08-27",

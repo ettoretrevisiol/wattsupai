@@ -28,6 +28,7 @@ FIT_DIR = "/Users/ettoretr/Documents/wattsupai/data/fit-raw"
 DB_PATH = "/Users/ettoretr/Documents/wattsupai/data/training.db"
 FTP_256  = 256   # Garmin manual entry
 FTP_235  = 235   # evidence-based estimate from Sep 19 climb
+FTP_245  = 245   # current working FTP (manual entry Sep 24 2026)
 
 # ── Zone helpers ──────────────────────────────────────────────────────────────
 def hr_zone(bpm):
@@ -229,7 +230,16 @@ CREATE TABLE IF NOT EXISTS zone_summaries (
     pw235_z5_s          REAL,
     pw235_z6_s          REAL,
     pw235_z7_s          REAL,
-    pw235_total_s       REAL
+    pw235_total_s       REAL,
+    -- Power zones (seconds) at FTP=245W (current working FTP Sep 2026)
+    pw245_z1_s          REAL,
+    pw245_z2_s          REAL,
+    pw245_z3_s          REAL,
+    pw245_z4_s          REAL,
+    pw245_z5_s          REAL,
+    pw245_z6_s          REAL,
+    pw245_z7_s          REAL,
+    pw245_total_s       REAL
 );
 
 CREATE TABLE IF NOT EXISTS records (
@@ -395,9 +405,11 @@ def parse_fit(fpath, write_records=False):
     hr_z  = {1:0.0, 2:0.0, 3:0.0, 4:0.0, 5:0.0}
     pw256 = {1:0.0, 2:0.0, 3:0.0, 4:0.0, 5:0.0, 6:0.0, 7:0.0}
     pw235 = {1:0.0, 2:0.0, 3:0.0, 4:0.0, 5:0.0, 6:0.0, 7:0.0}
+    pw245 = {1:0.0, 2:0.0, 3:0.0, 4:0.0, 5:0.0, 6:0.0, 7:0.0}
     hr_total_s   = 0.0
     pw256_total  = 0.0
     pw235_total  = 0.0
+    pw245_total  = 0.0
 
     for hr, pw, dt in zip(hr_1s, pw_1s, intervals):
         z = hr_zone(hr)
@@ -407,12 +419,16 @@ def parse_fit(fpath, write_records=False):
         if has_power and pw is not None and pw >= 0:
             z256 = power_zone(pw, FTP_256)
             z235 = power_zone(pw, FTP_235)
+            z245 = power_zone(pw, FTP_245)
             if z256:
                 pw256[z256]  += dt
                 pw256_total  += dt
             if z235:
                 pw235[z235]  += dt
                 pw235_total  += dt
+            if z245:
+                pw245[z245]  += dt
+                pw245_total  += dt
 
     zone_summary = {
         "activity_id":   aid,
@@ -424,6 +440,9 @@ def parse_fit(fpath, write_records=False):
         "pw235_z1_s": pw235[1], "pw235_z2_s": pw235[2], "pw235_z3_s": pw235[3],
         "pw235_z4_s": pw235[4], "pw235_z5_s": pw235[5], "pw235_z6_s": pw235[6],
         "pw235_z7_s": pw235[7], "pw235_total_s": pw235_total,
+        "pw245_z1_s": pw245[1], "pw245_z2_s": pw245[2], "pw245_z3_s": pw245[3],
+        "pw245_z4_s": pw245[4], "pw245_z5_s": pw245[5], "pw245_z6_s": pw245[6],
+        "pw245_z7_s": pw245[7], "pw245_total_s": pw245_total,
     }
 
     # ── Computed session metrics ───────────────────────────────────────────────
