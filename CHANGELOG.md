@@ -2,6 +2,25 @@
 
 ---
 
+## 2026-09-25
+
+### Fixed
+- Service worker cache bug: `CACHE_NAME` bumped to `v3` + `updatefound` handler added so new SW activates immediately instead of waiting for tab close. This was causing stale `index.html` to be served after pushes.
+
+### Added
+- Best Rides tab: VAM leaderboard (top 10 laps by vertical speed m/h) + Longest Rides by distance/duration. All rows link to Garmin Connect.
+- Season Overview tab: Numbers & Milestones section — W/kg PDC progression, monthly elevation chart, aerobic efficiency top 5, top calorie burn days.
+- Footer: git-sweaty tracker link alongside Strava.
+
+### Changed
+- `update_dashboard.py`: now computes `best_vam_laps`, `longest_rides`, `milestones` and patches them into `dashboard.json`.
+- `docs/coaching-context.md`: fixed stale FTP=256 zone block — now shows FTP=245W throughout.
+- `.gitignore`: added `data/ingest.log`.
+- `README.md`: structure updated to include `training-log/`, all new scripts.
+- `dashboard.json` version bumped to 6.1.
+
+---
+
 ## 2026-09-24
 
 ### Added

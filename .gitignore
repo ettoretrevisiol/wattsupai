@@ -43,6 +43,9 @@ data/deep/
 # Garmin API activity list export (regenerated on demand, not version-controlled)
 data/activities.json
 
+# Auto-ingest log (written by launchd job)
+data/ingest.log
+
 # ── Retired scripts ───────────────────────────────────────────────────────────
 # Superseded by scripts/fit_to_db.py + scripts/query_db.py
 scripts/build_db.py

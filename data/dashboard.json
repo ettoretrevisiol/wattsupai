@@ -1,8 +1,8 @@
 {
   "_meta": {
-    "last_updated": "2026-09-24",
-    "updated_by": "WattsUpAI / Kiro \u2014 raw FIT \u2192 SQLite ETL",
-    "version": "6.0",
+    "last_updated": "2026-09-25",
+    "updated_by": "WattsUpAI / Kiro \u2014 raw FIT \u2192 SQLite ETL + update_dashboard.py",
+    "version": "6.1",
     "rides_analysed": 184,
     "file_composition": {
       "indoor_cycling": 65,
@@ -24,8 +24,10 @@
       "note": "Permanent local archive. Re-analysis needs no network. Rebuild/extend with scripts/fit_seconds.py"
     },
     "pipeline": [
-      "scripts/fit_to_db.py   \u2014 ETL: raw FIT files \u2192 training.db (activities, laps, zone_summaries)",
-      "scripts/query_db.py    \u2014 full analysis from DB (SQL queries only)"
+      "scripts/fit_to_db.py       \u2014 ETL: raw FIT files \u2192 training.db",
+      "scripts/update_dashboard.py \u2014 patch week_summary, milestones, etc into dashboard.json",
+      "scripts/query_db.py        \u2014 full season analysis report (stdout)",
+      "scripts/log_session.py     \u2014 post-ride subjective prompt \u2192 training-log/current-plan.md"
     ],
     "database": {
       "path": "data/training.db",

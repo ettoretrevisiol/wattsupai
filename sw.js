@@ -1,7 +1,7 @@
 // WattsUpAI Service Worker
 // Caches dashboard for offline use, always tries network first for data files
 
-const CACHE_NAME = 'wattsupai-v2';
+const CACHE_NAME = 'wattsupai-v3';
 const STATIC_ASSETS = [
   '/wattsupai/',
   '/wattsupai/index.html',

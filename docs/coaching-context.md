@@ -24,17 +24,17 @@
 - Z2: 130–154 bpm
 - Z3: 155–165 bpm
 - Z4: 166–179 bpm
-- Z5: 179+ bpm
+- Z5: 180+ bpm
 
-### Power (FTP 256W — Garmin manual entry Sep 12 2026)
-- Z1 Recovery:    <141W  (<55% FTP)
-- Z2 Endurance:  141–192W (55–75% FTP)
-- Z3 Tempo:      193–230W (75–90% FTP)
-- Z4 Threshold:  231–268W (90–105% FTP)
-- Z5 VO2max:     269–307W (105–120% FTP)
-- Z6 Anaerobic:  308–384W (120–150% FTP)
-- Z7 NM:         384W+
-- **FTP: 256W (Garmin Connect, confirmed Sep 12 2026)**
+### Power (FTP 245W — manual entry Sep 24 2026)
+- Z1 Recovery:    <134W  (<55% FTP)
+- Z2 Endurance:  134–183W (55–75% FTP)
+- Z3 Tempo:      184–220W (75–90% FTP)
+- Z4 Threshold:  221–257W (90–105% FTP)
+- Z5 VO2max:     258–294W (105–120% FTP)
+- Z6 Anaerobic:  295–367W (120–150% FTP)
+- Z7 NM:         368W+
+- **FTP: 245W (manual entry Sep 24 2026)**
 
 ## Key Analytical Findings (23 Sep 2026) — Updated with Full FIT Analysis
 

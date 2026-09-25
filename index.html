@@ -254,8 +254,21 @@ body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellips
 // ── PWA: Register service worker ────────────────────────────────────────────
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('./sw.js')
-    .then(reg => console.log('[SW] Registered:', reg.scope))
+    .then(reg => {
+      console.log('[SW] Registered:', reg.scope);
+      // When a new SW is found, activate it immediately
+      reg.addEventListener('updatefound', () => {
+        const newWorker = reg.installing;
+        newWorker.addEventListener('statechange', () => {
+          if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+            newWorker.postMessage('SKIP_WAITING');
+          }
+        });
+      });
+    })
     .catch(err => console.warn('[SW] Registration failed:', err));
+  // Reload when new SW takes over
+  navigator.serviceWorker.addEventListener('controllerchange', () => window.location.reload());
 }
 
 // ── PWA: Install prompt ─────────────────────────────────────────────────────

@@ -63,19 +63,22 @@ wattsupai/
 │   ├── training.db             # SQLite database — source of truth for all analysis
 │   │                           # Tables: activities, laps, zone_summaries
 │   │                           # Rebuilt from raw FIT with: python3 scripts/fit_to_db.py
-│   ├── training_db_README.md   # DB schema + usage docs
 │   └── dashboard.json          # Dashboard data (updated after each session)
 │
 ├── scripts/
 │   ├── fit_to_db.py            # ETL: raw FIT files → training.db
-│   │                           # Run: python3 scripts/fit_to_db.py
-│   │                           # Options: --force (rebuild all), --activity ID (single)
-│   └── query_db.py             # Full season analysis report from training.db
-│                               # Run: python3 scripts/query_db.py
+│   ├── update_dashboard.py     # Patch week_summary, milestones, VAM etc → dashboard.json
+│   │                           # Also auto-logs post-ride note to training-log/
+│   ├── log_session.py          # 3-question post-ride subjective prompt
+│   └── query_db.py             # Full season analysis report (stdout)
 │
 ├── docs/
-│   ├── coaching-context.md     # Full coaching context: zones, FTP, findings, rules
-│   └── ZONES.md                # HR + power zone reference
+│   ├── coaching-context.md     # Permanent coaching context: zones, FTP, findings, rules
+│   ├── ZONES.md                # HR + power zone reference
+│   └── training_db_README.md  # DB schema + usage docs
+│
+├── training-log/
+│   └── current-plan.md         # Active plan + session log (rewrite each plan cycle)
 │
 ├── agent/
 │   ├── agent.json.template     # Kiro agent config template (deployed by setup.sh)
@@ -241,4 +244,4 @@ Live Garmin data is fetched at session start via the Garmin MCP integration.
 
 ---
 
-*Last updated: Sep 24 2026 · FTP 245W · VO2max 61 · CTL ~803*
+*Last updated: Sep 25 2026 · FTP 245W · VO2max 61 · CTL ~803*
