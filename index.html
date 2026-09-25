@@ -884,13 +884,24 @@ function renderRides(d) {
         <div class="card-title"><span class="ct-dot" style="background:var(--green)"></span>Corrected power zones</div>
         <div class="insight good" style="margin-bottom:14px;">${ftp.why_it_matters}</div>
         <table style="width:100%;font-size:.74rem;border-collapse:collapse;">
-          <tr style="color:var(--dim);font-size:.68rem;"><th style="text-align:left;padding:4px;">zone</th><th style="text-align:right;">old (FTP 256)</th><th style="text-align:right;">USE THIS (FTP ${pzc.ftp})</th></tr>
-          ${['z1','z2','z3','z4','z5','z6'].map(k=>`<tr style="border-top:1px solid rgba(255,255,255,.05);${k==='z4'?'background:rgba(255,159,64,.10);':''}">
-            <td style="padding:5px;font-weight:${k==='z4'?'700':'400'};">${k.toUpperCase()}${k==='z4'?' threshold':''}</td>
-            <td style="text-align:right;color:var(--dim);text-decoration:line-through;">${pzc.old_zones_w[k]}</td>
-            <td style="text-align:right;font-weight:700;color:${k==='z4'?'var(--orange)':'inherit'}">${pzc.zones_w[k]}</td></tr>`).join('')}
+          <tr style="color:var(--dim);font-size:.68rem;"><th style="text-align:left;padding:4px;">zone</th><th style="text-align:right;">old (FTP ${pzc.previous_ftp||256})</th><th style="text-align:right;">USE THIS (FTP ${pzc.ftp})</th></tr>
+          ${(() => {
+            const oldFtp = pzc.previous_ftp || 256;
+            const oldZones = {
+              z1: '<'  +Math.round(oldFtp*.55)+'W',
+              z2: Math.round(oldFtp*.55)+'–'+Math.round(oldFtp*.75)+'W',
+              z3: Math.round(oldFtp*.75)+'–'+Math.round(oldFtp*.90)+'W',
+              z4: Math.round(oldFtp*.90)+'–'+Math.round(oldFtp*1.05)+'W',
+              z5: Math.round(oldFtp*1.05)+'–'+Math.round(oldFtp*1.20)+'W',
+              z6: Math.round(oldFtp*1.20)+'–'+Math.round(oldFtp*1.50)+'W',
+            };
+            return ['z1','z2','z3','z4','z5','z6'].map(k=>`<tr style="border-top:1px solid rgba(255,255,255,.05);${k==='z4'?'background:rgba(255,159,64,.10);':''}">
+              <td style="padding:5px;font-weight:${k==='z4'?'700':'400'};">${k.toUpperCase()}${k==='z4'?' threshold':''}</td>
+              <td style="text-align:right;color:var(--dim);text-decoration:line-through;">${oldZones[k]}</td>
+              <td style="text-align:right;font-weight:700;color:${k==='z4'?'var(--orange)':'inherit'}">${(pzc.zones_w||{})[k]||'—'}</td></tr>`).join('');
+          })()}
         </table>
-        <div class="insight" style="margin-top:12px;border-left-color:var(--orange)"><strong>${pzc.note}</strong></div>
+        <div class="insight" style="margin-top:12px;border-left-color:var(--orange)"><strong>${pzc.current_ftp_note||'FTP '+pzc.ftp+'W (manual entry '+pzc.ftp_date+')'}</strong></div>
         <div class="insight" style="margin-top:10px;font-size:.72rem;">${ftp.action}</div>
       </div>
     </div>
@@ -907,7 +918,7 @@ function renderRides(d) {
               <div style="width:${Math.min(100,c.watts/9.5)}%;height:100%;background:var(--blue);opacity:.75;border-radius:3px;"></div>
             </div>
             <div style="width:46px;text-align:right;font-size:.7rem;font-weight:700;">${c.watts}W</div>
-            <div style="width:88px;font-size:.64rem;color:var(--dim);">${c.date.slice(5)} ${c.ride.slice(0,11)}</div>
+            <div style="width:88px;font-size:.64rem;color:var(--dim);">${c.date?.slice(5)||''} ${c.ride ? c.ride.slice(0,11) : c.duration}</div>
           </div>`).join('')}
         </div>
         <div class="insight" style="margin-top:12px;"><strong>Corrections:</strong> ${tpdc.corrections}</div>
@@ -992,7 +1003,7 @@ function renderRides(d) {
       <div class="card card-accent-orange">
         <div class="card-title"><span class="ct-dot" style="background:var(--orange)"></span>Power zones — per-second, FTP 256W</div>
         <div style="font-size:.72rem;color:var(--dim);margin-bottom:10px;">${pzd.rides_with_power} rides with power · ${pzd.total_hours}h</div>
-        ${[['Z1 <141',pzd.z1_pct],['Z2 141-192',pzd.z2_pct],['Z3 193-230',pzd.z3_pct],['Z4 231-268',pzd.z4_pct],['Z5 269-307',pzd.z5_pct],['Z6 308-384',pzd.z6_pct],['Z7 385+',pzd.z7_pct]].map(([l,p])=>`
+        ${[['Z1 <141',pzd.ftp_256w?.z1_pct],['Z2 141-192',pzd.ftp_256w?.z2_pct],['Z3 193-230',pzd.ftp_256w?.z3_pct],['Z4 231-268',pzd.ftp_256w?.z4_pct],['Z5 269-307',pzd.ftp_256w?.z5_pct],['Z6 308-384',pzd.ftp_256w?.z6_pct],['Z7 385+',pzd.ftp_256w?.z7_pct]].map(([l,p])=>`
         <div style="display:flex;align-items:center;gap:8px;margin-bottom:5px;">
           <div style="width:78px;font-size:.66rem;color:var(--dim)">${l}</div>
           <div style="flex:1;background:rgba(255,255,255,.04);border-radius:3px;height:15px;">
@@ -1001,7 +1012,7 @@ function renderRides(d) {
           <div style="width:42px;text-align:right;font-size:.66rem;">${p}%</div>
         </div>`).join('')}
         <div class="insight" style="margin-top:12px;">
-          Power Z4 and above: <strong>${pzd.z4_plus_pct}%</strong>. Note this exceeds HR Z4+ (${tz.z4_plus_z5_pct}%) — power responds instantly to a surge while HR lags, so short hard efforts register in power but never lift HR into Z4.
+          Power Z4 and above: <strong>${pzd.ftp_256w?.z4_plus_pct}%</strong>. Note this exceeds HR Z4+ (${tz.z4_plus_z5_pct}%) — power responds instantly to a surge while HR lags, so short hard efforts register in power but never lift HR into Z4.
         </div>
       </div>
     </div>
