@@ -152,17 +152,17 @@
       {
         "w": 279,
         "date": "2026-09-19",
-        "ride": "road"
+        "ride": "Tre Valli Varesine"
       },
       {
         "w": 263,
         "date": "2026-05-03",
-        "ride": "road"
+        "ride": "Onno - Ghisallino"
       },
       {
         "w": 262,
         "date": "2026-09-12",
-        "ride": "road"
+        "ride": "Lecco - Culmine"
       }
     ],
     "pdc_10min_peak_w": 267,
@@ -172,17 +172,17 @@
       {
         "w": 267,
         "date": "2026-09-19",
-        "ride": "road"
+        "ride": "Tre Valli Varesine"
       },
       {
         "w": 254,
         "date": "2026-09-12",
-        "ride": "road"
+        "ride": "Lecco - Culmine"
       },
       {
         "w": 250,
         "date": "2026-05-03",
-        "ride": "road"
+        "ride": "Onno - Ghisallino"
       }
     ],
     "pdc_20min_peak_w": 239,
@@ -2383,7 +2383,8 @@
       "elev_m": 2086.0,
       "km": 127.0,
       "hours": 6.3,
-      "np_trend_vs_prev": "flat"
+      "np_trend_vs_prev": "flat",
+      "ride_name": "Tre Valli Varesine"
     },
     {
       "date": "2026-09-12",
@@ -2392,7 +2393,8 @@
       "elev_m": 1983.0,
       "km": 102.0,
       "hours": 4.9,
-      "np_trend_vs_prev": "up"
+      "np_trend_vs_prev": "up",
+      "ride_name": "Lecco - Culmine"
     },
     {
       "date": "2026-09-05",
@@ -2401,7 +2403,8 @@
       "elev_m": 1867.0,
       "km": 101.0,
       "hours": 4.7,
-      "np_trend_vs_prev": "down"
+      "np_trend_vs_prev": "down",
+      "ride_name": "Lecco - Agueglio - Morterone"
     },
     {
       "date": "2026-08-29",
@@ -2410,7 +2413,8 @@
       "elev_m": 1040.0,
       "km": 101.0,
       "hours": 3.7,
-      "np_trend_vs_prev": null
+      "np_trend_vs_prev": null,
+      "ride_name": "Ara - San Daniele - Fagagna"
     }
   ],
   "best_vam_laps": [

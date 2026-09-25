@@ -508,13 +508,13 @@ function renderSeason(d) {
         <div class="card-title"><span class="ct-dot" style="background:var(--orange)"></span>Peak 5-min PDC</div>
         <div class="kpi-val">${ss.pdc_5min_peak_w}<span class="kpi-unit">W</span></div>
         <div class="kpi-label"><a href="https://connect.garmin.com/modern/activity/${ss.pdc_5min_activity_id}" target="_blank" style="color:inherit;text-decoration:underline dotted;">${ss.pdc_5min_peak_date} ${ss.pdc_5min_peak_ride}</a></div>
-        <div class="kpi-delta up">↑ 2nd: ${ss.pdc_5min_top3[1].w}W (${ss.pdc_5min_top3[1].date.slice(5)}) · 3rd: ${ss.pdc_5min_top3[2].w}W (${ss.pdc_5min_top3[2].date.slice(5)})</div>
+        <div class="kpi-delta up">↑ 2nd: ${ss.pdc_5min_top3[1].w}W (${ss.pdc_5min_top3[1].ride||ss.pdc_5min_top3[1].date}) · 3rd: ${ss.pdc_5min_top3[2].w}W (${ss.pdc_5min_top3[2].ride||ss.pdc_5min_top3[2].date})</div>
       </div>
       <div class="card card-accent-blue">
         <div class="card-title"><span class="ct-dot"></span>Peak 10-min PDC</div>
         <div class="kpi-val">${ss.pdc_10min_peak_w}<span class="kpi-unit">W</span></div>
         <div class="kpi-label"><a href="https://connect.garmin.com/modern/activity/${ss.pdc_10min_activity_id}" target="_blank" style="color:inherit;text-decoration:underline dotted;">${ss.pdc_10min_peak_date} ${ss.pdc_10min_peak_ride}</a></div>
-        <div class="kpi-delta up">↑ 2nd: ${ss.pdc_10min_top3[1].w}W (${ss.pdc_10min_top3[1].date.slice(5)}) · 3rd: ${ss.pdc_10min_top3[2].w}W (${ss.pdc_10min_top3[2].date.slice(5)})</div>
+        <div class="kpi-delta up">↑ 2nd: ${ss.pdc_10min_top3[1].w}W (${ss.pdc_10min_top3[1].ride||ss.pdc_10min_top3[1].date}) · 3rd: ${ss.pdc_10min_top3[2].w}W (${ss.pdc_10min_top3[2].ride||ss.pdc_10min_top3[2].date})</div>
       </div>
       <div class="card card-accent-orange">
         <div class="card-title"><span class="ct-dot" style="background:var(--orange)"></span>Peak CTL</div>
@@ -576,7 +576,7 @@ function renderSeason(d) {
       <div class="card card-accent-orange">
         <div class="card-title"><span class="ct-dot" style="background:var(--orange)"></span>Current Gaps</div>
         <ul class="alist">
-          <li><span class="ico">⚠️</span><div><strong>Only ${ss.lt_vo2max_sessions} LT/VO2max rides in 12 months:</strong> ${ss.lt_sessions.map(s=>`<a href="https://connect.garmin.com/modern/activity/${s.activity_id}" target="_blank" style="color:var(--orange);text-decoration:underline dotted;">${s.date} ${s.ride}</a> (NP ${s.np_w}W, ${s.label})`).join('; ')}. All other rides Aerobic Base or Tempo.</div></li>
+          <li><span class="ico">⚠️</span><div><strong>Only ${ss.lt_vo2max_sessions} LT/VO2max rides in 12 months:</strong> ${ss.lt_sessions.map(s=>`<a href="https://connect.garmin.com/modern/activity/${s.activity_id}" target="_blank" style="color:var(--orange);text-decoration:underline dotted;">${s.ride}</a> <span style="color:var(--dim);font-size:.8em;">${s.date}</span> (NP ${s.np_w}W, ${s.label})`).join('; ')}. All other rides Aerobic Base or Tempo.</div></li>
           <li><span class="ico">⚠️</span><div><strong>Holiday blocks were Z2–Z3:</strong> Even the Aug 9 mega-day (130km/3,812m) stayed 170–196W NP. Volume huge, intensity not.</div></li>
           <li><span class="ico">⚠️</span><div><strong>VO2max drift:</strong> ${d.athlete.vo2max_peak}→${d.athlete.vo2max_current} since Aug peak. No Z4 = body starts de-adapting.</div></li>
         </ul>
@@ -1266,7 +1266,10 @@ function renderPlan(d) {
                          : s.np_trend_vs_prev === 'down' ? 'var(--red)' : 'var(--dim)';
         const isLatest = i === arr.length - 1;
         return `<tr style="opacity:${isLatest ? 1 : 0.7};">
-          <td style="padding:4px 8px;color:var(--dim);font-size:.72rem;">${s.date}</td>
+          <td style="padding:4px 8px;font-size:.72rem;">
+            <div style="font-weight:${isLatest?600:400};color:var(--text);">${s.ride_name||s.date}</div>
+            <div style="color:var(--dim);font-size:.65rem;">${s.date}</div>
+          </td>
           <td style="padding:4px 8px;font-weight:${isLatest ? 700 : 400};color:${isLatest ? 'var(--orange)' : 'var(--text)'};">${s.np_w ? s.np_w+'W' : '—'}</td>
           <td style="padding:4px 8px;color:${arrowColor};font-size:.85rem;">${arrow}</td>
           <td style="padding:4px 8px;color:var(--dim);font-size:.72rem;">${s.pdc20_w ? s.pdc20_w+'W 20m' : ''}</td>
