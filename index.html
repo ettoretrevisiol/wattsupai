@@ -366,14 +366,23 @@ function weekTagClass(tag) {
 
 function renderHeader(d) {
   const s = d.current_status;
+  const ws = d.wattsupai_status;
   document.getElementById('headerTagline').textContent =
     `Ettore's Performance Dashboard · Updated ${s.date}`;
 
-  const statusColorMap = { Plateau:'b-orange', Building:'b-green', Maintaining:'b-blue', Peaking:'b-green', Recovering:'b-violet', Overreaching:'b-red' };
-  const bClass = statusColorMap[s.label] || 'b-orange';
+  const codeColorMap = {
+    BUILDING:'b-green', PRODUCTIVE:'b-blue', BASE_PHASE:'b-orange',
+    MAINTAINING:'b-amber', DETRAINING:'b-red', OVERREACHING:'b-red'
+  };
+  const codeLabel = {
+    BUILDING:'↑ Building', PRODUCTIVE:'✓ Productive', BASE_PHASE:'⚡ Base Phase',
+    MAINTAINING:'→ Maintaining', DETRAINING:'↓ Detraining', OVERREACHING:'🔴 Overreaching'
+  };
+  const bClass = ws ? (codeColorMap[ws.code] || 'b-orange') : 'b-orange';
+  const bLabel = ws ? (codeLabel[ws.code] || ws.label) : (s.label || 'Loading');
 
   document.getElementById('headerBadges').innerHTML = `
-    <span class="badge ${bClass} badge-pulse">${s.label}</span>
+    <span class="badge ${bClass} badge-pulse">${bLabel}</span>
     <span class="badge b-blue">CTL ${s.ctl}</span>
     <span class="badge b-${s.hrv_weekly_avg_ms >= 50 ? 'green' : s.hrv_weekly_avg_ms >= 45 ? 'orange' : 'red'}">HRV ${s.hrv_weekly_avg_ms}ms</span>
     <span class="badge b-violet">VO2max ${d.athlete.vo2max_current}</span>
