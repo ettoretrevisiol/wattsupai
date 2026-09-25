@@ -495,7 +495,7 @@ function renderSeason(d) {
       <div class="card card-accent-violet">
         <div class="card-title"><span class="ct-dot" style="background:var(--violet)"></span>Season Peak 20min PDC</div>
         <div class="kpi-val">${ss.pdc_20min_peak_w}<span class="kpi-unit">W</span></div>
-        <div class="kpi-label">${ss.pdc_20min_peak_date} ${ss.pdc_20min_peak_ride}</div>
+        <div class="kpi-label"><a href="https://connect.garmin.com/modern/activity/${ss.pdc_20min_activity_id}" target="_blank" style="color:inherit;text-decoration:underline dotted;">${ss.pdc_20min_peak_date} ${ss.pdc_20min_peak_ride}</a></div>
         <div class="kpi-delta up">↑ 2nd: 228W (Jul 25) · 3rd: 226W (Sep 12)</div>
       </div>
       <div class="card card-accent-green">
@@ -507,13 +507,13 @@ function renderSeason(d) {
       <div class="card card-accent-orange">
         <div class="card-title"><span class="ct-dot" style="background:var(--orange)"></span>Peak 5-min PDC</div>
         <div class="kpi-val">${ss.pdc_5min_peak_w}<span class="kpi-unit">W</span></div>
-        <div class="kpi-label">${ss.pdc_5min_peak_date} ${ss.pdc_5min_peak_ride}</div>
+        <div class="kpi-label"><a href="https://connect.garmin.com/modern/activity/${ss.pdc_5min_activity_id}" target="_blank" style="color:inherit;text-decoration:underline dotted;">${ss.pdc_5min_peak_date} ${ss.pdc_5min_peak_ride}</a></div>
         <div class="kpi-delta up">↑ 2nd: ${ss.pdc_5min_top3[1].w}W (${ss.pdc_5min_top3[1].date.slice(5)}) · 3rd: ${ss.pdc_5min_top3[2].w}W (${ss.pdc_5min_top3[2].date.slice(5)})</div>
       </div>
       <div class="card card-accent-blue">
         <div class="card-title"><span class="ct-dot"></span>Peak 10-min PDC</div>
         <div class="kpi-val">${ss.pdc_10min_peak_w}<span class="kpi-unit">W</span></div>
-        <div class="kpi-label">${ss.pdc_10min_peak_date} ${ss.pdc_10min_peak_ride}</div>
+        <div class="kpi-label"><a href="https://connect.garmin.com/modern/activity/${ss.pdc_10min_activity_id}" target="_blank" style="color:inherit;text-decoration:underline dotted;">${ss.pdc_10min_peak_date} ${ss.pdc_10min_peak_ride}</a></div>
         <div class="kpi-delta up">↑ 2nd: ${ss.pdc_10min_top3[1].w}W (${ss.pdc_10min_top3[1].date.slice(5)}) · 3rd: ${ss.pdc_10min_top3[2].w}W (${ss.pdc_10min_top3[2].date.slice(5)})</div>
       </div>
       <div class="card card-accent-orange">
@@ -576,7 +576,7 @@ function renderSeason(d) {
       <div class="card card-accent-orange">
         <div class="card-title"><span class="ct-dot" style="background:var(--orange)"></span>Current Gaps</div>
         <ul class="alist">
-          <li><span class="ico">⚠️</span><div><strong>Only ${ss.lt_vo2max_sessions} LT/VO2max rides in 12 months:</strong> ${ss.lt_sessions.map(s=>`${s.date} ${s.ride} (NP ${s.np_w}W, ${s.label})`).join('; ')}. All other rides Aerobic Base or Tempo.</div></li>
+          <li><span class="ico">⚠️</span><div><strong>Only ${ss.lt_vo2max_sessions} LT/VO2max rides in 12 months:</strong> ${ss.lt_sessions.map(s=>`<a href="https://connect.garmin.com/modern/activity/${s.activity_id}" target="_blank" style="color:var(--orange);text-decoration:underline dotted;">${s.date} ${s.ride}</a> (NP ${s.np_w}W, ${s.label})`).join('; ')}. All other rides Aerobic Base or Tempo.</div></li>
           <li><span class="ico">⚠️</span><div><strong>Holiday blocks were Z2–Z3:</strong> Even the Aug 9 mega-day (130km/3,812m) stayed 170–196W NP. Volume huge, intensity not.</div></li>
           <li><span class="ico">⚠️</span><div><strong>VO2max drift:</strong> ${d.athlete.vo2max_peak}→${d.athlete.vo2max_current} since Aug peak. No Z4 = body starts de-adapting.</div></li>
         </ul>
@@ -843,7 +843,7 @@ function renderRides(d) {
             const zoneBg = l.zone.includes('Z4') ? 'rgba(249,115,22,.15)' : l.zone.includes('Z3-Z4') ? 'rgba(59,130,246,.15)' : 'rgba(34,197,94,.15)';
             const isTop3 = laps.indexOf(l) < 3;
             return `<tr style="border-bottom:1px solid rgba(34,40,64,.5);">
-              <td style="padding:9px 10px;color:var(--text);font-weight:600;">${l.date.replace('2026-','')} ${l.ride} ${l.lap}${l.note?` <span style="color:var(--muted);font-weight:400;font-size:.68rem;">— ${l.note}</span>`:''}${isTop3?' 🏆':''}</td>
+              <td style="padding:9px 10px;color:var(--text);font-weight:600;"><a href="https://connect.garmin.com/modern/activity/${l.activity_id}" target="_blank" style="color:inherit;text-decoration:underline dotted;">${l.date.replace('2026-','')} ${l.ride} ${l.lap}</a>${l.note?` <span style="color:var(--muted);font-weight:400;font-size:.68rem;">— ${l.note}</span>`:''}${isTop3?' 🏆':''}</td>
               <td style="padding:9px 10px;text-align:center;color:${isTop3?'var(--orange)':'var(--blue)'};font-weight:800;">${l.np_w}W</td>
               <td style="padding:9px 10px;text-align:center;color:var(--dim);">${l.avg_hr ? l.avg_hr+'bpm' : '—'}</td>
               <td style="padding:9px 10px;text-align:center;"><span style="background:${zoneBg};color:${zoneColor};padding:2px 8px;border-radius:5px;font-size:.67rem;font-weight:700;">${l.zone}</span></td>
@@ -936,7 +936,7 @@ function renderRides(d) {
         <div style="font-size:.7rem;color:var(--dim);margin:12px 0 6px;">Longest continuous Z4 HR efforts ever:</div>
         <div class="ride-list">
           ${sde.longest_hr_z4_efforts.slice(0,5).map(e=>`<div class="ride-item">
-            <div><div class="ride-name">${e.ride}</div><div class="ride-meta">${e.date} · mean ${e.mean_hr} peak ${e.peak_hr}bpm</div></div>
+            <div><div class="ride-name"><a href="https://connect.garmin.com/modern/activity/${e.activity_id}" target="_blank" style="color:inherit;text-decoration:underline dotted;">${e.ride}</a></div><div class="ride-meta">${e.date} · mean ${e.mean_hr} peak ${e.peak_hr}bpm</div></div>
             <div class="ride-dist" style="color:var(--orange)">${e.dur}</div>
           </div>`).join('')}
         </div>
@@ -1039,7 +1039,7 @@ function renderRides(d) {
         <div class="kpi-label">total Z5 (≥180bpm) across 13 months · ${z5r.rides_with_z5} rides · peak ${z5r.highest_hr_recorded}bpm</div>
         <div class="ride-list" style="margin-top:12px;">
           ${z5r.top.map(t=>`<div class="ride-item">
-            <div><div class="ride-name">${t.ride}</div><div class="ride-meta">${t.date} · max ${t.max_hr}bpm</div></div>
+            <div><div class="ride-name"><a href="https://connect.garmin.com/modern/activity/${t.activity_id}" target="_blank" style="color:inherit;text-decoration:underline dotted;">${t.ride}</a></div><div class="ride-meta">${t.date} · max ${t.max_hr}bpm</div></div>
             <div class="ride-dist" style="color:var(--red)">${t.minutes}<span style="font-size:.6rem;color:var(--dim)">min</span></div>
           </div>`).join('')}
         </div>
@@ -1068,7 +1068,7 @@ function renderRides(d) {
         <div class="card-title"><span class="ct-dot" style="background:var(--violet)"></span>The 10 Z4 weekday rides</div>
         <div class="ride-list">
           ${wis.key_interval_sessions.map(r=>`<div class="ride-item">
-            <div><div class="ride-name">${r.route_name}</div><div class="ride-meta">${r.date} · ${r.laps_above_z3} Z3 laps · ${r.laps_above_z4} Z4 lap${r.laps_above_z4>1?'s':''}</div></div>
+            <div><div class="ride-name"><a href="https://connect.garmin.com/modern/activity/${r.activity_id}" target="_blank" style="color:inherit;text-decoration:underline dotted;">${r.route_name}</a></div><div class="ride-meta">${r.date} · ${r.laps_above_z3} Z3 laps · ${r.laps_above_z4} Z4 lap${r.laps_above_z4>1?'s':''}</div></div>
             <div class="ride-dist" style="color:var(--orange)">${r.peak_lap_hr}<span style="font-size:.6rem;color:var(--dim)">bpm</span></div>
           </div>`).join('')}
         </div>

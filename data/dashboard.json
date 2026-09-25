@@ -196,21 +196,28 @@
         "date": "2025-11-03",
         "ride": "Milano Gaggiano",
         "np_w": 187,
-        "label": "LACTATE_THRESHOLD"
+        "label": "LACTATE_THRESHOLD",
+        "activity_id": "20879106410"
       },
       {
         "date": "2026-04-23",
         "ride": "Milano Robecco",
         "np_w": 196,
-        "label": "VO2MAX"
+        "label": "VO2MAX",
+        "activity_id": "22633717234"
       },
       {
         "date": "2026-07-25",
         "ride": "Ghisallino",
         "np_w": 183,
-        "label": "LACTATE_THRESHOLD"
+        "label": "LACTATE_THRESHOLD",
+        "activity_id": "23724892894"
       }
-    ]
+    ],
+    "pdc_20min_activity_id": "24419641071",
+    "pdc_5min_activity_id": "23835130056",
+    "pdc_10min_activity_id": "24419641071",
+    "best_5s_activity_id": "23835130056"
   },
   "pdc_progression": {
     "description": "20-min PDC across all 78 outdoor power rides. Computed from raw FIT per-second power.",
@@ -1037,7 +1044,8 @@
         "peak_lap_hr": 174,
         "laps_above_z3": 8,
         "laps_above_z4": 5,
-        "notes": "Interval session \u2014 Z3/Z4 work confirmed; Garmin VO2MAX label; max HR 181bpm"
+        "notes": "Interval session \u2014 Z3/Z4 work confirmed; Garmin VO2MAX label; max HR 181bpm",
+        "activity_id": "22633717234"
       },
       {
         "date": "2026-04-18",
@@ -1045,7 +1053,8 @@
         "peak_lap_hr": 172,
         "laps_above_z3": 3,
         "laps_above_z4": 2,
-        "notes": "Interval session \u2014 Z3/Z4 work confirmed; max HR 179bpm"
+        "notes": "Interval session \u2014 Z3/Z4 work confirmed; max HR 179bpm",
+        "activity_id": "22570119691"
       },
       {
         "date": "2025-10-05",
@@ -1053,7 +1062,8 @@
         "peak_lap_hr": 171,
         "laps_above_z3": 11,
         "laps_above_z4": 1,
-        "notes": "Interval session \u2014 Z3/Z4 work confirmed; 11 Z3 laps \u2014 highest Z3 lap count in dataset; max HR 174bpm"
+        "notes": "Interval session \u2014 Z3/Z4 work confirmed; 11 Z3 laps \u2014 highest Z3 lap count in dataset; max HR 174bpm",
+        "activity_id": "20596377932"
       },
       {
         "date": "2026-04-27",
@@ -1061,7 +1071,8 @@
         "peak_lap_hr": 170,
         "laps_above_z3": 2,
         "laps_above_z4": 1,
-        "notes": "Interval session \u2014 Z3/Z4 work confirmed; max HR 179bpm"
+        "notes": "Interval session \u2014 Z3/Z4 work confirmed; max HR 179bpm",
+        "activity_id": "22680621746"
       },
       {
         "date": "2026-04-25",
@@ -1069,7 +1080,8 @@
         "peak_lap_hr": 169,
         "laps_above_z3": 3,
         "laps_above_z4": 1,
-        "notes": "Interval session \u2014 Z3/Z4 work confirmed; max HR 179bpm"
+        "notes": "Interval session \u2014 Z3/Z4 work confirmed; max HR 179bpm",
+        "activity_id": "22652819701"
       }
     ]
   },
@@ -1084,7 +1096,8 @@
       "ascent_m": 278,
       "dur_min": 20.4,
       "hr_z4_min": 13.6,
-      "zone": "Z3-Z4"
+      "zone": "Z3-Z4",
+      "activity_id": "24332535841"
     },
     {
       "date": "2026-09-19",
@@ -1096,7 +1109,8 @@
       "ascent_m": 250,
       "dur_min": 25.7,
       "hr_z4_min": 12.8,
-      "zone": "Z3-Z4"
+      "zone": "Z3-Z4",
+      "activity_id": "24419641071"
     },
     {
       "date": "2026-05-03",
@@ -1108,7 +1122,8 @@
       "ascent_m": 222,
       "dur_min": 16.4,
       "hr_z4_min": 12.3,
-      "zone": "Z3-Z4"
+      "zone": "Z3-Z4",
+      "activity_id": "22749247005"
     },
     {
       "date": "2026-07-25",
@@ -1120,7 +1135,8 @@
       "ascent_m": 349,
       "dur_min": 22.6,
       "hr_z4_min": 19.4,
-      "zone": "Z4"
+      "zone": "Z4",
+      "activity_id": "23724892894"
     },
     {
       "date": "2026-09-19",
@@ -1132,7 +1148,8 @@
       "ascent_m": 98,
       "dur_min": 14.4,
       "hr_z4_min": 3.5,
-      "zone": "Z3"
+      "zone": "Z3",
+      "activity_id": "24419641071"
     },
     {
       "date": "2026-08-29",
@@ -1144,7 +1161,8 @@
       "ascent_m": 102,
       "dur_min": 11.6,
       "hr_z4_min": 1.6,
-      "zone": "Z3"
+      "zone": "Z3",
+      "activity_id": "24157928844"
     },
     {
       "date": "2026-07-25",
@@ -1156,7 +1174,8 @@
       "ascent_m": 336,
       "dur_min": 22.6,
       "hr_z4_min": 22.0,
-      "zone": "Z4"
+      "zone": "Z4",
+      "activity_id": "23724892894"
     },
     {
       "date": "2026-09-06",
@@ -1168,7 +1187,8 @@
       "ascent_m": 147,
       "dur_min": 23.0,
       "hr_z4_min": 6.7,
-      "zone": "Z3"
+      "zone": "Z3",
+      "activity_id": "24258570508"
     },
     {
       "date": "2026-08-22",
@@ -1180,7 +1200,8 @@
       "ascent_m": 109,
       "dur_min": 11.7,
       "hr_z4_min": 0.3,
-      "zone": "Z3"
+      "zone": "Z3",
+      "activity_id": "24071620702"
     },
     {
       "date": "2026-08-29",
@@ -1192,7 +1213,8 @@
       "ascent_m": 169,
       "dur_min": 16.8,
       "hr_z4_min": 5.9,
-      "zone": "Z3"
+      "zone": "Z3",
+      "activity_id": "24157928844"
     },
     {
       "date": "2026-08-29",
@@ -1204,7 +1226,8 @@
       "ascent_m": 127,
       "dur_min": 13.2,
       "hr_z4_min": 2.0,
-      "zone": "Z3"
+      "zone": "Z3",
+      "activity_id": "24157928844"
     },
     {
       "date": "2026-08-29",
@@ -1216,7 +1239,8 @@
       "ascent_m": 84,
       "dur_min": 10.9,
       "hr_z4_min": 3.1,
-      "zone": "Z3"
+      "zone": "Z3",
+      "activity_id": "24157928844"
     },
     {
       "date": "2026-08-22",
@@ -1228,7 +1252,8 @@
       "ascent_m": 274,
       "dur_min": 21.0,
       "hr_z4_min": 0.1,
-      "zone": "Z3"
+      "zone": "Z3",
+      "activity_id": "24071620702"
     },
     {
       "date": "2026-09-12",
@@ -1240,7 +1265,8 @@
       "ascent_m": 343,
       "dur_min": 23.3,
       "hr_z4_min": 1.1,
-      "zone": "Z3-Z4"
+      "zone": "Z3-Z4",
+      "activity_id": "24332535841"
     },
     {
       "date": "2026-08-18",
@@ -1252,7 +1278,8 @@
       "ascent_m": 267,
       "dur_min": 21.1,
       "hr_z4_min": 3.5,
-      "zone": "Z3"
+      "zone": "Z3",
+      "activity_id": "24020523301"
     }
   ],
   "training_plan": {
@@ -1619,31 +1646,36 @@
         "date": "2026-03-22",
         "minutes": 4.67,
         "max_hr": 189,
-        "ride": "Milano Mairano Bereguardo Robecco"
+        "ride": "Milano Mairano Bereguardo Robecco",
+        "activity_id": "22260143387"
       },
       {
         "date": "2026-03-14",
         "minutes": 3.53,
         "max_hr": 193,
-        "ride": "Indoor trainer session"
+        "ride": "Indoor trainer session",
+        "activity_id": "22168683435"
       },
       {
         "date": "2025-10-25",
         "minutes": 1.22,
         "max_hr": 188,
-        "ride": "Milano Mairano Morimondo"
+        "ride": "Milano Mairano Morimondo",
+        "activity_id": "20791394339"
       },
       {
         "date": "2026-04-23",
         "minutes": 0.95,
         "max_hr": 181,
-        "ride": "Milano Robecco Abbiategrasso (VO2M"
+        "ride": "Milano Robecco Abbiategrasso (VO2M",
+        "activity_id": "22633717234"
       },
       {
         "date": "2025-11-09",
         "minutes": 0.7,
         "max_hr": 184,
-        "ride": "Milano Mairano Morimondo"
+        "ride": "Milano Mairano Morimondo",
+        "activity_id": "20937268109"
       }
     ],
     "correction": "Previously reported as 0.0%. That was a lap-averaging artifact. Z5 is small but real: 12.5 min across 9 rides, peak 193bpm."
@@ -1896,56 +1928,64 @@
         "date": "2026-04-18",
         "mean_hr": 172.3,
         "peak_hr": 179,
-        "ride": "Albavilla Nesso Ghisallino Onn"
+        "ride": "Albavilla Nesso Ghisallino Onn",
+        "activity_id": "22570119691"
       },
       {
         "dur": "19m00s",
         "date": "2026-07-25",
         "mean_hr": 172.5,
         "peak_hr": 180,
-        "ride": "Ghisallino Power"
+        "ride": "Ghisallino Power",
+        "activity_id": "23724892894"
       },
       {
         "dur": "17m01s",
         "date": "2026-09-19",
         "mean_hr": 176.4,
         "peak_hr": 180,
-        "ride": "Tre Valli Varesine"
+        "ride": "Tre Valli Varesine",
+        "activity_id": "24419641071"
       },
       {
         "dur": "16m42s",
         "date": "2026-05-03",
         "mean_hr": 172.2,
         "peak_hr": 176,
-        "ride": "Onno Ghisallino Power"
+        "ride": "Onno Ghisallino Power",
+        "activity_id": "22749247005"
       },
       {
         "dur": "13m33s",
         "date": "2026-09-12",
         "mean_hr": 173.2,
         "peak_hr": 178,
-        "ride": "Culmine di San Pietro"
+        "ride": "Culmine di San Pietro",
+        "activity_id": "24332535841"
       },
       {
         "dur": "13m25s",
         "date": "2026-07-25",
         "mean_hr": 172.3,
         "peak_hr": 177,
-        "ride": "Ghisallino Power"
+        "ride": "Ghisallino Power",
+        "activity_id": "23724892894"
       },
       {
         "dur": "12m44s",
         "date": "2026-07-25",
         "mean_hr": 170.3,
         "peak_hr": 174,
-        "ride": "Ghisallino Power"
+        "ride": "Ghisallino Power",
+        "activity_id": "23724892894"
       },
       {
         "dur": "11m57s",
         "date": "2025-10-05",
         "mean_hr": 170.6,
         "peak_hr": 174,
-        "ride": "Giro Tre Navigli"
+        "ride": "Giro Tre Navigli",
+        "activity_id": "20596377932"
       }
     ],
     "insight": "221 discrete sustained Z4 HR efforts across 86 of 184 rides (47%). The longest is 35m36s on 18 Apr 2026. This is not a rider who lacks threshold exposure."
