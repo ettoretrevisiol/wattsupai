@@ -42,7 +42,7 @@ PLAN_TARGETS = {
         "z4_target_min": 0,
         "sat_np_min": 182, "sat_np_max": 190,
         "sessions": [
-            {"day": "Thu", "type": "Z3",  "desc": "3×10min Z3 · 184–220W · end HR 158–165bpm"},
+            {"day": "Thu", "type": "Z3",  "desc": "3×10min Z3 · 176–211W · end HR 158–165bpm"},
             {"day": "Sat", "type": "climb","desc": "3–3.5h · 800–1000m climbing · NP 182–190W"},
             {"day": "Sun", "type": "Z2",  "desc": "Z2 recovery · ≤145bpm"},
         ],
@@ -53,7 +53,7 @@ PLAN_TARGETS = {
         "sat_np_min": 185, "sat_np_max": 192,
         "sessions": [
             {"day": "Tue", "type": "Z4",   "desc": "2×15min progressive Z3→Z4 · end HR ≥166bpm"},
-            {"day": "Thu", "type": "Z4",   "desc": "4×8min Z4 · 221–250W · end HR 166–174bpm"},
+            {"day": "Thu", "type": "Z4",   "desc": "4×8min Z4 · 211–246W · end HR 166–174bpm"},
             {"day": "Sat", "type": "climb","desc": "3.5–4h · 1000–1300m climbing · NP 185–192W"},
             {"day": "Sun", "type": "Z2",   "desc": "Z2 · ≤145bpm"},
         ],
@@ -63,8 +63,8 @@ PLAN_TARGETS = {
         "z4_target_min": 40,
         "sat_np_min": 192, "sat_np_max": 200,
         "sessions": [
-            {"day": "Tue", "type": "Z4",   "desc": "3×15min Z4 · 221–250W · end HR 166–174bpm"},
-            {"day": "Thu", "type": "Z5",   "desc": "5×6min Z5 · 258–294W · end HR 172–179bpm"},
+            {"day": "Tue", "type": "Z4",   "desc": "3×15min Z4 · 211–246W · end HR 166–174bpm"},
+            {"day": "Thu", "type": "Z5",   "desc": "5×6min Z5 · 246–282W · end HR 172–179bpm"},
             {"day": "Sat", "type": "climb","desc": "4–4.5h · 1400–1700m climbing · NP 192–200W (target: LT label)"},
             {"day": "Sun", "type": "Z2",   "desc": "recovery · ≤140bpm"},
         ],
@@ -74,7 +74,7 @@ PLAN_TARGETS = {
         "z4_target_min": 0,
         "sat_np_min": 165, "sat_np_max": 175,
         "sessions": [
-            {"day": "Thu", "type": "Z3",   "desc": "2×10min Z3 · 184–220W · easy pace"},
+            {"day": "Thu", "type": "Z3",   "desc": "2×10min Z3 · 176–211W · easy pace"},
             {"day": "Sat", "type": "climb","desc": "easy · ~400–600m climbing · NP 165–175W"},
         ],
     },
@@ -529,7 +529,7 @@ def compute_wattsupai_status(conn, hrv_weekly_avg, hrv_last_night, ctl, atl, tsb
         "rides_28d":         rides_28d,
         "power_rides_28d":   power_rides_28d,
         "signal_note":       (
-            f"Power Z4 (Sat/weekend bike, FTP=245W): {pw_z4_min:.0f}min | "
+            f"Power Z4 (Sat/weekend bike, FTP=235W): {pw_z4_min:.0f}min | "
             f"HR Z4 (weekday bike, fallback): {weekday_z4_min:.0f}min"
         ),
     }
@@ -908,7 +908,7 @@ def generate_post_ride_note(conn):
 
     # Power summary
     if has_power and np_w:
-        np_pct = round(np_w / 245 * 100)
+        np_pct = round(np_w / 235 * 100)
         np_zone = ("Z2" if np_w < 184 else "Z3" if np_w < 221 else
                    "Z4" if np_w < 258 else "Z5")
         parts.append(f"- NP: **{np_w}W** ({np_pct}% FTP, {np_zone})"

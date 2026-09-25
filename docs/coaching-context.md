@@ -26,7 +26,7 @@
 - Z4: 166–179 bpm
 - Z5: 180+ bpm
 
-### Power (FTP 245W — manual entry Sep 24 2026)
+### Power (FTP 235W — manual entry Sep 25 2026)
 - Z1 Recovery:    <134W  (<55% FTP)
 - Z2 Endurance:  134–183W (55–75% FTP)
 - Z3 Tempo:      184–220W (75–90% FTP)
@@ -34,7 +34,7 @@
 - Z5 VO2max:     258–294W (105–120% FTP)
 - Z6 Anaerobic:  295–367W (120–150% FTP)
 - Z7 NM:         368W+
-- **FTP: 245W (manual entry Sep 24 2026)**
+- **FTP: 235W (manual entry Sep 25 2026)**
 
 ## Key Analytical Findings (23 Sep 2026) — Updated with Full FIT Analysis
 
@@ -436,7 +436,7 @@ Key data files:
   2. For zone time: use `data/training.db` (per-second from raw FIT) or `get_activity_hr_in_timezones()`
   3. NP is the only honest single-number intensity metric for variable-terrain rides
   4. Training effect label (Aerobic Base / Tempo / Lactate Threshold / VO2max) is Garmin's own summary
-- **FTP 245W** — use this as the reference (manual entry Sep 24 2026)
+- **FTP 235W** — use this as the reference (manual entry Sep 25 2026)
 - HR zones: judge by END of interval, not during (cardiac lag)
 - Power zones: primary metric on power meter bike; RPE+HR on weekday bike
 - Always check activity detail for NP, max_power, training_effect_label, training_load

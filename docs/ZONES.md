@@ -1,20 +1,20 @@
 # Zone Reference
 
-*FTP: 245W (manual entry Sep 24 2026) · Max HR: ~181 bpm (2026 season peak)*
+*FTP: 235W (manual entry Sep 25 2026) · Max HR: ~181 bpm (2026 season peak)*
 
 ---
 
-## Power Zones (FTP 245W)
+## Power Zones (FTP 235W)
 
 | Zone | Name | Watts | % FTP | Use |
 |------|------|-------|-------|-----|
-| Z1 | Recovery | <134W | <55% | Active recovery, cooldown |
-| Z2 | Endurance | 134–183W | 55–75% | Long base rides, aerobic development |
-| Z3 | Tempo | 184–220W | 75–90% | Sustained effort, sweet-spot adjacent |
-| Z4 | Threshold | 221–257W | 90–105% | FTP intervals, lactate threshold work |
-| Z5 | VO2max | 258–294W | 105–120% | Short hard intervals (3–8 min) |
-| Z6 | Anaerobic | 295–367W | 120–150% | <2 min maximal efforts |
-| Z7 | Neuromuscular | 368W+ | >150% | Sprints, accelerations |
+| Z1 | Recovery | <129W | <55% | Active recovery, cooldown |
+| Z2 | Endurance | 129–176W | 55–75% | Long base rides, aerobic development |
+| Z3 | Tempo | 176–211W | 75–90% | Sustained effort, sweet-spot adjacent |
+| Z4 | Threshold | 211–246W | 90–105% | FTP intervals, lactate threshold work |
+| Z5 | VO2max | 246–282W | 105–120% | Short hard intervals (3–8 min) |
+| Z6 | Anaerobic | 282–352W | 120–150% | <2 min maximal efforts |
+| Z7 | Neuromuscular | 352W+ | >150% | Sprints, accelerations |
 
 ## Heart Rate Zones
 
@@ -30,9 +30,9 @@
 
 | Session type | Power target | End-of-rep HR |
 |---|---|---|
-| Z3 Tempo (10–20 min) | 184–220W | 158–165 bpm |
-| Z4 Threshold (8–15 min) | 221–257W | 166–174 bpm |
-| Z5 VO2max (5–8 min) | 258–294W | 172–179 bpm |
+| Z3 Tempo (10–20 min) | 176–211W | 158–165 bpm |
+| Z4 Threshold (8–15 min) | 211–246W | 166–174 bpm |
+| Z5 VO2max (5–8 min) | 246–282W | 172–179 bpm |
 
 ## Notes
 
@@ -45,6 +45,7 @@
 
 | Date | FTP | Source |
 |------|-----|--------|
-| Sep 24 2026 | **245W** | Manual entry |
+| Sep 25 2026 | **235W** | Manual entry (matching evidence-based estimate) |
+| Sep 24 2026 | 245W | Manual entry |
 | Sep 12 2026 | 256W | Manual entry (untested — never used in structured test) |
-| Evidence-based estimate | ~235W | Sep 19 2026: 15-min climb 261W × 0.90 |
+| Evidence basis | ~235W | Sep 19 2026: 15-min climb 261W × 0.90 |

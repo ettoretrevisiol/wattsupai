@@ -97,12 +97,12 @@ wattsupai/
 
 | Parameter | Value |
 |-----------|-------|
-| FTP | **245W** (manual entry Sep 24 2026) |
+| FTP | **235W** (manual entry Sep 25 2026) |
 | VO2max | **61** (peak this season: 62, Aug–Sep 2026) |
 | CTL | ~803 |
 | W/kg | **3.77** at 65 kg |
 
-### Power zones (FTP 245W)
+### Power zones (FTP 235W)
 
 | Zone | Name | Watts | % FTP |
 |------|------|-------|-------|
@@ -244,4 +244,4 @@ Live Garmin data is fetched at session start via the Garmin MCP integration.
 
 ---
 
-*Last updated: Sep 25 2026 · FTP 245W · VO2max 61 · CTL ~803*
+*Last updated: Sep 25 2026 · FTP 235W · VO2max 61 · CTL ~803*

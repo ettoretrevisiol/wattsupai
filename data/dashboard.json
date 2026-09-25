@@ -2,7 +2,7 @@
   "_meta": {
     "last_updated": "2026-09-25",
     "updated_by": "WattsUpAI / Kiro \u2014 raw FIT \u2192 SQLite ETL + update_dashboard.py",
-    "version": "6.1",
+    "version": "6.2",
     "rides_analysed": 184,
     "file_composition": {
       "indoor_cycling": 65,
@@ -41,7 +41,7 @@
   },
   "athlete": {
     "name": "Ettore",
-    "ftp_w": 245,
+    "ftp_w": 235,
     "ftp_date": "2026-09-24",
     "vo2max_current": 61,
     "vo2max_peak": 62,
@@ -72,30 +72,30 @@
     "power_zones": {
       "z1": [
         0,
-        133
+        128
       ],
       "z2": [
-        134,
-        183
+        129,
+        175
       ],
       "z3": [
-        184,
-        220
+        176,
+        210
       ],
       "z4": [
-        221,
-        257
+        211,
+        245
       ],
       "z5": [
-        258,
-        294
+        246,
+        281
       ],
       "z6": [
-        295,
-        367
+        282,
+        351
       ],
       "z7": [
-        368,
+        352,
         9999
       ]
     }
@@ -1891,7 +1891,7 @@
     ]
   },
   "ftp_reassessment": {
-    "current_garmin_ftp": 245,
+    "current_garmin_ftp": 235,
     "evidence_based_ftp": 235,
     "confidence": "medium-high",
     "verdict": "FTP 256W is not supported by any power data in 13 months. It was a manual Garmin entry, never tested. Evidence converges on ~235W.",
@@ -1983,23 +1983,23 @@
     "w_per_kg": 3.61
   },
   "power_zones_corrected": {
-    "ftp": 245,
-    "ftp_date": "2026-09-24",
+    "ftp": 235,
+    "ftp_date": "2026-09-25",
     "zones_w": {
-      "z1": "<134W",
-      "z2": "134\u2013183W",
-      "z3": "184\u2013220W",
-      "z4": "221\u2013257W",
-      "z5": "258\u2013294W",
-      "z6": "295\u2013367W",
-      "z7": "368W+"
+      "z1": "<129W",
+      "z2": "129-176W",
+      "z3": "176-211W",
+      "z4": "211-246W",
+      "z5": "246-282W",
+      "z6": "282-352W",
+      "z7": "352W+"
     },
     "previous_ftp": 256,
     "previous_ftp_note": "Garmin manual entry Sep 12 2026, untested",
     "evidence_ftp": 235,
     "evidence_ftp_note": "Sep 19 15-min climb method (261W \u00d7 0.90)",
-    "current_ftp": 245,
-    "current_ftp_note": "Manually entered Sep 24 2026. Sits between evidence (235W) and old Garmin entry (256W). Use these zones.",
+    "current_ftp": 235,
+    "current_ftp_note": "Manually set Sep 25 2026, matching evidence-based estimate from Sep 19 15-min climb (261W \u00d7 0.90)",
     "w_per_kg": 3.77
   },
   "true_pdc": {
@@ -2937,7 +2937,7 @@
     "latest_sat_np": 182,
     "rides_28d": 17,
     "power_rides_28d": 6,
-    "signal_note": "Power Z4 (Sat/weekend bike, FTP=245W): 272min | HR Z4 (weekday bike, fallback): 26min"
+    "signal_note": "Power Z4 (Sat/weekend bike, FTP=235W): 272min | HR Z4 (weekday bike, fallback): 26min"
   },
   "wattsupai_status_history": [
     {

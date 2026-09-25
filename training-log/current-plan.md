@@ -5,7 +5,7 @@
 ## Plan period: Sep 25 – Oct 19, 2026
 
 **Goal:** Hold or increase FTP before winter. Prevent autumn FTP fade.
-**FTP:** 245W · **VO2max:** 61 · **CTL:** ~803
+**FTP:** 235W · **VO2max:** 61 · **CTL:** ~803
 
 ### Context (at plan start)
 - Season peak: 239W 20min PDC (Sep 19 Tre Valli Varesine), CTL 803
@@ -20,7 +20,7 @@
 
 **Theme:** Confirm aerobic coupling from Sep 19 peak is maintained. No Z4 yet.
 
-- **Thu Sep 25:** 3×10 min Z3 tempo · 184–220W · end HR 158–165bpm · 10 min easy between
+- **Thu Sep 25:** 3×10 min Z3 tempo · 176–211W · end HR 158–165bpm · 10 min easy between
 - **Sat Sep 27:** 3–3.5h · 800–1,000m climbing · target NP 182–190W
   Each climb 15–20 min treated as Z3 effort. Check HR coupling at end.
 - **Sun Sep 28:** Z2 recovery · strict ≤145bpm
@@ -35,9 +35,9 @@
 
 **Theme:** First real Z4 load since Jul 25 LT effort. Build on Week 1.
 
-- **Tue Sep 30:** 2×15 min progressive Z3→Z4 · 184–220W → 221–240W · end-rep HR ≥166bpm
+- **Tue Sep 30:** 2×15 min progressive Z3→Z4 · 176–211W → 211–235W · end-rep HR ≥166bpm
   Cardiac lag normal — judge by HR at END of interval.
-- **Thu Oct 2:** 4×8 min Z4 · 221–250W · end-rep HR 166–174bpm · 6 min recovery
+- **Thu Oct 2:** 4×8 min Z4 · 211–246W · end-rep HR 166–174bpm · 6 min recovery
   This mirrors the Jul 25 effort that earned LT label.
 - **Sat Oct 4:** 3.5–4h · 1,000–1,300m climbing · NP target 185–192W
   Push each 15–20 min climb to HR ≥166bpm at the top.
@@ -54,8 +54,8 @@
 
 **Theme:** Sustained Z4. Target: Garmin Lactate Threshold label on Sat.
 
-- **Tue Oct 7:** 3×15 min Z4 · 221–250W · end HR 166–174bpm sustained from min 8
-- **Thu Oct 9:** 5×6 min Z5 VO2max · 258–294W · end-rep HR 172–179bpm
+- **Tue Oct 7:** 3×15 min Z4 · 211–246W · end HR 166–174bpm sustained from min 8
+- **Thu Oct 9:** 5×6 min Z5 VO2max · 246–282W · end-rep HR 172–179bpm
   First Z5 stimulus in 13 months. Like the Dec 2025 indoor VO2max sessions.
 - **Sat Oct 11:** 4–4.5h · 1,400–1,700m climbing · NP target 192–200W
   **TARGET: Garmin Lactate Threshold label.** Replicates what happened spontaneously Jul 25.
@@ -71,7 +71,7 @@
 ## Week 4 (Oct 13–19) — Recovery
 
 - Volume -40%
-- **Thu Oct 16:** 2×10 min Z3 only · 184–220W · no Z4
+- **Thu Oct 16:** 2×10 min Z3 only · 176–211W · no Z4
 - **Sat Oct 18:** Easy · NP target 165–175W · 400–600m climbing
 
 ---
