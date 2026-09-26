@@ -1491,9 +1491,11 @@
             "actual": "L4 164bpm + L5 160bpm \u2014 plan nailed \u2705"
           },
           {
-            "day": "Sat Sep 27",
+            "day": "Sat Sep 26",
             "type": "Hills Z3",
-            "target": "3\u20133.5h \u00b7 800\u20131,000m \u00b7 NP 182\u2013190W \u00b7 each climb push to end HR 158\u2013165bpm"
+            "target": "3\u20133.5h \u00b7 800\u20131,000m \u00b7 NP 182\u2013190W \u00b7 each climb push to end HR 158\u2013165bpm",
+            "done": true,
+            "actual": "NP 196W \u00b7 1,760m \u00b7 4h6min \u00b7 18min HR Z4 \u00b7 Power Z4+ 90min \u00b7 TEMPO label \u2705"
           },
           {
             "day": "Sun Sep 28",
