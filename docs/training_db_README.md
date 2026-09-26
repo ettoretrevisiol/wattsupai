@@ -43,14 +43,14 @@ Key columns:
 - `avg_vam` — vertical ascent rate (m/h)
 - `lap_trigger` — 'manual', 'distance', 'time', etc.
 - `hr_z1_s` ... `hr_z5_s` — seconds in each HR zone within this lap
-- `pw_z1_s` ... `pw_z7_s` — seconds in each power zone (FTP=256W)
+- `pw_z1_s` ... `pw_z7_s` — seconds in each power zone
 
 ### `zone_summaries` — one row per ride, pre-aggregated zones
 Pre-computed from per-second records. Fastest for season-level aggregations.
 
 Key columns:
 - `hr_z1_s` ... `hr_z5_s`, `hr_total_s` — HR zones (seconds)
-- `pw256_z1_s` ... `pw256_z7_s`, `pw256_total_s` — Power zones at FTP=256W
+- `pw256_z1_s` ... `pw256_z7_s`, `pw256_total_s` — Power zones (legacy 256W column, use pw235)
 - `pw235_z1_s` ... `pw235_z7_s`, `pw235_total_s` — Power zones at FTP=235W (corrected)
 
 ### `records` — one row per second (optional, not populated by default)
@@ -67,7 +67,7 @@ Written only when `fit_to_db.py --records` is used. ~100 MB.
 | Z4 | 166–179 bpm |
 | Z5 | 180+ bpm |
 
-### Power zones (FTP=256W — Garmin manual, untested)
+### Power zones
 | Zone | Range | Label |
 |---|---|---|
 | P1 | <141W | Recovery |

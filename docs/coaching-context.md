@@ -26,7 +26,7 @@
 - Z4: 166–179 bpm
 - Z5: 180+ bpm
 
-### Power (FTP 235W — manual entry Sep 25 2026)
+### Power (FTP 235W)
 - Z1 Recovery:    <134W  (<55% FTP)
 - Z2 Endurance:  134–183W (55–75% FTP)
 - Z3 Tempo:      184–220W (75–90% FTP)
@@ -34,15 +34,9 @@
 - Z5 VO2max:     258–294W (105–120% FTP)
 - Z6 Anaerobic:  295–367W (120–150% FTP)
 - Z7 NM:         368W+
-- **FTP: 235W (manual entry Sep 25 2026)**
+- **FTP: 235W**
 
 ## Key Analytical Findings (23 Sep 2026) — Updated with Full FIT Analysis
-
-### 12-Month Database Analysis (186 activities) — FTP 256W (Garmin, confirmed Sep 12 2026)
-- All rides analysed via **Normalized Power (NP) + FIT file lap-level NP + PDC + HR drift**
-- NP range outdoor rides: **143–198W** = **56–77% of FTP 256W**
-- Total riding: 392h · 10,386km · 29,581 training load
-- Training effect: 127 Aerobic Base (68%), 51 Tempo (27%), 5 Recovery, **2 LT, 1 VO2MAX**
 
 ### 3 High-Quality Sessions in 12 Months (only LT/VO2MAX labels):
 1. **Nov 3 2025** — Milano–Gaggiano, NP 187W (73% FTP) → LACTATE_THRESHOLD, load 235
@@ -83,7 +77,7 @@ Key inflection points:
 - **Aug 29 San Daniele**: L5 NP 224W, L6 NP 220W, L8 NP 216W — best Friuli session
 - **Aug 19 Tanamea**: 80% proactive shifting — best technique day of season
 
-### NP by phase (FTP 256W):
+### NP by phase:
 - Oct–Nov 2025: 146–191W outdoor (some Tempo). Key: Nov 3 LT ride (NP 187W). Multiple outdoor rides 155–191W range. Indoor block already starting by Oct 16.
 - Dec–May indoor block: 65 structured sessions
 - May–Jun 2026: avg 159–175W (62–68% FTP) outdoor ramp-up, best lap 234W NP
@@ -165,33 +159,12 @@ The 10 Z4 rides (verified against JSON, sorted by peak lap HR):
 
 **What this changes**: Zone distribution revised — Z3 17%→22%, Z4 3%→5%, Z2 55%→51%, Z1 25%→21%. These remain *estimates*, not measured Garmin time-in-zone.
 
-## 🚨 FTP CORRECTION — 256W is wrong, evidence says ~235W (24 Sep 2026)
-
-**Primary evidence: the 15-minute climb on Tre Valli Varesine, 19 Sep 2026.**
-Analysed per-second from the raw FIT file. The climb — confirmed by Ettore as ~15 min — produced:
-- **14min 51s continuously above 231W at mean 262W**
-- Best 15-min window: **261W**, starting 36 min into the ride
-- HR mean 174, **peak 180 bpm = 99% of the 2026 season max (181)**
-- Final 3 min: HR 178 bpm at 244W — he was at the ceiling
-- → This was a genuine near-maximal 15-minute effort, the only one in 13 months
-
-**FTP from 15-min power:**
-| factor | FTP | basis |
-|---|---|---|
-| 0.88 | 229W | conservative |
-| **0.90** | **235W** | **standard 15-min conversion** |
-| 0.92 | 240W | aggressive |
-
-**Best estimate: FTP ≈ 235W (range 229–240W). 3.61 W/kg at 65kg.**
-
-### Cross-validation — three durations, one answer
+## Cross-validation — three durations, one answer
 | measure | at FTP 235W | at FTP 256W |
 |---|---|---|
 | 15-min max 261W | 111% — expect 105–115% ✅ | 102% — implausibly low for a max effort ❌ |
 | best 60-min 216W | 92% — expect 88–95% ✅ | 84% — too low ❌ |
 | best 5-min 279W | 119% — expect 115–125% ✅ | 109% — too low ❌ |
-
-Every ratio is coherent at 235W and incoherent at 256W. The 256W figure was a **manual Garmin entry, never tested**.
 
 ### Do NOT use the 20-min number for FTP here
 Best 20-min on that ride was 238W, which would imply FTP 226W. That is an artifact: the PDC falls from **257W at 18min to 238W at 20min** — a 19W cliff in two minutes. No physiological curve does that. The climb simply ended, so the 20-min window is forced to include descent. It measures terrain, not threshold. Discard it.
@@ -222,7 +195,7 @@ The plan asks for "4×8 min Z4 at 231–268W". At real FTP 235W that is **98–1
 |---|---|---|
 | W1 Thu 3×10min Z3 | 193–230W | **176–212W** |
 | W2 Tue 2×15min prog. Z3→Z4 | →231W+ | **→212–230W** |
-| W2 Thu 4×8min Z4 | 231–268W | **215–245W** |
+| W2 Thu 4×8min Z4 | 231–268W | **211–246W** |
 | W3 Tue 3×15min Z4 | 231–268W | **212–240W** |
 | W3 Thu 5×6min Z5 | 269–307W | **247–282W** |
 | Sat NP targets | 182–200W | unchanged (NP targets were set from actual ride data, not FTP%) |
@@ -231,7 +204,6 @@ HR targets in the plan remain valid — they were derived from measured HR, not 
 
 ### Action
 Do a dedicated test to settle it: a 20-min effort on a climb long enough not to truncate (needs ≥22 min of continuous climbing), or a 40–60 min TT. Until then **use 235W**.
-
 
 An earlier version of this file claimed: *"Last ride with any measured Z4 time: 25 Jul 2026. 61 days ago. 32 consecutive rides since with zero Z4. Aug 2026 Z4: 0.0%. Sep 2026 Z4: 0.0%."*
 
@@ -267,19 +239,6 @@ An earlier version of this file claimed: *"Last ride with any measured Z4 time: 
 ### Z5 is small but real
 12.5 min total across 9 rides. Highest HR ever recorded: **193 bpm** (14 Mar 2026, indoor). Top: Mar 22 (4.7 min, 189bpm), Mar 14 (3.5 min, 193bpm), Oct 25 (1.2 min, 188bpm). Previously reported as 0.0% — another lap-averaging artifact.
 
-### Power zones — per-second, FTP 256W (141 rides, 312.2 h)
-| Zone | % |
-|---|---|
-| Z1 <141W | 38.2% |
-| Z2 141–192W | 40.0% |
-| Z3 193–230W | 15.6% |
-| Z4 231–268W | 4.1% |
-| Z5 269–307W | 1.4% |
-| Z6 308–384W | 0.5% |
-| Z7 385W+ | 0.1% |
-
-**Power Z4+ = 6.2%**, higher than HR Z4+ (3.7%). That divergence is expected and informative: power responds instantly to a surge, HR lags 30–60s. Short hard efforts show up in watts but never drag HR into Z4. It also means power is the better compliance metric for short intervals.
-
 ### ⚠️ EQUIPMENT FINDING — the weekday bike HAD a power meter
 The standing assumption "weekday bike has NO power meter" is only true from **June 2026 onward**.
 
@@ -302,7 +261,6 @@ The standing assumption "weekday bike has NO power meter" is only true from **Ju
 - `data/seconds/` — 184 per-ride derived JSONs (per-second zone totals, HR and power).
 - `scripts/fit_seconds.py` — rebuild/extend. Only downloads what is missing. Run with the uv env at `~/.cache/uv/archive-v0/ncqKHR0kl2fa6nKpXwaoC/bin/python3`.
 - **All future historical analysis must use this archive, not the Garmin API.**
-
 
 **Methodology**: every lap of every ride in the local FIT-analysis database classified by its average HR; lap duration summed per zone. 183 rides with HR, **431.0 h analysed**. No weekday/weekend split — the whole dataset at once. Lap-level HR was fetched for all 184 rides and stored locally in `laps_hr_raw` so this never needs re-fetching.
 
@@ -364,7 +322,6 @@ The 4-week plan's direction was right but its premise was understated. Revisions
 2. Z5 is at absolute zero — the W3 Thu 5×6min VO2max session is the first Z5 stimulus in 13 months and should not be skipped
 3. Use the **indoor template** for outdoor sessions: the winter sessions worked because laps were ~3 min and repeated 28–35×. Outdoor, that means deliberately structuring 8×3min or 4×8min rather than hoping a climb delivers it
 4. Track measured Z4 minutes per week as the primary compliance metric — target ≥25 min in W2, ≥40 min in W3 (currently 0)
-
 
 ### Recovery signals (as of 23 Sep 2026):
 - HRV: 50ms weekly avg, balanced — green light
@@ -436,7 +393,7 @@ Key data files:
   2. For zone time: use `data/training.db` (per-second from raw FIT) or `get_activity_hr_in_timezones()`
   3. NP is the only honest single-number intensity metric for variable-terrain rides
   4. Training effect label (Aerobic Base / Tempo / Lactate Threshold / VO2max) is Garmin's own summary
-- **FTP 235W** — use this as the reference (manual entry Sep 25 2026)
+- **FTP 235W** — use this as the reference
 - HR zones: judge by END of interval, not during (cardiac lag)
 - Power zones: primary metric on power meter bike; RPE+HR on weekday bike
 - Always check activity detail for NP, max_power, training_effect_label, training_load

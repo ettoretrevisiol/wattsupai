@@ -512,7 +512,7 @@ function renderSeason(d) {
           }).join('')}
         </div>
         <div class="insight good" style="margin-top:12px;font-size:.72rem;">
-          <strong>Model:</strong> power Z4+ (FTP=245W, weekend bike) · HR Z4+ fallback (weekday bike) · trailing 28 days.
+          <strong>Model:</strong> power Z4+ (FTP=235W, weekend bike) · HR Z4+ fallback (weekday bike) · trailing 28 days.
         </div>
       </div>
     </div>
@@ -882,7 +882,6 @@ function renderRides(d) {
   const zd   = d.z4_drought;
   const sz   = d.structured_z4_precedent;
   // Legacy deep-analysis sections (computed from raw FIT, stored in dashboard.json)
-  const ftp  = d.ftp_reassessment;
   const pzc  = d.power_zones_corrected;
   const tpdc = d.true_pdc;
   const sde  = d.self_detected_efforts;
@@ -932,54 +931,6 @@ function renderRides(d) {
       </div>
       <div class="insight good" style="margin-top:10px;">
         <strong>Aug 29 San Daniele = best Friuli session</strong> — L5 224W, L6 220W, L8 216W. Aug 19 Tanamea = best technique day (80% proactive shifting).
-      </div>
-    </div>
-
-    <div class="section-label">⚠ FTP Reassessment — evidence says ${ftp.evidence_based_ftp}W, not ${ftp.current_garmin_ftp}W</div>
-    <div class="g21">
-      <div class="card card-accent-red">
-        <div class="card-title"><span class="ct-dot" style="background:var(--red)"></span>The Tre Valli evidence</div>
-        <div style="display:flex;gap:20px;align-items:baseline;margin:10px 0 16px;">
-          <div><div class="kpi-val" style="font-size:2.2rem;color:var(--red)">${ftp.current_garmin_ftp}<span class="kpi-unit">W</span></div><div class="kpi-label">Garmin (manual, untested)</div></div>
-          <div style="font-size:1.4rem;color:var(--dim)">→</div>
-          <div><div class="kpi-val" style="font-size:2.2rem;color:var(--green)">${ftp.evidence_based_ftp}<span class="kpi-unit">W</span></div><div class="kpi-label">evidence-based</div></div>
-        </div>
-        <div class="insight" style="border-left-color:var(--red)"><strong>${ftp.verdict}</strong></div>
-        <div style="font-size:.75rem;line-height:1.9;margin-top:12px;">
-          <div><strong>Decisive effort:</strong> ${ftp.tre_valli_evidence.decisive_effort}</div>
-          <div><strong>HR response:</strong> ${ftp.tre_valli_evidence.hr_during}</div>
-          <div><strong>At the end:</strong> ${ftp.tre_valli_evidence.final_5min_of_effort}</div>
-        </div>
-        <div class="insight" style="margin-top:12px;">
-          <strong>Why 20-min power misleads here:</strong> ${ftp.tre_valli_evidence.why_20min_is_misleading}
-        </div>
-        <div style="margin-top:14px;font-size:.72rem;">
-          ${ftp.estimates.map(e=>`<div style="display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px solid rgba(255,255,255,.04);${e.note&&e.note.startsWith('DISCARD')?'opacity:.45;text-decoration:line-through;':''}">
-            <span>${e.method}</span><span style="font-weight:700;">${e.watts}W</span></div>`).join('')}
-        </div>
-      </div>
-      <div class="card card-accent-green">
-        <div class="card-title"><span class="ct-dot" style="background:var(--green)"></span>Power zones — FTP ${pzc.ftp}W</div>
-        <div class="insight good" style="margin-bottom:14px;">${ftp.why_it_matters}</div>
-        <table style="width:100%;font-size:.74rem;border-collapse:collapse;">
-          <tr style="color:var(--dim);font-size:.68rem;">
-            <th style="text-align:left;padding:4px;">Zone</th>
-            <th style="text-align:right;">Watts</th>
-            <th style="text-align:right;">% FTP</th>
-          </tr>
-          ${['z1','z2','z3','z4','z5','z6','z7'].map(k => {
-            const isZ4 = k==='z4';
-            const pcts = {z1:'<55%',z2:'55–75%',z3:'75–90%',z4:'90–105%',z5:'105–120%',z6:'120–150%',z7:'>150%'};
-            const names = {z1:'Recovery',z2:'Endurance',z3:'Tempo',z4:'Threshold',z5:'VO2max',z6:'Anaerobic',z7:'Neuromuscular'};
-            return `<tr style="border-top:1px solid rgba(255,255,255,.05);${isZ4?'background:rgba(255,159,64,.10);':''}">
-              <td style="padding:5px;font-weight:${isZ4?'700':'400'};">${k.toUpperCase()} <span style="color:var(--dim);font-size:.68rem;">${names[k]}</span></td>
-              <td style="text-align:right;font-weight:${isZ4?700:400};color:${isZ4?'var(--orange)':'inherit'}">${(pzc.zones_w||{})[k]||'—'}</td>
-              <td style="text-align:right;color:var(--dim);font-size:.7rem;">${pcts[k]}</td>
-            </tr>`;
-          }).join('')}
-        </table>
-        <div class="insight" style="margin-top:12px;border-left-color:var(--orange)"><strong>${pzc.current_ftp_note||'FTP '+pzc.ftp+'W'}</strong></div>
-        <div class="insight" style="margin-top:10px;font-size:.72rem;">${ftp.action}</div>
       </div>
     </div>
 
@@ -1078,7 +1029,7 @@ function renderRides(d) {
         </div>
       </div>
       <div class="card card-accent-orange">
-        <div class="card-title"><span class="ct-dot" style="background:var(--orange)"></span>Power zones — per-second, FTP 256W</div>
+        <div class="card-title"><span class="ct-dot" style="background:var(--orange)"></span>Power zones — per-second, FTP 235W</div>
         <div style="font-size:.72rem;color:var(--dim);margin-bottom:10px;">${pzd.rides_with_power} rides with power · ${pzd.total_hours}h</div>
         ${[['Z1 <141',pzd.ftp_256w?.z1_pct],['Z2 141-192',pzd.ftp_256w?.z2_pct],['Z3 193-230',pzd.ftp_256w?.z3_pct],['Z4 231-268',pzd.ftp_256w?.z4_pct],['Z5 269-307',pzd.ftp_256w?.z5_pct],['Z6 308-384',pzd.ftp_256w?.z6_pct],['Z7 385+',pzd.ftp_256w?.z7_pct]].map(([l,p])=>`
         <div style="display:flex;align-items:center;gap:8px;margin-bottom:5px;">

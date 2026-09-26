@@ -26,9 +26,9 @@ from datetime import datetime
 # ── Config ────────────────────────────────────────────────────────────────────
 FIT_DIR = "/Users/ettoretr/Documents/wattsupai/data/fit-raw"
 DB_PATH = "/Users/ettoretr/Documents/wattsupai/data/training.db"
-FTP_256  = 256   # Garmin manual entry
-FTP_235  = 235   # evidence-based estimate from Sep 19 climb
-FTP_245  = 245   # current working FTP (manual entry Sep 24 2026)
+FTP_256  = 256   # legacy column, kept for DB compatibility
+FTP_235  = 235   # current FTP
+FTP_245  = 245   # legacy column
 
 # ── Zone helpers ──────────────────────────────────────────────────────────────
 def hr_zone(bpm):
@@ -231,7 +231,7 @@ CREATE TABLE IF NOT EXISTS zone_summaries (
     pw235_z6_s          REAL,
     pw235_z7_s          REAL,
     pw235_total_s       REAL,
-    -- Power zones (seconds) at FTP=245W (current working FTP Sep 2026)
+    -- Power zones (seconds) at FTP=245W
     pw245_z1_s          REAL,
     pw245_z2_s          REAL,
     pw245_z3_s          REAL,

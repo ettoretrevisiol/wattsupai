@@ -1867,7 +1867,7 @@
       "vs_256_delta_min": 1096,
       "note": "At FTP=235W, 1096 min of true threshold work is no longer mis-classified as Tempo"
     },
-    "current_ftp_note": "FTP=245W (manual Sep 24 2026). DB zone_summaries still computed at FTP=256 and FTP=235 \u2014 rerun fit_to_db.py --force to add FTP=245 column if needed."
+    "current_ftp_note": "FTP=235W (current). DB zone_summaries computed at FTP=256 and FTP=235."
   },
   "weekday_power_meter": {
     "finding": "The weekday bike DID have a power meter. 22 flat rides carry power data from Sep 2025 to 27 May 2026. Every flat ride from 1 Jun 2026 onward has none.",
@@ -1893,101 +1893,8 @@
       }
     ]
   },
-  "ftp_reassessment": {
-    "current_garmin_ftp": 235,
-    "evidence_based_ftp": 235,
-    "confidence": "medium-high",
-    "verdict": "FTP 256W is not supported by any power data in 13 months. It was a manual Garmin entry, never tested. Evidence converges on ~235W.",
-    "method": "Per-second analysis of the Tre Valli Varesine ride (19 Sep 2026) \u2014 the only near-maximal sustained effort in the dataset.",
-    "tre_valli_evidence": {
-      "decisive_effort": "14min 51s continuously above 231W at mean 262W",
-      "hr_during": "rose to 180bpm, which is 99% of the 2026 season max of 181bpm",
-      "final_5min_of_effort": "HR 178bpm at 249W \u2014 he was at the limit",
-      "best_15min": 261,
-      "best_18min": 257,
-      "best_20min": 238,
-      "why_20min_is_misleading": "The climb lasted ~15-16 min. The PDC drops 19W between 18min (257W) and 20min (238W) \u2014 a physiological curve cannot fall that fast. The 20-min window is forced to include post-climb descent, so it measures terrain, not threshold."
-    },
-    "estimates": [
-      {
-        "method": "15-min x 0.90",
-        "watts": 235
-      },
-      {
-        "method": "12-min x 0.88",
-        "watts": 233
-      },
-      {
-        "method": "CP model 3-20min fit",
-        "watts": 246,
-        "note": "W'=8141J, still low \u2014 suggests even this was sub-maximal at short durations"
-      },
-      {
-        "method": "CP x 0.97",
-        "watts": 239
-      },
-      {
-        "method": "20-min x 0.95",
-        "watts": 226,
-        "note": "DISCARD \u2014 20min window diluted by terrain"
-      }
-    ],
-    "recommended": 235,
-    "why_it_matters": "Zone boundaries scale with FTP. At 256W, power Z4 starts at 231W \u2014 above his actual threshold \u2014 so Z4 was close to unreachable and looked like a training deficit. At 235W, Z4 starts at 212W and measured Z4+ time rises from 6.3% to 12.1%, close to the 15% target. The deficit was largely an artifact of a wrong FTP.",
-    "action": "FTP now set to 245W (manual entry Sep 24 2026). Use this for all interval targets.",
-    "primary_basis": "15-minute maximal climb effort on Tre Valli Varesine, 19 Sep 2026",
-    "fifteen_min_derivation": {
-      "best_15min_power_w": 261,
-      "starts_min_into_ride": 36,
-      "hr_mean": 174,
-      "hr_peak": 180,
-      "season_max_hr": 181,
-      "pct_of_max_hr": 99,
-      "last_3min": "HR 178bpm at 244W \u2014 he was at the ceiling",
-      "was_maximal": "Yes. HR reached 99% of season max and stayed there. Treat as a true 15-min max.",
-      "conversions": [
-        {
-          "factor": 0.88,
-          "ftp": 229,
-          "basis": "conservative"
-        },
-        {
-          "factor": 0.9,
-          "ftp": 235,
-          "basis": "standard 15-min conversion"
-        },
-        {
-          "factor": 0.92,
-          "ftp": 240,
-          "basis": "aggressive, well-developed aerobic base"
-        }
-      ],
-      "best_estimate": 235,
-      "range": [
-        229,
-        240
-      ]
-    },
-    "cross_validation": {
-      "at_235w": {
-        "15min_261w": "111% of FTP \u2014 expected 105-115% \u2713",
-        "60min_216w": "92% of FTP \u2014 expected 88-95% \u2713",
-        "5min_279w": "119% of FTP \u2014 expected 115-125% \u2713",
-        "verdict": "all coherent"
-      },
-      "at_256w": {
-        "15min_261w": "102% of FTP \u2014 implausibly low for a maximal 15min \u2717",
-        "60min_216w": "84% of FTP \u2014 too low \u2717",
-        "5min_279w": "109% of FTP \u2014 too low \u2717",
-        "verdict": "incoherent on every measure"
-      },
-      "conclusion": "Three independent durations all fit 235W and all contradict 256W."
-    },
-    "w_per_kg": 3.61
-  },
   "power_zones_corrected": {
     "ftp": 235,
-    "ftp_date": "2026-09-25",
     "zones_w": {
       "z1": "<129W",
       "z2": "129-176W",
@@ -1997,12 +1904,8 @@
       "z6": "282-352W",
       "z7": "352W+"
     },
-    "previous_ftp": 256,
-    "previous_ftp_note": "Garmin manual entry Sep 12 2026, untested",
-    "evidence_ftp": 235,
-    "evidence_ftp_note": "Sep 19 15-min climb method (261W \u00d7 0.90)",
     "current_ftp": 235,
-    "current_ftp_note": "Manually set Sep 25 2026, matching evidence-based estimate from Sep 19 15-min climb (261W \u00d7 0.90)",
+    "current_ftp_note": "FTP 235W \u2014 use for all interval targets.",
     "w_per_kg": 3.77
   },
   "true_pdc": {

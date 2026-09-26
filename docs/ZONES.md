@@ -1,6 +1,6 @@
 # Zone Reference
 
-*FTP: 235W (manual entry Sep 25 2026) · Max HR: ~181 bpm (2026 season peak)*
+*FTP: 235W · Max HR: ~181 bpm (2026 season peak)*
 
 ---
 
@@ -40,12 +40,3 @@
 - Weekend/climbing bike has a power meter — use watts as primary metric.
 - Weekday bike has no power meter — use RPE + end-rep HR check.
 - NP (Normalized Power) is the correct intensity metric for variable-terrain rides. Never use 5km lap averages on hilly rides — descents drag the mean down.
-
-## FTP history
-
-| Date | FTP | Source |
-|------|-----|--------|
-| Sep 25 2026 | **235W** | Manual entry (matching evidence-based estimate) |
-| Sep 24 2026 | 245W | Manual entry |
-| Sep 12 2026 | 256W | Manual entry (untested — never used in structured test) |
-| Evidence basis | ~235W | Sep 19 2026: 15-min climb 261W × 0.90 |

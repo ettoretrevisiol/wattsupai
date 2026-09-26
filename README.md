@@ -97,7 +97,7 @@ wattsupai/
 
 | Parameter | Value |
 |-----------|-------|
-| FTP | **235W** (manual entry Sep 25 2026) |
+| FTP | **235W** |
 | VO2max | **61** (peak this season: 62, Aug–Sep 2026) |
 | CTL | ~803 |
 | W/kg | **3.77** at 65 kg |
@@ -138,7 +138,7 @@ scripts/fit_to_db.py  ──►  data/training.db
                     ▼             ▼             ▼
               activities        laps      zone_summaries
           (NP, PDC, drift)  (per-lap HR   (HR+power zones
-                             & power)     at FTP=245W)
+                             & power)     at FTP=235W)
                     │
                     ▼
             scripts/query_db.py  ──►  stdout (full season report)
