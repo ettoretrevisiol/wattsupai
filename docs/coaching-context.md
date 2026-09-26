@@ -363,11 +363,15 @@ That file gets rewritten each time the plan changes. This file (coaching-context
 
 ## Session Continuity Protocol
 
-At the end of every session:
-1. Log the session in `training-log/current-plan.md` (date, key numbers, one-line assessment)
-2. Update the compliance log in the same file (mark the session done)
-3. If a significant finding changes the plan, update `training-log/current-plan.md` targets
-4. If a finding changes permanent context (zones, FTP, equipment, methodology), update this file
+**After every ride — full checklist (do all of these):**
+
+1. **Mark the session done** in `training-log/current-plan.md` compliance log and in `data/dashboard.json` training_plan sessions (`done: true`, add `actual` field with NP/Z4/label)
+2. **Update current_status** in `dashboard.json`: CTL, ATL, TSB, VO2max, HRV, RHR, sleep, last_ride
+3. **Extend PMC and HRV charts**: append today's values to `pmc_weekly` and `hrv_30day` arrays
+4. **Update last_4_saturdays** if it was a Saturday power ride
+5. **Recompute wattsupai_status** if Z4 total or NP trend changed materially
+6. **Log the session** in `training-log/current-plan.md` (date, NP, Z4min, HR, assessment)
+7. **Push** to GitHub Pages
 
 When starting a new session, read:
 - `docs/coaching-context.md` (this file) — permanent context, zones, FTP, findings
