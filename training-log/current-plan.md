@@ -125,3 +125,23 @@
 
 **Auto-assessment:** Solid Z4 contribution (12min).
 **Subjective:** _(add: felt strong/ok/tired · RPE · any notes)_
+
+### 2026-09-26 (auto-logged + manual)
+**Broni - Zavattarello - Casteggio** · 104.5km · 1,760m · 4h6min
+
+- NP: **196W** (83.4% FTP) — Z3 Tempo · PDC 20min: 202W
+- avg HR: 141bpm · max HR: 175bpm
+- HR Z4: **18.3min** · Z3: 58.6min
+- Power Z4+ (FTP=235W): **89.9min (36.5%)** — substantial threshold load
+- HR drift: -14.2% (significant decoupling — temperature range 12→26°C, 14°C swing)
+- Shifting: 70.4% proactive · avg cadence 78rpm
+
+**W1 Sat target assessment:** ✅ EXCEEDED on all metrics
+- NP: 196W vs target 182–190W (+6W above target)
+- Climbing: 1,760m vs target 800–1,000m (+760m)
+- Garmin label: TEMPO (TE 4.9) — first TEMPO label of the plan block
+
+**W1 week total Z4:** 34.0min (Mon 0 + Wed 3.8 + Thu 11.9 + Sat 18.3)
+
+**Plan adherence:** ✅ W1 complete — strong foundation for W2 Z4 sessions.
+Update W2 targets: Tue Sep 30 2×15min Z3→Z4, Thu Oct 2 4×8min Z4.

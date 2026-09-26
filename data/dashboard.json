@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "last_updated": "2026-09-25",
+    "last_updated": "2026-09-26",
     "updated_by": "WattsUpAI / Kiro \u2014 raw FIT \u2192 SQLite ETL + update_dashboard.py",
     "version": "6.2",
     "rides_analysed": 184,
@@ -101,7 +101,7 @@
     }
   },
   "current_status": {
-    "date": "2026-09-24",
+    "date": "2026-09-26",
     "label": "Plateau \u2014 Z3/Z4 present in weekday rides",
     "color": "orange",
     "garmin_status": "UNPRODUCTIVE_3",
@@ -125,16 +125,19 @@
     "week_in_plan": 1,
     "plan_start": "2026-09-25",
     "last_ride": {
-      "date": "2026-09-24",
-      "name": "Milano Rosate Vermezzo",
-      "distance_km": 40.3,
-      "duration_min": 73,
-      "avg_hr": 144,
-      "max_hr": 179,
-      "ascent_m": 32,
-      "has_power": false,
-      "assessment": "\u2705 Week 1 Thu target hit. L4 164bpm + L5 160bpm = Z3 ceiling. Clean effort in cool morning.",
-      "plan_adherence": true
+      "date": "2026-09-26",
+      "name": "Broni - Zavattarello - Casteggio",
+      "activity_id": "24503295760",
+      "distance_km": 104.5,
+      "duration_min": 246.5,
+      "ascent_m": 1760,
+      "avg_hr": 141,
+      "max_hr": 175,
+      "has_power": true,
+      "np_w": 196,
+      "training_effect_label": "TEMPO",
+      "plan_adherence": true,
+      "assessment": "\u2705 W1 Sat: NP 196W (+6W vs 190W target) \u00b7 1760m climbing (+760m vs target) \u00b7 18min HR Z4 \u00b7 Power Z4+ 90min (36.5%) \u00b7 Garmin: TEMPO. Strong ride \u2014 well above W1 targets. Proactive shifting 70.4%."
     }
   },
   "season_summary": {
@@ -2316,10 +2319,10 @@
   },
   "week_summary": {
     "week_start": "2026-09-21",
-    "week_end": "2026-09-25",
+    "week_end": "2026-09-26",
     "week_label": "W1 Re-anchor Z3",
     "plan_week_num": 1,
-    "rides_count": 3,
+    "rides_count": 4,
     "rides": [
       {
         "date": "2026-09-21",
@@ -2353,9 +2356,20 @@
         "z4_min": 11.9,
         "drift_pct": null,
         "max_hr": 179
+      },
+      {
+        "date": "2026-09-26",
+        "sport": "road",
+        "has_power": true,
+        "km": 104.5,
+        "np_w": 196,
+        "pdc20_w": 202,
+        "z4_min": 18.3,
+        "drift_pct": -14.2,
+        "max_hr": 175
       }
     ],
-    "z4_min_total": 15.7,
+    "z4_min_total": 34.0,
     "z4_target_min": 0,
     "z4_status": "bonus",
     "sat_np_target": [
@@ -2376,6 +2390,17 @@
     }
   },
   "last_4_saturdays": [
+    {
+      "date": "2026-09-26",
+      "np_w": 196,
+      "pdc20_w": 202,
+      "elev_m": 1760,
+      "km": 104.5,
+      "hours": 4.1,
+      "np_trend_vs_prev": "up",
+      "ride_name": "Broni - Zavattarello - Casteggio",
+      "activity_id": "24503295760"
+    },
     {
       "date": "2026-09-19",
       "np_w": 182,
@@ -2405,16 +2430,6 @@
       "hours": 4.7,
       "np_trend_vs_prev": "down",
       "ride_name": "Lecco - Agueglio - Morterone"
-    },
-    {
-      "date": "2026-08-29",
-      "np_w": 188,
-      "pdc20_w": 198,
-      "elev_m": 1040.0,
-      "km": 101.0,
-      "hours": 3.7,
-      "np_trend_vs_prev": null,
-      "ride_name": "Ara - San Daniele - Fagagna"
     }
   ],
   "best_vam_laps": [
